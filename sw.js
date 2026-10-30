@@ -1,5 +1,5 @@
-// Offline support: keep the app shell and courses cached, refresh them in the background.
-const CACHE = "mor-v1";
+// Offline support: the app shell and courses are cached on install.
+const CACHE = "mor-v2";
 const SHELL = ["./", "index.html", "app.js", "manifest.webmanifest", "courses/index.json", "courses/punjabi.json",
   "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-180.png"];
 
@@ -9,14 +9,13 @@ self.addEventListener("install", e => {
 self.addEventListener("activate", e => {
   e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));
 });
+// Network first so updates show up straight away; the cache keeps it working offline.
 self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
-  e.respondWith(caches.open(CACHE).then(async cache => {
-    const hit = await cache.match(e.request);
-    const fresh = fetch(e.request).then(res => {
+  e.respondWith(caches.open(CACHE).then(cache =>
+    fetch(e.request).then(res => {
       if (res && (res.ok || res.type === "opaque")) cache.put(e.request, res.clone());
       return res;
-    }).catch(() => hit);
-    return hit || fresh;
-  }));
+    }).catch(() => cache.match(e.request).then(hit => hit || cache.match("index.html")))
+  ));
 });

@@ -199,6 +199,12 @@ function makeTest(ui) {
   for (let k = 0; k < 2; k++) { const r = mkReply(u); if (r) list.push(r); }
   return shuffle(list);
 }
+function makeLetterPractice() {
+  const letters = shuffle(SKILLS.filter(s => s.letters).flatMap(s => s.items));
+  let list = letters.slice(0, 8).map((w, i) => wordEx(w, i));
+  if (letters.length >= 5) list.splice(2, 0, mkMatch(letters.slice(8, 13).length === 5 ? letters.slice(8, 13) : letters.slice(0, 5)));
+  return list;
+}
 function makePractice() {
   const done = SKILLS.filter(s => prog(s) > 0 || passed(s.unit));
   const words = shuffle(done.flatMap(s => s.items)), sents = shuffle(done.flatMap(s => s.sents));
@@ -211,7 +217,7 @@ function makePractice() {
 }
 
 /* ---------- views ---------- */
-let view = "home", sheet = null, L = null, toastMsg = "", confirmReset = false, ed = null, installEvt = null, guideUnit = null;
+let view = "home", sheet = null, sheetAnim = false, letterOpen = null, L = null, toastMsg = "", confirmReset = false, ed = null, installEvt = null, guideUnit = null;
 function toast(m) { toastMsg = m; render(); setTimeout(() => { if (toastMsg === m) { toastMsg = ""; render(); } }, 2600); }
 
 function topBar() {
@@ -226,7 +232,8 @@ function topBar() {
 }
 function tabsBar() {
   const t = (v, ic, label) => `<button class="tab" data-act="tab" data-v="${v}" aria-current="${view === v}">${ICON[ic]}${label}</button>`;
-  return `<nav class="tabs"><div class="stitch"></div><div class="col">${t("home", "board", "Board")}${t("words", "book", "Phrasebook")}${t("courses", "globe", "Languages")}${t("profile", "user", "Profile")}</div></nav>`;
+  const alpha = C.alphabet?.length ? `<button class="tab" data-act="tab" data-v="alphabet" aria-current="${view === "alphabet"}"><span class="tabglyph">${esc(C.alphabet[0].letters.slice(0, 3).map(l => l[0]).join(""))}</span>Alphabet</button>` : "";
+  return `<nav class="tabs"><div class="stitch"></div><div class="col">${t("home", "board", "Board")}${alpha}${t("words", "book", "Words")}${t("courses", "globe", "Languages")}${t("profile", "user", "Profile")}</div></nav>`;
 }
 
 /* The board: one snakes-and-ladders board per section, stacked so you climb from the bottom of the page. */
@@ -301,7 +308,7 @@ function sheetHTML(q) {
     body = !squareOpen(q) ? `<p>${unitOpen(q.unit) ? `Finish <b>${esc(u.sk[u.sk.indexOf(q.sk) - 1].name)}</b> first, or take the unit test to skip ahead.` : `Pass the Unit ${q.unit} test to reach this square.`}</p>`
       : `<p>${p >= LESSONS ? "Skill complete. Replay a lesson for extra XP." : `Lesson ${p + 1} of ${LESSONS}`}</p><div class="row"><button class="btn" data-act="start" data-v="${SKILLS.indexOf(q.sk)}">${p >= LESSONS ? "Replay" : "Start lesson"}</button></div>`;
   }
-  return `<div class="sheetback" data-act="closesheet"></div><div class="sheet cloth" role="dialog" aria-label="${esc(q.type === "test" ? "Unit test" : q.sk.name)}">
+  return `<div class="sheetback ${sheetAnim ? "in" : ""}" data-act="closesheet"></div><div class="sheet cloth ${sheetAnim ? "in" : ""}" role="dialog" aria-label="${esc(q.type === "test" ? "Unit test" : q.sk.name)}">
     <div class="sheethead"><div><small>Square ${q.n} · Unit ${q.unit + 1}: ${esc(u.title)}</small><h3>${q.type === "test" ? "Unit test" : esc(q.sk.name)} ${q.type === "skill" && q.sk.native ? `<span class="pa" style="color:var(--muted);font-size:1rem">${esc(q.sk.native)}</span>` : ""}</h3></div>
     <button class="iconbtn" data-act="closesheet" aria-label="Close">${ICON.x}</button></div>${body}
     <div class="row"><button class="btn ghost small" data-act="guide" data-v="${q.unit}">Unit guide</button>${q.type === "skill" ? `<button class="btn ghost small" data-act="vocab" data-v="${SKILLS.indexOf(q.sk)}">See words</button>` : ""}</div></div>`;
@@ -316,6 +323,26 @@ function guideView() {
       ${canSpeak() ? `<button class="iconbtn" data-act="sayt" data-v="${esc(l[1])}" aria-label="Play" style="float:right;color:var(--madder)">${ICON.spk}</button>` : ""}<div class="pa">${esc(l[1])}</div><div class="tr">${esc(l[2])}</div><div class="en">${esc(l[3])}</div></div>`).join("")}</div></div>`;
   });
   return h + `<button class="btn" data-act="tab" data-v="home">Back to the board</button></div></main>`;
+}
+function alphabetView() {
+  let h = `<main class="home"><div class="col page"><div class="cloth"><h2>Alphabet</h2><p class="note" style="margin:0">Tap any letter to see its name, its sound and a word that uses it.${canSpeak() ? " You'll hear it too." : ""}</p>
+    <button class="btn wide" style="margin-top:12px" data-act="letterpractice">Practise the letters</button></div>`;
+  C.alphabet.forEach((g, gi) => {
+    h += `<div class="cloth"><h3>${esc(g.title)}</h3>${g.note ? `<p class="note" style="margin:4px 0 10px">${esc(g.note)}</p>` : ""}<div class="abc ${gi === 0 ? "five" : ""}">`;
+    g.letters.forEach((l, li) => {
+      const id = gi + "-" + li, open = letterOpen === id;
+      h += `<button class="abcl ${open ? "open" : ""}" data-act="letter" data-v="${id}" aria-label="${esc(l[0])}, ${esc(l[1])}"><span class="pa">${esc(l[0])}</span><span class="nm">${esc(l[1])}</span></button>`;
+    });
+    h += `</div>`;
+    if (letterOpen?.startsWith(gi + "-")) {
+      const l = g.letters[+letterOpen.split("-")[1]];
+      h += `<div class="lettercard"><div class="big pa">${esc(l[0])}</div><div style="min-width:0;flex:1"><b>${esc(l[1])}</b><p class="note" style="margin:2px 0 8px">Sound: ${esc(l[2])}</p>
+        <div class="pa" style="font-size:1.35rem">${esc(l[3])}</div><div class="tr">${esc(l[4])}</div><div>${esc(l[5])}</div></div>
+        ${canSpeak() ? `<button class="spk" data-act="sayt" data-v="${esc(l[3])}" aria-label="Hear the example">${ICON.spk}</button>` : ""}</div>`;
+    }
+    h += `</div>`;
+  });
+  return h + `</div></main>`;
 }
 function wordsView() {
   let h = `<main class="home"><div class="col page"><div class="cloth"><h2>Phrasebook</h2><p class="note" style="margin:0">Every word and sentence in ${esc(C.name)}, unit by unit. ${canSpeak() ? "Tap the speaker to hear it." : ""}</p></div>`;
@@ -359,7 +386,7 @@ function profileView() {
       <button class="btn wide" data-act="calendar">Add reminder to my calendar</button></div>
     <div class="cloth"><h2>Settings</h2>
       <div class="setrow"><div><b>Daily goal</b><p>XP to earn each day</p></div><div class="seg">${[10, 20, 30, 50].map(g => `<button data-act="goal" data-v="${g}" aria-pressed="${S.goal === g}">${g}</button>`).join("")}</div></div>
-      ${sw("tr", "Show transliteration", "Roman letters under the script, like “sat srī akāl”")}
+      ${C.translit ? `<div class="setrow stackrow"><div><b>Script</b><p>Romanised text appears under each word, like “sat srī akāl”</p></div><div class="seg"><button data-act="script" data-v="both" aria-pressed="${!!S.tr}">${C.id === "punjabi" ? "Gurmukhi" : esc(C.native || C.name)} + romanised</button><button data-act="script" data-v="only" aria-pressed="${!S.tr}">${C.id === "punjabi" ? "Gurmukhi" : esc(C.native || C.name)} only</button></div></div>` : ""}
       ${sw("sfx", "Sound effects", "Chimes for right and wrong answers")}
       <div class="setrow"><div><b>Voice</b><p>${vtxt}</p></div>${canSpeak() ? `<button class="btn small ghost" data-act="sayt" data-v="${esc(C.units[0]?.skills[0]?.words[0]?.[0] || "")}">Test</button>` : ""}</div>
       <div class="setrow"><div><b>Reset progress</b><p>Clears XP, streak, skills and tests. This can't be undone.</p></div>
@@ -492,10 +519,10 @@ function reminderICS() {
 
 /* ---------- lessons and tests ---------- */
 function startRun(mode, opts) {
-  const q = mode === "test" ? makeTest(opts.unit) : mode === "practice" ? makePractice() : makeLesson(opts.sk, Math.min(prog(opts.sk), LESSONS - 1));
+  const q = mode === "test" ? makeTest(opts.unit) : mode === "practice" ? makePractice() : mode === "letters" ? makeLetterPractice() : makeLesson(opts.sk, Math.min(prog(opts.sk), LESSONS - 1));
   if (!q.length) { toast("Finish a lesson first, then practise."); return; }
   L = { mode, sk:opts.sk, unit:opts.unit ?? opts.sk?.unit, queue:q, i:0, total:q.length, solved:0, mistakes:0, state:"idle", sel:null, spoken:-1 };
-  sheet = null; view = "lesson"; render(); scrollTo(0, 0);
+  nav(() => { sheet = null; view = "lesson"; }, () => scrollTo(0, 0));
 }
 const cur = () => L.queue[L.i];
 const itemHTML = it => `<div class="pa">${esc(it.pa)}</div>${it.tr ? `<div class="tr">${esc(it.tr)}</div>` : ""}`;
@@ -527,7 +554,7 @@ function exHTML(ex) {
   }
   if (ex.type === "build") {
     const sel = L.sel || [];
-    const tok = (b, i, act) => `<button class="tok ${act === "tok" && sel.includes(i) ? "used" : ""}" data-act="${act}" data-v="${i}" ${done ? "disabled" : ""}>${ex.dir === "pa" ? `<span class="pa">${esc(b.t)}</span>${b.sub ? `<span class="tr">${esc(b.sub)}</span>` : ""}` : `<span>${esc(b.t)}</span>`}</button>`;
+    const tok = (b, i, act) => `<button class="tok ${act === "tok" && sel.includes(i) ? "used" : ""} ${act === "untok" && i === L.justTok ? "just" : ""}" data-act="${act}" data-v="${i}" ${done ? "disabled" : ""}>${ex.dir === "pa" ? `<span class="pa">${esc(b.t)}</span>${b.sub ? `<span class="tr">${esc(b.sub)}</span>` : ""}` : `<span>${esc(b.t)}</span>`}</button>`;
     const prompt = ex.dir === "pa" ? `<p class="kicker">Write this in ${esc(C.name)}</p><div class="prompt">${peacock()}<div class="bubble"><b>${esc(it.en)}</b></div></div>`
       : `<p class="kicker">Translate this sentence</p><div class="prompt">${peacock()}<div class="bubble">${speakBtn}${itemHTML(it)}</div></div>`;
     return prompt + `<div class="answer">${sel.map(i => tok(ex.bank[i], i, "untok")).join("")}</div><div class="bank">${ex.bank.map((b, i) => tok(b, i, "tok")).join("")}</div>`;
@@ -543,7 +570,8 @@ function footHTML() {
   if (L.state === "wrong") ans = (ex.type === "mc" || (ex.type === "build" && ex.dir === "en")) ? `<p>Correct answer: <b>${esc(it.en)}</b></p>` : `<p>Correct answer:</p>${itemHTML(it)}${ex.type === "reply" ? `<p>${esc(it.en)}</p>` : ""}`;
   else if (it) ans = `<p class="pa">${esc(it.pa)}</p>${it.tr ? `<p class="tr" style="margin:0">${esc(it.tr)}</p>` : ""}<p style="margin:0">${esc(it.kind === "letter" ? "“" + it.en + "” sound" : it.en)}</p>`;
   const praise = C.id === "punjabi" ? ["ਸ਼ਾਬਾਸ਼! Well done!", "ਵਧੀਆ! Great!", "Correct!", "ਬੱਲੇ ਬੱਲੇ!", "Spot on!"] : ["Well done!", "Great!", "Correct!", "Spot on!"];
-  return `<footer class="lfoot ${L.state}"><div class="col"><div class="fb"><h3>${L.state === "right" ? praise[L.i % praise.length] : "Not quite"}</h3>${ans}</div>
+  const pop = L.fbAt !== L.i; L.fbAt = L.i;
+  return `<footer class="lfoot ${L.state} ${pop ? "pop" : ""}"><div class="col"><div class="fb"><h3>${L.state === "right" ? praise[L.i % praise.length] : "Not quite"}</h3>${ans}</div>
     <button class="btn wide" data-act="next">Continue</button></div></footer>`;
 }
 function lessonView() {
@@ -553,10 +581,10 @@ function lessonView() {
     if (ex.type === "mc" || ex.type === "listen" || (ex.type === "build" && ex.dir === "en")) setTimeout(() => say(ex.item.pa), 250);
     if (ex.type === "reply") setTimeout(() => say(ex.line.pa), 250);
   }
-  const tag = L.mode === "test" ? `<span class="ptag">Unit ${L.unit + 1} test</span>` : L.mode === "practice" ? `<span class="ptag">Practice</span>` : "";
+  const tag = L.mode === "letters" ? `<span class="ptag">Letters</span>` : L.mode === "test" ? `<span class="ptag">Unit ${L.unit + 1} test</span>` : L.mode === "practice" ? `<span class="ptag">Practice</span>` : "";
   return `<div class="lesson"><div class="col lhead"><button class="iconbtn" data-act="quit" aria-label="Quit">${ICON.x}</button>
-    <div class="bar" role="progressbar" aria-valuenow="${L.solved}" aria-valuemax="${L.total}"><span style="width:${(L.mode === "test" ? L.i / L.total : L.solved / L.total) * 100}%"></span></div>${tag}</div>
-    <div class="col lbody">${exHTML(ex)}</div>${footHTML()}</div>`;
+    <div class="bar" role="progressbar" aria-valuenow="${L.solved}" aria-valuemax="${L.total}"><span style="width:${L.pct0 ?? 0}%" data-to="${L.pct = (L.mode === "test" ? L.i / L.total : L.solved / L.total) * 100}"></span></div>${tag}</div>
+    <div class="col lbody ${L.enterAt !== L.i ? "enter" : ""}">${exHTML(ex)}</div>${footHTML()}</div>`;
 }
 function check() {
   const ex = cur();
@@ -596,7 +624,7 @@ function finish() {
   Object.keys(S.hist).sort().slice(0, -60).forEach(k => delete S.hist[k]);
   save(); if (L.mode !== "test" || result.ok) sfx.done(); else sfx.bad();
   L.result = { xp, acc:Math.round(100 * L.total / (L.total + L.mistakes)), ...result };
-  view = "result"; render(); scrollTo(0, 0);
+  nav(() => { view = "result"; }, () => scrollTo(0, 0));
 }
 function resultView() {
   const r = L.result;
@@ -608,10 +636,18 @@ function resultView() {
       <div class="tiles"><div class="tile"><b style="color:${r.ok ? "var(--green)" : "var(--madder)"}">${r.score}%</b><span>score</span></div><div class="tile"><b style="color:var(--gold-deep)">+${r.xp}</b><span>XP</span></div><div class="tile"><b>${liveStreak()}</b><span>day streak</span></div></div>
       <button class="btn wide" data-act="home">Back to the board</button></div></main>`;
   }
-  return `<main class="col center result"><div class="cloth" style="display:grid;gap:14px;justify-items:center;width:100%">${peacock()}<h1>${L.mode === "practice" ? "Practice done!" : "Lesson complete!"}</h1>
-    <p class="note" style="margin:0">${r.streakUp ? `Your streak is now ${S.streak} day${S.streak > 1 ? "s" : ""}.` : L.mode === "practice" ? "Nice review session." : `${esc(L.sk.name)}: ${prog(L.sk)} of ${LESSONS} lessons done.`}</p>
+  return `<main class="col center result"><div class="cloth" style="display:grid;gap:14px;justify-items:center;width:100%">${peacock()}<h1>${L.mode === "lesson" ? "Lesson complete!" : "Practice done!"}</h1>
+    <p class="note" style="margin:0">${r.streakUp ? `Your streak is now ${S.streak} day${S.streak > 1 ? "s" : ""}.` : L.mode !== "lesson" ? "Nice review session." : `${esc(L.sk.name)}: ${prog(L.sk)} of ${LESSONS} lessons done.`}</p>
     <div class="tiles"><div class="tile"><b style="color:var(--gold-deep)">+${r.xp}</b><span>XP</span></div><div class="tile"><b style="color:var(--green)">${r.acc}%</b><span>accuracy</span></div><div class="tile"><b>${liveStreak()}</b><span>day streak</span></div></div>
     <button class="btn wide" data-act="home">Continue</button></div></main>`;
+}
+
+/* ---------- motion ---------- */
+const calm = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+// Screen changes cross-fade where the browser supports view transitions; elsewhere the new screen fades up in CSS.
+function nav(change, after) {
+  const run = () => { change(); render(); after?.(); };
+  if (document.startViewTransition && !calm()) document.startViewTransition(run); else { app.classList.remove("fresh"); void app.offsetWidth; app.classList.add("fresh"); run(); }
 }
 
 /* ---------- render and events ---------- */
@@ -622,11 +658,17 @@ function render() {
   if (view === "lesson") h = lessonView();
   else if (view === "result") h = resultView();
   else {
-    const body = view === "words" ? wordsView() : view === "profile" ? profileView() : view === "courses" ? coursesView() : view === "editor" ? edView() : view === "guide" ? guideView() : homeView();
+    const body = view === "words" ? wordsView() : view === "alphabet" ? alphabetView() : view === "profile" ? profileView() : view === "courses" ? coursesView() : view === "editor" ? edView() : view === "guide" ? guideView() : homeView();
     h = topBar() + body + tabsBar();
   }
   if (toastMsg) h += `<div class="toast" role="status">${esc(toastMsg)}</div>`;
   app.innerHTML = h;
+  if (L && view === "lesson") {
+    L.enterAt = L.i;
+    const bar = app.querySelector(".bar span[data-to]");
+    if (bar) requestAnimationFrame(() => requestAnimationFrame(() => { bar.style.width = bar.dataset.to + "%"; L.pct0 = +bar.dataset.to; }));
+  }
+  sheetAnim = false;
   if (focusId && document.getElementById(focusId)) document.getElementById(focusId).focus();
 }
 function scrollToCurrent() {
@@ -634,19 +676,25 @@ function scrollToCurrent() {
   if (el) el.scrollIntoView({ block:"center" });
 }
 const acts = {
-  tab: b => { view = b.dataset.v; sheet = null; confirmReset = false; render(); if (view === "home") scrollToCurrent(); else scrollTo(0, 0); },
-  home: () => { view = "home"; render(); scrollToCurrent(); },
-  sq: b => { sheet = +b.dataset.v; sfx.tap(); render(); },
+  tab: b => { if (view === b.dataset.v) return; nav(() => { view = b.dataset.v; sheet = null; confirmReset = false; letterOpen = null; }, () => view === "home" ? scrollToCurrent() : scrollTo(0, 0)); },
+  home: () => nav(() => { view = "home"; }, scrollToCurrent),
+  sq: b => { sheet = +b.dataset.v; sheetAnim = true; sfx.tap(); render(); },
   closesheet: () => { sheet = null; render(); },
   start: b => startRun("lesson", { sk:SKILLS[+b.dataset.v] }),
   test: b => startRun("test", { unit:+b.dataset.v }),
   practice: () => startRun("practice", {}),
-  guide: b => { guideUnit = +b.dataset.v; view = "guide"; sheet = null; render(); scrollTo(0, 0); },
+  letterpractice: () => startRun("letters", {}),
+  letter: b => {
+    const id = b.dataset.v, [g, i] = id.split("-").map(Number), l = C.alphabet[g].letters[i];
+    letterOpen = letterOpen === id ? null : id; render();
+    if (letterOpen) { say(/[\u0A3E-\u0A4D\u0A70\u0A71\u0A02]/.test(l[0][0]) ? l[3] : l[0]); document.querySelector(".lettercard")?.scrollIntoView({ block:"nearest", behavior:calm() ? "auto" : "smooth" }); }
+  },
+  guide: b => nav(() => { guideUnit = +b.dataset.v; view = "guide"; sheet = null; }, () => scrollTo(0, 0)),
   vocab: b => { const s = SKILLS[+b.dataset.v]; view = "words"; sheet = null; render(); document.getElementById("sk-" + s.sid)?.scrollIntoView(); },
   say: () => say(cur().item.pa), slow: () => say(cur().item.pa, true), sayt: b => say(b.dataset.v),
   pick: b => { const ex = cur(); L.sel = +b.dataset.v; if (ex.type === "rev") say(ex.opts[L.sel].pa); render(); },
-  tok: b => { const ex = cur(); L.sel = (L.sel || []).concat(+b.dataset.v); if (ex.dir === "pa") say(ex.bank[+b.dataset.v].t); render(); },
-  untok: b => { L.sel = L.sel.filter(i => i !== +b.dataset.v); render(); },
+  tok: b => { const ex = cur(); L.justTok = +b.dataset.v; L.sel = (L.sel || []).concat(+b.dataset.v); if (ex.dir === "pa") say(ex.bank[+b.dataset.v].t); render(); },
+  untok: b => { L.justTok = null; L.sel = L.sel.filter(i => i !== +b.dataset.v); render(); },
   m: b => {
     const ex = cur(), i = +b.dataset.v;
     if (b.dataset.side === "l") { L.ml = i; say(ex.left[i].pa); } else L.mr = i;
@@ -659,8 +707,9 @@ const acts = {
     render();
   },
   check, next,
-  quit: () => { L = null; view = "home"; render(); scrollToCurrent(); },
+  quit: () => nav(() => { L = null; view = "home"; }, scrollToCurrent),
   toggle: b => { const k = b.dataset.v; S[k] = !S[k]; save(); document.documentElement.classList.toggle("no-tr", !S.tr || !C.translit); render(); },
+  script: b => { S.tr = b.dataset.v === "both"; save(); document.documentElement.classList.toggle("no-tr", !S.tr || !C.translit); render(); },
   goal: b => { S.goal = +b.dataset.v; save(); render(); },
   reset: b => {
     if (!b.dataset.v) confirmReset = true;
@@ -673,7 +722,7 @@ const acts = {
     try { await navigator.clipboard.writeText(APP_URL); toast("Link copied"); } catch (e) { toast("Press and hold the link to copy it."); }
   },
   calendar: () => { download("mor-streak-reminder.ics", reminderICS(), "text/calendar"); toast("Open the file to add it to your calendar"); },
-  pickcourse: b => { useCourse(b.dataset.v); save(); view = "home"; sheet = null; render(); scrollToCurrent(); },
+  pickcourse: b => nav(() => { useCourse(b.dataset.v); save(); view = "home"; sheet = null; }, scrollToCurrent),
   newcourse: () => { ed = { id:null, c:toEd(blankCourse()) }; view = "editor"; render(); scrollTo(0, 0); },
   editcourse: b => { ed = { id:b.dataset.v, c:toEd(custom[b.dataset.v]) }; view = "editor"; render(); scrollTo(0, 0); },
   exportcourse: b => { const c = custom[b.dataset.v]; shareFile(`${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-mor-course.json`, JSON.stringify(c, null, 1), "application/json"); },

@@ -42,6 +42,13 @@ def build(src):
                 err(n, f"sentence has {len(parts[0].split())} words but transliteration has {len(parts[1].split())}")
             check_script(course, parts[0], n, err)
             skill["words" if tag == "W" else "sentences"].append(parts)
+        elif tag == "ALPHABET":
+            course["alphabet"] = []
+        elif tag == "GROUP":
+            course["alphabet"].append(dict(title=parts[0], note=parts[1] if len(parts) > 1 else "", letters=[]))
+        elif tag == "L":
+            if len(parts) != 6: err(n, "alphabet lines need 6 parts: letter | name | sound | example | transliteration | meaning"); continue
+            course["alphabet"][-1]["letters"].append(parts)
         elif tag == "DIALOG":
             dialog = dict(people=parts, lines=[]); unit["dialogues"].append(dialog)
         elif tag in ("A", "B"):
