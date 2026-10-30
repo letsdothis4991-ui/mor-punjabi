@@ -27,6 +27,8 @@ const ICON = {
   globe:'<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>',
   lock:'<svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10V8a5 5 0 0 1 10 0v2h1v11H6V10zm2 0h6V8a3 3 0 0 0-6 0z"/></svg>',
   star:'<svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l2.6 6.3L21 5l-2.3 6.4L23 12l-4.3 0.6L21 19l-6.4-2.3L12 23l-2.6-6.3L3 19l2.3-6.4L1 12l4.3-0.6L3 5l6.4 2.3z"/></svg>',
+  mic:'<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
+  story:'<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-2-8-1.5V19c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V4.5c-3-.5-6 0-8 1.5zM12 6v14.5"/></svg>',
   chat:'<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>'
 };
 
@@ -42,7 +44,7 @@ function peacock(cls = "") {
 
 /* ---------- saved state ---------- */
 const KEY = "mor-v2";
-const DEF = { xp:0, streak:0, best:0, lastDay:null, hist:{}, goal:20, tr:true, sfx:true, course:"punjabi", prog:{}, tests:{}, remind:"19:00" };
+const DEF = { xp:0, streak:0, best:0, lastDay:null, hist:{}, goal:20, tr:true, sfx:true, course:"punjabi", prog:{}, tests:{}, remind:"19:00", srs:{}, stories:{}, speak:true, speakOff:0, fest:"auto" };
 let S = (() => { try { return Object.assign({}, DEF, JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) { return { ...DEF }; } })();
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 const liveStreak = () => (S.lastDay === dayKey() || S.lastDay === dayOff(-1)) ? S.streak : 0;
@@ -54,7 +56,7 @@ let builtin = {}, custom = {};
 try { custom = JSON.parse(localStorage.getItem(CUSTOM_KEY) || "{}"); } catch (e) {}
 const saveCustom = () => { try { localStorage.setItem(CUSTOM_KEY, JSON.stringify(custom)); } catch (e) {} };
 const allCourses = () => ({ ...builtin, ...custom });
-let C = null, SKILLS = [], ALL = [], SQUARES = [];
+let C = null, SKILLS = [], ALL = [], SQUARES = [], FESTS = [], VOCAB = new Map();
 
 function useCourse(id) {
   const all = allCourses();
@@ -77,6 +79,15 @@ function useCourse(id) {
     SQUARES.push({ type:"test", unit:ui });
   });
   SQUARES.forEach((q, i) => q.n = i + 1);
+  FESTS = (C.festivals || []).map(f => {
+    const sk = { ...f.skill, sid:f.skill.id, unit:-1, key:C.id + ":" + f.skill.id };
+    sk.items = f.skill.words.map(w => ({ pa:w[0], tr:w[1] || "", en:w[2], kind:"word", sk }));
+    sk.sents = f.skill.sentences.map(w => ({ pa:w[0], tr:w[1] || "", en:w[2], kind:"sent", sk }));
+    return { ...f, sk };
+  });
+  // Word lookup for tapping words in stories.
+  VOCAB = new Map();
+  ALL.concat(FESTS.flatMap(f => f.sk.items)).forEach(it => { if (it.kind === "word" && !VOCAB.has(it.pa)) VOCAB.set(it.pa, it); });
   document.documentElement.classList.toggle("no-tr", !S.tr || !C.translit);
   pickVoice();
 }
@@ -141,6 +152,20 @@ function tone(freqs, dur = 0.12, type = "sine") {
 }
 const sfx = { good:() => tone([660, 880]), bad:() => tone([220, 175], 0.2, "triangle"), done:() => tone([523, 659, 784, 1046], 0.15), tap:() => tone([520], 0.05) };
 
+/* ---------- spaced review: Leitner boxes, wrong answers come back tomorrow ---------- */
+const BOX_DAYS = [0, 1, 2, 4, 8, 16, 32];
+const srsKey = it => it.sk.key + "|" + it.pa;
+function record(it, ok) {
+  if (!it?.sk || it.kind === "line") return;
+  const k = srsKey(it), r = S.srs[k] || { b:0 };
+  r.b = ok ? Math.min(BOX_DAYS.length - 1, r.b + 1) : 1;
+  r.d = dayOff(ok ? BOX_DAYS[r.b] : 1);
+  if (!ok) r.miss = (r.miss || 0) + 1;
+  S.srs[k] = r;
+}
+const learnedItems = () => ALL.filter(it => S.srs[srsKey(it)]);
+const dueItems = () => learnedItems().filter(it => S.srs[srsKey(it)].d <= dayKey()).sort((a, b) => S.srs[srsKey(a)].b - S.srs[srsKey(b)].b);
+
 /* ---------- exercises ---------- */
 function distract(item, n, key) {
   const same = item.sk.items.concat(item.sk.sents).filter(x => x.kind === item.kind && x[key] !== item[key]);
@@ -176,6 +201,58 @@ function mkReply(u) {
   while (wrong.length < 2 && all.length) { const w = sample(all, 1)[0]; if (!wrong.includes(w)) wrong.push(w); }
   return { type:"reply", line, item:{ ...next, kind:"line" }, opts:shuffle([next, ...wrong]), answer:next };
 }
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+const canListenToYou = () => !!SR && S.speak && Date.now() > (S.speakOff || 0);
+const mkSpeak = it => it && canListenToYou() ? { type:"speak", item:it, tries:0 } : null;
+// Compare what was heard with the target, ignoring marks that speech engines often drop.
+function normSpoken(s) {
+  const map = { "\u0A36":"\u0A38", "\u0A59":"\u0A16", "\u0A5A":"\u0A17", "\u0A5B":"\u0A1C", "\u0A5E":"\u0A2B", "\u0A33":"\u0A32" };
+  return String(s).toLowerCase().replace(/[\u0A3C\u0A71\u0A02\u0A70\u0A01]/g, "").replace(/[\u0A36\u0A59-\u0A5E\u0A33]/g, c => map[c] || c)
+    .replace(/[\s.,?!।:;"'“”-]/g, "");
+}
+function similarity(a, b) {
+  a = normSpoken(a); b = normSpoken(b);
+  if (!a || !b) return 0;
+  const m = a.length, n = b.length, d = Array.from({ length:m + 1 }, (_, i) => [i]);
+  for (let j = 1; j <= n; j++) d[0][j] = j;
+  for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return 1 - d[m][n] / Math.max(m, n);
+}
+let rec = null;
+function listenToYou() {
+  const ex = cur();
+  if (!SR || ex.type !== "speak" || L.state !== "idle") return;
+  if (rec) { try { rec.abort(); } catch (e) {} rec = null; }
+  try { speechSynthesis.cancel(); } catch (e) {}
+  rec = new SR();
+  rec.lang = C.speech || "pa-IN"; rec.interimResults = true; rec.maxAlternatives = 5; rec.continuous = false;
+  ex.listening = true; ex.heard = ""; render();
+  rec.onresult = e => {
+    const res = e.results[e.results.length - 1];
+    let best = { text:res[0].transcript, score:0 };
+    for (let i = 0; i < res.length; i++) { const sc = similarity(res[i].transcript, ex.item.pa); if (sc > best.score) best = { text:res[i].transcript, score:sc }; }
+    ex.heard = best.text;
+    if (res.isFinal) {
+      ex.listening = false; ex.tries++;
+      if (best.score >= 0.65) { L.state = "right"; L.solved++; record(ex.item, true); sfx.good(); }
+      else { ex.miss = true; sfx.bad(); }
+    }
+    render();
+  };
+  rec.onerror = e => {
+    ex.listening = false;
+    if (e.error === "not-allowed" || e.error === "service-not-allowed") { ex.blocked = true; }
+    else if (e.error === "no-speech") ex.miss = true;
+    render();
+  };
+  rec.onend = () => { if (ex.listening) { ex.listening = false; render(); } };
+  try { rec.start(); } catch (e) { ex.listening = false; render(); }
+}
+function skipSpeak(forAWhile) {
+  if (rec) { try { rec.abort(); } catch (e) {} rec = null; }
+  if (forAWhile) { S.speakOff = Date.now() + 15 * 60 * 1000; save(); }
+  L.solved++; L.state = "skip"; next();
+}
 function wordEx(w, i) {
   const t = ["mc", "rev", canSpeak() ? "listen" : "mc"][i % 3];
   return t === "mc" ? mkMC(w) : t === "rev" ? mkRev(w) : mkListen(w);
@@ -187,6 +264,7 @@ function makeLesson(sk, lvl) {
   if (hasS) shuffle(sk.sents).slice(0, lvl === 1 ? 2 : 3).forEach((s, i) => list.push(mkBuild(s, (i + lvl) % 2 ? "pa" : "en")));
   if (hasS && lvl === 1) list.push(mkMC(sample(sk.sents, 1)[0]));
   if (lvl > 0) { const r = mkReply(C.units[sk.unit]); if (r) list.push(r); }
+  if (lvl > 0 && !sk.letters) { const sp = mkSpeak(sample(sk.sents.length ? sk.sents : sk.items, 1)[0]); if (sp) list.push(sp); }
   list = shuffle(list);
   if (sk.items.length >= 4) list.splice(2, 0, mkMatch(sample(sk.items, Math.min(5, sk.items.length))));
   return list;
@@ -206,10 +284,14 @@ function makeLetterPractice() {
   return list;
 }
 function makePractice() {
+  // Review: words that are due come first, then the shakiest ones, then anything you've met.
   const done = SKILLS.filter(s => prog(s) > 0 || passed(s.unit));
-  const words = shuffle(done.flatMap(s => s.items)), sents = shuffle(done.flatMap(s => s.sents));
+  const due = dueItems(), weak = learnedItems().sort((a, b) => S.srs[srsKey(a)].b - S.srs[srsKey(b)].b);
+  const pool = [...new Set([...due, ...weak.slice(0, 12), ...shuffle(done.flatMap(s => s.items.concat(s.sents)))])];
+  const words = pool.filter(x => x.kind !== "sent").slice(0, 10), sents = pool.filter(x => x.kind === "sent").slice(0, 3);
   let list = words.slice(0, 6).map((w, i) => wordEx(w, i));
   sents.slice(0, 2).forEach((s, i) => list.push(mkBuild(s, i ? "pa" : "en")));
+  const sp = mkSpeak(sents[2] || words[6]); if (sp) list.push(sp);
   list = shuffle(list);
   const byKind = words.filter(w => w.kind === words[0]?.kind);
   if (byKind.length >= 4) list.splice(1, 0, mkMatch(byKind.slice(0, 5)));
@@ -233,7 +315,7 @@ function topBar() {
 function tabsBar() {
   const t = (v, ic, label) => `<button class="tab" data-act="tab" data-v="${v}" aria-current="${view === v}">${ICON[ic]}${label}</button>`;
   const alpha = C.alphabet?.length ? `<button class="tab" data-act="tab" data-v="alphabet" aria-current="${view === "alphabet"}"><span class="tabglyph">${esc(C.alphabet[0].letters.slice(0, 3).map(l => l[0]).join(""))}</span>Alphabet</button>` : "";
-  return `<nav class="tabs"><div class="stitch"></div><div class="col">${t("home", "board", "Board")}${alpha}${t("words", "book", "Words")}${t("courses", "globe", "Languages")}${t("profile", "user", "Profile")}</div></nav>`;
+  return `<nav class="tabs"><div class="stitch"></div><div class="col">${t("home", "board", "Board")}${alpha}${C.stories?.length ? t("stories", "story", "Stories") : ""}${t("words", "book", "Words")}${t("profile", "user", "Profile")}</div></nav>`;
 }
 
 /* The board: one snakes-and-ladders board per section, stacked so you climb from the bottom of the page. */
@@ -286,12 +368,15 @@ function homeView() {
   const g = Math.min(1, todayXP() / S.goal), greet = C.greeting || [C.native || C.name, ""];
   let h = `<main class="home"><div class="col">`;
   // Highest level first so the page reads as a tower you climb up.
+  const fest = festivalNow();
+  if (fest) h += festivalBanner(fest);
   for (let si = C.sections.length - 1; si >= 0; si--) h += boardHTML(si);
   h += `<div class="cloth hello">${peacock()}<div class="say"><div class="pa">${esc(greet[0])}</div>${greet[1] ? `<div class="tr">${esc(greet[1])}</div>` : ""}
       <div class="goal" aria-label="Daily goal"><span style="width:${g * 100}%"></span></div>
       <div class="goaltxt">${todayXP()} / ${S.goal} XP daily goal${g >= 1 ? " · done for today" : ""}</div></div></div>`;
   if (liveStreak() > 0 && S.lastDay !== dayKey()) h += `<div class="cloth notice warn">${ICON.fire}<div><b>Keep your ${liveStreak()}-day streak</b><span>It ends at midnight. One lesson keeps it going.</span></div></div>`;
-  h += `<div class="cloth notice"><div><b>Ladders and snakes</b><span>Climb a ladder by passing a unit test early. Slide down the snake to practise words you've already learned.</span></div><button class="btn small" data-act="practice">Practice</button></div>`;
+  const due = dueItems().length;
+  h += `<div class="cloth notice"><div><b>${due ? `${due} word${due > 1 ? "s" : ""} to review` : "Ladders and snakes"}</b><span>${due ? "Words you found hard come back until they stick. Slide down the snake to review them." : "Climb a ladder by passing a unit test early. Slide down the snake to review words you've learned."}</span></div><button class="btn small" data-act="practice">Review</button></div>`;
   h += `</div></main>`;
   if (sheet !== null) h += sheetHTML(SQUARES[sheet]);
   return h;
@@ -372,7 +457,9 @@ function profileView() {
       <div class="tile"><b style="color:var(--gold-deep)">${liveStreak()}</b><span>day streak</span></div>
       <div class="tile"><b style="color:var(--madder)">${S.xp}</b><span>total XP</span></div>
       <div class="tile"><b>${tests} / ${C.units.length}</b><span>unit tests passed</span></div>
-      <div class="tile"><b>${learned}</b><span>words and phrases met</span></div></div></div>
+      <div class="tile"><b>${learned}</b><span>words and phrases met</span></div>
+      <div class="tile"><b>${dueItems().length}</b><span>words due for review</span></div>
+      <div class="tile"><b>${Object.keys(S.stories || {}).filter(k => k.startsWith(C.id + ":")).length} / ${C.stories?.length || 0}</b><span>stories read</span></div></div></div>
     <div class="cloth"><h2>This week</h2><div class="week">${days.map(d => `<div class="${d === dayKey() ? "today" : ""}"><span>${S.hist[d] || 0}</span><i style="height:${((S.hist[d] || 0) / mx) * 70}%"></i>${"SMTWTFS"[new Date(d + "T12:00").getDay()]}</div>`).join("")}</div></div>
     ${standalone ? "" : `<div class="cloth"><h2>Install Mor on your phone</h2>
       ${installEvt ? `<p class="note" style="margin-top:0">Add Mor to your home screen. It works offline once installed.</p><button class="btn wide gold" data-act="install">Install app</button>` :
@@ -384,10 +471,13 @@ function profileView() {
       <p class="note" style="margin-top:0">Add a daily reminder to your calendar. It pops up at the time you pick, with a link back to Mor.</p>
       <div class="setrow"><div><b>Remind me at</b></div><input type="time" id="rem-time" class="timein" data-act2="remind" value="${esc(S.remind || "19:00")}"></div>
       <button class="btn wide" data-act="calendar">Add reminder to my calendar</button></div>
+    <div class="cloth"><h2>Languages</h2><p class="note" style="margin-top:0">You're learning ${esc(C.name)}. Add your own language or import one a friend sent you.</p><button class="btn wide ghost" data-act="tab" data-v="courses">Manage languages</button></div>
     <div class="cloth"><h2>Settings</h2>
       <div class="setrow"><div><b>Daily goal</b><p>XP to earn each day</p></div><div class="seg">${[10, 20, 30, 50].map(g => `<button data-act="goal" data-v="${g}" aria-pressed="${S.goal === g}">${g}</button>`).join("")}</div></div>
       ${C.translit ? `<div class="setrow stackrow"><div><b>Script</b><p>Romanised text appears under each word, like “sat srī akāl”</p></div><div class="seg"><button data-act="script" data-v="both" aria-pressed="${!!S.tr}">${C.id === "punjabi" ? "Gurmukhi" : esc(C.native || C.name)} + romanised</button><button data-act="script" data-v="only" aria-pressed="${!S.tr}">${C.id === "punjabi" ? "Gurmukhi" : esc(C.native || C.name)} only</button></div></div>` : ""}
       ${sw("sfx", "Sound effects", "Chimes for right and wrong answers")}
+      ${SR ? sw("speak", "Speaking exercises", "Say words out loud and Mor checks your pronunciation") : `<div class="setrow"><div><b>Speaking exercises</b><p>This browser can't listen to speech. Chrome on Android or a computer can.</p></div></div>`}
+      ${C.festivals?.length ? `<div class="setrow stackrow"><div><b>Festival themes</b><p>The board dresses up around Lohri, Vaisakhi and Diwali. Preview one now if you like.</p></div><div class="seg">${[["auto", "Automatic"], ...C.festivals.map(f => [f.id, f.name.split(" ")[0]]), ["off", "Off"]].map(([v, l]) => `<button data-act="festpick" data-v="${v}" aria-pressed="${S.fest === v}">${esc(l)}</button>`).join("")}</div></div>` : ""}
       <div class="setrow"><div><b>Voice</b><p>${vtxt}</p></div>${canSpeak() ? `<button class="btn small ghost" data-act="sayt" data-v="${esc(C.units[0]?.skills[0]?.words[0]?.[0] || "")}">Test</button>` : ""}</div>
       <div class="setrow"><div><b>Reset progress</b><p>Clears XP, streak, skills and tests. This can't be undone.</p></div>
         ${confirmReset ? `<div class="seg"><button data-act="reset" data-v="yes" style="color:var(--madder)">Yes, reset</button><button data-act="reset" data-v="no">Cancel</button></div>` : `<button class="btn small ghost" data-act="reset">Reset</button>`}</div>
@@ -519,9 +609,9 @@ function reminderICS() {
 
 /* ---------- lessons and tests ---------- */
 function startRun(mode, opts) {
-  const q = mode === "test" ? makeTest(opts.unit) : mode === "practice" ? makePractice() : mode === "letters" ? makeLetterPractice() : makeLesson(opts.sk, Math.min(prog(opts.sk), LESSONS - 1));
+  const q = mode === "test" ? makeTest(opts.unit) : mode === "practice" ? makePractice() : mode === "letters" ? makeLetterPractice() : mode === "fest" ? makeFestLesson(opts.fest) : makeLesson(opts.sk, Math.min(prog(opts.sk), LESSONS - 1));
   if (!q.length) { toast("Finish a lesson first, then practise."); return; }
-  L = { mode, sk:opts.sk, unit:opts.unit ?? opts.sk?.unit, queue:q, i:0, total:q.length, solved:0, mistakes:0, state:"idle", sel:null, spoken:-1 };
+  L = { mode, fest:opts.fest, sk:opts.sk, unit:opts.unit ?? opts.sk?.unit, queue:q, i:0, total:q.length, solved:0, mistakes:0, state:"idle", sel:null, spoken:-1 };
   nav(() => { sheet = null; view = "lesson"; }, () => scrollTo(0, 0));
 }
 const cur = () => L.queue[L.i];
@@ -545,6 +635,14 @@ function exHTML(ex) {
       ${canSpeak() ? `<button class="iconbtn" data-act="sayt" data-v="${esc(l.pa)}" aria-label="Play" style="float:right;color:var(--madder)">${ICON.spk}</button>` : ""}${itemHTML(l)}<div class="note">${esc(l.en)}</div></div></div>
       <div class="opts reply">${ex.opts.map((o, i) => `<button class="opt ${optCls(o, i)}" data-act="pick" data-v="${i}" ${done ? "disabled" : ""}><kbd>${i + 1}</kbd><div>${itemHTML(o)}</div></button>`).join("")}</div>`;
   }
+  if (ex.type === "speak") {
+    const status = ex.blocked ? `<p class="note">Microphone access is blocked. Allow it in your browser settings, or skip speaking for now.</p>`
+      : ex.listening ? `<p class="hearing">Listening… say it now</p>`
+      : ex.miss && L.state === "idle" ? `<p class="note">${ex.heard ? `We heard “${esc(ex.heard)}”. ` : "We didn't catch that. "}Try again, a little slower.</p>` : "";
+    return `<p class="kicker">Say this out loud</p><div class="prompt">${peacock()}<div class="bubble">${speakBtn}${itemHTML(it)}<div class="note">${esc(it.en)}</div></div></div>
+      <div class="listenrow"><button class="mic ${ex.listening ? "on" : ""}" data-act="mic" aria-label="${ex.listening ? "Listening" : "Tap and speak"}" ${done || ex.blocked ? "disabled" : ""}>${ICON.mic}</button></div>
+      <div style="text-align:center">${status}${ex.heard && L.state !== "idle" ? `<p class="note">We heard “${esc(ex.heard)}”</p>` : ""}</div>`;
+  }
   if (ex.type === "match") {
     const cell = (side, x, i) => {
       const gone = ex.done.includes(x), sel = (side === "l" ? L.ml : L.mr) === i, bad = ex.bad && ex.bad[side] === i;
@@ -564,6 +662,7 @@ function exHTML(ex) {
 const ready = () => cur().type === "build" ? (L.sel || []).length > 0 : L.sel !== null && L.sel !== undefined;
 function footHTML() {
   const ex = cur();
+  if (L.state === "idle" && ex.type === "speak") return `<footer class="lfoot"><div class="col">${ex.tries >= 2 ? `<button class="btn wide ghost" data-act="speakskip">Continue anyway</button>` : ""}<button class="btn wide ghost" data-act="speakoff">Can't speak now</button></div></footer>`;
   if (L.state === "idle") return `<footer class="lfoot"><div class="col">${ex.type === "match" ? `<p class="note" style="margin:0;text-align:center">Tap a word on the left, then its meaning on the right.</p>` : `<button class="btn wide" data-act="check" ${ready() ? "" : "disabled"}>Check</button>`}</div></footer>`;
   const it = ex.item;
   let ans = "";
@@ -581,7 +680,7 @@ function lessonView() {
     if (ex.type === "mc" || ex.type === "listen" || (ex.type === "build" && ex.dir === "en")) setTimeout(() => say(ex.item.pa), 250);
     if (ex.type === "reply") setTimeout(() => say(ex.line.pa), 250);
   }
-  const tag = L.mode === "letters" ? `<span class="ptag">Letters</span>` : L.mode === "test" ? `<span class="ptag">Unit ${L.unit + 1} test</span>` : L.mode === "practice" ? `<span class="ptag">Practice</span>` : "";
+  const tag = L.mode === "fest" ? `<span class="ptag">${esc(L.fest.name.split(" ")[0])}</span>` : L.mode === "letters" ? `<span class="ptag">Letters</span>` : L.mode === "test" ? `<span class="ptag">Unit ${L.unit + 1} test</span>` : L.mode === "practice" ? `<span class="ptag">Review</span>` : "";
   return `<div class="lesson"><div class="col lhead"><button class="iconbtn" data-act="quit" aria-label="Quit">${ICON.x}</button>
     <div class="bar" role="progressbar" aria-valuenow="${L.solved}" aria-valuemax="${L.total}"><span style="width:${L.pct0 ?? 0}%" data-to="${L.pct = (L.mode === "test" ? L.i / L.total : L.solved / L.total) * 100}"></span></div>${tag}</div>
     <div class="col lbody ${L.enterAt !== L.i ? "enter" : ""}">${exHTML(ex)}</div>${footHTML()}</div>`;
@@ -593,6 +692,7 @@ function check() {
   if (ex.type === "build") { const got = L.sel.map(i => ex.bank[i].t).join(" "); ok = ex.dir === "pa" ? got === ex.item.pa : clean(got) === clean(ex.item.en); }
   else if (ex.type === "reply") ok = ex.opts[L.sel] === ex.answer;
   else ok = ex.opts[L.sel] === ex.item;
+  if (ex.type !== "reply") record(ex.item, ok);
   if (ok) { L.state = "right"; L.solved++; sfx.good(); }
   else {
     L.state = "wrong"; L.mistakes++; sfx.bad();
@@ -603,6 +703,7 @@ function check() {
   render();
 }
 function next() {
+  if (rec) { try { rec.abort(); } catch (e) {} rec = null; }
   L.i++; L.sel = null; L.ml = L.mr = null; L.state = "idle";
   if (L.i >= L.queue.length) finish(); else render();
 }
@@ -642,6 +743,81 @@ function resultView() {
     <button class="btn wide" data-act="home">Continue</button></div></main>`;
 }
 
+/* ---------- festivals ---------- */
+function festivalNow() {
+  if (!FESTS.length || S.fest === "off") return null;
+  if (S.fest !== "auto") return FESTS.find(f => f.id === S.fest) || null;
+  const now = new Date(); now.setHours(12, 0, 0, 0);
+  return FESTS.find(f => f.dates.some(d => {
+    const day = d.length === 5 ? new Date(now.getFullYear() + "-" + d + "T12:00") : new Date(d + "T12:00");
+    const diff = (now - day) / 864e5;
+    return diff >= -5 && diff <= 2;
+  })) || null;
+}
+function applyFestival() { const f = festivalNow(); document.documentElement.dataset.fest = f ? f.id : ""; }
+function festivalBanner(f) {
+  const deco = { lohri:'<span class="flames"><i></i><i></i><i></i><i></i><i></i></span>', diwali:'<span class="diyas"><i></i><i></i><i></i><i></i><i></i><i></i></span>', vaisakhi:'<span class="wheat"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>' }[f.id] || "";
+  return `<div class="cloth festband"><div class="festdeco" aria-hidden="true">${deco}</div><div class="pa" style="font-size:1.4rem">${esc(f.greeting[0])}</div><div class="tr">${esc(f.greeting[1])}</div>
+    <p class="note" style="margin:6px 0 10px">It's ${esc(f.name)} season. Learn the words that go with it in a bonus lesson.</p><button class="btn gold wide" data-act="festlesson" data-v="${f.id}">Bonus ${esc(f.name.split(" ")[0])} lesson</button></div>`;
+}
+function makeFestLesson(f) {
+  const sk = f.sk;
+  let list = shuffle(sk.items).slice(0, 6).map((w, i) => i % 3 === 2 && canSpeak() ? mkListen(w) : i % 2 ? mkRev(w) : mkMC(w));
+  sk.sents.forEach((x, i) => list.push(mkBuild(x, i % 2 ? "pa" : "en")));
+  const sp = mkSpeak(sk.sents[0]); if (sp) list.push(sp);
+  list = shuffle(list); list.splice(1, 0, mkMatch(sample(sk.items, 5)));
+  return list;
+}
+
+/* ---------- stories ---------- */
+const storyKey = st => C.id + ":" + st.id;
+const storyOpen = st => st.after <= 1 || passed(st.after - 1);
+let R = null; // the story being read
+function storiesView() {
+  return `<main class="home"><div class="col page"><div class="cloth"><h2>Stories</h2><p class="note" style="margin:0">Short retellings of Punjabi folk tales. A new one opens as you climb the board. Tap any word for help.</p></div>
+    ${C.stories.map((st, i) => { const open = storyOpen(st), done = S.stories?.[storyKey(st)];
+      return `<button class="cloth storycard ${open ? "" : "locked"}" data-act="story" data-v="${i}" ${open ? "" : "disabled"}>
+        <span class="storyart" style="--uc:${UNIT_COLORS[(i + 2) % UNIT_COLORS.length]}">${open ? `<span class="pa">${esc(st.native.split(" ")[0])}</span>` : ICON.lock}</span>
+        <span class="storytxt"><b>${esc(st.title)}</b> <span class="pa">${esc(st.native)}</span><small>${open ? esc(st.blurb) : `Opens when you pass the Unit ${st.after} test`}</small></span>${done ? `<span class="storydone">${ICON.star}</span>` : ""}</button>`; }).join("")}
+  </div></main>`;
+}
+const bare = w => w.replace(/[.,?!।:;"“”]/g, "");
+function wordChip(w, i, tr) {
+  return `<button class="sw" data-act="sw" data-v="${esc(bare(w))}" data-tr="${esc(bare(tr[i] || ""))}">${esc(w)}</button>`;
+}
+function readerView() {
+  const st = R.st, shown = st.lines.slice(0, R.n);
+  let body = shown.map((l, i) => `<div class="sline ${i === R.n - 1 ? "new" : ""}">
+      <div class="pa">${l[0].split(" ").map((w, j) => wordChip(w, j, l[1].split(" "))).join(" ")}</div><div class="tr">${esc(l[1])}</div>
+      ${R.en[i] ? `<div class="en">${esc(l[2])}</div>` : `<button class="linkbtn" data-act="sen" data-v="${i}">Show English</button>`}
+      ${canSpeak() ? `<button class="iconbtn sline-spk" data-act="sayt" data-v="${esc(l[0])}" aria-label="Play line">${ICON.spk}</button>` : ""}</div>`).join("");
+  let foot;
+  if (R.n < st.lines.length) foot = `<button class="btn wide" data-act="snext">Continue</button>`;
+  else if (R.q < st.quiz.length) {
+    const q = st.quiz[R.q];
+    R.opts = R.opts || shuffle([1, 2, 3]);
+    body += `<div class="squiz"><p class="kicker" style="margin:0 0 12px">${esc(q[0])}</p><div class="opts">${R.opts.map(k => `<button class="opt ${R.pick == null ? "" : k === 1 ? "good" : R.pick === k ? "bad" : ""}" data-act="spick" data-v="${k}" ${R.pick == null ? "" : "disabled"}><span>${esc(q[k])}</span></button>`).join("")}</div></div>`;
+    foot = R.pick == null ? `<p class="note" style="text-align:center;margin:0">Question ${R.q + 1} of ${st.quiz.length}</p>` : `<button class="btn wide ${R.pick === 1 ? "gold" : ""}" data-act="snextq">${R.q + 1 < st.quiz.length ? "Next question" : "Finish story"}</button>`;
+  } else foot = "";
+  const w = R.word && VOCAB.get(R.word), en = w ? w.en : C.glossary?.[R.word];
+  const pop = R.word ? `<div class="wordpop" role="status"><span class="pa">${esc(R.word)}</span>${R.wtr && C.translit ? `<span class="tr">${esc(R.wtr)}</span>` : ""}${en ? `<span>${esc(en)}</span>` : `<span class="note">Tap “Show English” for the whole line.</span>`}
+    <button class="iconbtn" data-act="swclose" aria-label="Close">${ICON.x}</button></div>` : "";
+  return `<div class="lesson reader"><div class="col lhead"><button class="iconbtn" data-act="squit" aria-label="Close story">${ICON.x}</button>
+    <div class="bar"><span style="width:${(R.n + R.q) / (st.lines.length + st.quiz.length) * 100}%"></span></div><span class="ptag">Story</span></div>
+    <div class="col lbody"><h1 class="storytitle">${esc(st.native)}</h1><p class="note" style="margin:0 0 14px">${esc(st.title)}</p><div class="slines">${body}</div></div>
+    ${pop}<footer class="lfoot"><div class="col">${foot}</div></footer></div>`;
+}
+function finishStory() {
+  const st = R.st, t = dayKey(), first = !S.stories[storyKey(st)];
+  S.stories[storyKey(st)] = true;
+  const xp = first ? 20 : 5;
+  S.xp += xp; S.hist[t] = (S.hist[t] || 0) + xp;
+  if (S.lastDay !== t) { S.streak = S.lastDay === dayOff(-1) ? S.streak + 1 : 1; S.lastDay = t; }
+  S.best = Math.max(S.best, S.streak); save(); sfx.done();
+  toast(`Story finished: +${xp} XP`);
+  nav(() => { R = null; view = "stories"; }, () => scrollTo(0, 0));
+}
+
 /* ---------- motion ---------- */
 const calm = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 // Screen changes cross-fade where the browser supports view transitions; elsewhere the new screen fades up in CSS.
@@ -655,10 +831,11 @@ function render() {
   if (!C) return;
   const focusId = document.activeElement?.id;
   let h;
-  if (view === "lesson") h = lessonView();
+  if (view === "reader") h = readerView();
+  else if (view === "lesson") h = lessonView();
   else if (view === "result") h = resultView();
   else {
-    const body = view === "words" ? wordsView() : view === "alphabet" ? alphabetView() : view === "profile" ? profileView() : view === "courses" ? coursesView() : view === "editor" ? edView() : view === "guide" ? guideView() : homeView();
+    const body = view === "words" ? wordsView() : view === "stories" ? storiesView() : view === "alphabet" ? alphabetView() : view === "profile" ? profileView() : view === "courses" ? coursesView() : view === "editor" ? edView() : view === "guide" ? guideView() : homeView();
     h = topBar() + body + tabsBar();
   }
   if (toastMsg) h += `<div class="toast" role="status">${esc(toastMsg)}</div>`;
@@ -684,6 +861,15 @@ const acts = {
   test: b => startRun("test", { unit:+b.dataset.v }),
   practice: () => startRun("practice", {}),
   letterpractice: () => startRun("letters", {}),
+  festlesson: b => startRun("fest", { fest:FESTS.find(f => f.id === b.dataset.v) }),
+  story: b => nav(() => { R = { st:C.stories[+b.dataset.v], n:1, q:0, en:{}, word:null, pick:null }; view = "reader"; }, () => { scrollTo(0, 0); say(R.st.lines[0][0]); }),
+  snext: () => { R.n++; R.word = null; render(); say(R.st.lines[R.n - 1][0]); document.querySelector(".sline.new")?.scrollIntoView({ block:"center", behavior:calm() ? "auto" : "smooth" }); },
+  sen: b => { R.en[+b.dataset.v] = true; render(); },
+  sw: b => { R.word = b.dataset.v; R.wtr = b.dataset.tr; say(R.word); render(); },
+  swclose: () => { R.word = null; render(); },
+  spick: b => { R.pick = +b.dataset.v; R.pick === 1 ? sfx.good() : sfx.bad(); render(); },
+  snextq: () => { R.q++; R.pick = null; R.opts = null; if (R.q >= R.st.quiz.length) finishStory(); else render(); },
+  squit: () => nav(() => { R = null; view = "stories"; }, () => scrollTo(0, 0)),
   letter: b => {
     const id = b.dataset.v, [g, i] = id.split("-").map(Number), l = C.alphabet[g].letters[i];
     letterOpen = letterOpen === id ? null : id; render();
@@ -700,20 +886,24 @@ const acts = {
     if (b.dataset.side === "l") { L.ml = i; say(ex.left[i].pa); } else L.mr = i;
     if (L.ml != null && L.mr != null) {
       if (ex.left[L.ml] === ex.right[L.mr]) { ex.done.push(ex.left[L.ml]); sfx.tap(); }
-      else { ex.bad = { l:L.ml, r:L.mr }; if (L.mode !== "test") L.mistakes++; sfx.bad(); setTimeout(() => { ex.bad = null; if (view === "lesson") render(); }, 450); }
+      else { ex.missed = (ex.missed || []).concat(ex.left[L.ml]); ex.bad = { l:L.ml, r:L.mr }; if (L.mode !== "test") L.mistakes++; sfx.bad(); setTimeout(() => { ex.bad = null; if (view === "lesson") render(); }, 450); }
       L.ml = L.mr = null;
-      if (ex.done.length === ex.items.length) { L.state = "right"; L.solved++; sfx.good(); }
+      if (ex.done.length === ex.items.length) { L.state = "right"; L.solved++; sfx.good(); ex.items.forEach(x => record(x, !ex.missed?.includes(x))); }
     }
     render();
   },
   check, next,
+  mic: () => listenToYou(),
+  speakskip: () => skipSpeak(false),
+  speakoff: () => skipSpeak(true),
   quit: () => nav(() => { L = null; view = "home"; }, scrollToCurrent),
   toggle: b => { const k = b.dataset.v; S[k] = !S[k]; save(); document.documentElement.classList.toggle("no-tr", !S.tr || !C.translit); render(); },
+  festpick: b => { S.fest = b.dataset.v; save(); applyFestival(); render(); },
   script: b => { S.tr = b.dataset.v === "both"; save(); document.documentElement.classList.toggle("no-tr", !S.tr || !C.translit); render(); },
   goal: b => { S.goal = +b.dataset.v; save(); render(); },
   reset: b => {
     if (!b.dataset.v) confirmReset = true;
-    else { if (b.dataset.v === "yes") { const keep = { goal:S.goal, tr:S.tr, sfx:S.sfx, course:S.course, remind:S.remind }; S = { ...DEF, hist:{}, prog:{}, tests:{}, ...keep }; save(); toast("Progress reset"); } confirmReset = false; }
+    else { if (b.dataset.v === "yes") { const keep = { goal:S.goal, tr:S.tr, sfx:S.sfx, course:S.course, remind:S.remind }; S = { ...DEF, hist:{}, prog:{}, tests:{}, srs:{}, stories:{}, ...keep }; save(); toast("Progress reset"); } confirmReset = false; }
     render();
   },
   install: async () => { if (!installEvt) return; installEvt.prompt(); try { await installEvt.userChoice; } catch (e) {} installEvt = null; render(); },
@@ -745,6 +935,7 @@ app.addEventListener("change", e => {
 });
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && sheet !== null) { sheet = null; render(); return; }
+  if (view === "reader" && e.key === "Enter") { e.preventDefault(); const b = document.querySelector('.reader .lfoot .btn'); b?.click(); return; }
   if (view !== "lesson" || e.target.tagName === "INPUT") return;
   const ex = cur();
   if (e.key === "Enter") { e.preventDefault(); L.state === "idle" ? check() : next(); }
@@ -760,7 +951,7 @@ window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); instal
   } catch (e) {
     app.innerHTML = `<p class="loading">Couldn't load the course. Check your connection and reload.</p>`; return;
   }
-  useCourse(S.course);
+  useCourse(S.course); applyFestival();
   render(); scrollToCurrent();
   if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
 })();

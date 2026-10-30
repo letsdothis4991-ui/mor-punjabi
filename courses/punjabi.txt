@@ -886,3 +886,301 @@ L ੬ | chhe | 6 | ਛੇ | chhe | six
 L ੭ | satt | 7 | ਸੱਤ | satt | seven
 L ੮ | aṭṭh | 8 | ਅੱਠ | aṭṭh | eight
 L ੯ | nauṃ | 9 | ਨੌਂ | nauṃ | nine
+
+########################################################################
+# Stories: STORY id | title | Punjabi title | unlocks after this unit's test (1-based) | one-line blurb
+#   P line | transliteration | English     (transliteration has the same number of words)
+#   Q question | right answer | wrong answer | wrong answer
+
+STORY chiri | The sparrow and the crow | ਚਿੜੀ ਤੇ ਕਾਂ | 5 | A children's tale about a house of wax and a house of salt
+P ਇੱਕ ਸੀ ਚਿੜੀ, ਇੱਕ ਸੀ ਕਾਂ। | ikk sī chiṛī, ikk sī kāṃ. | Once there was a sparrow, and there was a crow.
+P ਚਿੜੀ ਨੇ ਮੋਮ ਦਾ ਘਰ ਬਣਾਇਆ। | chiṛī ne mom dā ghar baṇāiā. | The sparrow built a house of wax.
+P ਕਾਂ ਨੇ ਲੂਣ ਦਾ ਘਰ ਬਣਾਇਆ। | kāṃ ne lūṇ dā ghar baṇāiā. | The crow built a house of salt.
+P ਇੱਕ ਦਿਨ ਬਹੁਤ ਮੀਂਹ ਪਿਆ। | ikk din bahut mīṃh piā. | One day it rained very hard.
+P ਕਾਂ ਦਾ ਘਰ ਪਾਣੀ ਵਿੱਚ ਘੁਲ ਗਿਆ। | kāṃ dā ghar pāṇī vich ghul giā. | The crow's house melted away in the water.
+P ਕਾਂ ਚਿੜੀ ਦੇ ਘਰ ਗਿਆ ਅਤੇ ਬੋਲਿਆ, "ਚਿੜੀਏ, ਦਰਵਾਜ਼ਾ ਖੋਲ੍ਹ!" | kāṃ chiṛī de ghar giā ate boliā, "chiṛīe, darvāzā kholh!" | The crow went to the sparrow's house and said, "Sparrow, open the door!"
+P ਚਿੜੀ ਬੋਲੀ, "ਰੁਕ, ਮੈਂ ਬੱਚਿਆਂ ਨੂੰ ਖਾਣਾ ਦੇ ਰਹੀ ਹਾਂ।" | chiṛī bolī, "ruk, maiṃ bacchiāṃ nūṃ khāṇā de rahī hāṃ." | The sparrow said, "Wait, I'm feeding my children."
+P ਅਖ਼ੀਰ ਚਿੜੀ ਨੇ ਦਰਵਾਜ਼ਾ ਖੋਲ੍ਹ ਦਿੱਤਾ। | akhīr chiṛī ne darvāzā kholh dittā. | At last the sparrow opened the door.
+P ਕਾਂ ਅੰਦਰ ਆਇਆ ਅਤੇ ਨਿੱਘਾ ਹੋ ਗਿਆ। | kāṃ andar āiā ate nigghā ho giā. | The crow came inside and got warm.
+P ਸਿੱਖਿਆ: ਪੱਕਾ ਘਰ ਬਣਾਓ, ਅਤੇ ਦੂਜਿਆਂ ਦੀ ਮਦਦ ਕਰੋ। | sikkhiā: pakkā ghar baṇāo, ate dūjiāṃ dī madad karo. | The moral: build a strong home, and help others.
+Q What was the crow's house made of? | Salt | Wax | Wood
+Q What happened one day? | It rained very hard | It snowed | There was a fire
+Q Why did the sparrow ask the crow to wait? | She was feeding her children | She was asleep | She was cooking for him
+
+STORY dulla | Dulla Bhatti | ਦੁੱਲਾ ਭੱਟੀ | 8 | The hero remembered every Lohri night
+P ਬਹੁਤ ਪੁਰਾਣੀ ਗੱਲ ਹੈ। | bahut purāṇī gall hai. | This is a very old story.
+P ਪੰਜਾਬ ਵਿੱਚ ਦੁੱਲਾ ਭੱਟੀ ਨਾਮ ਦਾ ਇੱਕ ਬਹਾਦਰ ਆਦਮੀ ਰਹਿੰਦਾ ਸੀ। | panjāb vich dullā bhaṭṭī nām dā ikk bahādar ādmī rahindā sī. | A brave man called Dulla Bhatti lived in Punjab.
+P ਉਹ ਅਮੀਰਾਂ ਤੋਂ ਲੈਂਦਾ ਸੀ ਅਤੇ ਗ਼ਰੀਬਾਂ ਨੂੰ ਦਿੰਦਾ ਸੀ। | uh amīrāṃ toṃ laindā sī ate ġarībāṃ nūṃ dindā sī. | He took from the rich and gave to the poor.
+P ਇੱਕ ਪਿੰਡ ਵਿੱਚ ਸੁੰਦਰੀ ਅਤੇ ਮੁੰਦਰੀ ਨਾਮ ਦੀਆਂ ਦੋ ਕੁੜੀਆਂ ਸਨ। | ikk piṇḍ vich sundarī ate mundarī nām dīāṃ do kuṛīāṃ san. | In one village there were two girls named Sundari and Mundari.
+P ਉਹ ਬਹੁਤ ਗ਼ਰੀਬ ਸਨ ਅਤੇ ਮੁਸੀਬਤ ਵਿੱਚ ਸਨ। | uh bahut ġarīb san ate musībat vich san. | They were very poor and in trouble.
+P ਦੁੱਲੇ ਨੇ ਉਨ੍ਹਾਂ ਨੂੰ ਬਚਾਇਆ ਅਤੇ ਉਨ੍ਹਾਂ ਦੇ ਵਿਆਹ ਕਰਵਾਏ। | dulle ne unhāṃ nūṃ bachāiā ate unhāṃ de viāh karvāe. | Dulla rescued them and arranged their weddings.
+P ਉਸ ਨੇ ਆਪ ਉਨ੍ਹਾਂ ਨੂੰ ਸ਼ੱਕਰ ਦਿੱਤੀ। | us ne āp unhāṃ nūṃ shakkar dittī. | He gave them shakkar, raw sugar, as his gift.
+P ਅੱਜ ਵੀ ਲੋਹੜੀ ਦੀ ਰਾਤ ਬੱਚੇ ਗਾਉਂਦੇ ਹਨ: | ajj vī lohṛī dī rāt bacche gāunde han: | Even today, on Lohri night, children sing:
+P "ਸੁੰਦਰ ਮੁੰਦਰੀਏ, ਹੋ! ਤੇਰਾ ਕੌਣ ਵਿਚਾਰਾ, ਹੋ! ਦੁੱਲਾ ਭੱਟੀ ਵਾਲਾ, ਹੋ!" | "sundar mundarīe, ho! terā kauṇ vichārā, ho! dullā bhaṭṭī vālā, ho!" | "Sundar Mundariye, ho! Who will look after you? Dulla Bhatti, ho!"
+P ਲੋਕ ਧੂਣੀ ਬਾਲਦੇ ਹਨ ਅਤੇ ਰਿਓੜੀਆਂ ਵੰਡਦੇ ਹਨ। | lok dhūṇī bālde han ate rioṛīāṃ vaṇḍde han. | People light a bonfire and share rewri sweets.
+Q Who did Dulla Bhatti help? | The poor | The rich | The king
+Q Which festival remembers him? | Lohri | Diwali | Vaisakhi
+Q What were the two girls called? | Sundari and Mundari | Heer and Sohni | Simran and Jasleen
+
+STORY sohni | Sohni Mahiwal | ਸੋਹਣੀ ਮਹੀਂਵਾਲ | 12 | A potter's daughter, a river and a clay pot
+P ਗੁਜਰਾਤ ਸ਼ਹਿਰ ਵਿੱਚ ਇੱਕ ਘੁਮਿਆਰ ਦੀ ਧੀ ਰਹਿੰਦੀ ਸੀ। | gujrāt shahir vich ikk ghumiār dī dhī rahindī sī. | In the city of Gujrat lived a potter's daughter.
+P ਉਸ ਦਾ ਨਾਮ ਸੋਹਣੀ ਸੀ, ਅਤੇ ਉਹ ਸੋਹਣੇ ਭਾਂਡੇ ਬਣਾਉਂਦੀ ਸੀ। | us dā nām sohṇī sī, ate uh sohṇe bhāṇḍe baṇāundī sī. | Her name was Sohni, and she made beautiful pots.
+P ਇੱਜ਼ਤ ਬੇਗ ਨਾਮ ਦਾ ਇੱਕ ਵਪਾਰੀ ਭਾਂਡੇ ਖ਼ਰੀਦਣ ਆਇਆ। | izzat beg nām dā ikk vapārī bhāṇḍe kharīdaṇ āiā. | A merchant called Izzat Beg came to buy pots.
+P ਉਸ ਨੂੰ ਸੋਹਣੀ ਨਾਲ ਪਿਆਰ ਹੋ ਗਿਆ। | us nūṃ sohṇī nāl piār ho giā. | He fell in love with Sohni.
+P ਉਹ ਮੱਝਾਂ ਚਾਰਨ ਲੱਗ ਪਿਆ, ਇਸ ਲਈ ਲੋਕ ਉਸ ਨੂੰ ਮਹੀਂਵਾਲ ਕਹਿਣ ਲੱਗੇ। | uh majjhāṃ chāran lagg piā, is laī lok us nūṃ mahīṃvāl kahiṇ lagge. | He started herding buffaloes, so people began calling him Mahiwal.
+P ਮਹੀਂਵਾਲ ਦਰਿਆ ਦੇ ਦੂਜੇ ਪਾਸੇ ਰਹਿੰਦਾ ਸੀ। | mahīṃvāl dariā de dūje pāse rahindā sī. | Mahiwal lived on the other side of the river.
+P ਹਰ ਰਾਤ ਸੋਹਣੀ ਪੱਕੇ ਘੜੇ ਨਾਲ ਝਨਾਂ ਦਰਿਆ ਪਾਰ ਕਰਦੀ ਸੀ। | har rāt sohṇī pakke ghaṛe nāl jhanāṃ dariā pār kardī sī. | Every night Sohni crossed the Chenab river holding on to a baked clay pot.
+P ਇੱਕ ਰਾਤ ਕਿਸੇ ਨੇ ਪੱਕਾ ਘੜਾ ਕੱਚੇ ਘੜੇ ਨਾਲ ਬਦਲ ਦਿੱਤਾ। | ikk rāt kise ne pakkā ghaṛā kacche ghaṛe nāl badal dittā. | One night someone swapped the baked pot for an unbaked one.
+P ਕੱਚਾ ਘੜਾ ਪਾਣੀ ਵਿੱਚ ਖੁਰ ਗਿਆ ਅਤੇ ਸੋਹਣੀ ਡੁੱਬ ਗਈ। | kacchā ghaṛā pāṇī vich khur giā ate sohṇī ḍubb gaī. | The unbaked pot crumbled in the water, and Sohni drowned.
+P ਮਹੀਂਵਾਲ ਵੀ ਉਸ ਨੂੰ ਬਚਾਉਣ ਲਈ ਦਰਿਆ ਵਿੱਚ ਕੁੱਦ ਪਿਆ। | mahīṃvāl vī us nūṃ bachāuṇ laī dariā vich kudd piā. | Mahiwal jumped into the river to try to save her.
+P ਅੱਜ ਵੀ ਲੋਕ ਉਨ੍ਹਾਂ ਦੇ ਸੱਚੇ ਪਿਆਰ ਦੇ ਗੀਤ ਗਾਉਂਦੇ ਹਨ। | ajj vī lok unhāṃ de sacche piār de gīt gāunde han. | People still sing songs about their true love.
+Q What did Sohni make? | Pots | Clothes | Bread
+Q How did Sohni cross the river? | Holding on to a clay pot | By boat | Over a bridge
+Q What went wrong on the last night? | Her pot was unbaked | The river froze | She lost her way
+
+STORY heer | Heer Ranjha | ਹੀਰ ਰਾਂਝਾ | 16 | The flute player and the girl from Jhang
+P ਤਖ਼ਤ ਹਜ਼ਾਰੇ ਪਿੰਡ ਵਿੱਚ ਰਾਂਝਾ ਨਾਮ ਦਾ ਇੱਕ ਮੁੰਡਾ ਰਹਿੰਦਾ ਸੀ। | takht hazāre piṇḍ vich rāñjhā nām dā ikk muṇḍā rahindā sī. | In the village of Takht Hazara lived a young man called Ranjha.
+P ਉਹ ਬੰਸਰੀ ਬਹੁਤ ਸੋਹਣੀ ਵਜਾਉਂਦਾ ਸੀ। | uh bansarī bahut sohṇī vajāundā sī. | He played the flute beautifully.
+P ਭਰਾਵਾਂ ਨਾਲ ਝਗੜੇ ਤੋਂ ਬਾਅਦ ਉਸ ਨੇ ਘਰ ਛੱਡ ਦਿੱਤਾ। | bharāvāṃ nāl jhagṛe toṃ bāad us ne ghar chhaḍḍ dittā. | After a quarrel with his brothers, he left home.
+P ਉਹ ਝੰਗ ਪਹੁੰਚਿਆ, ਜਿੱਥੇ ਹੀਰ ਰਹਿੰਦੀ ਸੀ। | uh jhaṅg pahuñchiā, jitthe hīr rahindī sī. | He reached Jhang, where Heer lived.
+P ਹੀਰ ਦੇ ਪਿਤਾ ਨੇ ਉਸ ਨੂੰ ਮੱਝਾਂ ਚਾਰਨ ਦਾ ਕੰਮ ਦਿੱਤਾ। | hīr de pitā ne us nūṃ majjhāṃ chāran dā kamm dittā. | Heer's father gave him work herding buffaloes.
+P ਹੀਰ ਅਤੇ ਰਾਂਝੇ ਨੂੰ ਇੱਕ ਦੂਜੇ ਨਾਲ ਪਿਆਰ ਹੋ ਗਿਆ। | hīr ate rāñjhe nūṃ ikk dūje nāl piār ho giā. | Heer and Ranjha fell in love with each other.
+P ਪਰ ਹੀਰ ਦੇ ਚਾਚੇ ਕੈਦੋ ਨੂੰ ਇਹ ਪਸੰਦ ਨਹੀਂ ਸੀ। | par hīr de chāche kaido nūṃ ih pasand nahīṃ sī. | But Heer's uncle Kaido did not like this.
+P ਹੀਰ ਦਾ ਵਿਆਹ ਜ਼ਬਰਦਸਤੀ ਕਿਸੇ ਹੋਰ ਨਾਲ ਕਰ ਦਿੱਤਾ ਗਿਆ। | hīr dā viāh zabardastī kise hor nāl kar dittā giā. | Heer was forced to marry someone else.
+P ਰਾਂਝਾ ਜੋਗੀ ਬਣ ਗਿਆ ਅਤੇ ਹੀਰ ਨੂੰ ਲੱਭਣ ਨਿਕਲ ਪਿਆ। | rāñjhā jogī baṇ giā ate hīr nūṃ labbhaṇ nikal piā. | Ranjha became a wandering yogi and set out to find Heer.
+P ਵਾਰਿਸ ਸ਼ਾਹ ਨੇ ਇਹ ਕਹਾਣੀ ਕਵਿਤਾ ਵਿੱਚ ਲਿਖੀ, ਜੋ ਅੱਜ ਵੀ ਗਾਈ ਜਾਂਦੀ ਹੈ। | vāris shāh ne ih kahāṇī kavitā vich likhī, jo ajj vī gāī jāndī hai. | Waris Shah wrote this story as a poem, and it is still sung today.
+Q What did Ranjha play? | The flute | The dhol | The harmonium
+Q Who did not like their love? | Heer's uncle Kaido | Ranjha's teacher | The king
+Q Who wrote the famous poem of this story? | Waris Shah | Bulleh Shah | Dulla Bhatti
+
+STORY mirza | Mirza Sahiban | ਮਿਰਜ਼ਾ ਸਾਹਿਬਾਂ | 20 | An archer, his mare Bakki and a broken quiver
+P ਮਿਰਜ਼ਾ ਅਤੇ ਸਾਹਿਬਾਂ ਬਚਪਨ ਤੋਂ ਇਕੱਠੇ ਪੜ੍ਹਦੇ ਸਨ। | mirzā ate sāhibāṃ bachpan toṃ ikaṭṭhe paṛhde san. | Mirza and Sahiban studied together from childhood.
+P ਵੱਡੇ ਹੋ ਕੇ ਉਨ੍ਹਾਂ ਨੂੰ ਪਿਆਰ ਹੋ ਗਿਆ। | vaḍḍe ho ke unhāṃ nūṃ piār ho giā. | When they grew up, they fell in love.
+P ਮਿਰਜ਼ਾ ਇੱਕ ਬਹੁਤ ਵਧੀਆ ਤੀਰਅੰਦਾਜ਼ ਸੀ। | mirzā ikk bahut vadhīā tīrandāz sī. | Mirza was a superb archer.
+P ਉਸ ਦੀ ਘੋੜੀ ਦਾ ਨਾਮ ਬੱਕੀ ਸੀ। | us dī ghoṛī dā nām bakkī sī. | His mare was called Bakki.
+P ਸਾਹਿਬਾਂ ਦੇ ਘਰ ਵਾਲਿਆਂ ਨੇ ਉਸ ਦਾ ਵਿਆਹ ਕਿਸੇ ਹੋਰ ਨਾਲ ਪੱਕਾ ਕਰ ਦਿੱਤਾ। | sāhibāṃ de ghar vāliāṃ ne us dā viāh kise hor nāl pakkā kar dittā. | Sahiban's family fixed her marriage to someone else.
+P ਮਿਰਜ਼ਾ ਬੱਕੀ ਉੱਤੇ ਆਇਆ ਅਤੇ ਸਾਹਿਬਾਂ ਨੂੰ ਲੈ ਗਿਆ। | mirzā bakkī utte āiā ate sāhibāṃ nūṃ lai giā. | Mirza came riding Bakki and took Sahiban away.
+P ਰਸਤੇ ਵਿੱਚ ਮਿਰਜ਼ਾ ਇੱਕ ਦਰਖ਼ਤ ਹੇਠਾਂ ਸੌਂ ਗਿਆ। | raste vich mirzā ikk darakht heṭhāṃ sauṃ giā. | On the way, Mirza fell asleep under a tree.
+P ਸਾਹਿਬਾਂ ਨੇ ਉਸ ਦੇ ਤੀਰ ਤੋੜ ਦਿੱਤੇ, ਤਾਂ ਜੋ ਉਹ ਉਸ ਦੇ ਭਰਾਵਾਂ ਨੂੰ ਨਾ ਮਾਰੇ। | sāhibāṃ ne us de tīr toṛ ditte, tāṃ jo uh us de bharāvāṃ nūṃ nā māre. | Sahiban broke his arrows so that he would not kill her brothers.
+P ਭਰਾ ਆ ਗਏ, ਅਤੇ ਕਹਾਣੀ ਦੁੱਖ ਨਾਲ ਖ਼ਤਮ ਹੋਈ। | bharā ā gae, ate kahāṇī dukkh nāl khatam hoī. | The brothers arrived, and the story ended in sorrow.
+P ਪੰਜਾਬ ਵਿੱਚ ਅੱਜ ਵੀ ਮਿਰਜ਼ੇ ਦੀਆਂ ਵਾਰਾਂ ਗਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ। | panjāb vich ajj vī mirze dīāṃ vārāṃ gāīāṃ jāndīāṃ han. | Ballads about Mirza are still sung in Punjab today.
+Q What was Mirza's mare called? | Bakki | Heer | Sundari
+Q What was Mirza famous for? | Archery | Singing | Pottery
+Q What did Sahiban do while Mirza slept? | Broke his arrows | Ran home | Cooked a meal
+
+########################################################################
+# Festivals: FESTIVAL id | name | Punjabi name | greeting | greeting transliteration | dates
+#   dates are MM-DD (same every year) or a comma list of YYYY-MM-DD. The theme shows from 5 days before to 2 days after.
+#   Then W and S lines for the bonus lesson.
+
+FESTIVAL lohri | Lohri | ਲੋਹੜੀ | ਲੋਹੜੀ ਦੀਆਂ ਲੱਖ ਲੱਖ ਵਧਾਈਆਂ! | lohṛī dīāṃ lakkh lakkh vadhāīāṃ! | 01-13
+W ਲੋਹੜੀ | lohṛī | Lohri
+W ਧੂਣੀ | dhūṇī | bonfire
+W ਅੱਗ | agg | fire
+W ਰਿਓੜੀਆਂ | rioṛīāṃ | rewri sweets
+W ਮੂੰਗਫਲੀ | mūṅgphalī | peanuts
+W ਗੱਚਕ | gacchak | sesame brittle
+W ਤਿਲ | til | sesame
+W ਮੱਕੀ | makkī | maize
+S ਅਸੀਂ ਧੂਣੀ ਦੁਆਲੇ ਨੱਚਦੇ ਹਾਂ | asīṃ dhūṇī duāle nacchde hāṃ | We dance around the bonfire
+S ਅੱਗ ਵਿੱਚ ਤਿਲ ਪਾਓ | agg vich til pāo | Put sesame in the fire
+S ਮੈਨੂੰ ਗੱਚਕ ਬਹੁਤ ਪਸੰਦ ਹੈ | mainūṃ gacchak bahut pasand hai | I really like gachak
+
+FESTIVAL vaisakhi | Vaisakhi | ਵਿਸਾਖੀ | ਵਿਸਾਖੀ ਦੀਆਂ ਲੱਖ ਲੱਖ ਵਧਾਈਆਂ! | visākhī dīāṃ lakkh lakkh vadhāīāṃ! | 04-14
+W ਵਿਸਾਖੀ | visākhī | Vaisakhi
+W ਕਣਕ | kaṇak | wheat
+W ਵਾਢੀ | vāḍhī | harvest
+W ਮੇਲਾ | melā | fair
+W ਖ਼ਾਲਸਾ | khālsā | the Khalsa
+W ਨਗਰ ਕੀਰਤਨ | nagar kīrtan | street procession with hymns
+W ਫ਼ਸਲ | fasal | crop
+W ਖ਼ੁਸ਼ੀ | khushī | joy
+S ਕਣਕ ਪੱਕ ਗਈ ਹੈ | kaṇak pakk gaī hai | The wheat is ripe
+S ਅਸੀਂ ਵਿਸਾਖੀ ਦਾ ਮੇਲਾ ਵੇਖਣ ਜਾਵਾਂਗੇ | asīṃ visākhī dā melā vekhaṇ jāvāṅge | We will go to see the Vaisakhi fair
+S ਕਿਸਾਨ ਬਹੁਤ ਖ਼ੁਸ਼ ਹਨ | kisān bahut khush han | The farmers are very happy
+
+FESTIVAL diwali | Diwali and Bandi Chhor Divas | ਦੀਵਾਲੀ | ਦੀਵਾਲੀ ਦੀਆਂ ਲੱਖ ਲੱਖ ਵਧਾਈਆਂ! | dīvālī dīāṃ lakkh lakkh vadhāīāṃ! | 2026-11-08,2027-10-29,2028-10-17,2029-11-05,2030-10-26
+W ਦੀਵਾਲੀ | dīvālī | Diwali
+W ਬੰਦੀ ਛੋੜ ਦਿਵਸ | bandī chhoṛ divas | Bandi Chhor Divas
+W ਦੀਵਾ | dīvā | oil lamp
+W ਮੋਮਬੱਤੀ | mombattī | candle
+W ਰੌਸ਼ਨੀ | raushanī | light
+W ਪਟਾਖੇ | paṭākhe | firecrackers
+W ਸਫ਼ਾਈ | safāī | cleaning
+W ਰੰਗੋਲੀ | raṅgolī | rangoli pattern
+S ਅਸੀਂ ਘਰ ਵਿੱਚ ਦੀਵੇ ਜਗਾਉਂਦੇ ਹਾਂ | asīṃ ghar vich dīve jagāunde hāṃ | We light lamps at home
+S ਦਰਬਾਰ ਸਾਹਿਬ ਵਿੱਚ ਬਹੁਤ ਰੌਸ਼ਨੀ ਹੁੰਦੀ ਹੈ | darbār sāhib vich bahut raushanī hundī hai | The Golden Temple is full of light
+S ਦੀਵਾਲੀ ਤੋਂ ਪਹਿਲਾਂ ਘਰ ਦੀ ਸਫ਼ਾਈ ਕਰੋ | dīvālī toṃ pahilāṃ ghar dī safāī karo | Clean the house before Diwali
+
+# Story glossary: D word | meaning   (tap a word in a story to see it; the romanisation comes from the story line)
+GLOSSARY
+D ਸੀ | was
+D ਸਨ | were
+D ਹਨ | are
+D ਹੋ | be, become
+D ਨੇ | (marks who did it, in the past)
+D ਦਾ | of ('s)
+D ਦੀ | of ('s)
+D ਦੇ | of ('s)
+D ਦੀਆਂ | of ('s)
+D ਨੂੰ | to
+D ਵਿੱਚ | in
+D ਤੋਂ | from, than
+D ਨਾਲ | with
+D ਅਤੇ | and
+D ਵੀ | also, even
+D ਉਸ | him, her, that
+D ਉਨ੍ਹਾਂ | them, they
+D ਇਸ | this
+D ਲਈ | for
+D ਕਿਸੇ | some, someone
+D ਜੋ | who, which
+D ਜਿੱਥੇ | where
+D ਤਾਂ | so, then
+D ਨਾ | not
+D ਆਪ | himself, herself
+D ਕੇ | having (done)
+D ਹੀ | only, just
+D ਹਰ | every
+D ਪਾਰ | across
+D ਉੱਤੇ | on
+D ਹੇਠਾਂ | under
+D ਅੰਦਰ | inside
+D ਦੂਜੇ | other
+D ਪਾਸੇ | side
+D ਦੂਜਿਆਂ | others
+D ਇਕੱਠੇ | together
+D ਅਖ਼ੀਰ | at last
+D ਦਿਨ | day
+D ਪਿਆ | fell, happened
+D ਕਰ | do
+D ਕਰੋ | do (polite)
+D ਬਣ | become
+D ਲੈ | take
+D ਆ | come
+D ਲੱਗ | start to
+D ਲੱਗੇ | started to
+D ਗਾਉਂਦੇ | sing
+D ਗਾਈ | sung
+D ਗਾਈਆਂ | sung
+D ਜਾਂਦੀ | is (done)
+D ਜਾਂਦੀਆਂ | are (done)
+D ਰਹੀ | (doing) right now
+D ਰਹਿੰਦਾ | lived
+D ਰਹਿੰਦੀ | lived
+D ਦਿੱਤੀ | gave
+D ਦਿੱਤੇ | gave, (did) completely
+D ਹੋਈ | became, ended
+D ਚਿੜੀ | sparrow
+D ਚਿੜੀਏ | O sparrow!
+D ਕਾਂ | crow
+D ਮੋਮ | wax
+D ਬਣਾਇਆ | made, built
+D ਬਣਾਓ | make, build (polite)
+D ਘੁਲ | dissolve, melt away
+D ਬੋਲਿਆ | said (he)
+D ਬੋਲੀ | said (she)
+D ਖੋਲ੍ਹ | open
+D ਰੁਕ | wait, stop
+D ਬੱਚਿਆਂ | children
+D ਨਿੱਘਾ | warm
+D ਸਿੱਖਿਆ | lesson, moral
+D ਮਦਦ | help
+D ਪੁਰਾਣੀ | old
+D ਦੁੱਲਾ | Dulla (a name)
+D ਦੁੱਲੇ | Dulla (a name)
+D ਭੱਟੀ | Bhatti (a family name)
+D ਬਹਾਦਰ | brave
+D ਆਦਮੀ | man
+D ਅਮੀਰਾਂ | the rich
+D ਗ਼ਰੀਬਾਂ | the poor
+D ਗ਼ਰੀਬ | poor
+D ਲੈਂਦਾ | took
+D ਦਿੰਦਾ | gave
+D ਸੁੰਦਰੀ | Sundari (a name)
+D ਮੁੰਦਰੀ | Mundari (a name)
+D ਕੁੜੀਆਂ | girls
+D ਮੁਸੀਬਤ | trouble
+D ਬਚਾਇਆ | saved, rescued
+D ਕਰਵਾਏ | arranged
+D ਸ਼ੱਕਰ | shakkar, raw sugar
+D ਲੋਹੜੀ | Lohri
+D ਬੱਚੇ | children
+D ਸੁੰਦਰ | beautiful (from the Lohri song)
+D ਮੁੰਦਰੀਏ | O Mundari! (from the Lohri song)
+D ਤੇਰਾ | your
+D ਵਿਚਾਰਾ | poor thing
+D ਵਾਲਾ | the one who
+D ਧੂਣੀ | bonfire
+D ਬਾਲਦੇ | light (a fire)
+D ਰਿਓੜੀਆਂ | rewaris, sesame sweets
+D ਵੰਡਦੇ | share out
+D ਗੁਜਰਾਤ | Gujrat (a city in Punjab)
+D ਘੁਮਿਆਰ | potter
+D ਸੋਹਣੀ | Sohni; beautiful
+D ਸੋਹਣੇ | beautiful
+D ਭਾਂਡੇ | pots
+D ਬਣਾਉਂਦੀ | made (she)
+D ਇੱਜ਼ਤ | Izzat (a name)
+D ਬੇਗ | Beg (a name)
+D ਵਪਾਰੀ | merchant
+D ਖ਼ਰੀਦਣ | to buy
+D ਮੱਝਾਂ | buffaloes
+D ਚਾਰਨ | to graze, herd
+D ਮਹੀਂਵਾਲ | Mahiwal, buffalo herder
+D ਕਹਿਣ | to say, call
+D ਪੱਕੇ | baked, fired (clay)
+D ਘੜੇ | clay pot
+D ਘੜਾ | clay pot
+D ਝਨਾਂ | the Chenab river
+D ਕੱਚੇ | unbaked, raw
+D ਕੱਚਾ | unbaked, raw
+D ਬਦਲ | change, swap
+D ਖੁਰ | crumble, wash away
+D ਡੁੱਬ | drown, sink
+D ਬਚਾਉਣ | to save
+D ਕੁੱਦ | jump
+D ਸੱਚੇ | true
+D ਤਖ਼ਤ | Takht (part of a place name)
+D ਹਜ਼ਾਰੇ | Hazara (Takht Hazara, a village)
+D ਰਾਂਝਾ | Ranjha (a name)
+D ਰਾਂਝੇ | Ranjha (a name)
+D ਮੁੰਡਾ | boy
+D ਬੰਸਰੀ | flute
+D ਵਜਾਉਂਦਾ | played (an instrument)
+D ਭਰਾਵਾਂ | brothers
+D ਝਗੜੇ | quarrel
+D ਛੱਡ | leave
+D ਝੰਗ | Jhang (a town)
+D ਪਹੁੰਚਿਆ | reached
+D ਹੀਰ | Heer (a name)
+D ਚਾਚੇ | uncle (father's brother)
+D ਕੈਦੋ | Kaido (a name)
+D ਪਸੰਦ | liking
+D ਜ਼ਬਰਦਸਤੀ | by force
+D ਜੋਗੀ | jogi, wandering holy man
+D ਲੱਭਣ | to search for
+D ਨਿਕਲ | set out
+D ਵਾਰਿਸ | Waris (a name)
+D ਸ਼ਾਹ | Shah (a name)
+D ਕਵਿਤਾ | poem
+D ਲਿਖੀ | wrote
+D ਮਿਰਜ਼ਾ | Mirza (a name)
+D ਮਿਰਜ਼ੇ | Mirza (a name)
+D ਸਾਹਿਬਾਂ | Sahiban (a name)
+D ਬਚਪਨ | childhood
+D ਪੜ੍ਹਦੇ | studied
+D ਵੱਡੇ | big, grown up
+D ਤੀਰਅੰਦਾਜ਼ | archer
+D ਘੋੜੀ | mare
+D ਬੱਕੀ | Bakki (the mare's name)
+D ਵਾਲਿਆਂ | family, people of
+D ਰਸਤੇ | way, road
+D ਦਰਖ਼ਤ | tree
+D ਸੌਂ | sleep
+D ਤੀਰ | arrows
+D ਤੋੜ | break
+D ਮਾਰੇ | kill
+D ਦੁੱਖ | sorrow
+D ਖ਼ਤਮ | over, ended
+D ਵਾਰਾਂ | ballads

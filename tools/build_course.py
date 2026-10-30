@@ -49,6 +49,32 @@ def build(src):
         elif tag == "L":
             if len(parts) != 6: err(n, "alphabet lines need 6 parts: letter | name | sound | example | transliteration | meaning"); continue
             course["alphabet"][-1]["letters"].append(parts)
+        elif tag == "STORY":
+            sid, title, native, after, blurb = parts
+            skill = dialog = None
+            story = dict(id=sid, title=title, native=native, after=int(after), blurb=blurb, lines=[], quiz=[])
+            course.setdefault("stories", []).append(story)
+        elif tag == "P":
+            if len(parts) != 3: err(n, "story lines need 3 parts"); continue
+            if len(parts[0].split()) != len(parts[1].split()):
+                err(n, f"story line has {len(parts[0].split())} words but transliteration has {len(parts[1].split())}")
+            check_script(course, parts[0], n, err)
+            story["lines"].append(parts)
+        elif tag == "GLOSSARY":
+            skill = dialog = None
+            course.setdefault("glossary", {})
+        elif tag == "D":
+            if len(parts) != 2 or " " in parts[0]: err(n, "glossary lines need: one word | meaning"); continue
+            check_script(course, parts[0], n, err)
+            course["glossary"][parts[0]] = parts[1]
+        elif tag == "Q":
+            if len(parts) != 4: err(n, "questions need: question | right | wrong | wrong"); continue
+            story["quiz"].append(parts)
+        elif tag == "FESTIVAL":
+            fid, name, native, greet, greet_tr, dates = parts
+            skill = dict(id="fest_" + fid, name=name, native=native, glyph=native[:2], words=[], sentences=[])
+            course.setdefault("festivals", []).append(dict(id=fid, name=name, native=native, greeting=[greet, greet_tr],
+                dates=[d.strip() for d in dates.split(",")], skill=skill))
         elif tag == "DIALOG":
             dialog = dict(people=parts, lines=[]); unit["dialogues"].append(dialog)
         elif tag in ("A", "B"):
@@ -62,12 +88,19 @@ def build(src):
             if len(s["words"]) < 4: errors.append(f"skill {s['id']} has fewer than 4 words")
     ids = [s["id"] for u in course["units"] for s in u["skills"]]
     if len(ids) != len(set(ids)): errors.append("duplicate skill ids")
+    vocab = {w[0] for u in course["units"] for s in u["skills"] for w in s["words"]}
+    for st in course.get("stories", []):
+        for l in st["lines"]:
+            for w in l[0].split():
+                w = re.sub(r'[.,?!।:;"“”]', "", w)
+                if w and w not in vocab and w not in course.get("glossary", {}):
+                    print(f"note: story {st['id']} word {w} has no meaning yet", file=sys.stderr)
     return course, errors
 
 def check_script(course, text, n, err):
     if not course or not course["translit"] or course["id"] != "punjabi": return
     for ch in text:
-        if ch in " ,.?!।'-" or 0x0A00 <= ord(ch) <= 0x0A7F: continue
+        if ch in " ,.?!।'-:\"" or 0x0A00 <= ord(ch) <= 0x0A7F: continue
         err(n, f"unexpected character {ch!r} (U+{ord(ch):04X}) in {text!r}")
 
 if __name__ == "__main__":
