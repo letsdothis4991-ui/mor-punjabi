@@ -237,6 +237,19 @@ main.home{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 .wordpop .iconbtn{margin-left:auto;color:inherit}
 .squiz{margin-top:10px;padding-top:16px;border-top:2px dashed var(--gold)}
 
+/* sayings */
+.eyebrow{margin:0 0 8px;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
+.saying{display:grid;gap:2px}
+.saying .sayrow{display:flex;align-items:flex-start;gap:8px;justify-content:space-between}
+.saying .pa{font-size:1.25rem}
+.saying.today{background:linear-gradient(var(--paper),var(--paper)) padding-box,linear-gradient(135deg,var(--gold),var(--madder)) border-box;border:1.5px solid transparent}
+.saying.today .pa{font-size:1.5rem}
+.saying .mean{margin:8px 0 0;font-weight:700}
+.saying .lit{margin:2px 0 0;color:var(--muted);font-size:.88rem}
+.saying .src{margin:6px 0 0;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep)}
+.saytabs button{flex:1 1 auto;padding:6px 10px}
+.saytabs .pa{font-weight:600;opacity:.75}
+
 /* festivals */
 .festband{margin-top:18px;text-align:center;overflow:hidden;padding:0;border:0;background:var(--festbg);color:#FFF6E3;box-shadow:0 8px 22px rgba(0,0,0,.28)}
 .festband[data-f="lohri"]{--festbg:linear-gradient(180deg,#1B1033 0%,#3F1235 55%,#6E1A22 100%)}
@@ -399,6 +412,6 @@ main.home{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 </head>
 <body>
 <div id="app"><p class="loading">ਮੋਰ</p></div>
-<script src="app.js?v=7"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>

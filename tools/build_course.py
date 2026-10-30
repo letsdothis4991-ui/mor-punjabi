@@ -60,6 +60,17 @@ def build(src):
                 err(n, f"story line has {len(parts[0].split())} words but transliteration has {len(parts[1].split())}")
             check_script(course, parts[0], n, err)
             story["lines"].append(parts)
+        elif tag == "SAYINGS":
+            gid, name, native, blurb = parts
+            skill = dialog = None
+            group = dict(id=gid, name=name, native=native, blurb=blurb, items=[])
+            course.setdefault("sayings", []).append(group)
+        elif tag == "Y":
+            if len(parts) not in (4, 5): err(n, "sayings need: saying | transliteration | word for word | meaning | source"); continue
+            if len(parts[0].split()) != len(parts[1].split()):
+                err(n, f"saying has {len(parts[0].split())} words but transliteration has {len(parts[1].split())}")
+            check_script(course, parts[0], n, err)
+            group["items"].append(parts + [""] * (5 - len(parts)))
         elif tag == "GLOSSARY":
             skill = dialog = None
             course.setdefault("glossary", {})

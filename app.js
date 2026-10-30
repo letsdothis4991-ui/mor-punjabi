@@ -22,6 +22,7 @@ const ICON = {
   slow:'<svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17h15a3 3 0 0 0 3-3v-1h-2a7 7 0 0 0-14 0v1a3 3 0 0 0-2 3zm16-6a2 2 0 1 1 2-2"/></svg>',
   x:'<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
   board:'<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>',
+  quote:'<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M4 11h5v7H4zM4 11c0-3 1.5-5 4-6M14 11h5v7h-5zM14 11c0-3 1.5-5 4-6"/></svg>',
   book:'<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/></svg>',
   user:'<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/></svg>',
   globe:'<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>',
@@ -315,7 +316,7 @@ function topBar() {
 function tabsBar() {
   const t = (v, ic, label) => `<button class="tab" data-act="tab" data-v="${v}" aria-current="${view === v}">${ICON[ic]}${label}</button>`;
   const alpha = C.alphabet?.length ? `<button class="tab" data-act="tab" data-v="alphabet" aria-current="${view === "alphabet"}"><span class="tabglyph">${esc(C.alphabet[0].letters.slice(0, 3).map(l => l[0]).join(""))}</span>Alphabet</button>` : "";
-  return `<nav class="tabs"><div class="stitch"></div><div class="col">${t("home", "board", "Board")}${alpha}${C.stories?.length ? t("stories", "story", "Stories") : ""}${t("words", "book", "Words")}${t("profile", "user", "Profile")}</div></nav>`;
+  return `<nav class="tabs"><div class="stitch"></div><div class="col">${t("home", "board", "Board")}${alpha}${C.stories?.length ? t("stories", "story", "Stories") : ""}${C.sayings?.length ? t("sayings", "quote", "Sayings") : ""}${t("words", "book", "Words")}${t("profile", "user", "Profile")}</div></nav>`;
 }
 
 /* The board: one snakes-and-ladders board per section, stacked so you climb from the bottom of the page. */
@@ -815,6 +816,27 @@ function makeFestLesson(f) {
   return list;
 }
 
+/* ---------- sayings ---------- */
+let sayGroup = 0;
+function sayingCard(x, big) {
+  const [pa, tr, lit, mean, src] = x;
+  return `<div class="cloth saying ${big ? "today" : ""}">
+    <div class="sayrow"><div class="pa">${esc(pa)}</div>${canSpeak() ? `<button class="iconbtn" data-act="sayt" data-v="${esc(pa)}" aria-label="Play">${ICON.spk}</button>` : ""}</div>
+    <div class="tr">${esc(tr)}</div>
+    <p class="mean">${esc(mean[0].toUpperCase() + mean.slice(1))}</p>
+    <p class="lit">Word for word: “${esc(lit)}”</p>${src ? `<p class="src">${esc(src)}</p>` : ""}</div>`;
+}
+function sayingsView() {
+  const all = C.sayings.flatMap(g => g.items), today = all[Math.floor(Date.now() / 864e5) % all.length];
+  const g = C.sayings[sayGroup] || C.sayings[0];
+  return `<main class="home"><div class="col page">
+    <div><p class="eyebrow">Saying of the day</p>${sayingCard(today, true)}</div>
+    <div class="seg saytabs">${C.sayings.map((x, i) => `<button data-act="saygroup" data-v="${i}" aria-pressed="${x === g}">${esc(x.name)} <span class="pa">${esc(x.native)}</span></button>`).join("")}</div>
+    <p class="note" style="margin:-6px 0 0">${esc(g.blurb)}</p>
+    ${g.items.map(x => sayingCard(x)).join("")}
+  </div></main>`;
+}
+
 /* ---------- stories ---------- */
 const storyKey = st => C.id + ":" + st.id;
 const storyOpen = st => st.after <= 1 || passed(st.after - 1);
@@ -881,7 +903,7 @@ function render() {
   else if (view === "lesson") h = lessonView();
   else if (view === "result") h = resultView();
   else {
-    const body = view === "words" ? wordsView() : view === "stories" ? storiesView() : view === "alphabet" ? alphabetView() : view === "profile" ? profileView() : view === "courses" ? coursesView() : view === "editor" ? edView() : view === "guide" ? guideView() : homeView();
+    const body = view === "words" ? wordsView() : view === "stories" ? storiesView() : view === "sayings" ? sayingsView() : view === "alphabet" ? alphabetView() : view === "profile" ? profileView() : view === "courses" ? coursesView() : view === "editor" ? edView() : view === "guide" ? guideView() : homeView();
     h = topBar() + body + tabsBar();
   }
   if (toastMsg) h += `<div class="toast" role="status">${esc(toastMsg)}</div>`;
@@ -923,7 +945,7 @@ const acts = {
   },
   guide: b => nav(() => { guideUnit = +b.dataset.v; view = "guide"; sheet = null; }, () => scrollTo(0, 0)),
   vocab: b => { const s = SKILLS[+b.dataset.v]; view = "words"; sheet = null; render(); document.getElementById("sk-" + s.sid)?.scrollIntoView(); },
-  say: () => say(cur().item.pa), slow: () => say(cur().item.pa, true), sayt: b => say(b.dataset.v),
+  say: () => say(cur().item.pa), slow: () => say(cur().item.pa, true), sayt: b => say(b.dataset.v), saygroup: b => { sayGroup = +b.dataset.v; render(); },
   pick: b => { const ex = cur(); L.sel = +b.dataset.v; if (ex.type === "rev") say(ex.opts[L.sel].pa); render(); },
   tok: b => { const ex = cur(); L.justTok = +b.dataset.v; L.sel = (L.sel || []).concat(+b.dataset.v); if (ex.dir === "pa") say(ex.bank[+b.dataset.v].t); render(); },
   untok: b => { L.justTok = null; L.sel = L.sel.filter(i => i !== +b.dataset.v); render(); },

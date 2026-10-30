@@ -1184,3 +1184,59 @@ D ਮਾਰੇ | kill
 D ਦੁੱਖ | sorrow
 D ਖ਼ਤਮ | over, ended
 D ਵਾਰਾਂ | ballads
+
+# Sayings: SAYINGS id | English name | Punjabi name | one-line description
+#   Y saying | transliteration | word for word | what it means | who said it (optional)
+SAYINGS muhavare | Idioms | ਮੁਹਾਵਰੇ | Muhavare: phrases that mean more than their words
+Y ਅੱਖਾਂ ਵਿੱਚ ਘੱਟਾ ਪਾਉਣਾ | akkhāṃ vich ghaṭṭā pāuṇā | to throw dust in the eyes | to deceive someone
+Y ਨੱਕ ਵਿੱਚ ਦਮ ਕਰਨਾ | nakk vich dam karnā | to put breath in the nose | to pester someone until they can't take any more
+Y ਪਾਣੀ ਪਾਣੀ ਹੋਣਾ | pāṇī pāṇī hoṇā | to become water, water | to be deeply ashamed
+Y ਈਦ ਦਾ ਚੰਨ ਹੋਣਾ | īd dā chann hoṇā | to be the Eid moon | to be seen very rarely
+Y ਅੱਖਾਂ ਦਾ ਤਾਰਾ | akkhāṃ dā tārā | the star of the eyes | someone dearly loved
+Y ਸਿਰ ਤੇ ਚੜ੍ਹਾਉਣਾ | sir te chaṛhāuṇā | to lift onto the head | to spoil someone by giving them too much attention
+Y ਹੱਥ ਪੈਰ ਮਾਰਨਾ | hatth pair mārnā | to strike out with hands and feet | to try everything you can
+Y ਮੂੰਹ ਵਿੱਚ ਪਾਣੀ ਆਉਣਾ | mūṃh vich pāṇī āuṇā | water comes into the mouth | to make your mouth water
+Y ਕੰਨ ਖੜ੍ਹੇ ਹੋਣੇ | kann khaṛhe hoṇe | ears stand up | to suddenly pay attention
+Y ਦੰਦ ਖੱਟੇ ਕਰਨਾ | dand khaṭṭe karnā | to make someone's teeth sour | to beat someone soundly
+Y ਹਵਾ ਨਾਲ ਗੱਲਾਂ ਕਰਨਾ | havā nāl gallāṃ karnā | to talk with the wind | to go very fast
+Y ਉਂਗਲਾਂ ਤੇ ਨਚਾਉਣਾ | uṅglāṃ te nachāuṇā | to make someone dance on your fingers | to control someone completely
+Y ਅੱਗ ਬਬੂਲਾ ਹੋਣਾ | agg babūlā hoṇā | to become fire and froth | to be furious
+Y ਘਿਓ ਦੇ ਦੀਵੇ ਬਾਲਣੇ | ghio de dīve bālṇe | to light lamps of ghee | to celebrate something joyfully
+
+SAYINGS akhaan | Proverbs | ਅਖਾਣ | Akhaan: old wisdom in a few words
+Y ਜਿਹੋ ਜਿਹਾ ਬੀਜੋਗੇ, ਉਹੋ ਜਿਹਾ ਵੱਢੋਗੇ। | jiho jihā bījoge, uho jihā vaḍḍhoge. | as you sow, so you will reap | your actions come back to you
+Y ਜਿੰਨੀ ਚਾਦਰ ਵੇਖੀਏ, ਓਨੇ ਪੈਰ ਪਸਾਰੀਏ। | jinnī chādar vekhīe, one pair pasārīe. | look at your sheet, then stretch your feet that far | live within your means
+Y ਆਪਣੀ ਗਲੀ ਵਿੱਚ ਕੁੱਤਾ ਵੀ ਸ਼ੇਰ ਹੁੰਦਾ ਹੈ। | āpṇī galī vich kuttā vī sher hundā hai. | even a dog is a lion in its own street | everyone is brave on home ground
+Y ਨੱਚਣ ਨਾ ਜਾਣੇ, ਵਿਹੜਾ ਟੇਢਾ। | nacchaṇ nā jāṇe, vihṛā ṭeḍhā. | can't dance, so the courtyard is crooked | blaming everything but yourself
+Y ਇੱਕ ਅਨਾਰ, ਸੌ ਬਿਮਾਰ। | ikk anār, sau bimār. | one pomegranate, a hundred sick people | one thing that far too many people want
+Y ਦੂਰ ਦੇ ਢੋਲ ਸੁਹਾਵਣੇ। | dūr de ḍhol suhāvaṇe. | drums sound sweet from far away | things look better from a distance
+Y ਕਰ ਭਲਾ, ਹੋ ਭਲਾ। | kar bhalā, ho bhalā. | do good, be well | do good and good comes back to you
+Y ਜਿਸ ਦੀ ਲਾਠੀ, ਉਸ ਦੀ ਮੱਝ। | jis dī lāṭhī, us dī majjh. | whoever holds the stick owns the buffalo | might makes right
+Y ਸਹਿਜ ਪੱਕੇ ਸੋ ਮੀਠਾ ਹੋਏ। | sahij pakke so mīṭhā hoe. | what ripens slowly turns sweet | good things take time
+Y ਘਰ ਦਾ ਭੇਤੀ ਲੰਕਾ ਢਾਹੇ। | ghar dā bhetī laṅkā ḍhāhe. | the one who knows the house's secrets brings down Lanka | an insider can do the most harm
+Y ਬੂਹੇ ਆਈ ਜੰਞ, ਤੇ ਵਿੰਨ੍ਹੋ ਕੁੜੀ ਦੇ ਕੰਨ। | būhe āī jañ, te vinnho kuṛī de kann. | the wedding party is at the door, and now they pierce the bride's ears | leaving everything to the last minute
+Y ਅੱਧੀ ਛੱਡ ਸਾਰੀ ਨੂੰ ਧਾਵੇ, ਸਾਰੀ ਰਹੇ ਨਾ ਅੱਧੀ ਪਾਵੇ। | addhī chhaḍḍ sārī nūṃ dhāve, sārī rahe nā addhī pāve. | drop the half to chase the whole, and you get neither | don't lose what you have chasing more
+
+SAYINGS quotes | Quotes | ਕਥਨ | Lines from Punjabi gurus, poets and writers
+Y ਮਨਿ ਜੀਤੈ ਜਗੁ ਜੀਤੁ | man jītai jag jīt | conquer the mind, conquer the world | master yourself and you can face anything | Guru Nanak, Japji Sahib
+Y ਮਿਠਤੁ ਨੀਵੀ ਨਾਨਕਾ ਗੁਣ ਚੰਗਿਆਈਆ ਤਤੁ | miṭhat nīvī nānakā guṇ chaṅgiāīā tat | sweetness and humility, Nanak, are the essence of virtue and goodness | kindness and humility are the heart of every good quality | Guru Nanak, Guru Granth Sahib
+Y ਨਾਨਕ ਨਾਮ ਚੜ੍ਹਦੀ ਕਲਾ, ਤੇਰੇ ਭਾਣੇ ਸਰਬੱਤ ਦਾ ਭਲਾ। | nānak nām chaṛhdī kalā, tere bhāṇe sarbatt dā bhalā. | Nanak, through the Name, rising spirits; by your will, the good of all | may our spirits stay high and may everyone prosper | The closing line of the Ardas
+Y ਬੁੱਲ੍ਹਿਆ ਕੀ ਜਾਣਾਂ ਮੈਂ ਕੌਣ | bullhiā kī jāṇāṃ maiṃ kauṇ | Bulleya, what do I know of who I am? | a Sufi question about identity beyond religion, caste and name | Bulleh Shah
+Y ਵਾਰਿਸ ਸ਼ਾਹ ਨਾ ਆਦਤਾਂ ਜਾਂਦੀਆਂ ਨੇ, ਭਾਵੇਂ ਕੱਟੀਏ ਪੋਰੀਆਂ ਪੋਰੀਆਂ ਜੀ। | vāris shāh nā ādatāṃ jāndīāṃ ne, bhāveṃ kaṭṭīe porīāṃ porīāṃ jī. | Waris Shah, habits don't leave, even if you are cut piece by piece | old habits die hard | Waris Shah, Heer
+Y ਅੱਜ ਆਖਾਂ ਵਾਰਿਸ ਸ਼ਾਹ ਨੂੰ, ਕਿਤੋਂ ਕਬਰਾਂ ਵਿੱਚੋਂ ਬੋਲ। | ajj ākhāṃ vāris shāh nūṃ, kitoṃ kabrāṃ vichoṃ bol. | today I call on Waris Shah: speak from somewhere in your grave | a lament for Punjab's suffering at Partition | Amrita Pritam, 1947
+Y ਪੰਜਾਬ ਜਿਊਂਦਾ ਗੁਰਾਂ ਦੇ ਨਾਮ ਤੇ। | panjāb jiūndā gurāṃ de nām te. | Punjab lives on the name of the Gurus | the spirit of Punjab comes from the Gurus' teachings | Puran Singh
+
+SAYINGS phrases | Everyday phrases | ਬੋਲ ਚਾਲ | Expressions you'll hear all the time
+Y ਚੜ੍ਹਦੀ ਕਲਾ | chaṛhdī kalā | rising spirit | staying positive whatever happens
+Y ਜੀ ਆਇਆਂ ਨੂੰ | jī āiāṃ nūṃ | to those who have come | welcome!
+Y ਰੱਬ ਰਾਖਾ | rabb rākhā | God is the protector | goodbye, take care
+Y ਕੋਈ ਗੱਲ ਨਹੀਂ | koī gall nahīṃ | not any matter | no problem, it's fine
+Y ਬੱਲੇ ਬੱਲੇ | balle balle | hooray, hooray | a cheer of joy and celebration
+Y ਸ਼ਾਵਾ | shāvā | well done | bravo! (often shouted during bhangra)
+Y ਹੌਲੀ ਹੌਲੀ | haulī haulī | slowly, slowly | take it easy, little by little
+Y ਫ਼ਿਕਰ ਨਾ ਕਰ | fikar nā kar | worry not do | don't worry
+Y ਜੁਗ ਜੁਗ ਜੀਓ | jug jug jīo | live for ages and ages | a blessing elders give younger people
+Y ਦੁੱਧੀਂ ਨ੍ਹਾਓ, ਪੁੱਤੀਂ ਫਲੋ | duddhīṃ nhāo, puttīṃ phalo | bathe in milk, flourish with children | a traditional blessing for a full, prosperous life
+Y ਪੈਰੀਂ ਪੈਂਦਾ ਹਾਂ | pairīṃ paindā hāṃ | I fall at your feet | a respectful greeting to elders (a woman says ਪੈਰੀਂ ਪੈਂਦੀ ਹਾਂ)
+Y ਐਵੇਂ ਹੀ | aiveṃ hī | just like that | for no reason, just because
+Y ਚੱਲ ਛੱਡ | chall chhaḍḍ | come on, leave it | forget about it
