@@ -1,0 +1,807 @@
+# Mor Punjabi course source.
+# Build with: python3 tools/build_course.py courses/punjabi.txt courses/punjabi.json
+#
+# Format
+#   COURSE id | name | native | badge | speech code | translit yes/no
+#   GREETING text | transliteration
+#   SECTION title | description
+#   UNIT title | description
+#   TIP one guidebook note (repeatable)
+#   SKILL id | name | native name | icon text | letters (optional: alphabet skill)
+#   W word | transliteration | English            (one per line)
+#   S sentence | transliteration | English         (words separated by single spaces;
+#                                                  transliteration has the same number of words)
+#   DIALOG speaker A name | speaker B name
+#   A line | transliteration | English            (A and B alternate)
+#   B line | transliteration | English
+
+COURSE punjabi | Punjabi | ਪੰਜਾਬੀ | ਪ | pa-IN | yes
+GREETING ਸਤ ਸ੍ਰੀ ਅਕਾਲ! | sat srī akāl!
+
+########################################################################
+SECTION Foundations | Read Gurmukhi and say your first words
+
+UNIT Gurmukhi letters | The consonants of the Gurmukhi script
+TIP Gurmukhi is written left to right, and most letters hang from a line along the top.
+TIP Every consonant carries a built-in "a" sound, so ਕ on its own is "ka".
+TIP Each letter's name doubles its sound: ਕ is called kakkā and ਸ is sassā.
+SKILL l1 | Letters 1 | ਅੱਖਰ | ਕ | letters
+W ਸ | sassā | sa
+W ਹ | hāhā | ha
+W ਕ | kakkā | ka
+W ਖ | khakkhā | kha
+W ਗ | gaggā | ga
+W ਮ | mammā | ma
+W ਪ | pappā | pa
+W ਰ | rārā | ra
+SKILL l2 | Letters 2 | ਅੱਖਰ | ਤ | letters
+W ਤ | tattā | ta
+W ਨ | nannā | na
+W ਲ | lallā | la
+W ਵ | vavvā | va
+W ਜ | jajjā | ja
+W ਬ | babbā | ba
+W ਦ | daddā | da
+W ਚ | chachchā | cha
+SKILL l3 | Letters 3 | ਅੱਖਰ | ਟ | letters
+W ਟ | ṭainkā | ṭa (tongue curled back)
+W ਡ | ḍaḍḍā | ḍa (tongue curled back)
+W ਣ | ṇāṇā | ṇa (tongue curled back)
+W ਥ | thatthā | tha
+W ਧ | dhaddhā | dha (falling tone)
+W ਫ | phapphā | pha
+W ਯ | yayyā | ya
+W ੜ | ṛāṛā | ṛa (flapped)
+
+UNIT Vowels and marks | Vowel signs, vowel letters and special marks
+TIP Vowel signs (lagāṃ mātrāṃ) attach to a consonant: ਕ + ਾ = ਕਾ (kā).
+TIP ਿ (sihārī) is written before the letter but said after it: ਕਿ is "ki".
+TIP At the start of a word a vowel sits on a carrier letter, ੳ, ਅ or ੲ: ਅ + ਾ = ਆ (ā).
+TIP ੱ (addak) doubles the next consonant, and ਂ (bindī) or ੰ (ṭippī) add a nasal sound.
+SKILL l4 | Vowel signs | ਲਗਾਂ ਮਾਤਰਾਂ | ਕਾ | letters
+W ਕਾ | kannā | kā
+W ਕਿ | sihārī | ki
+W ਕੀ | bihārī | kī
+W ਕੁ | auṅkaṛ | ku
+W ਕੂ | dulaiṅkaṛ | kū
+W ਕੇ | lāṃ | ke
+W ਕੈ | dulāvāṃ | kai
+W ਕੋ | hoṛā | ko
+SKILL l5 | Vowel letters | ਸਵਰ | ਅ | letters
+W ਅ | aiṛā | a
+W ਆ | aiṛā kannā | ā
+W ਇ | iṛī sihārī | i
+W ਈ | iṛī bihārī | ī
+W ਉ | ūṛā auṅkaṛ | u
+W ਊ | ūṛā dulaiṅkaṛ | ū
+W ਏ | iṛī lāṃ | e
+W ਓ | ūṛā hoṛā | o
+SKILL l6 | Special marks | ਚਿੰਨ੍ਹ | ੱ | letters
+W ਸੱਤ | addak | satt (double t)
+W ਮਾਂ | bindī | māṃ (nasal ā)
+W ਪੰਜ | ṭippī | panj (nasal n)
+W ਜ਼ | pair bindī | za
+W ਫ਼ | pair bindī | fa
+W ਸ਼ | pair bindī | sha
+W ਖ਼ | pair bindī | kha (throaty, as in Bach)
+W ਗ਼ | pair bindī | gha (throaty, like a French r)
+
+UNIT Hello | Greetings, politeness and introducing yourself
+TIP ਸਤ ਸ੍ਰੀ ਅਕਾਲ (sat srī akāl) works for both hello and goodbye.
+TIP Use ਤੁਸੀਂ (tusīṃ) for anyone older or anyone you want to respect. Keep ਤੂੰ (tūṃ) for close friends and children.
+TIP Add ਜੀ (jī) to be polite: ਹਾਂ ਜੀ (yes), ਨਹੀਂ ਜੀ (no), ਸਿਮਰਨ ਜੀ.
+TIP "To be": ਮੈਂ ਹਾਂ (I am), ਤੁਸੀਂ ਹੋ (you are), ਉਹ ਹੈ (he or she is), ਅਸੀਂ ਹਾਂ (we are), ਉਹ ਹਨ (they are).
+SKILL greet | Greetings | ਦੁਆ ਸਲਾਮ | ਜੀ
+W ਸਤ ਸ੍ਰੀ ਅਕਾਲ | sat srī akāl | hello
+W ਧੰਨਵਾਦ | dhannvād | thank you
+W ਹਾਂ | hāṃ | yes
+W ਨਹੀਂ | nahīṃ | no
+W ਜੀ | jī | yes (polite)
+W ਕਿਰਪਾ ਕਰਕੇ | kirpā karke | please
+W ਫਿਰ ਮਿਲਾਂਗੇ | phir milāṅge | see you later
+W ਜੀ ਆਇਆਂ ਨੂੰ | jī āiāṃ nūṃ | welcome
+S ਤੁਸੀਂ ਕਿਵੇਂ ਹੋ | tusīṃ kiveṃ ho | How are you?
+S ਮੈਂ ਠੀਕ ਹਾਂ | maiṃ ṭhīk hāṃ | I am fine
+S ਤੁਹਾਡਾ ਬਹੁਤ ਧੰਨਵਾਦ | tuhāḍā bahut dhannvād | Thank you very much
+S ਜੀ ਆਇਆਂ ਨੂੰ | jī āiāṃ nūṃ | You are welcome here
+SKILL intro | Introductions | ਜਾਣ ਪਛਾਣ | ਮੈਂ
+W ਮੈਂ | maiṃ | I
+W ਤੁਸੀਂ | tusīṃ | you (polite)
+W ਤੂੰ | tūṃ | you (close friend)
+W ਉਹ | uh | he, she or they
+W ਅਸੀਂ | asīṃ | we
+W ਇਹ | ih | this
+W ਨਾਮ | nām | name
+W ਹੈ | hai | is
+S ਤੁਹਾਡਾ ਨਾਮ ਕੀ ਹੈ | tuhāḍā nām kī hai | What is your name?
+S ਮੇਰਾ ਨਾਮ ਸਿਮਰਨ ਹੈ | merā nām simran hai | My name is Simran
+S ਮੈਂ ਲੰਡਨ ਤੋਂ ਹਾਂ | maiṃ laṇḍan toṃ hāṃ | I am from London
+S ਤੁਹਾਨੂੰ ਮਿਲ ਕੇ ਖ਼ੁਸ਼ੀ ਹੋਈ | tuhānūṃ mil ke khushī hoī | Nice to meet you
+DIALOG Simran | Arjun
+A ਸਤ ਸ੍ਰੀ ਅਕਾਲ ਜੀ | sat srī akāl jī | Hello
+B ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਤੁਸੀਂ ਕਿਵੇਂ ਹੋ? | sat srī akāl, tusīṃ kiveṃ ho? | Hello, how are you?
+A ਮੈਂ ਠੀਕ ਹਾਂ। ਤੁਹਾਡਾ ਨਾਮ ਕੀ ਹੈ? | maiṃ ṭhīk hāṃ. tuhāḍā nām kī hai? | I'm fine. What is your name?
+B ਮੇਰਾ ਨਾਮ ਅਰਜੁਨ ਹੈ। | merā nām arjun hai. | My name is Arjun.
+A ਤੁਹਾਨੂੰ ਮਿਲ ਕੇ ਖ਼ੁਸ਼ੀ ਹੋਈ। | tuhānūṃ mil ke khushī hoī. | Nice to meet you.
+B ਮੈਨੂੰ ਵੀ। ਫਿਰ ਮਿਲਾਂਗੇ! | mainūṃ vī. phir milāṅge! | Me too. See you later!
+
+UNIT Family and numbers | Talk about your family and count to a hundred
+TIP "My" changes with the noun: ਮੇਰਾ ਭਰਾ (my brother), ਮੇਰੀ ਭੈਣ (my sister), ਮੇਰੇ ਭਰਾ (my brothers).
+TIP Punjabi has no verb "to have" for family. Say ਮੇਰੇ ਦੋ ਭਰਾ ਹਨ, literally "my two brothers are".
+TIP Gurmukhi has its own digits, ੧ ੨ ੩ ੪ ੫ ੬ ੭ ੮ ੯ ੦, and you will see them next to 1 2 3.
+SKILL family | Family | ਪਰਿਵਾਰ | ਮਾਂ
+W ਮਾਂ | māṃ | mother
+W ਪਿਤਾ | pitā | father
+W ਭਰਾ | bharā | brother
+W ਭੈਣ | bhaiṇ | sister
+W ਪੁੱਤਰ | puttar | son
+W ਧੀ | dhī | daughter
+W ਦਾਦੀ | dādī | grandmother (father's side)
+W ਦਾਦਾ | dādā | grandfather (father's side)
+S ਇਹ ਮੇਰੀ ਮਾਂ ਹੈ | ih merī māṃ hai | This is my mother
+S ਮੇਰਾ ਭਰਾ ਲੰਮਾ ਹੈ | merā bharā lammā hai | My brother is tall
+S ਮੇਰੀ ਭੈਣ ਘਰ ਹੈ | merī bhaiṇ ghar hai | My sister is at home
+S ਉਹ ਮੇਰੇ ਦਾਦਾ ਜੀ ਹਨ | uh mere dādā jī han | He is my grandfather
+SKILL num1 | Numbers 1 to 10 | ਗਿਣਤੀ | ੧
+W ਇੱਕ | ikk | one
+W ਦੋ | do | two
+W ਤਿੰਨ | tinn | three
+W ਚਾਰ | chār | four
+W ਪੰਜ | panj | five
+W ਛੇ | chhe | six
+W ਸੱਤ | satt | seven
+W ਅੱਠ | aṭṭh | eight
+W ਨੌਂ | nauṃ | nine
+W ਦਸ | das | ten
+S ਮੇਰੇ ਦੋ ਭਰਾ ਹਨ | mere do bharā han | I have two brothers
+S ਮੇਰੀਆਂ ਤਿੰਨ ਭੈਣਾਂ ਹਨ | merīāṃ tinn bhaiṇāṃ han | I have three sisters
+S ਪੰਜ ਰੋਟੀਆਂ ਦਿਓ | panj roṭīāṃ dio | Give me five rotis
+SKILL num2 | Bigger numbers | ਵੱਡੀ ਗਿਣਤੀ | ੨੦
+W ਗਿਆਰਾਂ | giārāṃ | eleven
+W ਬਾਰਾਂ | bārāṃ | twelve
+W ਪੰਦਰਾਂ | pandrāṃ | fifteen
+W ਵੀਹ | vīh | twenty
+W ਤੀਹ | tīh | thirty
+W ਪੰਜਾਹ | panjāh | fifty
+W ਸੌ | sau | one hundred
+W ਹਜ਼ਾਰ | hazār | thousand
+S ਮੇਰੀ ਉਮਰ ਵੀਹ ਸਾਲ ਹੈ | merī umar vīh sāl hai | I am twenty years old
+S ਇਹ ਸੌ ਰੁਪਏ ਦਾ ਹੈ | ih sau rupae dā hai | This costs a hundred rupees
+S ਸਾਡੇ ਪਿੰਡ ਵਿੱਚ ਹਜ਼ਾਰ ਲੋਕ ਹਨ | sāḍe piṇḍ vich hazār lok han | A thousand people live in our village
+DIALOG Gurpreet | Aman
+A ਤੁਹਾਡੇ ਕਿੰਨੇ ਭੈਣ ਭਰਾ ਹਨ? | tuhāḍe kinne bhaiṇ bharā han? | How many brothers and sisters do you have?
+B ਮੇਰਾ ਇੱਕ ਭਰਾ ਅਤੇ ਦੋ ਭੈਣਾਂ ਹਨ। | merā ikk bharā ate do bhaiṇāṃ han. | I have one brother and two sisters.
+A ਤੁਹਾਡਾ ਭਰਾ ਕੀ ਕਰਦਾ ਹੈ? | tuhāḍā bharā kī kardā hai? | What does your brother do?
+B ਉਹ ਪੜ੍ਹਦਾ ਹੈ। ਉਸ ਦੀ ਉਮਰ ਪੰਦਰਾਂ ਸਾਲ ਹੈ। | uh paṛhdā hai. us dī umar pandrāṃ sāl hai. | He studies. He is fifteen years old.
+
+UNIT Food and colours | Eat, drink and describe things
+TIP To say you need something: ਮੈਨੂੰ ___ ਚਾਹੀਦਾ ਹੈ (I need ___).
+TIP Likes work the same way: ਮੈਨੂੰ ਚਾਹ ਪਸੰਦ ਹੈ, literally "to me, tea is liked".
+TIP Adjectives ending in -ā change with the noun: ਨੀਲਾ ਅਸਮਾਨ (blue sky), ਨੀਲੀ ਚੁੰਨੀ (blue scarf), ਨੀਲੇ ਕੱਪੜੇ (blue clothes). Words like ਲਾਲ never change.
+SKILL food | Food | ਖਾਣਾ | ਚਾਹ
+W ਪਾਣੀ | pāṇī | water
+W ਰੋਟੀ | roṭī | flatbread (roti)
+W ਦੁੱਧ | duddh | milk
+W ਚਾਹ | chāh | tea
+W ਦਾਲ | dāl | lentils
+W ਚੌਲ | chaul | rice
+W ਸਬਜ਼ੀ | sabzī | vegetables
+W ਲੱਸੀ | lassī | yogurt drink (lassi)
+S ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਹੈ | mainūṃ bhukkh laggī hai | I am hungry
+S ਮੈਨੂੰ ਪਾਣੀ ਚਾਹੀਦਾ ਹੈ | mainūṃ pāṇī chāhīdā hai | I need water
+S ਚਾਹ ਬਹੁਤ ਗਰਮ ਹੈ | chāh bahut garam hai | The tea is very hot
+S ਮੈਂ ਰੋਟੀ ਖਾਂਦਾ ਹਾਂ | maiṃ roṭī khāndā hāṃ | I eat roti
+SKILL kitchen | In the kitchen | ਰਸੋਈ | ਲੂਣ
+W ਲੂਣ | lūṇ | salt
+W ਖੰਡ | khaṇḍ | sugar
+W ਮਿਰਚ | mirch | chilli
+W ਘਿਓ | ghio | ghee
+W ਆਟਾ | āṭā | flour
+W ਆਂਡਾ | āṇḍā | egg
+W ਮੱਖਣ | makkhaṇ | butter
+W ਦਹੀਂ | dahīṃ | yogurt
+S ਦਾਲ ਵਿੱਚ ਲੂਣ ਪਾਓ | dāl vich lūṇ pāo | Put salt in the dal
+S ਮੈਨੂੰ ਮਿਰਚ ਪਸੰਦ ਨਹੀਂ | mainūṃ mirch pasand nahīṃ | I don't like chilli
+S ਚਾਹ ਵਿੱਚ ਖੰਡ ਨਾ ਪਾਓ | chāh vich khaṇḍ nā pāo | Don't put sugar in the tea
+SKILL colors | Colours | ਰੰਗ | ਰੰਗ
+W ਲਾਲ | lāl | red
+W ਨੀਲਾ | nīlā | blue
+W ਹਰਾ | harā | green
+W ਪੀਲਾ | pīlā | yellow
+W ਚਿੱਟਾ | chiṭṭā | white
+W ਕਾਲਾ | kālā | black
+W ਸੰਤਰੀ | santarī | orange
+W ਗੁਲਾਬੀ | gulābī | pink
+S ਅਸਮਾਨ ਨੀਲਾ ਹੈ | asmān nīlā hai | The sky is blue
+S ਘਾਹ ਹਰਾ ਹੈ | ghāh harā hai | The grass is green
+S ਮੇਰੀ ਚੁੰਨੀ ਲਾਲ ਹੈ | merī chunnī lāl hai | My scarf is red
+DIALOG Mother | Harjot
+A ਪੁੱਤਰ, ਭੁੱਖ ਲੱਗੀ ਹੈ? | puttar, bhukkh laggī hai? | Son, are you hungry?
+B ਹਾਂ ਜੀ, ਬਹੁਤ ਭੁੱਖ ਲੱਗੀ ਹੈ। | hāṃ jī, bahut bhukkh laggī hai. | Yes, I'm very hungry.
+A ਦਾਲ ਤੇ ਰੋਟੀ ਖਾਵੇਂਗਾ? | dāl te roṭī khāveṅgā? | Will you have dal and roti?
+B ਹਾਂ ਜੀ, ਅਤੇ ਇੱਕ ਗਲਾਸ ਲੱਸੀ ਵੀ। | hāṃ jī, ate ikk galās lassī vī. | Yes, and a glass of lassi too.
+
+UNIT At home | Rooms, furniture and daily actions
+TIP The verb comes at the end: ਮੈਂ ਚਾਹ ਪੀਂਦਾ ਹਾਂ is literally "I tea drinking am".
+TIP The dictionary form of a verb ends in -ṇā or -nā: ਖਾਣਾ (to eat), ਪੜ੍ਹਨਾ (to read).
+TIP For habits use stem + ਦਾ / ਦੀ / ਦੇ, matching the speaker: a man says ਮੈਂ ਖਾਂਦਾ ਹਾਂ, a woman says ਮੈਂ ਖਾਂਦੀ ਹਾਂ, and a group says ਅਸੀਂ ਖਾਂਦੇ ਹਾਂ.
+SKILL home | Home | ਘਰ | ਘਰ
+W ਘਰ | ghar | house
+W ਦਰਵਾਜ਼ਾ | darvāzā | door
+W ਮੇਜ਼ | mez | table
+W ਕੁਰਸੀ | kursī | chair
+W ਮੰਜਾ | manjā | bed (charpai)
+W ਕਮਰਾ | kamrā | room
+W ਰਸੋਈ | rasoī | kitchen
+W ਖਿੜਕੀ | khiṛkī | window
+S ਰਸੋਈ ਵੱਡੀ ਹੈ | rasoī vaḍḍī hai | The kitchen is big
+S ਕੁਰਸੀ ਮੇਜ਼ ਕੋਲ ਹੈ | kursī mez kol hai | The chair is near the table
+S ਦਰਵਾਜ਼ਾ ਖੋਲ੍ਹੋ | darvāzā kholho | Open the door
+SKILL verbs | Everyday actions | ਰੋਜ਼ਾਨਾ | ਜਾ
+W ਖਾਣਾ | khāṇā | to eat
+W ਪੀਣਾ | pīṇā | to drink
+W ਜਾਣਾ | jāṇā | to go
+W ਆਉਣਾ | āuṇā | to come
+W ਸੌਣਾ | sauṇā | to sleep
+W ਪੜ੍ਹਨਾ | paṛhnā | to read or study
+W ਬੋਲਣਾ | bolṇā | to speak
+W ਵੇਖਣਾ | vekhṇā | to see
+S ਮੈਂ ਘਰ ਜਾ ਰਿਹਾ ਹਾਂ | maiṃ ghar jā rihā hāṃ | I am going home
+S ਉਹ ਪੰਜਾਬੀ ਬੋਲਦੀ ਹੈ | uh panjābī boldī hai | She speaks Punjabi
+S ਅਸੀਂ ਚਾਹ ਪੀਂਦੇ ਹਾਂ | asīṃ chāh pīnde hāṃ | We drink tea
+S ਮੈਨੂੰ ਪੰਜਾਬੀ ਪਸੰਦ ਹੈ | mainūṃ panjābī pasand hai | I like Punjabi
+DIALOG Navneet | Ravi
+A ਤੁਸੀਂ ਕਿੱਥੇ ਜਾ ਰਹੇ ਹੋ? | tusīṃ kitthe jā rahe ho? | Where are you going?
+B ਮੈਂ ਘਰ ਜਾ ਰਿਹਾ ਹਾਂ। | maiṃ ghar jā rihā hāṃ. | I'm going home.
+A ਘਰ ਜਾ ਕੇ ਕੀ ਕਰੋਗੇ? | ghar jā ke kī karoge? | What will you do at home?
+B ਪਹਿਲਾਂ ਚਾਹ ਪੀਵਾਂਗਾ, ਫਿਰ ਸੌਂ ਜਾਵਾਂਗਾ। | pahilāṃ chāh pīvāṅgā, phir sauṃ jāvāṅgā. | First I'll drink tea, then I'll go to sleep.
+
+########################################################################
+SECTION Everyday life | Get around, stay healthy and go shopping
+
+UNIT Questions and places | Ask about people and places in town
+TIP Question words usually sit just before the verb: ਤੁਸੀਂ ਕਿੱਥੇ ਰਹਿੰਦੇ ਹੋ? (Where do you live?)
+TIP For a yes or no question, raise your voice at the end, or start with ਕੀ: ਕੀ ਤੁਸੀਂ ਪੰਜਾਬੀ ਬੋਲਦੇ ਹੋ?
+TIP Words like "in" and "on" come after the noun: ਘਰ ਵਿੱਚ (in the house), ਮੇਜ਼ ਉੱਤੇ (on the table).
+SKILL questions | Questions | ਸਵਾਲ | ਕੀ
+W ਕੀ | kī | what
+W ਕੌਣ | kauṇ | who
+W ਕਿੱਥੇ | kitthe | where
+W ਕਦੋਂ | kadoṃ | when
+W ਕਿਉਂ | kiuṃ | why
+W ਕਿਵੇਂ | kiveṃ | how
+W ਕਿੰਨਾ | kinnā | how much
+W ਕਿਹੜਾ | kihṛā | which
+S ਤੁਸੀਂ ਕਿੱਥੇ ਰਹਿੰਦੇ ਹੋ | tusīṃ kitthe rahinde ho | Where do you live?
+S ਇਹ ਕੀ ਹੈ | ih kī hai | What is this?
+S ਉਹ ਕੌਣ ਹੈ | uh kauṇ hai | Who is that?
+S ਤੁਸੀਂ ਕਦੋਂ ਆਓਗੇ | tusīṃ kadoṃ āoge | When will you come?
+SKILL places | Places | ਥਾਂਵਾਂ | ਥਾਂ
+W ਬਾਜ਼ਾਰ | bāzār | market
+W ਸਕੂਲ | sakūl | school
+W ਹਸਪਤਾਲ | haspatāl | hospital
+W ਗੁਰਦੁਆਰਾ | gurduārā | gurdwara
+W ਪਿੰਡ | piṇḍ | village
+W ਸ਼ਹਿਰ | shahir | city
+W ਖੇਤ | khet | field
+W ਦੁਕਾਨ | dukān | shop
+S ਮੈਂ ਬਾਜ਼ਾਰ ਜਾ ਰਹੀ ਹਾਂ | maiṃ bāzār jā rahī hāṃ | I am going to the market
+S ਸਾਡਾ ਪਿੰਡ ਸੋਹਣਾ ਹੈ | sāḍā piṇḍ sohṇā hai | Our village is beautiful
+S ਦੁਕਾਨ ਬੰਦ ਹੈ | dukān band hai | The shop is closed
+S ਗੁਰਦੁਆਰਾ ਕਿੱਥੇ ਹੈ | gurduārā kitthe hai | Where is the gurdwara?
+DIALOG Visitor | Shopkeeper
+A ਮਾਫ਼ ਕਰਨਾ, ਗੁਰਦੁਆਰਾ ਕਿੱਥੇ ਹੈ? | māf karnā, gurduārā kitthe hai? | Excuse me, where is the gurdwara?
+B ਬਾਜ਼ਾਰ ਦੇ ਪਿੱਛੇ ਹੈ। | bāzār de pichhe hai. | It's behind the market.
+A ਕੀ ਇਹ ਦੂਰ ਹੈ? | kī ih dūr hai? | Is it far?
+B ਨਹੀਂ ਜੀ, ਪੰਜ ਮਿੰਟ ਦਾ ਰਸਤਾ ਹੈ। | nahīṃ jī, panj miṇṭ dā rastā hai. | No, it's five minutes away.
+
+UNIT Getting around | Transport, directions and telling the time
+TIP Polite instructions end in -o: ਜਾਓ (go), ਮੁੜੋ (turn), ਰੁਕੋ (stop), ਬੈਠੋ (sit).
+TIP For something happening right now use stem + ਰਿਹਾ / ਰਹੀ / ਰਹੇ: ਮੈਂ ਜਾ ਰਿਹਾ ਹਾਂ (I am going).
+TIP ਵਜੇ (vaje) means o'clock: ਪੰਜ ਵਜੇ (at five o'clock). ਕਿੰਨੇ ਵਜੇ ਹਨ? means "What time is it?"
+SKILL travel | Transport | ਸਫ਼ਰ | ਸਫ਼
+W ਗੱਡੀ | gaḍḍī | car
+W ਬੱਸ | bass | bus
+W ਰੇਲਗੱਡੀ | relgaḍḍī | train
+W ਸੜਕ | saṛak | road
+W ਟਿਕਟ | ṭikaṭ | ticket
+W ਸੱਜੇ | sajje | right
+W ਖੱਬੇ | khabbe | left
+W ਸਿੱਧਾ | siddhā | straight
+S ਬੱਸ ਕਦੋਂ ਆਵੇਗੀ | bass kadoṃ āvegī | When will the bus come?
+S ਖੱਬੇ ਮੁੜੋ | khabbe muṛo | Turn left
+S ਸਿੱਧਾ ਜਾਓ | siddhā jāo | Go straight
+S ਮੈਨੂੰ ਇੱਕ ਟਿਕਟ ਚਾਹੀਦੀ ਹੈ | mainūṃ ikk ṭikaṭ chāhīdī hai | I need one ticket
+SKILL time | Time | ਸਮਾਂ | ਹੁਣ
+W ਸਵੇਰ | saver | morning
+W ਦੁਪਹਿਰ | dupahir | afternoon
+W ਸ਼ਾਮ | shām | evening
+W ਰਾਤ | rāt | night
+W ਹੁਣ | huṇ | now
+W ਘੰਟਾ | ghaṇṭā | hour
+W ਮਿੰਟ | miṇṭ | minute
+W ਵਜੇ | vaje | o'clock
+S ਹੁਣ ਰਾਤ ਹੈ | huṇ rāt hai | It is night now
+S ਮੈਂ ਸਵੇਰੇ ਚਾਹ ਪੀਂਦਾ ਹਾਂ | maiṃ savere chāh pīndā hāṃ | I drink tea in the morning
+S ਇੱਕ ਘੰਟਾ ਰੁਕੋ | ikk ghaṇṭā ruko | Wait one hour
+S ਬੱਸ ਪੰਜ ਵਜੇ ਆਵੇਗੀ | bass panj vaje āvegī | The bus will come at five o'clock
+DIALOG Traveller | Driver
+A ਕੀ ਇਹ ਬੱਸ ਅੰਮ੍ਰਿਤਸਰ ਜਾਂਦੀ ਹੈ? | kī ih bass amritsar jāndī hai? | Does this bus go to Amritsar?
+B ਹਾਂ ਜੀ, ਬੈਠੋ। | hāṃ jī, baiṭho. | Yes, take a seat.
+A ਅਸੀਂ ਕਿੰਨੇ ਵਜੇ ਪਹੁੰਚਾਂਗੇ? | asīṃ kinne vaje pahuñchāṅge? | What time will we arrive?
+B ਸ਼ਾਮ ਨੂੰ ਛੇ ਵਜੇ। | shām nūṃ chhe vaje. | At six in the evening.
+
+UNIT Days and weather | The week, the seasons and the sky
+TIP ਕੱਲ੍ਹ (kallh) means both yesterday and tomorrow. The verb tells you which: ਕੱਲ੍ਹ ਐਤਵਾਰ ਸੀ (was) or ਕੱਲ੍ਹ ਸੋਮਵਾਰ ਹੋਵੇਗਾ (will be).
+TIP ਸੀ (sī) is the past of ਹੈ: ਉਹ ਘਰ ਸੀ (he was at home). ਸਨ (san) is the plural: ਉਹ ਘਰ ਸਨ.
+TIP Rain "falls" in Punjabi: ਮੀਂਹ ਪੈਂਦਾ ਹੈ (it rains), ਮੀਂਹ ਪੈ ਰਿਹਾ ਹੈ (it is raining).
+SKILL days | Days | ਦਿਨ | ਦਿਨ
+W ਸੋਮਵਾਰ | somvār | Monday
+W ਮੰਗਲਵਾਰ | maṅgalvār | Tuesday
+W ਬੁੱਧਵਾਰ | buddhvār | Wednesday
+W ਵੀਰਵਾਰ | vīrvār | Thursday
+W ਸ਼ੁੱਕਰਵਾਰ | shukkarvār | Friday
+W ਸ਼ਨਿੱਚਰਵਾਰ | shaniccharvār | Saturday
+W ਐਤਵਾਰ | aitvār | Sunday
+W ਅੱਜ | ajj | today
+S ਅੱਜ ਸੋਮਵਾਰ ਹੈ | ajj somvār hai | Today is Monday
+S ਕੱਲ੍ਹ ਐਤਵਾਰ ਸੀ | kallh aitvār sī | Yesterday was Sunday
+S ਮੈਂ ਸ਼ੁੱਕਰਵਾਰ ਆਵਾਂਗਾ | maiṃ shukkarvār āvāṅgā | I will come on Friday
+SKILL weather | Weather | ਮੌਸਮ | ਮੀਂਹ
+W ਮੌਸਮ | mausam | weather
+W ਮੀਂਹ | mīṃh | rain
+W ਧੁੱਪ | dhupp | sunshine
+W ਠੰਢ | ṭhaṇḍh | cold
+W ਗਰਮੀ | garmī | heat
+W ਹਵਾ | havā | wind
+W ਬੱਦਲ | baddal | cloud
+W ਬਰਫ਼ | baraf | snow or ice
+S ਅੱਜ ਮੀਂਹ ਪੈ ਰਿਹਾ ਹੈ | ajj mīṃh pai rihā hai | It is raining today
+S ਬਹੁਤ ਠੰਢ ਹੈ | bahut ṭhaṇḍh hai | It is very cold
+S ਅੱਜ ਧੁੱਪ ਹੈ | ajj dhupp hai | It is sunny today
+SKILL seasons | Months and seasons | ਰੁੱਤਾਂ | ਰੁੱਤ
+W ਮਹੀਨਾ | mahīnā | month
+W ਸਾਲ | sāl | year
+W ਹਫ਼ਤਾ | hafatā | week
+W ਗਰਮੀਆਂ | garmīāṃ | summer
+W ਸਰਦੀਆਂ | sardīāṃ | winter
+W ਬਸੰਤ | basant | spring
+W ਬਰਸਾਤ | barsāt | rainy season
+W ਰੁੱਤ | rutt | season
+S ਸਰਦੀਆਂ ਵਿੱਚ ਬਹੁਤ ਠੰਢ ਹੁੰਦੀ ਹੈ | sardīāṃ vich bahut ṭhaṇḍh hundī hai | It is very cold in winter
+S ਮੈਨੂੰ ਬਸੰਤ ਪਸੰਦ ਹੈ | mainūṃ basant pasand hai | I like spring
+S ਅਗਲੇ ਮਹੀਨੇ ਅਸੀਂ ਪੰਜਾਬ ਜਾਵਾਂਗੇ | agle mahīne asīṃ panjāb jāvāṅge | Next month we will go to Punjab
+DIALOG Jasleen | Kiran
+A ਅੱਜ ਮੌਸਮ ਕਿਵੇਂ ਦਾ ਹੈ? | ajj mausam kiveṃ dā hai? | What's the weather like today?
+B ਬੱਦਲ ਹਨ, ਸ਼ਾਇਦ ਮੀਂਹ ਪਵੇਗਾ। | baddal han, shāid mīṃh pavegā. | It's cloudy. Maybe it will rain.
+A ਕੱਲ੍ਹ ਤਾਂ ਬਹੁਤ ਧੁੱਪ ਸੀ। | kallh tāṃ bahut dhupp sī. | Yesterday was so sunny.
+B ਹਾਂ, ਬਰਸਾਤ ਦਾ ਮੌਸਮ ਇਸੇ ਤਰ੍ਹਾਂ ਹੁੰਦਾ ਹੈ। | hāṃ, barsāt dā mausam ise tarhāṃ hundā hai. | Yes, that's what the rainy season is like.
+
+UNIT Body and health | Your body, feeling unwell and seeing a doctor
+TIP For pain say ਮੇਰਾ ___ ਦੁਖਦਾ ਹੈ (my ___ hurts). For a feminine noun: ਮੇਰੀ ਪਿੱਠ ਦੁਖਦੀ ਹੈ (my back hurts).
+TIP Illnesses use ਨੂੰ: ਮੈਨੂੰ ਬੁਖ਼ਾਰ ਹੈ (I have a fever), literally "to me there is fever".
+SKILL body | Body | ਸਰੀਰ | ਹੱਥ
+W ਸਿਰ | sir | head
+W ਅੱਖ | akkh | eye
+W ਕੰਨ | kann | ear
+W ਨੱਕ | nakk | nose
+W ਮੂੰਹ | mūṃh | mouth
+W ਹੱਥ | hatth | hand
+W ਪੈਰ | pair | foot
+W ਦਿਲ | dil | heart
+S ਮੇਰਾ ਸਿਰ ਦੁਖਦਾ ਹੈ | merā sir dukhdā hai | My head hurts
+S ਹੱਥ ਧੋਵੋ | hatth dhovo | Wash your hands
+S ਉਸ ਦੀਆਂ ਅੱਖਾਂ ਭੂਰੀਆਂ ਹਨ | us dīāṃ akkhāṃ bhūrīāṃ han | Her eyes are brown
+SKILL health | Health | ਸਿਹਤ | ਦਵਾ
+W ਡਾਕਟਰ | ḍākṭar | doctor
+W ਦਵਾਈ | davāī | medicine
+W ਬੁਖ਼ਾਰ | bukhār | fever
+W ਦਰਦ | dard | pain
+W ਖੰਘ | khaṅgh | cough
+W ਜ਼ੁਕਾਮ | zukām | a cold
+W ਆਰਾਮ | ārām | rest
+W ਬਿਮਾਰ | bimār | ill
+S ਮੈਨੂੰ ਬੁਖ਼ਾਰ ਹੈ | mainūṃ bukhār hai | I have a fever
+S ਡਾਕਟਰ ਨੂੰ ਬੁਲਾਓ | ḍākṭar nūṃ bulāo | Call the doctor
+S ਇਹ ਦਵਾਈ ਦਿਨ ਵਿੱਚ ਦੋ ਵਾਰ ਲਓ | ih davāī din vich do vār lao | Take this medicine twice a day
+S ਤੁਹਾਨੂੰ ਆਰਾਮ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ | tuhānūṃ ārām karnā chāhīdā hai | You should rest
+DIALOG Doctor | Patient
+A ਕੀ ਤਕਲੀਫ਼ ਹੈ? | kī takalīf hai? | What's the problem?
+B ਮੈਨੂੰ ਦੋ ਦਿਨਾਂ ਤੋਂ ਬੁਖ਼ਾਰ ਹੈ। | mainūṃ do dināṃ toṃ bukhār hai. | I've had a fever for two days.
+A ਖੰਘ ਵੀ ਹੈ? | khaṅgh vī hai? | Do you have a cough too?
+B ਹਾਂ ਜੀ, ਅਤੇ ਸਿਰ ਵੀ ਦੁਖਦਾ ਹੈ। | hāṃ jī, ate sir vī dukhdā hai. | Yes, and my head hurts as well.
+A ਇਹ ਦਵਾਈ ਲਓ ਅਤੇ ਆਰਾਮ ਕਰੋ। | ih davāī lao ate ārām karo. | Take this medicine and rest.
+
+UNIT Feelings and describing | Say how you feel and compare things
+TIP ਬਹੁਤ (bahut) means "very" or "a lot": ਬਹੁਤ ਖ਼ੁਸ਼ (very happy).
+TIP Compare with ਤੋਂ (than): ਇਹ ਉਸ ਤੋਂ ਵੱਡਾ ਹੈ (this is bigger than that).
+TIP "The most" is ਸਭ ਤੋਂ, literally "than all": ਸਭ ਤੋਂ ਵੱਡਾ (the biggest).
+SKILL feelings | Feelings | ਜਜ਼ਬਾਤ | ਖ਼ੁਸ਼
+W ਖ਼ੁਸ਼ | khush | happy
+W ਉਦਾਸ | udās | sad
+W ਥੱਕਿਆ | thakkiā | tired
+W ਗੁੱਸਾ | gussā | anger
+W ਡਰ | ḍar | fear
+W ਪਿਆਰ | piār | love
+W ਪਰੇਸ਼ਾਨ | pareshān | worried
+W ਠੀਕ | ṭhīk | fine
+S ਮੈਂ ਬਹੁਤ ਖ਼ੁਸ਼ ਹਾਂ | maiṃ bahut khush hāṃ | I am very happy
+S ਉਹ ਥੱਕਿਆ ਹੋਇਆ ਹੈ | uh thakkiā hoiā hai | He is tired
+S ਮੈਨੂੰ ਤੁਹਾਡੇ ਨਾਲ ਪਿਆਰ ਹੈ | mainūṃ tuhāḍe nāl piār hai | I love you
+S ਤੁਸੀਂ ਉਦਾਸ ਕਿਉਂ ਹੋ | tusīṃ udās kiuṃ ho | Why are you sad?
+SKILL describe | Describing | ਵਿਸ਼ੇਸ਼ਣ | ਵੱਡਾ
+W ਵੱਡਾ | vaḍḍā | big
+W ਛੋਟਾ | chhoṭā | small
+W ਨਵਾਂ | navāṃ | new
+W ਪੁਰਾਣਾ | purāṇā | old (things)
+W ਚੰਗਾ | changā | good
+W ਮਾੜਾ | māṛā | bad
+W ਸੋਹਣਾ | sohṇā | beautiful
+W ਗਰਮ | garam | hot
+S ਇਹ ਘਰ ਨਵਾਂ ਹੈ | ih ghar navāṃ hai | This house is new
+S ਖਾਣਾ ਬਹੁਤ ਚੰਗਾ ਹੈ | khāṇā bahut changā hai | The food is very good
+S ਮੇਰਾ ਕਮਰਾ ਛੋਟਾ ਹੈ | merā kamrā chhoṭā hai | My room is small
+S ਇਹ ਉਸ ਤੋਂ ਵੱਡਾ ਹੈ | ih us toṃ vaḍḍā hai | This is bigger than that
+DIALOG Preet | Sukh
+A ਕੀ ਗੱਲ ਹੈ? ਤੁਸੀਂ ਪਰੇਸ਼ਾਨ ਲੱਗਦੇ ਹੋ। | kī gall hai? tusīṃ pareshān laggde ho. | What's wrong? You look worried.
+B ਮੈਂ ਬਹੁਤ ਥੱਕਿਆ ਹੋਇਆ ਹਾਂ। | maiṃ bahut thakkiā hoiā hāṃ. | I'm very tired.
+A ਥੋੜ੍ਹਾ ਆਰਾਮ ਕਰੋ, ਮੈਂ ਚਾਹ ਬਣਾਉਂਦੀ ਹਾਂ। | thoṛhā ārām karo, maiṃ chāh baṇāundī hāṃ. | Rest a little. I'll make some tea.
+B ਤੁਹਾਡਾ ਬਹੁਤ ਧੰਨਵਾਦ। | tuhāḍā bahut dhannvād. | Thank you so much.
+
+UNIT Shopping and celebrations | Money, the bazaar, weddings and festivals
+TIP Ask the price with ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ? (How much is this?)
+TIP To bargain: ਥੋੜ੍ਹਾ ਘੱਟ ਕਰੋ (bring it down a little).
+TIP Festival greetings use ਦੀਆਂ ਵਧਾਈਆਂ: ਦੀਵਾਲੀ ਦੀਆਂ ਵਧਾਈਆਂ (Happy Diwali).
+SKILL shopping | Shopping | ਖ਼ਰੀਦਦਾਰੀ | ਰੁ
+W ਪੈਸੇ | paise | money
+W ਰੁਪਏ | rupae | rupees
+W ਮਹਿੰਗਾ | mahiṅgā | expensive
+W ਸਸਤਾ | sastā | cheap
+W ਕੱਪੜੇ | kappṛe | clothes
+W ਜੁੱਤੀ | juttī | shoe (jutti)
+W ਫਲ | phal | fruit
+W ਖ਼ਰੀਦਣਾ | kharīdṇā | to buy
+S ਇਹ ਬਹੁਤ ਮਹਿੰਗਾ ਹੈ | ih bahut mahiṅgā hai | This is very expensive
+S ਮੈਂ ਫਲ ਖ਼ਰੀਦਣੇ ਹਨ | maiṃ phal kharīdṇe han | I have to buy fruit
+S ਇਸ ਦੀ ਕੀਮਤ ਕੀ ਹੈ | is dī kīmat kī hai | What is its price?
+S ਥੋੜ੍ਹਾ ਘੱਟ ਕਰੋ | thoṛhā ghaṭṭ karo | Bring it down a little
+SKILL festivals | Celebrations | ਤਿਉਹਾਰ | ਢੋਲ
+W ਤਿਉਹਾਰ | tiuhār | festival
+W ਵਿਆਹ | viāh | wedding
+W ਭੰਗੜਾ | bhaṅgṛā | bhangra
+W ਗਿੱਧਾ | giddhā | giddha (women's folk dance)
+W ਢੋਲ | ḍhol | dhol drum
+W ਮਠਿਆਈ | maṭhiāī | sweets
+W ਵਧਾਈਆਂ | vadhāīāṃ | congratulations
+W ਤੋਹਫ਼ਾ | tohfā | gift
+S ਵਿਸਾਖੀ ਦੀਆਂ ਵਧਾਈਆਂ | visākhī dīāṃ vadhāīāṃ | Happy Vaisakhi
+S ਅਸੀਂ ਭੰਗੜਾ ਪਾਉਂਦੇ ਹਾਂ | asīṃ bhaṅgṛā pāunde hāṃ | We dance bhangra
+S ਵਿਆਹ ਵਿੱਚ ਢੋਲ ਵੱਜਦਾ ਹੈ | viāh vich ḍhol vajjdā hai | The dhol plays at the wedding
+DIALOG Customer | Shopkeeper
+A ਭਾਈ ਸਾਹਿਬ, ਇਹ ਜੁੱਤੀ ਕਿੰਨੇ ਦੀ ਹੈ? | bhāī sāhib, ih juttī kinne dī hai? | Sir, how much is this jutti?
+B ਅੱਠ ਸੌ ਰੁਪਏ ਦੀ। | aṭṭh sau rupae dī. | Eight hundred rupees.
+A ਇਹ ਤਾਂ ਬਹੁਤ ਮਹਿੰਗੀ ਹੈ, ਥੋੜ੍ਹਾ ਘੱਟ ਕਰੋ। | ih tāṃ bahut mahiṅgī hai, thoṛhā ghaṭṭ karo. | That's very expensive. Bring it down a little.
+B ਚਲੋ, ਸੱਤ ਸੌ ਦੇ ਦਿਓ। | chalo, satt sau de dio. | Fine, give me seven hundred.
+
+########################################################################
+SECTION Conversations | Talk about the past, the future and your life
+
+UNIT Present tense | Talk about what you usually do
+TIP Habitual present = stem + ਦਾ / ਦੀ / ਦੇ / ਦੀਆਂ + a form of "to be".
+TIP Man: ਮੈਂ ਕੰਮ ਕਰਦਾ ਹਾਂ. Woman: ਮੈਂ ਕੰਮ ਕਰਦੀ ਹਾਂ. Respectful or plural: ਤੁਸੀਂ ਕੰਮ ਕਰਦੇ ਹੋ.
+TIP "Not": put ਨਹੀਂ before the verb and you can drop ਹਾਂ/ਹੈ: ਮੈਂ ਮੀਟ ਨਹੀਂ ਖਾਂਦਾ.
+SKILL present | I do, she does | ਵਰਤਮਾਨ | ਦਾ
+W ਕਰਦਾ | kardā | does (he)
+W ਕਰਦੀ | kardī | does (she)
+W ਰਹਿੰਦੇ | rahinde | live (they or you)
+W ਜਾਣਦਾ | jāṇdā | knows (he)
+W ਸਮਝਦੀ | samajhdī | understands (she)
+W ਲਿਖਦਾ | likhdā | writes (he)
+W ਸੁਣਦੇ | suṇde | listen (they or you)
+W ਉੱਠਦੀ | uṭṭhdī | gets up (she)
+S ਮੈਂ ਹਰ ਰੋਜ਼ ਛੇ ਵਜੇ ਉੱਠਦੀ ਹਾਂ | maiṃ har roz chhe vaje uṭṭhdī hāṃ | I get up at six every day
+S ਮੇਰੇ ਮਾਪੇ ਪਿੰਡ ਵਿੱਚ ਰਹਿੰਦੇ ਹਨ | mere māpe piṇḍ vich rahinde han | My parents live in the village
+S ਕੀ ਤੁਸੀਂ ਪੰਜਾਬੀ ਸਮਝਦੇ ਹੋ | kī tusīṃ panjābī samajhde ho | Do you understand Punjabi?
+S ਮੈਂ ਮੀਟ ਨਹੀਂ ਖਾਂਦਾ | maiṃ mīṭ nahīṃ khāndā | I don't eat meat
+SKILL routine | Daily routine | ਦਿਨ ਚਰਿਆ | ਰੋਜ਼
+W ਹਰ ਰੋਜ਼ | har roz | every day
+W ਨਹਾਉਣਾ | nahāuṇā | to bathe
+W ਨਾਸ਼ਤਾ | nāshtā | breakfast
+W ਤਿਆਰ | tiār | ready
+W ਕੰਮ | kamm | work
+W ਵਾਪਸ | vāpas | back
+W ਅਕਸਰ | aksar | often
+W ਕਦੇ ਕਦੇ | kade kade | sometimes
+S ਮੈਂ ਨਾਸ਼ਤੇ ਤੋਂ ਬਾਅਦ ਕੰਮ ਤੇ ਜਾਂਦਾ ਹਾਂ | maiṃ nāshte toṃ bāad kamm te jāndā hāṃ | I go to work after breakfast
+S ਅਸੀਂ ਅਕਸਰ ਸ਼ਾਮ ਨੂੰ ਸੈਰ ਕਰਦੇ ਹਾਂ | asīṃ aksar shām nūṃ sair karde hāṃ | We often go for a walk in the evening
+S ਉਹ ਕਦੇ ਕਦੇ ਦੇਰ ਨਾਲ ਆਉਂਦਾ ਹੈ | uh kade kade der nāl āundā hai | He sometimes comes late
+DIALOG Manpreet | Daljit
+A ਤੁਸੀਂ ਸਵੇਰੇ ਕਿੰਨੇ ਵਜੇ ਉੱਠਦੇ ਹੋ? | tusīṃ savere kinne vaje uṭṭhde ho? | What time do you get up in the morning?
+B ਮੈਂ ਛੇ ਵਜੇ ਉੱਠਦਾ ਹਾਂ ਅਤੇ ਪਾਠ ਕਰਦਾ ਹਾਂ। | maiṃ chhe vaje uṭṭhdā hāṃ ate pāṭh kardā hāṃ. | I get up at six and say my prayers.
+A ਫਿਰ ਕੰਮ ਤੇ ਕਿਵੇਂ ਜਾਂਦੇ ਹੋ? | phir kamm te kiveṃ jānde ho? | Then how do you get to work?
+B ਮੈਂ ਬੱਸ ਲੈਂਦਾ ਹਾਂ। | maiṃ bass laindā hāṃ. | I take the bus.
+
+UNIT Past tense | Say what happened
+TIP Verbs like "go" and "come" match the person: ਮੁੰਡਾ ਗਿਆ (the boy went), ਕੁੜੀ ਗਈ (the girl went).
+TIP Verbs with an object, like "eat" or "see", match the object instead, and "he/she" takes ਨੇ: ਉਸ ਨੇ ਚਾਹ ਪੀਤੀ (he drank tea, ਚਾਹ is feminine).
+TIP With ਮੈਂ and ਅਸੀਂ there is no ਨੇ: ਮੈਂ ਰੋਟੀ ਖਾਧੀ (I ate roti).
+SKILL past1 | Went and came | ਭੂਤਕਾਲ | ਗਿਆ
+W ਗਿਆ | giā | went (he)
+W ਗਈ | gaī | went (she)
+W ਆਇਆ | āiā | came (he)
+W ਆਈ | āī | came (she)
+W ਗਏ | gae | went (they or you)
+W ਸੁੱਤਾ | suttā | slept (he)
+W ਬੈਠੀ | baiṭhī | sat (she)
+W ਪਹੁੰਚੇ | pahuñche | arrived (they or you)
+S ਮੈਂ ਕੱਲ੍ਹ ਬਾਜ਼ਾਰ ਗਿਆ | maiṃ kallh bāzār giā | I went to the market yesterday
+S ਉਹ ਦੇਰ ਨਾਲ ਆਈ | uh der nāl āī | She came late
+S ਅਸੀਂ ਰਾਤ ਨੂੰ ਪਹੁੰਚੇ | asīṃ rāt nūṃ pahuñche | We arrived at night
+SKILL past2 | Ate, saw, said | ਕੀ ਕੀਤਾ | ਕੀਤਾ
+W ਖਾਧਾ | khādhā | ate
+W ਪੀਤਾ | pītā | drank
+W ਕੀਤਾ | kītā | did
+W ਵੇਖਿਆ | vekhiā | saw
+W ਕਿਹਾ | kihā | said
+W ਲਿਆ | liā | took
+W ਦਿੱਤਾ | dittā | gave
+W ਸੁਣਿਆ | suṇiā | heard
+S ਮੈਂ ਨਾਸ਼ਤਾ ਕੀਤਾ | maiṃ nāshtā kītā | I had breakfast
+S ਉਸ ਨੇ ਕੁਝ ਨਹੀਂ ਕਿਹਾ | us ne kujh nahīṃ kihā | He didn't say anything
+S ਤੁਸੀਂ ਇਹ ਫ਼ਿਲਮ ਵੇਖੀ | tusīṃ ih filam vekhī | Did you see this film?
+S ਮੈਂ ਰੋਟੀ ਖਾਧੀ | maiṃ roṭī khādhī | I ate roti
+DIALOG Rajveer | Sim
+A ਕੱਲ੍ਹ ਤੁਸੀਂ ਕੀ ਕੀਤਾ? | kallh tusīṃ kī kītā? | What did you do yesterday?
+B ਮੈਂ ਨਾਨੀ ਜੀ ਦੇ ਘਰ ਗਈ। | maiṃ nānī jī de ghar gaī. | I went to my grandmother's house.
+A ਉੱਥੇ ਕੀ ਖਾਧਾ? | utthe kī khādhā? | What did you eat there?
+B ਨਾਨੀ ਜੀ ਨੇ ਸਰ੍ਹੋਂ ਦਾ ਸਾਗ ਬਣਾਇਆ ਸੀ। | nānī jī ne sarhoṃ dā sāg baṇāiā sī. | Grandma had made mustard greens.
+
+UNIT Future and plans | Make plans and talk about what will happen
+TIP Future endings: ਮੈਂ ਜਾਵਾਂਗਾ (I will go, man), ਮੈਂ ਜਾਵਾਂਗੀ (woman), ਉਹ ਜਾਵੇਗਾ (he), ਉਹ ਜਾਵੇਗੀ (she), ਅਸੀਂ ਜਾਵਾਂਗੇ (we), ਤੁਸੀਂ ਜਾਓਗੇ (you).
+TIP "Let's" is ਚਲੋ: ਚਲੋ ਚੱਲੀਏ (let's go). The -ੀਏ ending means "shall we": ਕੀ ਅਸੀਂ ਮਿਲੀਏ? (shall we meet?)
+SKILL future | Will do | ਭਵਿੱਖ | ਗਾ
+W ਜਾਵਾਂਗਾ | jāvāṅgā | I will go (man)
+W ਜਾਵਾਂਗੀ | jāvāṅgī | I will go (woman)
+W ਕਰਾਂਗੇ | karāṅge | we will do
+W ਆਵੇਗਾ | āvegā | he will come
+W ਹੋਵੇਗੀ | hovegī | she or it will be
+W ਮਿਲਾਂਗੇ | milāṅge | we will meet
+W ਅਗਲੇ | agle | next
+W ਛੁੱਟੀਆਂ | chhuṭṭīāṃ | holidays
+S ਅਸੀਂ ਛੁੱਟੀਆਂ ਵਿੱਚ ਪੰਜਾਬ ਜਾਵਾਂਗੇ | asīṃ chhuṭṭīāṃ vich panjāb jāvāṅge | We will go to Punjab in the holidays
+S ਮੈਂ ਤੁਹਾਨੂੰ ਕੱਲ੍ਹ ਫ਼ੋਨ ਕਰਾਂਗੀ | maiṃ tuhānūṃ kallh fon karāṅgī | I will phone you tomorrow
+S ਉਹ ਅਗਲੇ ਹਫ਼ਤੇ ਆਵੇਗਾ | uh agle hafte āvegā | He will come next week
+SKILL plans | Making plans | ਯੋਜਨਾ | ਚਲੋ
+W ਦੋਸਤ | dost | friend
+W ਸੱਦਾ | saddā | invitation
+W ਵਿਹਲਾ | vihlā | free (not busy)
+W ਰੁੱਝਿਆ | rujjhiā | busy
+W ਪੱਕਾ | pakkā | definite
+W ਚਲੋ | chalo | let's go
+W ਸ਼ਾਇਦ | shāid | maybe
+W ਜ਼ਰੂਰ | zarūr | certainly
+S ਕੀ ਤੁਸੀਂ ਸ਼ਨਿੱਚਰਵਾਰ ਨੂੰ ਵਿਹਲੇ ਹੋ | kī tusīṃ shaniccharvār nūṃ vihle ho | Are you free on Saturday?
+S ਮੈਂ ਜ਼ਰੂਰ ਆਵਾਂਗਾ | maiṃ zarūr āvāṅgā | I will definitely come
+S ਚਲੋ ਸਿਨੇਮਾ ਚੱਲੀਏ | chalo sinemā challīe | Let's go to the cinema
+DIALOG Gagan | Noor
+A ਕੀ ਤੁਸੀਂ ਐਤਵਾਰ ਨੂੰ ਵਿਹਲੇ ਹੋ? | kī tusīṃ aitvār nūṃ vihle ho? | Are you free on Sunday?
+B ਹਾਂ, ਕਿਉਂ? | hāṃ, kiuṃ? | Yes, why?
+A ਮੇਰੇ ਭਰਾ ਦਾ ਜਨਮਦਿਨ ਹੈ। ਤੁਸੀਂ ਆਓਗੇ? | mere bharā dā janamdin hai. tusīṃ āoge? | It's my brother's birthday. Will you come?
+B ਜ਼ਰੂਰ ਆਵਾਂਗੀ! ਕਿੰਨੇ ਵਜੇ? | zarūr āvāṅgī! kinne vaje? | I'll definitely come! What time?
+A ਸ਼ਾਮ ਨੂੰ ਸੱਤ ਵਜੇ। | shām nūṃ satt vaje. | At seven in the evening.
+
+UNIT Work and study | Jobs, school and the office
+TIP Say your job with ਹਾਂ: ਮੈਂ ਅਧਿਆਪਕ ਹਾਂ (I am a teacher). There is no word for "a".
+TIP ਵਿੱਚ means "in": ਮੈਂ ਦਫ਼ਤਰ ਵਿੱਚ ਕੰਮ ਕਰਦੀ ਹਾਂ (I work in an office).
+SKILL work | Work | ਕੰਮ ਕਾਰ | ਕੰਮ
+W ਨੌਕਰੀ | naukarī | job
+W ਦਫ਼ਤਰ | daftar | office
+W ਤਨਖ਼ਾਹ | tankhāh | salary
+W ਕਿਸਾਨ | kisān | farmer
+W ਦੁਕਾਨਦਾਰ | dukāndār | shopkeeper
+W ਮਾਲਕ | mālak | boss or owner
+W ਛੁੱਟੀ | chhuṭṭī | day off
+W ਮੀਟਿੰਗ | mīṭiṅg | meeting
+S ਮੈਂ ਦਫ਼ਤਰ ਵਿੱਚ ਕੰਮ ਕਰਦੀ ਹਾਂ | maiṃ daftar vich kamm kardī hāṃ | I work in an office
+S ਮੇਰੇ ਪਿਤਾ ਜੀ ਕਿਸਾਨ ਹਨ | mere pitā jī kisān han | My father is a farmer
+S ਅੱਜ ਮੇਰੀ ਛੁੱਟੀ ਹੈ | ajj merī chhuṭṭī hai | Today is my day off
+SKILL school | School | ਪੜ੍ਹਾਈ | ਕਿਤਾਬ
+W ਅਧਿਆਪਕ | adhiāpak | teacher
+W ਵਿਦਿਆਰਥੀ | vidiārthī | student
+W ਕਿਤਾਬ | kitāb | book
+W ਕਲਮ | kalam | pen
+W ਸਬਕ | sabak | lesson
+W ਇਮਤਿਹਾਨ | imtihān | exam
+W ਸਵਾਲ | savāl | question
+W ਜਵਾਬ | javāb | answer
+S ਮੈਂ ਪੰਜਾਬੀ ਸਿੱਖ ਰਿਹਾ ਹਾਂ | maiṃ panjābī sikkh rihā hāṃ | I am learning Punjabi
+S ਕੱਲ੍ਹ ਮੇਰਾ ਇਮਤਿਹਾਨ ਹੈ | kallh merā imtihān hai | I have an exam tomorrow
+S ਅਧਿਆਪਕ ਨੇ ਸਵਾਲ ਪੁੱਛਿਆ | adhiāpak ne savāl pucchiā | The teacher asked a question
+DIALOG Uncle | Student
+A ਬੇਟਾ, ਤੁਸੀਂ ਕੀ ਪੜ੍ਹਦੇ ਹੋ? | beṭā, tusīṃ kī paṛhde ho? | What are you studying?
+B ਮੈਂ ਯੂਨੀਵਰਸਿਟੀ ਵਿੱਚ ਡਾਕਟਰੀ ਪੜ੍ਹਦਾ ਹਾਂ। | maiṃ yūnīvarsiṭī vich ḍākṭarī paṛhdā hāṃ. | I'm studying medicine at university.
+A ਵਾਹ! ਕਿੰਨੇ ਸਾਲ ਹੋਰ ਹਨ? | vāh! kinne sāl hor han? | Wow! How many more years?
+B ਦੋ ਸਾਲ ਹੋਰ, ਫਿਰ ਨੌਕਰੀ ਲੱਭਾਂਗਾ। | do sāl hor, phir naukarī labbhāṅgā. | Two more years, then I'll look for a job.
+
+UNIT Guests and hospitality | Visit family, eat together and be a good guest
+TIP Hosts insist on more food. A polite no is ਬੱਸ ਜੀ, ਹੋਰ ਨਹੀਂ (that's enough, no more).
+TIP Older relatives often call younger people ਬੇਟਾ or ਪੁੱਤ, whatever their gender.
+TIP Touching an elder's feet or bowing slightly while saying ਸਤ ਸ੍ਰੀ ਅਕਾਲ shows respect.
+SKILL guests | Guests | ਮਹਿਮਾਨ | ਮਹਿ
+W ਮਹਿਮਾਨ | mahimān | guest
+W ਪਿਆਸ | piās | thirst
+W ਸੁਆਦ | suād | tasty
+W ਹੋਰ | hor | more
+W ਬੱਸ | bas | enough
+W ਥਾਲੀ | thālī | plate
+W ਗਲਾਸ | galās | glass
+W ਬੈਠੋ | baiṭho | please sit
+S ਆਓ ਜੀ ਬੈਠੋ | āo jī baiṭho | Come in and sit down
+S ਖਾਣਾ ਬਹੁਤ ਸੁਆਦ ਹੈ | khāṇā bahut suād hai | The food is delicious
+S ਬੱਸ ਜੀ ਹੋਰ ਨਹੀਂ | bas jī hor nahīṃ | That's enough, no more
+S ਥੋੜ੍ਹਾ ਹੋਰ ਲਓ | thoṛhā hor lao | Have a little more
+SKILL relatives | Relatives | ਰਿਸ਼ਤੇਦਾਰ | ਚਾਚਾ
+W ਚਾਚਾ | chāchā | uncle (father's younger brother)
+W ਤਾਇਆ | tāiā | uncle (father's elder brother)
+W ਮਾਮਾ | māmā | uncle (mother's brother)
+W ਭੂਆ | bhūā | aunt (father's sister)
+W ਮਾਸੀ | māsī | aunt (mother's sister)
+W ਨਾਨਾ | nānā | grandfather (mother's side)
+W ਨਾਨੀ | nānī | grandmother (mother's side)
+W ਰਿਸ਼ਤੇਦਾਰ | rishtedār | relative
+S ਮੇਰੇ ਮਾਮਾ ਜੀ ਕੈਨੇਡਾ ਰਹਿੰਦੇ ਹਨ | mere māmā jī kaineḍā rahinde han | My uncle lives in Canada
+S ਨਾਨੀ ਜੀ ਨੇ ਪਿੰਨੀਆਂ ਬਣਾਈਆਂ | nānī jī ne pinnīāṃ baṇāīāṃ | Grandma made pinni sweets
+S ਅਸੀਂ ਭੂਆ ਜੀ ਨੂੰ ਮਿਲਣ ਗਏ | asīṃ bhūā jī nūṃ milaṇ gae | We went to see our aunt
+DIALOG Aunty | Guest
+A ਆਓ ਜੀ, ਜੀ ਆਇਆਂ ਨੂੰ! ਬੈਠੋ। | āo jī, jī āiāṃ nūṃ! baiṭho. | Come in, welcome! Sit down.
+B ਧੰਨਵਾਦ ਮਾਸੀ ਜੀ। | dhannvād māsī jī. | Thank you, aunty.
+A ਚਾਹ ਪੀਓਗੇ ਜਾਂ ਲੱਸੀ? | chāh pīoge jāṃ lassī? | Will you have tea or lassi?
+B ਚਾਹ ਠੀਕ ਹੈ, ਪਰ ਖੰਡ ਥੋੜ੍ਹੀ ਪਾਇਓ। | chāh ṭhīk hai, par khaṇḍ thoṛhī pāio. | Tea is fine, but only a little sugar please.
+A ਹੋਰ ਪਕੌੜੇ ਲਓ! | hor pakauṛe lao! | Have more pakoras!
+B ਬੱਸ ਜੀ, ਹੋਰ ਨਹੀਂ। ਬਹੁਤ ਸੁਆਦ ਸਨ। | bas jī, hor nahīṃ. bahut suād san. | That's enough, no more. They were delicious.
+
+########################################################################
+SECTION Speaking with confidence | Share opinions, tell stories and sound natural
+
+UNIT Opinions | Agree, disagree and give reasons
+TIP "I think that" is ਮੈਨੂੰ ਲੱਗਦਾ ਹੈ ਕਿ, literally "it seems to me that".
+TIP Join ideas with ਪਰ (but), ਕਿਉਂਕਿ (because) and ਇਸ ਲਈ (so).
+SKILL opinions | Opinions | ਵਿਚਾਰ | ਵਿਚ
+W ਵਿਚਾਰ | vichār | opinion
+W ਸਹਿਮਤ | sahimat | agreed
+W ਪਰ | par | but
+W ਕਿਉਂਕਿ | kiuṅki | because
+W ਇਸ ਲਈ | is laī | so, therefore
+W ਸੱਚ | sach | true
+W ਗ਼ਲਤ | ġalat | wrong
+W ਬਿਲਕੁਲ | bilkul | absolutely
+S ਮੈਨੂੰ ਲੱਗਦਾ ਹੈ ਕਿ ਤੁਸੀਂ ਸਹੀ ਹੋ | mainūṃ laggdā hai ki tusīṃ sahī ho | I think you are right
+S ਮੈਂ ਸਹਿਮਤ ਨਹੀਂ ਹਾਂ | maiṃ sahimat nahīṃ hāṃ | I don't agree
+S ਮੈਂ ਨਹੀਂ ਆਇਆ ਕਿਉਂਕਿ ਮੈਂ ਬਿਮਾਰ ਸੀ | maiṃ nahīṃ āiā kiuṅki maiṃ bimār sī | I didn't come because I was ill
+S ਮੀਂਹ ਪੈ ਰਿਹਾ ਸੀ ਇਸ ਲਈ ਅਸੀਂ ਘਰ ਰਹੇ | mīṃh pai rihā sī is laī asīṃ ghar rahe | It was raining so we stayed home
+SKILL modals | Can, want, should | ਸਕਣਾ | ਸਕ
+W ਸਕਦਾ | sakdā | can (he)
+W ਸਕਦੀ | sakdī | can (she)
+W ਚਾਹੁੰਦਾ | chāhundā | wants (he)
+W ਚਾਹੁੰਦੀ | chāhundī | wants (she)
+W ਚਾਹੀਦਾ | chāhīdā | should
+W ਪਵੇਗਾ | pavegā | will have to
+W ਲੋੜ | loṛ | need
+W ਮਦਦ | madad | help
+S ਮੈਂ ਥੋੜ੍ਹੀ ਪੰਜਾਬੀ ਬੋਲ ਸਕਦਾ ਹਾਂ | maiṃ thoṛhī panjābī bol sakdā hāṃ | I can speak a little Punjabi
+S ਉਹ ਡਾਕਟਰ ਬਣਨਾ ਚਾਹੁੰਦੀ ਹੈ | uh ḍākṭar baṇnā chāhundī hai | She wants to become a doctor
+S ਮੈਨੂੰ ਹੁਣ ਜਾਣਾ ਪਵੇਗਾ | mainūṃ huṇ jāṇā pavegā | I will have to go now
+S ਕੀ ਤੁਸੀਂ ਮੇਰੀ ਮਦਦ ਕਰ ਸਕਦੇ ਹੋ | kī tusīṃ merī madad kar sakde ho | Can you help me?
+DIALOG Harleen | Jas
+A ਤੁਹਾਨੂੰ ਪੰਜਾਬੀ ਫ਼ਿਲਮਾਂ ਕਿਵੇਂ ਲੱਗਦੀਆਂ ਹਨ? | tuhānūṃ panjābī filmāṃ kiveṃ laggdīāṃ han? | What do you think of Punjabi films?
+B ਮੈਨੂੰ ਬਹੁਤ ਪਸੰਦ ਹਨ, ਕਿਉਂਕਿ ਗਾਣੇ ਬਹੁਤ ਚੰਗੇ ਹੁੰਦੇ ਹਨ। | mainūṃ bahut pasand han, kiuṅki gāṇe bahut change hunde han. | I love them, because the songs are so good.
+A ਪਰ ਕਹਾਣੀਆਂ ਥੋੜ੍ਹੀਆਂ ਲੰਮੀਆਂ ਹੁੰਦੀਆਂ ਹਨ। | par kahāṇīāṃ thoṛhīāṃ lammīāṃ hundīāṃ han. | But the stories are a bit long.
+B ਹਾਂ, ਇਹ ਗੱਲ ਤਾਂ ਸੱਚ ਹੈ। | hāṃ, ih gall tāṃ sach hai. | Yes, that's true.
+
+UNIT Telling stories | Order events and describe what was happening
+TIP For something that was going on: stem + ਰਿਹਾ ਸੀ / ਰਹੀ ਸੀ: ਮੈਂ ਘਰ ਜਾ ਰਿਹਾ ਸੀ (I was going home).
+TIP ਜਦੋਂ ... ਉਦੋਂ links two events: ਜਦੋਂ ਮੈਂ ਆਇਆ, ਉਦੋਂ ਉਹ ਸੌਂ ਰਿਹਾ ਸੀ (when I came, he was sleeping).
+TIP Use ਸੀ for repeated past habits too: ਮੈਂ ਪਿੰਡ ਵਿੱਚ ਰਹਿੰਦਾ ਸੀ (I used to live in the village).
+SKILL story | Story words | ਕਹਾਣੀ | ਫਿਰ
+W ਪਹਿਲਾਂ | pahilāṃ | first, before
+W ਫਿਰ | phir | then
+W ਬਾਅਦ ਵਿੱਚ | bāad vich | afterwards
+W ਅਚਾਨਕ | achānak | suddenly
+W ਜਦੋਂ | jadoṃ | when (not a question)
+W ਉਦੋਂ | udoṃ | at that time
+W ਹਮੇਸ਼ਾ | hameshā | always
+W ਕਦੇ ਨਹੀਂ | kade nahīṃ | never
+S ਜਦੋਂ ਮੈਂ ਛੋਟਾ ਸੀ ਮੈਂ ਪਿੰਡ ਵਿੱਚ ਰਹਿੰਦਾ ਸੀ | jadoṃ maiṃ chhoṭā sī maiṃ piṇḍ vich rahindā sī | When I was little I lived in the village
+S ਅਚਾਨਕ ਮੀਂਹ ਪੈਣ ਲੱਗ ਪਿਆ | achānak mīṃh paiṇ lagg piā | Suddenly it started to rain
+S ਪਹਿਲਾਂ ਅਸੀਂ ਖਾਣਾ ਖਾਧਾ ਫਿਰ ਫ਼ਿਲਮ ਵੇਖੀ | pahilāṃ asīṃ khāṇā khādhā phir filam vekhī | First we ate, then we watched a film
+S ਮੈਂ ਉੱਥੇ ਕਦੇ ਨਹੀਂ ਗਿਆ | maiṃ utthe kade nahīṃ giā | I have never been there
+SKILL culture | Punjab and culture | ਸੱਭਿਆਚਾਰ | ਪੰਜ
+W ਪੰਜਾਬ | panjāb | Punjab (land of five rivers)
+W ਦਰਿਆ | dariā | river
+W ਲੋਕ | lok | people
+W ਬੋਲੀ | bolī | language, folk verse
+W ਗੀਤ | gīt | song
+W ਕਹਾਣੀ | kahāṇī | story
+W ਇਤਿਹਾਸ | itihās | history
+W ਸੱਭਿਆਚਾਰ | sabhiāchār | culture
+S ਪੰਜਾਬ ਵਿੱਚ ਪੰਜ ਦਰਿਆ ਵਗਦੇ ਸਨ | panjāb vich panj dariā vagde san | Five rivers flowed through Punjab
+S ਪੰਜਾਬੀ ਲੋਕ ਬਹੁਤ ਮਹਿਮਾਨ ਨਿਵਾਜ਼ ਹਨ | panjābī lok bahut mahimān nivāz han | Punjabi people are very hospitable
+S ਦਾਦੀ ਜੀ ਸਾਨੂੰ ਕਹਾਣੀਆਂ ਸੁਣਾਉਂਦੇ ਸਨ | dādī jī sānūṃ kahāṇīāṃ suṇāunde san | Grandma used to tell us stories
+DIALOG Tejpal | Mehak
+A ਤੁਸੀਂ ਪਿਛਲੇ ਸਾਲ ਪੰਜਾਬ ਗਏ ਸੀ, ਕਿਵੇਂ ਲੱਗਿਆ? | tusīṃ pichle sāl panjāb gae sī, kiveṃ laggiā? | You went to Punjab last year. How was it?
+B ਬਹੁਤ ਵਧੀਆ! ਪਹਿਲਾਂ ਅਸੀਂ ਹਰਿਮੰਦਰ ਸਾਹਿਬ ਗਏ। | bahut vadhīā! pahilāṃ asīṃ harimandar sāhib gae. | Wonderful! First we went to the Golden Temple.
+A ਫਿਰ ਕਿੱਥੇ ਗਏ? | phir kitthe gae? | Where did you go next?
+B ਫਿਰ ਅਸੀਂ ਨਾਨਕੇ ਪਿੰਡ ਗਏ ਅਤੇ ਖੇਤਾਂ ਵਿੱਚ ਘੁੰਮੇ। | phir asīṃ nānake piṇḍ gae ate khetāṃ vich ghumme. | Then we went to my mother's family village and wandered through the fields.
+
+UNIT Natural Punjabi | Everyday expressions that make you sound like a local
+TIP ਤਾਂ (tāṃ) adds emphasis, a bit like "really" or "though": ਇਹ ਤਾਂ ਬਹੁਤ ਮਹਿੰਗਾ ਹੈ (this is really expensive).
+TIP ਵੀ (vī) means "also" or "even" and comes after the word it affects: ਮੈਂ ਵੀ (me too).
+TIP ਯਾਰ (yār, mate) is very common between friends, but avoid it with elders.
+SKILL expressions | Expressions | ਮੁਹਾਵਰੇ | ਵਾਹ
+W ਕੋਈ ਗੱਲ ਨਹੀਂ | koī gall nahīṃ | no problem
+W ਮਾਫ਼ ਕਰਨਾ | māf karnā | sorry, excuse me
+W ਬੱਲੇ ਬੱਲੇ | balle balle | hooray
+W ਹੌਲੀ ਹੌਲੀ | haulī haulī | slowly
+W ਜਲਦੀ | jaldī | quickly
+W ਵਧੀਆ | vadhīā | great
+W ਵਾਹ | vāh | wow
+W ਚੱਕ ਦੇ ਫੱਟੇ | chakk de phaṭṭe | go for it
+S ਕੋਈ ਗੱਲ ਨਹੀਂ ਜੀ | koī gall nahīṃ jī | It's no problem
+S ਹੌਲੀ ਹੌਲੀ ਬੋਲੋ | haulī haulī bolo | Please speak slowly
+S ਫਿਰ ਤੋਂ ਦੱਸੋ | phir toṃ dasso | Please say it again
+S ਮੈਨੂੰ ਸਮਝ ਨਹੀਂ ਆਈ | mainūṃ samajh nahīṃ āī | I didn't understand
+SKILL connect | Keep the conversation going | ਗੱਲਬਾਤ | ਗੱਲ
+W ਅੱਛਾ | acchā | I see, okay
+W ਸੱਚੀਂ | sachīṃ | really?
+W ਫਿਰ ਕੀ ਹੋਇਆ | phir kī hoiā | then what happened?
+W ਹੋਰ ਸੁਣਾਓ | hor suṇāo | what else is new?
+W ਮਤਲਬ | matlab | meaning
+W ਗੱਲ | gall | matter, conversation
+W ਬਾਰੇ | bāre | about
+W ਪਤਾ | patā | known
+S ਇਸ ਦਾ ਮਤਲਬ ਕੀ ਹੈ | is dā matlab kī hai | What does this mean?
+S ਮੈਨੂੰ ਨਹੀਂ ਪਤਾ | mainūṃ nahīṃ patā | I don't know
+S ਆਪਣੇ ਬਾਰੇ ਦੱਸੋ | āpṇe bāre dasso | Tell me about yourself
+S ਹੋਰ ਸੁਣਾਓ ਕੀ ਹਾਲ ਹੈ | hor suṇāo kī hāl hai | So, how are things?
+DIALOG Bunty | Rupinder
+A ਹੋਰ ਸੁਣਾਓ, ਕੀ ਹਾਲ ਹੈ? | hor suṇāo, kī hāl hai? | So, how are things?
+B ਵਧੀਆ ਯਾਰ! ਮੈਨੂੰ ਨਵੀਂ ਨੌਕਰੀ ਮਿਲ ਗਈ। | vadhīā yār! mainūṃ navīṃ naukarī mil gaī. | Great, mate! I got a new job.
+A ਸੱਚੀਂ? ਬੱਲੇ ਬੱਲੇ! ਕਿੱਥੇ? | sachīṃ? balle balle! kitthe? | Really? Hooray! Where?
+B ਬੈਂਕ ਵਿੱਚ। ਅਗਲੇ ਸੋਮਵਾਰ ਤੋਂ ਸ਼ੁਰੂ ਹੈ। | baiṅk vich. agle somvār toṃ shurū hai. | At a bank. It starts next Monday.
+A ਵਾਹ! ਫਿਰ ਮਠਿਆਈ ਕਦੋਂ ਖਿਲਾਓਗੇ? | vāh! phir maṭhiāī kadoṃ khilāoge? | Wow! So when are you treating us to sweets?
+
+UNIT Real conversations | Put it all together on the phone and in town
+TIP On the phone, people answer with ਹੈਲੋ, then ਹਾਂ ਜੀ, ਬੋਲੋ (yes, go ahead).
+TIP If you get lost, these three lines carry you a long way: ਹੌਲੀ ਬੋਲੋ (speak slowly), ਫਿਰ ਤੋਂ ਦੱਸੋ (say it again), ਇਸ ਦਾ ਮਤਲਬ ਕੀ ਹੈ? (what does it mean?)
+TIP Practise out loud. Read each line in the Phrasebook aloud before you check the answer.
+SKILL phone | On the phone | ਫ਼ੋਨ ਤੇ | ਫ਼ੋਨ
+W ਫ਼ੋਨ | fon | phone
+W ਸੁਨੇਹਾ | sunehā | message
+W ਨੰਬਰ | nambar | number
+W ਆਵਾਜ਼ | āvāz | voice, sound
+W ਗੱਲ ਕਰਨੀ | gall karnī | to talk
+W ਬਾਅਦ | bāad | later
+W ਵਾਪਸ | vāpas | back
+W ਬੰਦ | band | off, closed
+S ਮੈਂ ਬਾਅਦ ਵਿੱਚ ਫ਼ੋਨ ਕਰਾਂਗਾ | maiṃ bāad vich fon karāṅgā | I will call later
+S ਤੁਹਾਡੀ ਆਵਾਜ਼ ਨਹੀਂ ਆ ਰਹੀ | tuhāḍī āvāz nahīṃ ā rahī | I can't hear you
+S ਕੀ ਮੈਂ ਗੁਰਪ੍ਰੀਤ ਨਾਲ ਗੱਲ ਕਰ ਸਕਦੀ ਹਾਂ | kī maiṃ gurprīt nāl gall kar sakdī hāṃ | Can I speak to Gurpreet?
+SKILL review | Everyday review | ਦੁਹਰਾਈ | ਦੁਹ
+W ਸ਼ੁਕਰੀਆ | shukrīā | thanks
+W ਮਿਹਰਬਾਨੀ | miharbānī | kindness, thank you
+W ਸਹੀ | sahī | correct
+W ਥੋੜ੍ਹਾ | thoṛhā | a little
+W ਬਹੁਤ | bahut | very, a lot
+W ਸਭ | sabh | everyone, all
+W ਕੁਝ | kujh | something
+W ਕੋਈ | koī | someone, any
+S ਸਭ ਠੀਕ ਹੈ | sabh ṭhīk hai | Everything is fine
+S ਕੁਝ ਖਾਓਗੇ | kujh khāoge | Will you eat something?
+S ਕੋਈ ਘਰ ਨਹੀਂ ਹੈ | koī ghar nahīṃ hai | Nobody is at home
+DIALOG Caller | Aunty
+A ਹੈਲੋ, ਸਤ ਸ੍ਰੀ ਅਕਾਲ ਮਾਸੀ ਜੀ! | hailo, sat srī akāl māsī jī! | Hello, aunty!
+B ਸਤ ਸ੍ਰੀ ਅਕਾਲ ਪੁੱਤ! ਕੀ ਹਾਲ ਹੈ? | sat srī akāl putt! kī hāl hai? | Hello, dear! How are you?
+A ਮੈਂ ਠੀਕ ਹਾਂ। ਤੁਸੀਂ ਸੁਣਾਓ, ਸਿਹਤ ਕਿਵੇਂ ਹੈ? | maiṃ ṭhīk hāṃ. tusīṃ suṇāo, sihat kiveṃ hai? | I'm fine. Tell me, how is your health?
+B ਰੱਬ ਦੀ ਮਿਹਰ ਹੈ। ਤੂੰ ਕਦੋਂ ਆਵੇਂਗਾ? | rabb dī mihar hai. tūṃ kadoṃ āveṅgā? | All good, by God's grace. When are you coming?
+A ਅਗਲੇ ਮਹੀਨੇ ਪੱਕਾ ਆਵਾਂਗਾ। | agle mahīne pakkā āvāṅgā. | I'll definitely come next month.
+B ਚੰਗਾ ਪੁੱਤ, ਤੇਰਾ ਇੰਤਜ਼ਾਰ ਕਰਾਂਗੇ। | changā putt, terā intzār karāṅge. | Good, dear, we'll be waiting for you.
