@@ -999,5 +999,10 @@ window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); instal
   }
   useCourse(S.course); applyFestival();
   render(); scrollToCurrent();
-  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
+  if ("serviceWorker" in navigator && location.protocol === "https:") {
+    // When a new version takes over, reload once so the update shows without a second restart.
+    const had = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener("controllerchange", () => { if (had && !window.__reloaded) { window.__reloaded = true; location.reload(); } });
+    navigator.serviceWorker.register("sw.js", { updateViaCache:"none" }).then(r => r.update()).catch(() => {});
+  }
 })();
