@@ -238,21 +238,31 @@ main.home{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 .squiz{margin-top:10px;padding-top:16px;border-top:2px dashed var(--gold)}
 
 /* festivals */
-.festband{margin-top:18px;text-align:center;overflow:hidden}
-.festdeco{height:46px;display:flex;justify-content:center;margin-bottom:6px}
-.flames,.diyas,.wheat{display:flex;gap:10px;align-items:flex-end}
-.flames i{width:16px;height:30px;background:radial-gradient(circle at 50% 75%,#FFE08A 0 25%,#F59E0B 45%,#D9480F 75%);border-radius:50% 50% 45% 45%/65% 65% 35% 35%;animation:flick 1s ease-in-out infinite alternate}
-.flames i:nth-child(2n){height:38px;animation-delay:.3s}.flames i:nth-child(3n){animation-delay:.6s}
-@keyframes flick{to{transform:scaleY(.82) skewX(4deg)}}
-.diyas i{width:28px;height:12px;background:var(--saffron);border-radius:0 0 14px 14px;position:relative}
-.diyas i::before{content:"";position:absolute;left:10px;top:-16px;width:8px;height:15px;background:radial-gradient(circle at 50% 70%,#FFF3C4 0 30%,#F59E0B 70%);border-radius:50% 50% 40% 40%/65% 65% 35% 35%;animation:flick .8s ease-in-out infinite alternate}
-.diyas i:nth-child(2n)::before{animation-delay:.4s}
-.wheat i{width:6px;height:40px;background:linear-gradient(#E3A72F 0 45%,#2E7D4F 45%);border-radius:4px 4px 1px 1px;transform-origin:bottom;animation:sway 2.4s ease-in-out infinite alternate}
-.wheat i:nth-child(2n){height:34px;animation-delay:.5s}
-@keyframes sway{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
-:root[data-fest="lohri"] body::after{content:"";position:fixed;inset:auto 0 0;height:40vh;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 110%,rgba(245,130,20,.35),transparent 70%)}
-:root[data-fest="diwali"] .top{background-image:radial-gradient(circle,#FFE08A 0 2px,transparent 3px);background-size:22px 100%;background-position:0 100%;background-repeat:repeat-x}
-:root[data-fest="vaisakhi"] .boardframe{box-shadow:0 0 0 3px var(--paper),0 0 0 6px #E3A72F,0 0 0 9px #2E7D4F,0 8px 22px rgba(0,0,0,.25)}
+.festband{margin-top:18px;text-align:center;overflow:hidden;padding:0;border:2px solid var(--gold);background:var(--festbg);color:#FFF6E3;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.festband[data-f="lohri"]{--festbg:linear-gradient(180deg,#1B1033 0%,#3F1235 55%,#6E1A22 100%)}
+.festband[data-f="diwali"]{--festbg:linear-gradient(180deg,#0F0C2B 0%,#24124A 60%,#3D1648 100%)}
+.festband[data-f="vaisakhi"]{--festbg:linear-gradient(180deg,#FFF1C9 0%,#FBD889 55%,#F2B550 100%);color:#5A1414}
+.festart svg{display:block;width:100%;height:132px}
+.festbody{padding:4px 18px 18px}
+.festband .kicker{color:#F7C35F;margin:0 0 4px;letter-spacing:.14em}
+.festband[data-f="vaisakhi"] .kicker{color:#8C1C13}
+.festband[data-f="vaisakhi"] .btn.gold{background:#9B1C1C;color:#FFF6E3;box-shadow:0 3px 0 #5A1414}
+.festband .pa{font-size:1.45rem;color:inherit}
+.festband .tr{color:inherit;opacity:.75}
+.festband .note{color:inherit;opacity:.85;margin:8px 0 14px}
+.fl{transform-box:fill-box;transform-origin:50% 100%;animation:flick 1.1s ease-in-out infinite alternate}
+.fl.b{animation-duration:.8s;animation-delay:-.4s}.fl.c{animation-duration:.6s;animation-delay:-.2s}
+@keyframes flick{0%{transform:scale(1,1) skewX(0)}50%{transform:scale(.94,1.06) skewX(3deg)}100%{transform:scale(1.04,.92) skewX(-3deg)}}
+.spark{animation:rise 2.6s linear infinite;opacity:0}
+@keyframes rise{0%{opacity:0;transform:translate(0,0)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx,6px),-70px)}}
+.tw{animation:tw 2.2s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.25}to{opacity:1}}
+.stalk{transform-box:fill-box;transform-origin:50% 100%;animation:sway 3s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+:root[data-fest] .boardframe{box-shadow:0 0 0 3px var(--paper),0 0 0 6px var(--festring),0 0 18px 6px color-mix(in srgb,var(--festring) 45%,transparent),0 8px 22px rgba(0,0,0,.25)}
+:root[data-fest="lohri"]{--festring:#F28C28}
+:root[data-fest="diwali"]{--festring:#F7C35F}
+:root[data-fest="vaisakhi"]{--festring:#3E8E4F}
 
 /* tabs */
 .tabs{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--ground-deep);padding-bottom:env(safe-area-inset-bottom,0px)}

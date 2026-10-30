@@ -755,10 +755,56 @@ function festivalNow() {
   })) || null;
 }
 function applyFestival() { const f = festivalNow(); document.documentElement.dataset.fest = f ? f.id : ""; }
+function festArt(id) {
+  const r = n => Math.round(n * 10) / 10;
+  let g = "";
+  if (id === "lohri") {
+    // a night sky over a bonfire, with sparks drifting up
+    [[30,18],[70,40],[110,14],[250,22],[300,44],[338,16],[205,10],[150,34]].forEach(([x, y], i) => g += `<circle class="tw" cx="${x}" cy="${y}" r="${i % 3 ? 1.2 : 1.8}" fill="#FFE9B0" style="animation-delay:${-i * .3}s"/>`);
+    g += `<defs><radialGradient id="glow"><stop offset="0" stop-color="#FFB347" stop-opacity=".75"/><stop offset="1" stop-color="#FF7A1A" stop-opacity="0"/></radialGradient></defs>
+      <ellipse cx="180" cy="112" rx="150" ry="60" fill="url(#glow)"/>
+      <path d="M0 132 Q90 112 180 118 T360 112 V132Z" fill="#2A0C14"/>
+      <rect x="138" y="110" width="84" height="10" rx="5" fill="#5B2A12" transform="rotate(-12 180 115)"/>
+      <rect x="138" y="110" width="84" height="10" rx="5" fill="#6E3416" transform="rotate(12 180 115)"/>
+      <path class="fl" d="M180 114c-30 0-42-18-34-40 5-13 14-20 12-36 14 9 20 22 20 32 4-14 12-24 13-40 15 16 27 38 22 58-4 16-15 26-33 26z" fill="#E8541E"/>
+      <path class="fl b" d="M180 114c-20 0-28-12-23-28 4-10 10-14 9-26 10 8 14 16 14 24 3-9 8-15 9-25 10 12 17 26 13 39-3 10-10 16-22 16z" fill="#F9A21B"/>
+      <path class="fl c" d="M180 114c-11 0-15-7-12-16 2-6 6-8 6-15 6 5 8 10 8 14 2-5 4-9 5-14 6 7 9 14 7 21-2 6-6 10-14 10z" fill="#FFE59A"/>`;
+    for (let i = 0; i < 9; i++) g += `<circle class="spark" cx="${170 + (i * 7) % 24}" cy="${70 + (i * 5) % 14}" r="${i % 2 ? 1.4 : 2}" fill="#FFD27A" style="--dx:${(i % 2 ? -1 : 1) * (6 + i * 2)}px;animation-delay:${-i * .29}s"/>`;
+  } else if (id === "diwali") {
+    // a string of lights above, a row of diyas below
+    g += `<path d="M-5 6 Q90 40 180 14 T365 8" fill="none" stroke="#7A5A2E" stroke-width="1.5"/>`;
+    for (let i = 0; i <= 18; i++) {
+      const t = i / 18, x = -5 + 370 * t;
+      const y = t < .5 ? (1 - t * 2) ** 2 * 6 + 2 * (1 - t * 2) * (t * 2) * 40 + (t * 2) ** 2 * 14 : (1 - (t * 2 - 1)) ** 2 * 14 + 2 * (1 - (t * 2 - 1)) * (t * 2 - 1) * -12 + (t * 2 - 1) ** 2 * 8;
+      g += `<circle class="tw" cx="${r(x)}" cy="${r(y + 4)}" r="3" fill="${["#FFD45C", "#FF8A5B", "#F3E6FF"][i % 3]}" style="animation-delay:${-i * .37}s"/>`;
+    }
+    g += `<defs><radialGradient id="dg"><stop offset="0" stop-color="#FFD978" stop-opacity=".7"/><stop offset="1" stop-color="#FFB020" stop-opacity="0"/></radialGradient></defs>`;
+    [40, 110, 180, 250, 320].forEach((x, i) => {
+      const y = i === 2 ? 112 : i % 2 ? 116 : 120;
+      g += `<circle cx="${x}" cy="${y - 20}" r="26" fill="url(#dg)"/>
+        <path class="fl ${i % 2 ? "b" : ""}" d="M${x} ${y - 4}c-6 0-8-5-6-10 2-5 5-8 6-16 2 8 5 11 7 16 1 5-1 10-7 10z" fill="#FFC93C"/>
+        <path class="fl c" d="M${x} ${y - 5}c-3 0-4-3-3-6 1-2 2-4 3-8 1 4 3 6 3 8 1 3-0 6-3 6z" fill="#FFF6D8"/>
+        <path d="M${x - 24} ${y - 3}h48c-3 12-13 18-24 18s-21-6-24-18z" fill="#B4441A"/>
+        <path d="M${x - 24} ${y - 3}h48" stroke="#F7C35F" stroke-width="3" stroke-linecap="round"/>
+        <path d="M${x - 14} ${y + 6}h28" stroke="#F7C35F" stroke-width="1.5" stroke-dasharray="2 3"/>`;
+    });
+  } else if (id === "vaisakhi") {
+    // harvest sun over a field of ripe wheat
+    g += `<circle cx="290" cy="40" r="22" fill="#FFF7DF" opacity=".9"/><circle cx="290" cy="40" r="34" fill="#FFF7DF" opacity=".3"/>
+      <path d="M0 100 Q100 80 200 92 T360 86 V132H0Z" fill="#E9A23B"/><path d="M0 114 Q120 100 240 110 T360 106 V132H0Z" fill="#D4862A"/>`;
+    for (let i = 0; i < 17; i++) {
+      const x = 8 + i * 21.5 + (i % 3) * 3, h = 44 + (i * 13) % 22, y = 132;
+      let head = "";
+      for (let k = 0; k < 5; k++) head += `<ellipse cx="${r(x - 3)}" cy="${y - h + k * 5}" rx="2.6" ry="4" fill="#C98A1B" transform="rotate(-25 ${r(x - 3)} ${y - h + k * 5})"/><ellipse cx="${r(x + 3)}" cy="${y - h + k * 5 + 2}" rx="2.6" ry="4" fill="#E0A630" transform="rotate(25 ${r(x + 3)} ${y - h + k * 5 + 2})"/>`;
+      g += `<g class="stalk" style="animation-delay:${-i * .23}s"><path d="M${x} ${y}V${y - h + 22}" stroke="#8A6A1E" stroke-width="1.6"/><path d="M${x} ${y - 20}q-10-6-14-16" stroke="#6E8B3D" stroke-width="1.6" fill="none"/>${head}<path d="M${x} ${y - h - 4}v-10" stroke="#C98A1B" stroke-width=".8"/></g>`;
+    }
+  }
+  return `<svg viewBox="0 0 360 132" preserveAspectRatio="xMidYMax slice" aria-hidden="true">${g}</svg>`;
+}
 function festivalBanner(f) {
-  const deco = { lohri:'<span class="flames"><i></i><i></i><i></i><i></i><i></i></span>', diwali:'<span class="diyas"><i></i><i></i><i></i><i></i><i></i><i></i></span>', vaisakhi:'<span class="wheat"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>' }[f.id] || "";
-  return `<div class="cloth festband"><div class="festdeco" aria-hidden="true">${deco}</div><div class="pa" style="font-size:1.4rem">${esc(f.greeting[0])}</div><div class="tr">${esc(f.greeting[1])}</div>
-    <p class="note" style="margin:6px 0 10px">It's ${esc(f.name)} season. Learn the words that go with it in a bonus lesson.</p><button class="btn gold wide" data-act="festlesson" data-v="${f.id}">Bonus ${esc(f.name.split(" ")[0])} lesson</button></div>`;
+  return `<div class="cloth festband" data-f="${f.id}"><div class="festart">${festArt(f.id)}</div><div class="festbody">
+    <p class="kicker">${esc(f.name.split(" ")[0])} special</p><div class="pa">${esc(f.greeting[0])}</div><div class="tr">${esc(f.greeting[1])}</div>
+    <p class="note">It's ${esc(f.name)} season. Learn the words that go with it in a bonus lesson.</p><button class="btn gold wide" data-act="festlesson" data-v="${f.id}">Bonus ${esc(f.name.split(" ")[0])} lesson</button></div></div>`;
 }
 function makeFestLesson(f) {
   const sk = f.sk;
