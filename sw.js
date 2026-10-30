@@ -1,5 +1,5 @@
 // Offline support: the app shell and courses are cached on install.
-const CACHE = "mor-v14";
+const CACHE = "mor-v15";
 const SHELL = ["./", "index.html", "app.js", "manifest.webmanifest", "courses/index.json", "courses/punjabi.json",
   "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-180.png"];
 

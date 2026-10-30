@@ -38,7 +38,7 @@ SKILL l2 | Letters 2 | ਅੱਖਰ | ਤ | letters
 W ਤ | tattā | ta
 W ਨ | nannā | na
 W ਲ | lallā | la
-W ਵ | vavvā | va
+W ਵ | vāvā | va
 W ਜ | jajjā | ja
 W ਬ | babbā | ba
 W ਦ | daddā | da
@@ -48,7 +48,7 @@ W ਟ | ṭainkā | ṭa (tongue curled back)
 W ਡ | ḍaḍḍā | ḍa (tongue curled back)
 W ਣ | ṇāṇā | ṇa (tongue curled back)
 W ਥ | thatthā | tha
-W ਧ | dhaddhā | dha (falling tone)
+W ਧ | dhaddā | dha (falling tone)
 W ਫ | phapphā | pha
 W ਯ | yayyā | ya
 W ੜ | ṛāṛā | ṛa (flapped)
@@ -807,53 +807,53 @@ A ਅਗਲੇ ਮਹੀਨੇ ਪੱਕਾ ਆਵਾਂਗਾ। | agle mahīne
 B ਚੰਗਾ ਪੁੱਤ, ਤੇਰਾ ਇੰਤਜ਼ਾਰ ਕਰਾਂਗੇ। | changā putt, terā intzār karāṅge. | Good, dear, we'll be waiting for you.
 
 ########################################################################
-# The alphabet tab: GROUP title | note, then L letter | name | sound | example | example transliteration | meaning
+# The alphabet tab: GROUP title | note, then L letter | name | sound | example | example transliteration | meaning | name in Gurmukhi (spoken when tapped)
 ALPHABET
 
 GROUP The 35 letters (ਪੈਂਤੀ) | Read in rows of five, the traditional order children learn. The first three carry vowels.
-L ੳ | ūṛā | carries u and o | ਉੱਲੂ | ullū | owl
-L ਅ | aiṛā | carries a, ā, ai, au | ਅੰਬ | amb | mango
-L ੲ | īṛī | carries i, ī, e | ਇੱਟ | iṭṭ | brick
-L ਸ | sassā | s | ਸੇਬ | seb | apple
-L ਹ | hāhā | h | ਹਾਥੀ | hāthī | elephant
-L ਕ | kakkā | k | ਕਬੂਤਰ | kabūtar | pigeon
-L ਖ | khakkhā | kh, a puff of air | ਖੰਭ | khambh | feather
-L ਗ | gaggā | g | ਗਾਂ | gāṃ | cow
-L ਘ | ghaggā | k with a falling tone | ਘਰ | ghar | house
-L ਙ | ṅaṅṅā | ng, as in sing | ਵਾਙੂ | vāṅgū | like (similar to)
-L ਚ | chachchā | ch | ਚਾਹ | chāh | tea
-L ਛ | chhachchhā | chh, with a puff of air | ਛਤਰੀ | chhatarī | umbrella
-L ਜ | jajjā | j | ਜਹਾਜ਼ | jahāz | ship or plane
-L ਝ | jhajjhā | ch with a falling tone | ਝੰਡਾ | jhaṇḍā | flag
-L ਞ | ñaññā | ny, as in canyon | ਞ | ñaññā | rare in modern words
-L ਟ | ṭainkā | ṭ, tongue curled back | ਟਮਾਟਰ | ṭamāṭar | tomato
-L ਠ | ṭhaṭṭhā | ṭh, curled back with a puff | ਠੰਢ | ṭhaṇḍh | cold
-L ਡ | ḍaḍḍā | ḍ, tongue curled back | ਡੱਬਾ | ḍabbā | box
-L ਢ | ḍhaḍḍhā | ṭ with a falling tone | ਢੋਲ | ḍhol | dhol drum
-L ਣ | ṇāṇā | ṇ, curled back, never starts a word | ਪਾਣੀ | pāṇī | water
-L ਤ | tattā | t, tongue on the teeth | ਤਾਰਾ | tārā | star
-L ਥ | thatthā | th, on the teeth with a puff | ਥਾਲੀ | thālī | plate
-L ਦ | daddā | d, tongue on the teeth | ਦੁੱਧ | duddh | milk
-L ਧ | dhaddhā | t with a falling tone | ਧੁੱਪ | dhupp | sunshine
-L ਨ | nannā | n | ਨੱਕ | nakk | nose
-L ਪ | pappā | p | ਪਤੰਗ | patang | kite
-L ਫ | phapphā | ph, p with a puff | ਫੁੱਲ | phull | flower
-L ਬ | babbā | b | ਬਿੱਲੀ | billī | cat
-L ਭ | bhabbhā | p with a falling tone | ਭਰਾ | bharā | brother
-L ਮ | mammā | m | ਮੋਰ | mor | peacock
-L ਯ | yayyā | y | ਯਾਰ | yār | friend
-L ਰ | rārā | r, lightly rolled | ਰੋਟੀ | roṭī | roti
-L ਲ | lallā | l | ਲੱਸੀ | lassī | lassi
-L ਵ | vavvā | v, soft like w | ਵਾਜਾ | vājā | harmonium
-L ੜ | ṛāṛā | ṛ, a flapped r, never starts a word | ਪਹਾੜ | pahāṛ | mountain
+L ੳ | ūṛā | carries u and o | ਉੱਲੂ | ullū | owl | ਊੜਾ
+L ਅ | aiṛā | carries a, ā, ai, au | ਅੰਬ | amb | mango | ਐੜਾ
+L ੲ | īṛī | carries i, ī, e | ਇੱਟ | iṭṭ | brick | ਈੜੀ
+L ਸ | sassā | s | ਸੇਬ | seb | apple | ਸੱਸਾ
+L ਹ | hāhā | h | ਹਾਥੀ | hāthī | elephant | ਹਾਹਾ
+L ਕ | kakkā | k | ਕਬੂਤਰ | kabūtar | pigeon | ਕੱਕਾ
+L ਖ | khakkhā | kh, a puff of air | ਖੰਭ | khambh | feather | ਖੱਖਾ
+L ਗ | gaggā | g | ਗਾਂ | gāṃ | cow | ਗੱਗਾ
+L ਘ | ghaggā | k with a falling tone | ਘਰ | ghar | house | ਘੱਗਾ
+L ਙ | ṅaṅṅā | ng, as in sing | ਵਾਙੂ | vāṅgū | like (similar to) | ਙੰਙਾ
+L ਚ | chachchā | ch | ਚਾਹ | chāh | tea | ਚੱਚਾ
+L ਛ | chhachchhā | chh, with a puff of air | ਛਤਰੀ | chhatarī | umbrella | ਛੱਛਾ
+L ਜ | jajjā | j | ਜਹਾਜ਼ | jahāz | ship or plane | ਜੱਜਾ
+L ਝ | jhajjā | ch with a falling tone | ਝੰਡਾ | jhaṇḍā | flag | ਝੱਜਾ
+L ਞ | ñaññā | ny, as in canyon | ਞ | ñaññā | rare in modern words | ਞੰਞਾ
+L ਟ | ṭainkā | ṭ, tongue curled back | ਟਮਾਟਰ | ṭamāṭar | tomato | ਟੈਂਕਾ
+L ਠ | ṭhaṭṭhā | ṭh, curled back with a puff | ਠੰਢ | ṭhaṇḍh | cold | ਠੱਠਾ
+L ਡ | ḍaḍḍā | ḍ, tongue curled back | ਡੱਬਾ | ḍabbā | box | ਡੱਡਾ
+L ਢ | ḍhaḍḍā | ṭ with a falling tone | ਢੋਲ | ḍhol | dhol drum | ਢੱਡਾ
+L ਣ | ṇāṇā | ṇ, curled back, never starts a word | ਪਾਣੀ | pāṇī | water | ਣਾਣਾ
+L ਤ | tattā | t, tongue on the teeth | ਤਾਰਾ | tārā | star | ਤੱਤਾ
+L ਥ | thatthā | th, on the teeth with a puff | ਥਾਲੀ | thālī | plate | ਥੱਥਾ
+L ਦ | daddā | d, tongue on the teeth | ਦੁੱਧ | duddh | milk | ਦੱਦਾ
+L ਧ | dhaddā | t with a falling tone | ਧੁੱਪ | dhupp | sunshine | ਧੱਦਾ
+L ਨ | nannā | n | ਨੱਕ | nakk | nose | ਨੱਨਾ
+L ਪ | pappā | p | ਪਤੰਗ | patang | kite | ਪੱਪਾ
+L ਫ | phapphā | ph, p with a puff | ਫੁੱਲ | phull | flower | ਫੱਫਾ
+L ਬ | babbā | b | ਬਿੱਲੀ | billī | cat | ਬੱਬਾ
+L ਭ | bhabbā | p with a falling tone | ਭਰਾ | bharā | brother | ਭੱਬਾ
+L ਮ | mammā | m | ਮੋਰ | mor | peacock | ਮੱਮਾ
+L ਯ | yayyā | y | ਯਾਰ | yār | friend | ਯੱਯਾ
+L ਰ | rārā | r, lightly rolled | ਰੋਟੀ | roṭī | roti | ਰਾਰਾ
+L ਲ | lallā | l | ਲੱਸੀ | lassī | lassi | ਲੱਲਾ
+L ਵ | vāvā | v, soft like w | ਵਾਜਾ | vājā | harmonium | ਵਾਵਾ
+L ੜ | ṛāṛā | ṛ, a flapped r, never starts a word | ਪਹਾੜ | pahāṛ | mountain | ੜਾੜਾ
 
 GROUP Letters with a dot (ਪੈਰ ਬਿੰਦੀ) | A dot at the foot makes sounds borrowed from Persian, Arabic and English.
-L ਸ਼ | sasse pair bindī | sh | ਸ਼ੇਰ | sher | lion
-L ਖ਼ | khakhe pair bindī | kh, throaty as in Bach | ਖ਼ਰਗੋਸ਼ | khargosh | rabbit
-L ਗ਼ | gagge pair bindī | gh, like a French r | ਗ਼ਰੀਬ | ġarīb | poor
-L ਜ਼ | jajje pair bindī | z | ਜ਼ਮੀਨ | zamīn | land
-L ਫ਼ | phaphe pair bindī | f | ਫ਼ੋਨ | fon | phone
-L ਲ਼ | lalle pair bindī | ḷ, l with the tongue curled back | ਲ਼ | ḷa | used in some spellings
+L ਸ਼ | sasse pair bindī | sh | ਸ਼ੇਰ | sher | lion | ਸੱਸੇ ਪੈਰ ਬਿੰਦੀ
+L ਖ਼ | khakkhe pair bindī | kh, throaty as in Bach | ਖ਼ਰਗੋਸ਼ | khargosh | rabbit | ਖੱਖੇ ਪੈਰ ਬਿੰਦੀ
+L ਗ਼ | gagge pair bindī | gh, like a French r | ਗ਼ਰੀਬ | ġarīb | poor | ਗੱਗੇ ਪੈਰ ਬਿੰਦੀ
+L ਜ਼ | jajje pair bindī | z | ਜ਼ਮੀਨ | zamīn | land | ਜੱਜੇ ਪੈਰ ਬਿੰਦੀ
+L ਫ਼ | phapphe pair bindī | f | ਫ਼ੋਨ | fon | phone | ਫੱਫੇ ਪੈਰ ਬਿੰਦੀ
+L ਲ਼ | lalle pair bindī | ḷ, l with the tongue curled back | ਲ਼ | ḷa | used in some spellings | ਲੱਲੇ ਪੈਰ ਬਿੰਦੀ
 
 GROUP Vowels (ਲਗਾਂ ਮਾਤਰਾਂ) | Each vowel has a letter form for the start of a word and a sign that attaches to a consonant, shown here on ਕ.
 L ਅ | muktā (no sign) | a, as in about | ਕ | ka | k + a
@@ -873,7 +873,7 @@ L ਂ | bindī | makes a vowel nasal | ਮਾਂ | māṃ | mother
 L ੰ | ṭippī | adds a nasal n or m sound | ਪੰਜ | panj | five
 L ੍ਰ | pairīṃ rārā | an r tucked under a letter | ਪ੍ਰੀਤ | prīt | love (a name)
 L ੍ਹ | pairīṃ hāhā | an h tone under a letter | ਪੜ੍ਹ | paṛh | read
-L ੍ਵ | pairīṃ vavvā | a v tucked under a letter | ਸ੍ਵੈ | svai | self
+L ੍ਵ | pairīṃ vāvā | a v tucked under a letter | ਸ੍ਵੈ | svai | self
 
 GROUP Numerals (ਅੰਕ) | Gurmukhi has its own digits. You'll see them on signs, calendars and in gurdwaras.
 L ੦ | sifar | 0 | ਸਿਫ਼ਰ | sifar | zero

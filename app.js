@@ -422,7 +422,7 @@ function alphabetView() {
     h += `</div>`;
     if (letterOpen?.startsWith(gi + "-")) {
       const l = g.letters[+letterOpen.split("-")[1]];
-      h += `<div class="lettercard"><div class="big pa">${esc(l[0])}</div><div style="min-width:0;flex:1"><b>${esc(l[1])}</b><p class="note" style="margin:2px 0 8px">Sound: ${esc(l[2])}</p>
+      h += `<div class="lettercard"><div class="big pa">${esc(l[0])}</div><div style="min-width:0;flex:1"><b>${l[6] ? `<span class="pa">${esc(l[6])}</span> ` : ""}${esc(l[1])}</b>${l[6] && canSpeak() ? ` <button class="linkbtn" data-act="sayt" data-v="${esc(l[6])}">Hear the name</button>` : ""}<p class="note" style="margin:2px 0 8px">Sound: ${esc(l[2])}</p>
         <div class="pa" style="font-size:1.35rem">${esc(l[3])}</div><div class="tr">${esc(l[4])}</div><div>${esc(l[5])}</div></div>
         ${canSpeak() ? `<button class="spk" data-act="sayt" data-v="${esc(l[3])}" aria-label="Hear the example">${ICON.spk}</button>` : ""}</div>`;
     }
@@ -941,7 +941,7 @@ const acts = {
   letter: b => {
     const id = b.dataset.v, [g, i] = id.split("-").map(Number), l = C.alphabet[g].letters[i];
     letterOpen = letterOpen === id ? null : id; render();
-    if (letterOpen) { say(/[\u0A3E-\u0A4D\u0A70\u0A71\u0A02]/.test(l[0][0]) ? l[3] : l[0]); document.querySelector(".lettercard")?.scrollIntoView({ block:"nearest", behavior:calm() ? "auto" : "smooth" }); }
+    if (letterOpen) { say(l[6] || (/[\u0A3E-\u0A4D\u0A70\u0A71\u0A02]/.test(l[0][0]) ? l[3] : l[0])); document.querySelector(".lettercard")?.scrollIntoView({ block:"nearest", behavior:calm() ? "auto" : "smooth" }); }
   },
   guide: b => nav(() => { guideUnit = +b.dataset.v; view = "guide"; sheet = null; }, () => scrollTo(0, 0)),
   vocab: b => { const s = SKILLS[+b.dataset.v]; view = "words"; sheet = null; render(); document.getElementById("sk-" + s.sid)?.scrollIntoView(); },

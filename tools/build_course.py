@@ -47,7 +47,8 @@ def build(src):
         elif tag == "GROUP":
             course["alphabet"].append(dict(title=parts[0], note=parts[1] if len(parts) > 1 else "", letters=[]))
         elif tag == "L":
-            if len(parts) != 6: err(n, "alphabet lines need 6 parts: letter | name | sound | example | transliteration | meaning"); continue
+            if len(parts) not in (6, 7): err(n, "alphabet lines need: letter | name | sound | example | transliteration | meaning | name in script (optional)"); continue
+            if len(parts) == 7: check_script(course, parts[6], n, err)
             course["alphabet"][-1]["letters"].append(parts)
         elif tag == "STORY":
             sid, title, native, after, blurb = parts
