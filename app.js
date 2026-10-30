@@ -844,9 +844,9 @@ let R = null; // the story being read
 function storiesView() {
   return `<main class="home"><div class="col page"><div class="cloth"><h2>Stories</h2><p class="note" style="margin:0">Short retellings of Punjabi folk tales. A new one opens as you climb the board. Tap any word for help.</p></div>
     ${C.stories.map((st, i) => { const open = storyOpen(st), done = S.stories?.[storyKey(st)];
-      return `<button class="cloth storycard ${open ? "" : "locked"}" data-act="story" data-v="${i}">
+      return `<button class="cloth storycard ${open ? "" : "locked"}" data-act="story" data-v="${i}" ${open ? "" : "disabled"}>
         <span class="storyart" style="--uc:${UNIT_COLORS[(i + 2) % UNIT_COLORS.length]}">${open ? `<span class="pa">${esc(st.native.split(" ")[0])}</span>` : ICON.lock}</span>
-        <span class="storytxt"><b>${esc(st.title)}</b> <span class="pa">${esc(st.native)}</span><small>${open ? esc(st.blurb) : `Unlocks after the Unit ${st.after} test. Tap to read it early.`}</small></span>${done ? `<span class="storydone">${ICON.star}</span>` : ""}</button>`; }).join("")}
+        <span class="storytxt"><b>${esc(st.title)}</b> <span class="pa">${esc(st.native)}</span><small>${open ? esc(st.blurb) : `Opens when you pass the Unit ${st.after} test`}</small></span>${done ? `<span class="storydone">${ICON.star}</span>` : ""}</button>`; }).join("")}
   </div></main>`;
 }
 const bare = w => w.replace(/[.,?!।:;"“”]/g, "");
