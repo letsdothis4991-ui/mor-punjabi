@@ -13,7 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
-const APP_URL = location.href.split("#")[0];
+const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {
   fire:'<svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4 5 5.5 5 10.5A5 5 0 0 1 7 13c0-2 1-3.5 2-4.5.2 2 1.3 3 2.3 3C10.5 8 12 5 12 2z"/></svg>',
@@ -466,8 +466,8 @@ function profileView() {
       ${installEvt ? `<p class="note" style="margin-top:0">Add Mor to your home screen. It works offline once installed.</p><button class="btn wide gold" data-act="install">Install app</button>` :
       `<p class="note" style="margin-top:0">Mor installs straight from the browser and works offline once added.</p>
       <b>iPhone (Safari)</b><ol class="steps"><li>Tap the Share button.</li><li>Choose <b>Add to Home Screen</b>, then <b>Add</b>.</li></ol>
-      <b style="display:block;margin-top:10px">Android (Chrome)</b><ol class="steps"><li>Tap the ⋮ menu.</li><li>Choose <b>Install app</b> or <b>Add to Home screen</b>.</li></ol>`}
-      <div class="setrow" style="margin-top:10px"><div><b>Share with friends</b><p style="word-break:break-all">${esc(APP_URL)}</p></div><button class="btn small ghost" data-act="share">Share</button></div></div>`}
+      <b style="display:block;margin-top:10px">Android (Chrome)</b><ol class="steps"><li>Tap the ⋮ menu.</li><li>Choose <b>Install app</b> or <b>Add to Home screen</b>.</li></ol>`}</div>`}
+    <div class="cloth"><h2>Share Mor with friends</h2><p class="note" style="margin:0 0 12px;word-break:break-all;user-select:all;-webkit-user-select:all">${esc(APP_URL)}</p><button class="btn wide" data-act="share">Share or copy the link</button></div>
     <div class="cloth"><h2>Streak reminder</h2>
       <p class="note" style="margin-top:0">Add a daily reminder to your calendar. It pops up at the time you pick, with a link back to Mor.</p>
       <div class="setrow"><div><b>Remind me at</b></div><input type="time" id="rem-time" class="timein" data-act2="remind" value="${esc(S.remind || "19:00")}"></div>
