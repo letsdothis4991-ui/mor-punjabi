@@ -45,7 +45,7 @@ function peacock(cls = "") {
 
 /* ---------- saved state ---------- */
 const KEY = "mor-v2";
-const DEF = { xp:0, streak:0, best:0, lastDay:null, hist:{}, goal:20, tr:true, sfx:true, course:"punjabi", prog:{}, tests:{}, remind:"19:00", srs:{}, stories:{}, speak:true, speakOff:0, fest:"auto" };
+const DEF = { xp:0, streak:0, best:0, lastDay:null, hist:{}, goal:20, tr:true, sfx:true, course:"punjabi", prog:{}, tests:{}, remind:"19:00", srs:{}, stories:{}, speak:true, speakOff:0, fest:"auto", vgender:"both" };
 let S = (() => { try { return Object.assign({}, DEF, JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) { return { ...DEF }; } })();
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 const liveStreak = () => (S.lastDay === dayKey() || S.lastDay === dayOff(-1)) ? S.streak : 0;
@@ -105,15 +105,35 @@ const squareOpen = q => q.type === "test" ? unitOpen(q.unit) : skillOpen(q.sk);
 const currentSquare = () => SQUARES.find(q => squareOpen(q) && !squareDone(q)) || SQUARES[SQUARES.length - 1];
 
 /* ---------- audio ---------- */
-let voice = null, vmode = "none";
+let voice = null, vmode = "none", voices = { female:null, male:null }, lastSaid = "", turn = "female";
+// Browsers don't say whether a voice is male or female, so go by the names phones and laptops use.
+const FEMALE = /female|woman|lekha|kalpana|swara|heera|neerja|aditi|veena|isha|raveena|pallavi|kajal|ananya|vaani|sangeeta|google हिन्दी|x-hia|x-hic|x-pag|x-pab/i;
+const MALE = /\bmale\b|\bman\b|rishi|hemant|madhur|prabhat|aarav|kunal|ravi|ojas|arjun|x-hid|x-hie|x-pae|x-pac/i;
 function pickVoice() {
   if (!("speechSynthesis" in window) || !C) { vmode = "none"; return; }
   const vs = speechSynthesis.getVoices(), code = (C.speech || "").toLowerCase(), base = code.split("-")[0];
-  voice = base ? (vs.find(v => v.lang.toLowerCase().replace("_", "-") === code) || vs.find(v => v.lang.toLowerCase().startsWith(base))) : null;
-  if (voice) { vmode = "native"; return; }
-  if (C.id === "punjabi") { voice = vs.find(v => v.lang.toLowerCase().startsWith("hi")); if (voice) { vmode = "hindi"; return; } }
-  vmode = vs.length ? "none" : "pending";
+  const lang = v => v.lang.toLowerCase().replace("_", "-");
+  let pool = base ? vs.filter(v => lang(v) === code) : [];
+  if (!pool.length && base) pool = vs.filter(v => lang(v).startsWith(base));
+  vmode = pool.length ? "native" : "none";
+  if (!pool.length && C.id === "punjabi") { pool = vs.filter(v => lang(v).startsWith("hi")); if (pool.length) vmode = "hindi"; }
+  if (!pool.length) { voice = null; vmode = vs.length ? "none" : "pending"; return; }
+  const isF = v => FEMALE.test(v.name + " " + v.voiceURI) && !MALE.test(v.name), isM = v => MALE.test(v.name + " " + v.voiceURI);
+  voices = { female:pool.find(isF) || null, male:pool.find(isM) || null };
+  voice = voices.female || voices.male || pool[0];
 }
+// Which voice to use for this line. With only one voice, the other is made by changing its pitch.
+function voiceFor(text) {
+  let g = S.vgender;
+  if (g === "both") { if (text !== lastSaid) turn = turn === "female" ? "male" : "female"; g = turn; }
+  lastSaid = text;
+  const v = voices[g];
+  if (v) return { v, pitch:1 };
+  const other = voices[g === "male" ? "female" : "male"] || voice;
+  const same = other === voices.male ? "male" : other === voices.female ? "female" : null;
+  return { v:other, pitch:same === g ? 1 : g === "male" ? (same ? 0.7 : 0.8) : (same ? 1.35 : 1.2) };
+}
+const realVoices = () => !!(voices.female && voices.male);
 if ("speechSynthesis" in window) speechSynthesis.onvoiceschanged = () => { pickVoice(); if (view === "profile") render(); };
 // Gurmukhi and Devanagari share a code-point layout, so a Hindi voice can read Punjabi converted letter by letter.
 function toDeva(s) {
@@ -133,7 +153,8 @@ function say(text, slow) {
   try {
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(vmode === "hindi" ? toDeva(text) : text);
-    u.voice = voice; u.lang = voice.lang; u.rate = slow ? 0.55 : 0.85;
+    const { v, pitch } = voiceFor(text);
+    u.voice = v; u.lang = v.lang; u.pitch = pitch; u.rate = slow ? 0.55 : 0.85;
     speechSynthesis.speak(u);
   } catch (e) {}
 }
@@ -479,7 +500,8 @@ function profileView() {
       ${sw("sfx", "Sound effects", "Chimes for right and wrong answers")}
       ${SR ? sw("speak", "Speaking exercises", "Say words out loud and Mor checks your pronunciation") : `<div class="setrow"><div><b>Speaking exercises</b><p>This browser can't listen to speech. Chrome on Android or a computer can.</p></div></div>`}
       ${C.festivals?.length ? `<div class="setrow stackrow"><div><b>Festival themes</b><p>The board dresses up around Lohri, Vaisakhi and Diwali. Preview one now if you like.</p></div><div class="seg">${[["auto", "Automatic"], ...C.festivals.map(f => [f.id, f.name.split(" ")[0]]), ["off", "Off"]].map(([v, l]) => `<button data-act="festpick" data-v="${v}" aria-pressed="${S.fest === v}">${esc(l)}</button>`).join("")}</div></div>` : ""}
-      <div class="setrow"><div><b>Voice</b><p>${vtxt}</p></div>${canSpeak() ? `<button class="btn small ghost" data-act="sayt" data-v="${esc(C.units[0]?.skills[0]?.words[0]?.[0] || "")}">Test</button>` : ""}</div>
+      <div class="setrow"><div><b>Voice</b><p>${vtxt}</p></div>${canSpeak() ? `<button class="btn small ghost" data-act="sayt" data-v="${esc(C.greeting?.[0] || C.units[0]?.skills[0]?.words[0]?.[0] || "")}">Test</button>` : ""}</div>
+      ${canSpeak() ? `<div class="setrow stackrow"><div><b>Voice type</b><p>${realVoices() ? "Choose who reads to you. Both takes turns, so you get used to different voices." : "Choose who reads to you. Both takes turns. This device has one voice for this language, so Mor changes its pitch to make the other."}</p></div><div class="seg">${[["female", "Female"], ["male", "Male"], ["both", "Both"]].map(([v, l]) => `<button data-act="vgender" data-v="${v}" aria-pressed="${S.vgender === v}">${l}</button>`).join("")}</div></div>` : ""}
       <div class="setrow"><div><b>Reset progress</b><p>Clears XP, streak, skills and tests. This can't be undone.</p></div>
         ${confirmReset ? `<div class="seg"><button data-act="reset" data-v="yes" style="color:var(--madder)">Yes, reset</button><button data-act="reset" data-v="no">Cancel</button></div>` : `<button class="btn small ghost" data-act="reset">Reset</button>`}</div>
       <p class="note" style="margin-bottom:0">Progress is saved on this device.</p></div>
@@ -945,7 +967,8 @@ const acts = {
   },
   guide: b => nav(() => { guideUnit = +b.dataset.v; view = "guide"; sheet = null; }, () => scrollTo(0, 0)),
   vocab: b => { const s = SKILLS[+b.dataset.v]; view = "words"; sheet = null; render(); document.getElementById("sk-" + s.sid)?.scrollIntoView(); },
-  say: () => say(cur().item.pa), slow: () => say(cur().item.pa, true), sayt: b => say(b.dataset.v), saygroup: b => { sayGroup = +b.dataset.v; render(); },
+  say: () => say(cur().item.pa), slow: () => say(cur().item.pa, true), sayt: b => say(b.dataset.v), vgender: b => { S.vgender = b.dataset.v; save(); lastSaid = ""; render(); say(C.greeting?.[0] || ""); },
+  saygroup: b => { sayGroup = +b.dataset.v; render(); },
   pick: b => { const ex = cur(); L.sel = +b.dataset.v; if (ex.type === "rev") say(ex.opts[L.sel].pa); render(); },
   tok: b => { const ex = cur(); L.justTok = +b.dataset.v; L.sel = (L.sel || []).concat(+b.dataset.v); if (ex.dir === "pa") say(ex.bank[+b.dataset.v].t); render(); },
   untok: b => { L.justTok = null; L.sel = L.sel.filter(i => i !== +b.dataset.v); render(); },
