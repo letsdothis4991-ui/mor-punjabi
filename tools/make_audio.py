@@ -31,7 +31,13 @@ def texts(c):
         add(f["greeting"][0])
     for w in c.get("glossary", {}): add(w)
     for d in c.get("dictionary", []): add(d[0])
-    for v in c.get("numbers", {}).get("words", {}).values(): add(v[0])
+    n = c.get("numbers")
+    if n:
+        w = lambda k: n["words"][str(k)][0]
+        for v in n["words"].values(): add(v[0])
+        # 101 to 1000, built the same way as numberWords() in app.js.
+        for k in range(101, 1000): add(" ".join(x for x in (w(k // 100), n["hundred"][0], w(k % 100) if k % 100 else "") if x))
+        add(f"{w(1)} {n['thousand'][0]}")
     if c.get("greeting"): add(c["greeting"][0])
     return t
 
