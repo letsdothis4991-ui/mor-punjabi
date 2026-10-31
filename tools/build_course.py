@@ -72,6 +72,13 @@ def build(src):
                 err(n, f"saying has {len(parts[0].split())} words but transliteration has {len(parts[1].split())}")
             check_script(course, parts[0], n, err)
             group["items"].append(parts + [""] * (5 - len(parts)))
+        elif tag == "NUMBERS":
+            skill = dialog = None
+            course["numbers"] = dict(hundred=parts[:2], thousand=parts[2:4], words={})
+        elif tag == "N":
+            if len(parts) != 3: err(n, "number lines need: number | word | transliteration"); continue
+            check_script(course, parts[1], n, err)
+            course["numbers"]["words"][parts[0]] = parts[1:]
         elif tag == "GLOSSARY":
             skill = dialog = None
             course.setdefault("glossary", {})
@@ -100,6 +107,7 @@ def build(src):
             if len(s["words"]) < 4: errors.append(f"skill {s['id']} has fewer than 4 words")
     ids = [s["id"] for u in course["units"] for s in u["skills"]]
     if len(ids) != len(set(ids)): errors.append("duplicate skill ids")
+    if "numbers" in course and len(course["numbers"]["words"]) != 101: errors.append("numbers need every word from 0 to 100")
     vocab = {w[0] for u in course["units"] for s in u["skills"] for w in s["words"]}
     for st in course.get("stories", []):
         for l in st["lines"]:

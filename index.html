@@ -237,6 +237,13 @@ main.home{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 .wordpop .iconbtn{margin-left:auto;color:inherit}
 .squiz{margin-top:10px;padding-top:16px;border-top:2px dashed var(--gold)}
 
+/* number finder */
+.numin{width:100%;font-size:1.6rem;font-weight:700;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper-2);font-variant-numeric:tabular-nums;margin-bottom:12px}
+.numin:focus{outline:none;border-color:var(--gold)}
+.numres{display:flex;gap:14px;align-items:center;padding:12px;border-radius:12px;background:var(--gold-soft);animation:rise .3s var(--ease)}
+.numdig{font-size:2rem;min-width:64px;text-align:center;color:var(--madder)}
+.numword{font-size:1.4rem}
+
 /* sayings */
 .eyebrow{margin:0 0 8px;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
 .saying{display:grid;gap:2px}
@@ -412,6 +419,6 @@ main.home{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 </head>
 <body>
 <div id="app"><p class="loading">ਮੋਰ</p></div>
-<script src="app.js?v=17"></script>
+<script src="app.js?v=18"></script>
 </body>
 </html>

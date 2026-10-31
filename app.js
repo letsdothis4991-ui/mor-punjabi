@@ -13,7 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
-const VERSION = 17;
+const VERSION = 18;
 const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {
@@ -435,9 +435,41 @@ function alphabetView() {
         ${canSpeak() ? `<button class="spk" data-act="sayt" data-v="${esc(l[3])}" aria-label="Hear the example">${ICON.spk}</button>` : ""}</div>`;
     }
     h += `</div>`;
+    if (C.numbers && g.letters[0]?.[0] === "੦") h += numFinder();
   });
   return h + `</div></main>`;
 }
+/* ---------- number finder ---------- */
+let numIn = "";
+const guruDigits = n => String(n).replace(/\d/g, d => String.fromCharCode(0x0A66 + +d));
+// Punjabi number words: 0 to 100 come from the course (most are irregular), 101 to 1000 are built from them.
+function numberWords(n) {
+  const N = C.numbers, w = k => N.words[k];
+  if (n === 1000) return { pa:`${w(1)[0]} ${N.thousand[0]}`, tr:`${w(1)[1]} ${N.thousand[1]}` };
+  if (n <= 100) return { pa:w(n)[0], tr:w(n)[1], alt: n === 100 ? { pa:`${w(1)[0]} ${N.hundred[0]}`, tr:`${w(1)[1]} ${N.hundred[1]}` } : null };
+  const h = Math.floor(n / 100), r = n % 100;
+  const pa = [w(h)[0], N.hundred[0], r ? w(r)[0] : ""].join(" ").trim(), tr = [w(h)[1], N.hundred[1], r ? w(r)[1] : ""].join(" ").trim();
+  // Fractions people use for round fifties: 150 ਡੇਢ ਸੌ, 250 ਢਾਈ ਸੌ, 350 ਸਾਢੇ ਤਿੰਨ ਸੌ ...
+  let alt = null;
+  if (C.id === "punjabi" && r === 50) alt = h === 1 ? { pa:"ਡੇਢ ਸੌ", tr:"ḍeḍh sau" } : h === 2 ? { pa:"ਢਾਈ ਸੌ", tr:"ḍhāī sau" } : { pa:`ਸਾਢੇ ${w(h)[0]} ਸੌ`, tr:`sāḍhe ${w(h)[1]} sau` };
+  return { pa, tr, alt };
+}
+function numResult() {
+  const v = numIn.trim();
+  if (v === "") return `<p class="note" style="margin:0">Type a number from 0 to 1000.</p>`;
+  const n = Number(v);
+  if (!/^\d+$/.test(v) || n > 1000) return `<p class="note" style="margin:0">Pick a whole number from 0 to 1000.</p>`;
+  const r = numberWords(n);
+  return `<div class="numres"><div class="numdig pa">${guruDigits(n)}</div><div style="min-width:0;flex:1"><div class="pa numword">${esc(r.pa)}</div><div class="tr">${esc(r.tr)}</div>
+    ${r.alt ? `<p class="note" style="margin:6px 0 0">Also said: <span class="pa">${esc(r.alt.pa)}</span> <span class="tr">${esc(r.alt.tr)}</span></p>` : ""}</div>
+    ${canSpeak() ? `<button class="spk" data-act="sayt" data-v="${esc(r.pa)}" aria-label="Hear it">${ICON.spk}</button>` : ""}</div>`;
+}
+function numFinder() {
+  return `<div class="cloth"><h3>Number finder</h3><p class="note" style="margin:4px 0 10px">Type any number up to 1000 to see how it's written and said in ${esc(C.name)}.</p>
+    <input id="numin" class="numin" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="e.g. 47" value="${esc(numIn)}" aria-label="Number">
+    <div id="numout" aria-live="polite">${numResult()}</div></div>`;
+}
+
 function wordsView() {
   let h = `<main class="home"><div class="col page"><div class="cloth"><h2>Phrasebook</h2><p class="note" style="margin:0">Every word and sentence in ${esc(C.name)}, unit by unit. ${canSpeak() ? "Tap the speaker to hear it." : ""}</p></div>`;
   C.units.forEach((u, ui) => {
@@ -1008,7 +1040,10 @@ const acts = {
   }
 };
 app.addEventListener("click", e => { const b = e.target.closest("[data-act]"); if (!b || b.disabled) return; acts[b.dataset.act]?.(b); });
-app.addEventListener("input", e => { if (ed && e.target.dataset.f) edInput(e.target); });
+app.addEventListener("input", e => {
+  if (ed && e.target.dataset.f) edInput(e.target);
+  if (e.target.id === "numin") { numIn = e.target.value.replace(/\D/g, "").slice(0, 4); if (e.target.value !== numIn) e.target.value = numIn; document.getElementById("numout").innerHTML = numResult(); }
+});
 app.addEventListener("change", e => {
   if (e.target.id === "importfile" && e.target.files[0]) { importCourse(e.target.files[0]); return; }
   if (e.target.dataset.act2 === "remind" && e.target.value) { S.remind = e.target.value; save(); }
