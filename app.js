@@ -13,7 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
-const VERSION = 20;
+const VERSION = 21;
 const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {
@@ -46,7 +46,7 @@ function peacock(cls = "") {
 
 /* ---------- saved state ---------- */
 const KEY = "mor-v2";
-const DEF = { xp:0, streak:0, best:0, lastDay:null, hist:{}, goal:20, tr:true, sfx:true, course:"punjabi", prog:{}, tests:{}, remind:"19:00", srs:{}, stories:{}, speak:true, speakOff:0, fest:"auto" };
+const DEF = { xp:0, streak:0, best:0, lastDay:null, hist:{}, goal:20, tr:true, sfx:true, course:"punjabi", prog:{}, tests:{}, remind:"19:00", srs:{}, stories:{}, speak:true, speakOff:0, fest:"auto", vsex:"female" };
 let S = (() => { try { return Object.assign({}, DEF, JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) { return { ...DEF }; } })();
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 const liveStreak = () => (S.lastDay === dayKey() || S.lastDay === dayOff(-1)) ? S.streak : 0;
@@ -136,10 +136,12 @@ function toDeva(s) {
   return o;
 }
 // Recorded audio, when a course has it (see tools/make_audio.py), sounds far better than device voices.
-const AUDIO = {}; // course id -> { base, clips }
+const AUDIO = {}; // course id -> { female:{ base, clips }, male:{ base, clips } }, or just one of them
 let player = null;
+const clipSet = () => { const v = AUDIO[C?.id]; return v && (v[S.vsex] || Object.values(v)[0]); };
+const bothVoices = () => !!(AUDIO[C?.id]?.female && AUDIO[C?.id]?.male);
 function sayClip(text, slow) {
-  const a = AUDIO[C?.id], f = a && (a.clips[text] || a.clips[text.replace(/[।.!?]+$/, "")]);
+  const a = clipSet(), f = a && (a.clips[text] || a.clips[text.replace(/[।.!?]+$/, "")]);
   if (!f) return false;
   try {
     if ("speechSynthesis" in window) speechSynthesis.cancel();
@@ -151,6 +153,7 @@ function sayClip(text, slow) {
     return true;
   } catch (e) { return false; }
 }
+const sampleWord = () => (C.units.flatMap(u => u.skills).find(s => !s.letters) || C.units[0]?.skills[0])?.words[0]?.[0] || "";
 const hasClips = () => !!AUDIO[C?.id];
 const canSpeak = () => hasClips() || vmode === "native" || vmode === "hindi";
 function say(text, slow) {
@@ -584,7 +587,8 @@ function profileView() {
       ${sw("sfx", "Sound effects", "Chimes for right and wrong answers")}
       ${SR ? sw("speak", "Speaking exercises", "Say words out loud and Mor checks your pronunciation") : `<div class="setrow"><div><b>Speaking exercises</b><p>This browser can't listen to speech. Chrome on Android or a computer can.</p></div></div>`}
       ${C.festivals?.length ? `<div class="setrow stackrow"><div><b>Festival themes</b><p>The board dresses up around Lohri, Vaisakhi and Diwali. Preview one now if you like.</p></div><div class="seg">${[["auto", "Automatic"], ...C.festivals.map(f => [f.id, f.name.split(" ")[0]]), ["off", "Off"]].map(([v, l]) => `<button data-act="festpick" data-v="${v}" aria-pressed="${S.fest === v}">${esc(l)}</button>`).join("")}</div></div>` : ""}
-      <div class="setrow"><div><b>Voice</b><p>${vtxt}</p></div>${canSpeak() ? `<button class="btn small ghost" data-act="sayt" data-v="${esc(C.units[0]?.skills[0]?.words[0]?.[0] || "")}">Test</button>` : ""}</div>
+      ${bothVoices() ? `<div class="setrow"><div><b>Speaker</b><p>Whose recorded voice reads the ${esc(C.name)}</p></div><div class="seg">${[["female", "Woman"], ["male", "Man"]].map(([v, l]) => `<button data-act="vsex" data-v="${v}" aria-pressed="${S.vsex === v}">${l}</button>`).join("")}</div></div>` : ""}
+      <div class="setrow"><div><b>Voice</b><p>${vtxt}</p></div>${canSpeak() ? `<button class="btn small ghost" data-act="sayt" data-v="${esc(sampleWord())}">Test</button>` : ""}</div>
       <div class="setrow"><div><b>Reset progress</b><p>Clears XP, streak, skills and tests. This can't be undone.</p></div>
         ${confirmReset ? `<div class="seg"><button data-act="reset" data-v="yes" style="color:var(--madder)">Yes, reset</button><button data-act="reset" data-v="no">Cancel</button></div>` : `<button class="btn small ghost" data-act="reset">Reset</button>`}</div>
       <p class="note" style="margin-bottom:0">Progress is saved on this device. Mor version ${VERSION}.</p><button class="btn small ghost" style="margin-top:10px" data-act="refreshapp">Get the latest version</button></div>
@@ -1079,6 +1083,7 @@ const acts = {
   festpick: b => { S.fest = b.dataset.v; save(); applyFestival(); render(); },
   script: b => { S.tr = b.dataset.v === "both"; save(); document.documentElement.classList.toggle("no-tr", !S.tr || !C.translit); render(); },
   goal: b => { S.goal = +b.dataset.v; save(); render(); },
+  vsex: b => { S.vsex = b.dataset.v; save(); render(); say(sampleWord()); },
   reset: b => {
     if (!b.dataset.v) confirmReset = true;
     else { if (b.dataset.v === "yes") { const keep = { goal:S.goal, tr:S.tr, sfx:S.sfx, course:S.course, remind:S.remind }; S = { ...DEF, hist:{}, prog:{}, tests:{}, srs:{}, stories:{}, ...keep }; save(); toast("Progress reset"); } confirmReset = false; }
@@ -1131,7 +1136,9 @@ window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); instal
     const list = await (await fetch("courses/index.json")).json();
     await Promise.all(list.map(async x => {
       const c = await (await fetch(x.file)).json(); builtin[c.id] = c;
-      if (x.audio) fetch(x.audio + "index.json").then(r => r.ok ? r.json() : null).then(a => { if (a) { AUDIO[c.id] = { base:x.audio, clips:a.clips }; if (view === "profile") render(); } }).catch(() => {});
+      // "audio" is one folder, or { female, male } folders when the course is recorded in two voices.
+      const sets = typeof x.audio === "string" ? { female:x.audio } : x.audio || {};
+      for (const [sex, base] of Object.entries(sets)) fetch(base + "index.json").then(r => r.ok ? r.json() : null).then(a => { if (a) { AUDIO[c.id] = { ...AUDIO[c.id], [sex]:{ base, clips:a.clips } }; if (view === "profile") render(); } }).catch(() => {});
     }));
   } catch (e) {
     app.innerHTML = `<p class="loading">Couldn't load the course. Check your connection and reload.</p>`; return;

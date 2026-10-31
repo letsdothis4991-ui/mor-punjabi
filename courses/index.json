@@ -1,3 +1,3 @@
 [
-  { "id": "punjabi", "file": "courses/punjabi.json" }
+  { "id": "punjabi", "file": "courses/punjabi.json", "audio": { "female": "audio/punjabi/female/", "male": "audio/punjabi/male/" } }
 ]

@@ -6,7 +6,8 @@ Usage: GOOGLE_TTS_API_KEY=... python3 tools/make_audio.py courses/punjabi.json a
 Writes one mp3 per text, named by a hash of the text, plus index.json mapping text to file.
 Clips that already exist are skipped, so re-running after a course edit only records what changed.
 """
-import hashlib, json, os, sys, base64, urllib.request
+import hashlib, json, os, sys, base64, time, urllib.request
+from concurrent.futures import ThreadPoolExecutor
 
 def texts(c):
     t = []
@@ -47,14 +48,24 @@ if __name__ == "__main__":
     key = os.environ["GOOGLE_TTS_API_KEY"]
     course = json.load(open(src, encoding="utf-8"))
     os.makedirs(out, exist_ok=True)
-    index, made = {}, 0
+    index, todo = {}, []
     for text in texts(course):
         name = hashlib.sha1(f"{voice}|{text}".encode()).hexdigest()[:12] + ".mp3"
-        path = os.path.join(out, name)
-        if not os.path.exists(path):
-            open(path, "wb").write(synth(text, key, voice, course.get("speech", "pa-IN")))
-            made += 1
+        if not os.path.exists(os.path.join(out, name)): todo.append((text, name))
         index[text] = name
+    def record(job):
+        text, name = job
+        # Google limits requests per minute (HTTP 429), so back off and try again.
+        for tries in range(10):
+            try:
+                data = synth(text, key, voice, course.get("speech", "pa-IN")); break
+            except Exception:
+                if tries == 9: raise
+                time.sleep(min(60, 2 ** tries))
+        open(os.path.join(out, name + ".part"), "wb").write(data)
+        os.replace(os.path.join(out, name + ".part"), os.path.join(out, name))
+    with ThreadPoolExecutor(4) as pool: list(pool.map(record, todo))
+    made = len(todo)
     for f in os.listdir(out):
         if f.endswith(".mp3") and f not in index.values(): os.remove(os.path.join(out, f))
     json.dump({"voice": voice, "clips": index}, open(os.path.join(out, "index.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
