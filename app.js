@@ -13,7 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
-const VERSION = 25;
+const VERSION = 26;
 const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {

@@ -35,6 +35,8 @@ def texts(c):
         for l in g["letters"]:
             add(l[3])
             if len(l) > 6: add(l[6])
+            # A letter with no name (the vowels ਇ, ਈ ...) is said as itself, like letterSay() in app.js.
+            elif not re.match("[\u0A3E-\u0A4D\u0A70\u0A71\u0A02]", l[0]): add(l[0])
     for st in c.get("stories", []):
         for l in st["lines"]: add(l[0])
     for g in c.get("sayings", []):
