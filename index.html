@@ -220,6 +220,42 @@ main.home{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 .storytxt small{display:block;color:var(--muted);margin-top:2px}
 .storydone svg{color:var(--gold-deep);width:26px;height:26px}
 .storytitle{font-size:2rem;margin-top:4px}
+
+/* family tree */
+.famentry{display:flex;align-items:center;gap:14px;border:0;text-align:left;width:100%;color:inherit;font:inherit}
+.famentry .pa,.famentry small{color:var(--muted)}
+.famentry small{display:block;margin-top:2px}
+.famicon{width:56px;height:56px;flex:none;display:grid;place-items:center;color:var(--madder);background:var(--gold-soft);border-radius:14px}
+.famicon svg{width:34px;height:34px}
+.fambranches{display:grid;grid-template-columns:repeat(3,1fr)}
+.fambranches button{padding:6px 4px;font-size:.84rem;line-height:1.2}
+.famside{margin:16px 0 6px;text-align:center;font-weight:700;color:var(--gold-deep)}
+.famside .pa{font-size:1.3rem;color:var(--madder);margin-right:4px}
+.ftree{--ln:var(--gold);margin:0 -8px}
+.gen{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));position:relative}
+.gen.fan,.gen.hang{padding-top:18px}
+.gen.fan::before{content:"";position:absolute;top:8px;left:calc(50% / var(--n) - 1px);right:calc(50% / var(--n) - 1px);border-top:2px solid var(--ln)}
+.gen.fan::after{content:"";position:absolute;top:0;left:calc(50% - 1px);height:8px;border-left:2px solid var(--ln)}
+.fcol{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 3px;min-width:0}
+.gen.fan>.fcol::before{content:"";position:absolute;top:-10px;left:calc(50% - 1px);height:10px;border-left:2px solid var(--ln)}
+.gen.hang>.fcol::before{content:"";position:absolute;top:-18px;left:calc(50% - 1px);height:18px;border-left:2px solid var(--ln)}
+.fcol.down::after{content:"";flex:1;border-left:2px solid var(--ln)}
+.solo .fcol{flex-direction:row;justify-content:center;align-items:center;gap:8px}
+.solo .kin{width:auto;min-width:104px;padding:6px 14px}
+.wed{font-weight:800;color:var(--gold-deep);line-height:1;font-size:.95rem}
+.kin{width:100%;background:var(--paper-2);border:2px solid transparent;border-radius:10px;padding:6px 2px 5px;display:flex;flex-direction:column;align-items:center;color:inherit;font:inherit;text-align:center;min-width:0;transition:transform .15s var(--ease),background-color .2s,border-color .2s}
+.kin:active{transform:scale(.96)}
+.kin .pa{font-size:1.05rem;line-height:1.25}
+.kin .tr{font-size:.68rem;line-height:1.2}
+.kin .lb{font-size:.62rem;line-height:1.2;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
+.kin.open{border-color:var(--gold);background:var(--gold-soft)}
+.kin.you{background:var(--madder);color:var(--on-accent)}
+.kin.you .lb{color:inherit;font-weight:700;font-size:.7rem}
+.famextra{margin:18px 0 6px;text-align:center}
+.kincard{display:flex;gap:14px;align-items:center;margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--gold-soft);animation:rise .3s var(--ease)}
+.kincard .big{font-size:2.2rem;line-height:1.2}
+.kinen{margin:6px 0 0;font-weight:700}
+.kinhint{text-align:center;margin:14px 0 0}
 .slines{display:grid;gap:14px}
 .sline{position:relative;padding:12px 44px 12px 14px;border-radius:12px;background:var(--paper-2)}
 .sline.new{animation:rise .4s var(--ease)}

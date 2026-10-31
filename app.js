@@ -58,7 +58,7 @@ let builtin = {}, custom = {};
 try { custom = JSON.parse(localStorage.getItem(CUSTOM_KEY) || "{}"); } catch (e) {}
 const saveCustom = () => { try { localStorage.setItem(CUSTOM_KEY, JSON.stringify(custom)); } catch (e) {} };
 const allCourses = () => ({ ...builtin, ...custom });
-let C = null, SKILLS = [], ALL = [], SQUARES = [], FESTS = [], VOCAB = new Map();
+let C = null, SKILLS = [], ALL = [], SQUARES = [], FESTS = [], FAM = [], VOCAB = new Map();
 
 function useCourse(id) {
   const all = allCourses();
@@ -87,9 +87,10 @@ function useCourse(id) {
     sk.sents = f.skill.sentences.map(w => ({ pa:w[0], tr:w[1] || "", en:w[2], kind:"sent", sk }));
     return { ...f, sk };
   });
+  FAM = familyBranches();
   // Word lookup for tapping words in stories.
   VOCAB = new Map();
-  ALL.concat(FESTS.flatMap(f => f.sk.items)).forEach(it => { if (it.kind === "word" && !VOCAB.has(it.pa)) VOCAB.set(it.pa, it); });
+  ALL.concat(FESTS.flatMap(f => f.sk.items), FAM.flatMap(b => b.sk.items)).forEach(it => { if (it.kind === "word" && !VOCAB.has(it.pa)) VOCAB.set(it.pa, it); });
   document.documentElement.classList.toggle("no-tr", !S.tr || !C.translit);
   pickVoice();
 }
@@ -350,7 +351,7 @@ function topBar() {
     </div></div></div><div class="stitch"></div>`;
 }
 function tabsBar() {
-  const t = (v, ic, label) => `<button class="tab" data-act="tab" data-v="${v}" aria-current="${view === v}">${ICON[ic]}${label}</button>`;
+  const t = (v, ic, label) => `<button class="tab" data-act="tab" data-v="${v}" aria-current="${view === v || (v === "words" && view === "family")}">${ICON[ic]}${label}</button>`;
   const alpha = C.alphabet?.length ? `<button class="tab" data-act="tab" data-v="alphabet" aria-current="${view === "alphabet"}"><span class="tabglyph">${esc(C.alphabet[0].letters.slice(0, 3).map(l => l[0]).join(""))}</span>Alphabet</button>` : "";
   return `<nav class="tabs"><div class="stitch"></div><div class="col">${t("home", "board", "Board")}${alpha}${C.stories?.length ? t("stories", "story", "Stories") : ""}${C.sayings?.length ? t("sayings", "quote", "Sayings") : ""}${t("words", "book", "Words")}${t("profile", "user", "Profile")}</div></nav>`;
 }
@@ -433,7 +434,7 @@ function sheetHTML(q) {
   return `<div class="sheetback ${sheetAnim ? "in" : ""}" data-act="closesheet"></div><div class="sheet cloth ${sheetAnim ? "in" : ""}" role="dialog" aria-label="${esc(q.type === "test" ? "Unit test" : q.sk.name)}">
     <div class="sheethead"><div><small>Square ${q.n} · Unit ${q.unit + 1}: ${esc(u.title)}</small><h3>${q.type === "test" ? "Unit test" : esc(q.sk.name)} ${q.type === "skill" && q.sk.native ? `<span class="pa" style="color:var(--muted);font-size:1rem">${esc(q.sk.native)}</span>` : ""}</h3></div>
     <button class="iconbtn" data-act="closesheet" aria-label="Close">${ICON.x}</button></div>${body}
-    <div class="row"><button class="btn ghost small" data-act="guide" data-v="${q.unit}">Unit guide</button>${q.type === "skill" ? `<button class="btn ghost small" data-act="vocab" data-v="${SKILLS.indexOf(q.sk)}">See words</button>` : ""}</div></div>`;
+    <div class="row"><button class="btn ghost small" data-act="guide" data-v="${q.unit}">Unit guide</button>${q.type === "skill" ? `<button class="btn ghost small" data-act="vocab" data-v="${SKILLS.indexOf(q.sk)}">See words</button>` : ""}${q.type === "skill" && FAM.length && ["family", "relatives"].includes(q.sk.sid) ? `<button class="btn ghost small" data-act="family">Family tree</button>` : ""}</div></div>`;
 }
 function guideView() {
   const u = C.units[guideUnit];
@@ -507,6 +508,7 @@ function dictEntries() {
   const add = (pa, tr, en, note, rank) => { const k = pa + "|" + en; if (!pa || !en || seen.has(k)) return; seen.add(k); list.push({ pa, tr:tr || "", en, note:note || "", rank, senses:en.split(/[,;/]|\bor\b/).map(x => fold(x.replace(/\(.*?\)/g, ""))).filter(Boolean), f:fold(en), fp:fold(pa), ft:fold(tr || "") }); };
   ALL.filter(it => it.kind === "word").forEach(it => add(it.pa, it.tr, it.en, "", 0));
   (C.dictionary || []).forEach(d => add(d[0], d[1], d[2], d[3], 0));
+  Object.values(C.family?.kin || {}).forEach(k => { if (!list.some(e => e.pa === k[0])) add(k[0], k[1], k[2], "", 0); });
   FESTS.forEach(f => f.sk.items.forEach(it => add(it.pa, it.tr, it.en, f.name.split(" ")[0], 1)));
   ALL.filter(it => it.kind === "sent").forEach(it => add(it.pa, it.tr, it.en, "", 2));
   (C.sayings || []).forEach(g => g.items.forEach(x => add(x[0], x[1], x[3], g.name.replace(/s$/, ""), 3)));
@@ -543,6 +545,7 @@ function wordsView() {
   let h = `<main class="home"><div class="col page"><div class="cloth"><h2>Dictionary</h2><p class="note" style="margin:0 0 10px">English to ${esc(C.name)}, from ${dictEntries().length} words, phrases and sayings.</p>
     <input id="dictin" class="numin dictin" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Search a word" value="${esc(dictIn)}" aria-label="Search the dictionary">
     <div id="dictout" aria-live="polite">${dictResult()}</div></div>
+    ${FAM.length ? `<button class="cloth famentry" data-act="family"><span class="famicon" aria-hidden="true">${familyIcon()}</span><span><b>Family tree</b> <span class="pa">${esc(C.family.native)}</span><small>Tap through your relatives on both sides, and your in-laws, to see and hear what to call them.</small></span></button>` : ""}
     <div class="cloth"><h2>Phrasebook</h2><p class="note" style="margin:0">Every word and sentence in ${esc(C.name)}, unit by unit. ${canSpeak() ? "Tap the speaker to hear it." : ""}</p></div>`;
   C.units.forEach((u, ui) => {
     h += `<h3 class="unithead">Unit ${ui + 1} · ${esc(u.title)}</h3><div class="cloth">`;
@@ -724,9 +727,9 @@ function reminderICS() {
 
 /* ---------- lessons and tests ---------- */
 function startRun(mode, opts) {
-  const q = mode === "test" ? makeTest(opts.unit) : mode === "practice" ? makePractice() : mode === "letters" ? makeLetterPractice() : mode === "fest" ? makeFestLesson(opts.fest) : makeLesson(opts.sk, Math.min(prog(opts.sk), LESSONS - 1));
+  const q = mode === "test" ? makeTest(opts.unit) : mode === "practice" ? makePractice() : mode === "letters" ? makeLetterPractice() : mode === "fest" ? makeFestLesson(opts.fest) : mode === "family" ? makeFamilyLesson(opts.branch) : makeLesson(opts.sk, Math.min(prog(opts.sk), LESSONS - 1));
   if (!q.length) { toast("Finish a lesson first, then practise."); return; }
-  L = { mode, fest:opts.fest, sk:opts.sk, unit:opts.unit ?? opts.sk?.unit, queue:q, i:0, total:q.length, solved:0, mistakes:0, state:"idle", sel:null, spoken:-1 };
+  L = { mode, fest:opts.fest, branch:opts.branch, sk:opts.sk, unit:opts.unit ?? opts.sk?.unit, queue:q, i:0, total:q.length, solved:0, mistakes:0, state:"idle", sel:null, spoken:-1 };
   nav(() => { sheet = null; view = "lesson"; }, () => scrollTo(0, 0));
 }
 const cur = () => L.queue[L.i];
@@ -795,7 +798,7 @@ function lessonView() {
     if (ex.type === "mc" || ex.type === "listen" || (ex.type === "build" && ex.dir === "en")) setTimeout(() => say(ex.item.pa), 250);
     if (ex.type === "reply") setTimeout(() => say(ex.line.pa), 250);
   }
-  const tag = L.mode === "fest" ? `<span class="ptag">${esc(L.fest.name.split(" ")[0])}</span>` : L.mode === "letters" ? `<span class="ptag">Letters</span>` : L.mode === "test" ? `<span class="ptag">Unit ${L.unit + 1} test</span>` : L.mode === "practice" ? `<span class="ptag">Review</span>` : "";
+  const tag = L.mode === "family" ? `<span class="ptag">Family</span>` : L.mode === "fest" ? `<span class="ptag">${esc(L.fest.name.split(" ")[0])}</span>` : L.mode === "letters" ? `<span class="ptag">Letters</span>` : L.mode === "test" ? `<span class="ptag">Unit ${L.unit + 1} test</span>` : L.mode === "practice" ? `<span class="ptag">Review</span>` : "";
   return `<div class="lesson"><div class="col lhead"><button class="iconbtn" data-act="quit" aria-label="Quit">${ICON.x}</button>
     <div class="bar" role="progressbar" aria-valuenow="${L.solved}" aria-valuemax="${L.total}"><span style="width:${L.pct0 ?? 0}%" data-to="${L.pct = (L.mode === "test" ? L.i / L.total : L.solved / L.total) * 100}"></span></div>${tag}</div>
     <div class="col lbody ${L.enterAt !== L.i ? "enter" : ""}">${exHTML(ex)}</div>${footHTML()}</div>`;
@@ -855,7 +858,7 @@ function resultView() {
   return `<main class="col center result"><div class="cloth" style="display:grid;gap:14px;justify-items:center;width:100%">${peacock()}<h1>${L.mode === "lesson" ? "Lesson complete!" : "Practice done!"}</h1>
     <p class="note" style="margin:0">${r.streakUp ? `Your streak is now ${S.streak} day${S.streak > 1 ? "s" : ""}.` : L.mode !== "lesson" ? "Nice review session." : `${esc(L.sk.name)}: ${prog(L.sk)} of ${LESSONS} lessons done.`}</p>
     <div class="tiles"><div class="tile"><b style="color:var(--gold-deep)">+${r.xp}</b><span>XP</span></div><div class="tile"><b style="color:var(--green)">${r.acc}%</b><span>accuracy</span></div><div class="tile"><b>${liveStreak()}</b><span>day streak</span></div></div>
-    <button class="btn wide" data-act="home">Continue</button></div></main>`;
+    <button class="btn wide" data-act="${L.mode === "family" ? "family" : "home"}">Continue</button></div></main>`;
 }
 
 /* ---------- festivals ---------- */
@@ -927,6 +930,94 @@ function makeFestLesson(f) {
   sk.sents.forEach((x, i) => list.push(mkBuild(x, i % 2 ? "pa" : "en")));
   const sp = mkSpeak(sk.sents[0]); if (sp) list.push(sp);
   list = shuffle(list); list.splice(1, 0, mkMatch(sample(sk.items, 5)));
+  return list;
+}
+
+/* ---------- family tree ---------- */
+// Where each relative in the course's FAMILY section sits. Each row is a generation of columns. A column lists
+// blood relatives (two ids mean "son or daughter"), then "+" and who they married. When a row has as many columns
+// as the row above, each column hangs from the one above it; when the row above is a single couple, they all do.
+const FAMILY_TREE = [
+  { id:"dad", name:"Dad's side", native:"ਦਾਦਕੇ", rows:[
+    [["dada", "+", "dadi"]],
+    [["taia", "+", "tai"], ["pita", "+", "maa"], ["chacha", "+", "chachi"], ["bhua", "+", "phuphar"]],
+    [["taera", "taeri"], ["you"], ["chachera", "chacheri"], ["phuphera", "phupheri"]]] },
+  { id:"mum", name:"Mum's side", native:"ਨਾਨਕੇ", rows:[
+    [["nana", "+", "nani"]],
+    [["mama", "+", "mami"], ["maa", "+", "pita"], ["masi", "+", "masar"]],
+    [["mamera", "mameri"], ["you"], ["masera", "maseri"]]] },
+  { id:"sibs", name:"Brothers and sisters", native:"ਭੈਣ ਭਰਾ", rows:[
+    [["pita", "+", "maa"]],
+    [["bhra", "+", "bharjai"], ["you", "+", "pati", "patni"], ["bhain", "+", "jija"]],
+    [["bhatija", "bhatiji"], ["puttar", "dhi"], ["bhanja", "bhanji"]]] },
+  { id:"kids", name:"Children", native:"ਬੱਚੇ", rows:[
+    [["you", "+", "pati", "patni"]],
+    [["puttar", "+", "nunh"], ["dhi", "+", "javai"]],
+    [["pota", "poti"], ["dohta", "dohti"]]],
+    extra:{ title:"Your child's in-laws", cols:[["kuram", "+", "kuramni"]] } },
+  { id:"wife", name:"Wife's family", native:"ਸਹੁਰੇ", rows:[
+    [["sahura", "+", "sass"]],
+    [["sala", "+", "salehar"], ["patni", "+", "you"], ["sali", "+", "sandhu"]]] },
+  { id:"husband", name:"Husband's family", native:"ਸਹੁਰੇ", rows:[
+    [["sahura", "+", "sass"]],
+    [["jeth", "+", "jathani"], ["pati", "+", "you"], ["dior", "+", "darani"], ["nanad", "+", "nandoia"]]] }
+];
+let famBranch = "dad", famPick = null;
+function familyBranches() {
+  const kin = C.family?.kin;
+  if (!kin) return [];
+  return FAMILY_TREE.map(b => {
+    const ids = [...new Set(b.rows.concat([b.extra?.cols || []]).flat(2))].filter(id => kin[id]);
+    const sk = { id:"fam_" + b.id, sid:"fam_" + b.id, name:b.name, unit:-1, key:C.id + ":fam_" + b.id };
+    sk.items = ids.map(id => ({ pa:kin[id][0], tr:kin[id][1], en:kin[id][2], kind:"word", sk }));
+    // Practice sentences are the ones that use this side's words.
+    sk.sents = C.family.sentences.filter(x => sk.items.some(it => (" " + x[0] + " ").includes(" " + it.pa + " "))).map(x => ({ pa:x[0], tr:x[1], en:x[2], kind:"sent", sk }));
+    return { ...b, sk };
+  }).filter(b => b.sk.items.length);
+}
+const familyIcon = () => `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="24" cy="9" r="5"/><circle cx="10" cy="38" r="5"/><circle cx="24" cy="38" r="5"/><circle cx="38" cy="38" r="5"/><path d="M24 14v10M10 33v-9h28v9M24 24v9"/></svg>`;
+function kinChip(id) {
+  if (id === "you") return `<div class="kin you"><span class="pa">ਮੈਂ</span><span class="lb">You</span></div>`;
+  const k = C.family.kin[id];
+  if (!k) return "";
+  return `<button class="kin ${famPick === id ? "open" : ""}" data-act="kin" data-v="${id}" aria-label="${esc(k[0])}, ${esc(k[2])}"><span class="pa">${esc(k[0])}</span><span class="tr">${esc(k[1])}</span><span class="lb">${esc(k[3])}</span></button>`;
+}
+function kinCol(col, down) {
+  const plus = col.indexOf("+"), blood = plus < 0 ? col : col.slice(0, plus), wed = plus < 0 ? [] : col.slice(plus + 1);
+  return `<div class="fcol ${down ? "down" : ""}">${blood.map(kinChip).join("")}${wed.length ? `<span class="wed" aria-label="married to">+</span>${wed.map(kinChip).join("")}` : ""}</div>`;
+}
+function familyView() {
+  const f = C.family, b = FAM.find(x => x.id === famBranch) || FAM[0];
+  let tree = "";
+  b.rows.forEach((row, ri) => {
+    const prev = b.rows[ri - 1], next = b.rows[ri + 1];
+    const link = !prev ? "" : prev.length === 1 ? "fan" : "hang";
+    // Columns with children straight below them draw a line down to them.
+    const down = next && next.length === row.length && row.length > 1;
+    tree += `<div class="gen ${link} ${row.length === 1 ? "solo" : ""}" style="--n:${row.length}">${row.map(c => kinCol(c, down)).join("")}</div>`;
+  });
+  if (b.extra) tree += `<p class="note famextra">${esc(b.extra.title)}</p><div class="gen ${b.extra.cols.length === 1 ? "solo" : ""}" style="--n:${b.extra.cols.length}">${b.extra.cols.map(c => kinCol(c)).join("")}</div>`;
+  const k = famPick && f.kin[famPick];
+  const card = k ? `<div class="kincard"><div style="min-width:0;flex:1"><div class="pa big">${esc(k[0])}</div><div class="tr">${esc(k[1])}</div>
+      <p class="kinen">${esc(k[2][0].toUpperCase() + k[2].slice(1))}</p>${k[4] ? `<p class="note" style="margin:6px 0 0">${esc(k[4]).replace(/([਀-੿][਀-੿\s]*[਀-੿]|[਀-੿])/g, '<span class="pa">$1</span>')}</p>` : ""}</div>
+      ${canSpeak() ? `<button class="spk" data-act="sayt" data-v="${esc(k[0])}" aria-label="Hear it">${ICON.spk}</button>` : ""}</div>` : `<p class="note kinhint">Tap anyone on the tree to see ${canSpeak() ? "and hear " : ""}their word.</p>`;
+  return `<main class="home"><div class="col page"><div class="cloth"><h2>${esc(f.title)} <span class="pa" style="color:var(--muted);font-size:1.1rem">${esc(f.native)}</span></h2><p class="note" style="margin:0">${esc(f.blurb)}.</p>
+</div>
+    <div class="cloth"><div class="seg fambranches">${FAM.map(x => `<button data-act="fambranch" data-v="${x.id}" aria-pressed="${x === b}">${esc(x.name)}</button>`).join("")}</div>
+      <p class="famside"><span class="pa">${esc(b.native)}</span> ${esc(b.name)}</p>
+      <div class="ftree">${tree}</div>${card}
+      <button class="btn wide" style="margin-top:14px" data-act="fampractice">Practise ${esc(b.name.toLowerCase().replace(/^(dad|mum)/, m => m[0].toUpperCase() + m.slice(1)))}</button></div>
+    ${f.tips.length ? `<div class="cloth"><h3 style="margin-bottom:10px">Good to know</h3><ul class="tips">${f.tips.map(t => `<li>${esc(t).replace(/([਀-੿][਀-੿\s,।?!]*[਀-੿])/g, '<span class="pa">$1</span>')}</li>`).join("")}</ul></div>` : ""}
+    <button class="btn ghost" data-act="tab" data-v="words">Back to Words</button>
+  </div></main>`;
+}
+function makeFamilyLesson(b) {
+  const sk = b.sk;
+  let list = shuffle(sk.items).slice(0, 7).map((w, i) => i % 3 === 2 && canSpeak() ? mkListen(w) : i % 2 ? mkRev(w) : mkMC(w));
+  shuffle(sk.sents).slice(0, 3).forEach((x, i) => list.push(mkBuild(x, i % 2 ? "pa" : "en")));
+  const sp = mkSpeak(sample(sk.sents.length ? sk.sents : sk.items, 1)[0]); if (sp) list.push(sp);
+  list = shuffle(list);
+  if (sk.items.length >= 5) list.splice(1, 0, mkMatch(sample(sk.items, 5)));
   return list;
 }
 
@@ -1017,7 +1108,7 @@ function render() {
   else if (view === "lesson") h = lessonView();
   else if (view === "result") h = resultView();
   else {
-    const body = view === "words" ? wordsView() : view === "stories" ? storiesView() : view === "sayings" ? sayingsView() : view === "alphabet" ? alphabetView() : view === "profile" ? profileView() : view === "courses" ? coursesView() : view === "editor" ? edView() : view === "guide" ? guideView() : homeView();
+    const body = view === "words" ? wordsView() : view === "stories" ? storiesView() : view === "sayings" ? sayingsView() : view === "alphabet" ? alphabetView() : view === "profile" ? profileView() : view === "courses" ? coursesView() : view === "editor" ? edView() : view === "guide" ? guideView() : view === "family" ? familyView() : homeView();
     h = topBar() + body + tabsBar();
   }
   if (toastMsg) h += `<div class="toast" role="status">${esc(toastMsg)}</div>`;
@@ -1044,6 +1135,13 @@ const acts = {
   practice: () => startRun("practice", {}),
   letterpractice: () => startRun("letters", {}),
   festlesson: b => startRun("fest", { fest:FESTS.find(f => f.id === b.dataset.v) }),
+  family: () => nav(() => { view = "family"; sheet = null; L = null; }, () => scrollTo(0, 0)),
+  fambranch: b => { famBranch = b.dataset.v; famPick = null; render(); },
+  kin: b => {
+    famPick = famPick === b.dataset.v ? null : b.dataset.v; render();
+    if (famPick) { say(C.family.kin[famPick][0]); document.querySelector(".kincard")?.scrollIntoView({ block:"nearest", behavior:calm() ? "auto" : "smooth" }); }
+  },
+  fampractice: () => startRun("family", { branch:FAM.find(b => b.id === famBranch) || FAM[0] }),
   story: b => nav(() => { R = { st:C.stories[+b.dataset.v], n:1, q:0, en:{}, word:null, pick:null }; view = "reader"; }, () => { scrollTo(0, 0); say(R.st.lines[0][0]); }),
   snext: () => { R.n++; R.word = null; render(); say(R.st.lines[R.n - 1][0]); document.querySelector(".sline.new")?.scrollIntoView({ block:"center", behavior:calm() ? "auto" : "smooth" }); },
   sen: b => { R.en[+b.dataset.v] = true; render(); },
@@ -1083,7 +1181,7 @@ const acts = {
   mic: () => listenToYou(),
   speakskip: () => skipSpeak(false),
   speakoff: () => skipSpeak(true),
-  quit: () => nav(() => { L = null; view = "home"; }, scrollToCurrent),
+  quit: () => { if (L.mode === "family") { L = null; acts.family(); } else nav(() => { L = null; view = "home"; }, scrollToCurrent); },
   toggle: b => { const k = b.dataset.v; S[k] = !S[k]; save(); document.documentElement.classList.toggle("no-tr", !S.tr || !C.translit); render(); },
   festpick: b => { S.fest = b.dataset.v; save(); applyFestival(); render(); },
   script: b => { S.tr = b.dataset.v === "both"; save(); document.documentElement.classList.toggle("no-tr", !S.tr || !C.translit); render(); },

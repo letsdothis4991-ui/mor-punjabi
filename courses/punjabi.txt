@@ -1012,6 +1012,98 @@ S ਅਸੀਂ ਘਰ ਵਿੱਚ ਦੀਵੇ ਜਗਾਉਂਦੇ ਹਾਂ 
 S ਦਰਬਾਰ ਸਾਹਿਬ ਵਿੱਚ ਬਹੁਤ ਰੌਸ਼ਨੀ ਹੁੰਦੀ ਹੈ | darbār sāhib vich bahut raushanī hundī hai | The Golden Temple is full of light
 S ਦੀਵਾਲੀ ਤੋਂ ਪਹਿਲਾਂ ਘਰ ਦੀ ਸਫ਼ਾਈ ਕਰੋ | dīvālī toṃ pahilāṃ ghar dī safāī karo | Clean the house before Diwali
 
+########################################################################
+# Family tree (Words tab): FAMILY title | Punjabi title | one-line description
+#   TIP notes shown above the tree (repeatable)
+#   K id | word | transliteration | English | short label on the tree | note (optional)
+#   S sentences for the family practice (transliteration has the same number of words)
+#   app.js (FAMILY_TREE) places each id on the tree, so keep the ids when you change a word.
+
+FAMILY Family tree | ਰਿਸ਼ਤੇ ਨਾਤੇ | Punjabi has its own word for almost every relative, so the word tells you whose side they're on
+TIP Your father's family is your ਦਾਦਕੇ (dādake) and your mother's family is your ਨਾਨਕੇ (nānake).
+TIP Your father's elder brother is ਤਾਇਆ and his younger brother is ਚਾਚਾ. Your mother's brothers are all ਮਾਮਾ, older or younger.
+TIP Their husbands and wives have words of their own: ਚਾਚਾ's wife is ਚਾਚੀ and ਮਾਸੀ's husband is ਮਾਸੜ.
+TIP Cousins are simply ਭਰਾ (brother) and ਭੈਣ (sister). To be exact, say whose child they are: ਚਚੇਰਾ ਭਰਾ is ਚਾਚਾ's son.
+TIP Add ਜੀ when you speak to or about an elder: ਤਾਇਆ ਜੀ, ਮਾਸੀ ਜੀ, ਨਾਨੀ ਜੀ.
+K dada | ਦਾਦਾ | dādā | grandfather, father's father | Dad's father
+K dadi | ਦਾਦੀ | dādī | grandmother, father's mother | Dad's mother
+K nana | ਨਾਨਾ | nānā | grandfather, mother's father | Mum's father
+K nani | ਨਾਨੀ | nānī | grandmother, mother's mother | Mum's mother
+K pita | ਪਿਤਾ | pitā | father | Father | At home most people say ਪਾਪਾ (pāpā) or ਡੈਡੀ (ḍaiḍī). In villages you'll hear ਬਾਪੂ (bāpū) and ਭਾਪਾ (bhāpā).
+K maa | ਮਾਂ | māṃ | mother | Mother | At home most people say ਮੰਮੀ (mammī), ਬੀਜੀ (bījī) or ਬੇਬੇ (bebe).
+K taia | ਤਾਇਆ | tāiā | uncle, father's elder brother | Dad's elder brother
+K tai | ਤਾਈ | tāī | aunt, wife of father's elder brother | tāiā's wife
+K chacha | ਚਾਚਾ | chāchā | uncle, father's younger brother | Dad's younger brother
+K chachi | ਚਾਚੀ | chāchī | aunt, wife of father's younger brother | chāchā's wife
+K bhua | ਭੂਆ | bhūā | aunt, father's sister | Dad's sister | Some families say ਭੂਆ ਜੀ or ਬੂਆ (būā).
+K phuphar | ਫੁੱਫੜ | phupphaṛ | uncle, husband of father's sister | bhūā's husband
+K taera | ਤਏਰਾ ਭਰਾ | taerā bharā | cousin, son of father's elder brother | tāiā's son | Day to day, you just call cousins ਭਰਾ and ਭੈਣ.
+K taeri | ਤਏਰੀ ਭੈਣ | taerī bhaiṇ | cousin, daughter of father's elder brother | tāiā's daughter | Day to day, you just call cousins ਭਰਾ and ਭੈਣ.
+K chachera | ਚਚੇਰਾ ਭਰਾ | chacherā bharā | cousin, son of father's younger brother | chāchā's son | Day to day, you just call cousins ਭਰਾ and ਭੈਣ.
+K chacheri | ਚਚੇਰੀ ਭੈਣ | chacherī bhaiṇ | cousin, daughter of father's younger brother | chāchā's daughter | Day to day, you just call cousins ਭਰਾ and ਭੈਣ.
+K phuphera | ਫੁਫੇਰਾ ਭਰਾ | phupherā bharā | cousin, son of father's sister | bhūā's son | Day to day, you just call cousins ਭਰਾ and ਭੈਣ.
+K phupheri | ਫੁਫੇਰੀ ਭੈਣ | phupherī bhaiṇ | cousin, daughter of father's sister | bhūā's daughter | Day to day, you just call cousins ਭਰਾ and ਭੈਣ.
+K mama | ਮਾਮਾ | māmā | uncle, mother's brother | Mum's brother
+K mami | ਮਾਮੀ | māmī | aunt, wife of mother's brother | māmā's wife
+K masi | ਮਾਸੀ | māsī | aunt, mother's sister | Mum's sister
+K masar | ਮਾਸੜ | māsaṛ | uncle, husband of mother's sister | māsī's husband
+K mamera | ਮਮੇਰਾ ਭਰਾ | mamerā bharā | cousin, son of mother's brother | māmā's son | Day to day, you just call cousins ਭਰਾ and ਭੈਣ.
+K mameri | ਮਮੇਰੀ ਭੈਣ | mamerī bhaiṇ | cousin, daughter of mother's brother | māmā's daughter | Day to day, you just call cousins ਭਰਾ and ਭੈਣ.
+K masera | ਮਸੇਰਾ ਭਰਾ | maserā bharā | cousin, son of mother's sister | māsī's son | Day to day, you just call cousins ਭਰਾ and ਭੈਣ.
+K maseri | ਮਸੇਰੀ ਭੈਣ | maserī bhaiṇ | cousin, daughter of mother's sister | māsī's daughter | Day to day, you just call cousins ਭਰਾ and ਭੈਣ.
+K bhra | ਭਰਾ | bharā | brother | Brother | Said with love, a brother is ਵੀਰ (vīr). An elder brother is often called ਭਾਜੀ (bhājī) or ਪਾਜੀ (pājī).
+K bharjai | ਭਰਜਾਈ | bharjāī | sister-in-law, brother's wife | Brother's wife | Also ਭਾਬੀ (bhābī).
+K bhain | ਭੈਣ | bhaiṇ | sister | Sister | An elder sister is often called ਭੈਣ ਜੀ (bhaiṇ jī) or ਦੀਦੀ (dīdī).
+K jija | ਜੀਜਾ | jījā | brother-in-law, sister's husband | Sister's husband | Also ਭਣੋਈਆ (bhaṇoīā).
+K pati | ਪਤੀ | patī | husband | Husband | In everyday talk, ਘਰਵਾਲਾ (gharvālā).
+K patni | ਪਤਨੀ | patnī | wife | Wife | In everyday talk, ਘਰਵਾਲੀ (gharvālī).
+K bhatija | ਭਤੀਜਾ | bhatījā | nephew, brother's son | Brother's son
+K bhatiji | ਭਤੀਜੀ | bhatījī | niece, brother's daughter | Brother's daughter
+K bhanja | ਭਾਣਜਾ | bhāṇjā | nephew, sister's son | Sister's son
+K bhanji | ਭਾਣਜੀ | bhāṇjī | niece, sister's daughter | Sister's daughter
+K puttar | ਪੁੱਤਰ | puttar | son | Son | Often just ਪੁੱਤ (putt). Elders call any young person ਪੁੱਤ or ਬੇਟਾ.
+K dhi | ਧੀ | dhī | daughter | Daughter
+K nunh | ਨੂੰਹ | nūṃh | daughter-in-law, son's wife | Son's wife
+K javai | ਜਵਾਈ | javāī | son-in-law, daughter's husband | Daughter's husband
+K pota | ਪੋਤਾ | potā | grandson, son's son | Son's son
+K poti | ਪੋਤੀ | potī | granddaughter, son's daughter | Son's daughter
+K dohta | ਦੋਹਤਾ | dohtā | grandson, daughter's son | Daughter's son
+K dohti | ਦੋਹਤੀ | dohtī | granddaughter, daughter's daughter | Daughter's daughter
+K kuram | ਕੁੜਮ | kuṛam | your child's father-in-law | Child's father-in-law | The two families joined by a marriage are each other's ਕੁੜਮ.
+K kuramni | ਕੁੜਮਣੀ | kuṛamṇī | your child's mother-in-law | Child's mother-in-law
+K sahura | ਸਹੁਰਾ | sahurā | father-in-law | Spouse's father | Your in-laws' home and family are your ਸਹੁਰੇ (sahure).
+K sass | ਸੱਸ | sass | mother-in-law | Spouse's mother
+K sala | ਸਾਲਾ | sālā | brother-in-law, wife's brother | Wife's brother | Careful: ਸਾਲਾ is also a common swear word, so say ਸਾਲਾ ਸਾਹਿਬ or use his name.
+K salehar | ਸਾਲੇਹਾਰ | sālehār | sister-in-law, wife's brother's wife | sālā's wife
+K sali | ਸਾਲੀ | sālī | sister-in-law, wife's sister | Wife's sister
+K sandhu | ਸਾਂਢੂ | sāṇḍhū | brother-in-law, wife's sister's husband | sālī's husband
+K jeth | ਜੇਠ | jeṭh | brother-in-law, husband's elder brother | Husband's elder brother
+K jathani | ਜਠਾਣੀ | jaṭhāṇī | sister-in-law, wife of husband's elder brother | jeṭh's wife
+K dior | ਦਿਓਰ | dior | brother-in-law, husband's younger brother | Husband's younger brother
+K darani | ਦਰਾਣੀ | darāṇī | sister-in-law, wife of husband's younger brother | dior's wife
+K nanad | ਨਣਦ | naṇad | sister-in-law, husband's sister | Husband's sister | Also ਨਨਾਣ (nanāṇ).
+K nandoia | ਨਣਦੋਈਆ | naṇdoīā | brother-in-law, husband's sister's husband | naṇad's husband
+S ਇਹ ਮੇਰੇ ਤਾਇਆ ਜੀ ਹਨ | ih mere tāiā jī han | This is my father's elder brother
+S ਮੇਰੇ ਚਾਚਾ ਜੀ ਪਿੰਡ ਰਹਿੰਦੇ ਹਨ | mere chāchā jī piṇḍ rahinde han | My father's younger brother lives in the village
+S ਭੂਆ ਜੀ ਅਤੇ ਫੁੱਫੜ ਜੀ ਆ ਰਹੇ ਹਨ | bhūā jī ate phupphaṛ jī ā rahe han | My father's sister and her husband are coming
+S ਦਾਦੀ ਜੀ ਸਾਨੂੰ ਕਹਾਣੀਆਂ ਸੁਣਾਉਂਦੇ ਹਨ | dādī jī sānūṃ kahāṇīāṃ suṇāunde han | Grandma tells us stories
+S ਮੇਰਾ ਚਚੇਰਾ ਭਰਾ ਡਾਕਟਰ ਹੈ | merā chacherā bharā ḍākṭar hai | My cousin is a doctor
+S ਮੇਰੀ ਮਾਸੀ ਕੈਨੇਡਾ ਰਹਿੰਦੀ ਹੈ | merī māsī kaineḍā rahindī hai | My mother's sister lives in Canada
+S ਮਾਮਾ ਜੀ ਨੇ ਮੈਨੂੰ ਤੋਹਫ਼ਾ ਦਿੱਤਾ | māmā jī ne mainūṃ tohfā dittā | My mother's brother gave me a gift
+S ਨਾਨੀ ਜੀ ਸਾਡੇ ਘਰ ਆਏ ਹਨ | nānī jī sāḍe ghar āe han | Nani has come to our house
+S ਮੇਰੀ ਭਰਜਾਈ ਬਹੁਤ ਚੰਗੀ ਹੈ | merī bharjāī bahut changī hai | My brother's wife is very nice
+S ਜੀਜਾ ਜੀ ਲੰਡਨ ਤੋਂ ਹਨ | jījā jī laṇḍan toṃ han | My sister's husband is from London
+S ਮੇਰਾ ਭਤੀਜਾ ਪੰਜ ਸਾਲ ਦਾ ਹੈ | merā bhatījā panj sāl dā hai | My brother's son is five years old
+S ਮੇਰੀ ਭਾਣਜੀ ਸਕੂਲ ਜਾਂਦੀ ਹੈ | merī bhāṇjī sakūl jāndī hai | My sister's daughter goes to school
+S ਦਾਦਾ ਜੀ ਆਪਣੇ ਪੋਤੇ ਨਾਲ ਖੇਡਦੇ ਹਨ | dādā jī āpaṇe pote nāl kheḍde han | Grandpa plays with his grandson
+S ਮੇਰੀ ਨੂੰਹ ਅਧਿਆਪਕ ਹੈ | merī nūṃh adhiāpak hai | My son's wife is a teacher
+S ਸਾਡਾ ਜਵਾਈ ਬਹੁਤ ਮਿਹਨਤੀ ਹੈ | sāḍā javāī bahut mihnatī hai | Our son-in-law is very hardworking
+S ਮੇਰੇ ਸਹੁਰੇ ਅੰਮ੍ਰਿਤਸਰ ਰਹਿੰਦੇ ਹਨ | mere sahure amritsar rahinde han | My in-laws live in Amritsar
+S ਸੱਸ ਜੀ ਨੇ ਚਾਹ ਬਣਾਈ | sass jī ne chāh baṇāī | My mother-in-law made tea
+S ਮੇਰੀ ਸਾਲੀ ਦਾ ਵਿਆਹ ਹੈ | merī sālī dā viāh hai | It is my wife's sister's wedding
+S ਮੇਰਾ ਦਿਓਰ ਕਾਲਜ ਵਿੱਚ ਪੜ੍ਹਦਾ ਹੈ | merā dior kālaj vich paṛhdā hai | My husband's younger brother studies at college
+S ਮੇਰੀ ਨਣਦ ਬਹੁਤ ਹੱਸਦੀ ਹੈ | merī naṇad bahut hassdī hai | My husband's sister laughs a lot
+
 # Story glossary: D word | meaning   (tap a word in a story to see it; the romanisation comes from the story line)
 GLOSSARY
 D ਸੀ | was

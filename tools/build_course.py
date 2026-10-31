@@ -9,6 +9,7 @@ import json, re, sys, unicodedata
 
 def build(src):
     course, section, unit, skill, dialog = None, None, None, None, None
+    tips = None  # where TIP lines go: the current unit, or the family tree
     errors = []
     def err(n, msg): errors.append(f"line {n}: {msg}")
     for n, raw in enumerate(open(src, encoding="utf-8"), 1):
@@ -28,9 +29,9 @@ def build(src):
             course["sections"].append(section)
         elif tag == "UNIT":
             unit = dict(title=parts[0], desc=parts[1] if len(parts) > 1 else "", tips=[], skills=[], dialogues=[])
-            course["units"].append(unit); skill = dialog = None
+            course["units"].append(unit); skill = dialog = None; tips = unit["tips"]
         elif tag == "TIP":
-            unit["tips"].append(rest.strip())
+            tips.append(rest.strip())
         elif tag == "SKILL":
             sid, name, native, glyph = parts[:4]
             skill = dict(id=sid, name=name, native=native, glyph=glyph, words=[], sentences=[])
@@ -95,6 +96,19 @@ def build(src):
             if len(parts) != 2 or " " in parts[0]: err(n, "glossary lines need: one word | meaning"); continue
             check_script(course, parts[0], n, err)
             course["glossary"][parts[0]] = parts[1]
+        elif tag == "FAMILY":
+            title, native, blurb = parts
+            dialog = None
+            skill = dict(words=[], sentences=[])  # S lines after FAMILY are its practice sentences
+            course["family"] = dict(title=title, native=native, blurb=blurb, tips=[], kin={}, sentences=skill["sentences"])
+            tips = course["family"]["tips"]
+        elif tag == "K":
+            if len(parts) not in (5, 6): err(n, "family lines need: id | word | transliteration | English | tree label | note (optional)"); continue
+            if len(parts[1].split()) != len(parts[2].split()):
+                err(n, f"family word has {len(parts[1].split())} words but transliteration has {len(parts[2].split())}")
+            if parts[0] in course["family"]["kin"]: err(n, f"duplicate family id {parts[0]}")
+            check_script(course, parts[1], n, err)
+            course["family"]["kin"][parts[0]] = parts[1:] + [""] * (6 - len(parts))
         elif tag == "Q":
             if len(parts) != 4: err(n, "questions need: question | right | wrong | wrong"); continue
             story["quiz"].append(parts)
