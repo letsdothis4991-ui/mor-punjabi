@@ -13,6 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
+const VERSION = 16;
 const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {
@@ -482,7 +483,7 @@ function profileView() {
       <div class="setrow"><div><b>Voice</b><p>${vtxt}</p></div>${canSpeak() ? `<button class="btn small ghost" data-act="sayt" data-v="${esc(C.units[0]?.skills[0]?.words[0]?.[0] || "")}">Test</button>` : ""}</div>
       <div class="setrow"><div><b>Reset progress</b><p>Clears XP, streak, skills and tests. This can't be undone.</p></div>
         ${confirmReset ? `<div class="seg"><button data-act="reset" data-v="yes" style="color:var(--madder)">Yes, reset</button><button data-act="reset" data-v="no">Cancel</button></div>` : `<button class="btn small ghost" data-act="reset">Reset</button>`}</div>
-      <p class="note" style="margin-bottom:0">Progress is saved on this device.</p></div>
+      <p class="note" style="margin-bottom:0">Progress is saved on this device. Mor version ${VERSION}.</p><button class="btn small ghost" style="margin-top:10px" data-act="refreshapp">Get the latest version</button></div>
   </div></main>`;
 }
 function coursesView() {
@@ -839,7 +840,7 @@ function sayingsView() {
 
 /* ---------- stories ---------- */
 const storyKey = st => C.id + ":" + st.id;
-const storyOpen = st => st.after <= 1 || passed(st.after - 1);
+const storyOpen = () => true;
 let R = null; // the story being read
 function storiesView() {
   return `<main class="home"><div class="col page"><div class="cloth"><h2>Stories</h2><p class="note" style="margin:0">Short retellings of Punjabi folk tales. A new one opens as you climb the board. Tap any word for help.</p></div>
@@ -945,7 +946,12 @@ const acts = {
   },
   guide: b => nav(() => { guideUnit = +b.dataset.v; view = "guide"; sheet = null; }, () => scrollTo(0, 0)),
   vocab: b => { const s = SKILLS[+b.dataset.v]; view = "words"; sheet = null; render(); document.getElementById("sk-" + s.sid)?.scrollIntoView(); },
-  say: () => say(cur().item.pa), slow: () => say(cur().item.pa, true), sayt: b => say(b.dataset.v), saygroup: b => { sayGroup = +b.dataset.v; render(); },
+  say: () => say(cur().item.pa), slow: () => say(cur().item.pa, true), sayt: b => say(b.dataset.v), refreshapp: async () => {
+    // Clear the offline copy and reload, for when an installed app is stuck on an old version. Progress is kept.
+    try { for (const r of await navigator.serviceWorker?.getRegistrations?.() || []) await r.unregister(); for (const k of await caches.keys()) await caches.delete(k); } catch (e) {}
+    location.replace(APP_URL + "?v=" + Date.now());
+  },
+  saygroup: b => { sayGroup = +b.dataset.v; render(); },
   pick: b => { const ex = cur(); L.sel = +b.dataset.v; if (ex.type === "rev") say(ex.opts[L.sel].pa); render(); },
   tok: b => { const ex = cur(); L.justTok = +b.dataset.v; L.sel = (L.sel || []).concat(+b.dataset.v); if (ex.dir === "pa") say(ex.bank[+b.dataset.v].t); render(); },
   untok: b => { L.justTok = null; L.sel = L.sel.filter(i => i !== +b.dataset.v); render(); },
