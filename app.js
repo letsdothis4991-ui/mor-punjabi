@@ -13,7 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
-const VERSION = 22;
+const VERSION = 23;
 const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {
@@ -141,7 +141,7 @@ let player = null;
 const clipSet = () => { const v = AUDIO[C?.id]; return v && (v[S.vsex] || Object.values(v)[0]); };
 const bothVoices = () => !!(AUDIO[C?.id]?.female && AUDIO[C?.id]?.male);
 function sayClip(text, slow) {
-  const a = clipSet(), f = a && (a.clips[text] || a.clips[text.replace(/[।.!?]+$/, "")]);
+  const a = clipSet(), f = a && (a.clips[text] || a.clips[text.replace(/[।.!?,:]+$/, "")] || a.clips[letterSpeech(text)]);
   if (!f) return false;
   try {
     if ("speechSynthesis" in window) speechSynthesis.cancel();
@@ -153,6 +153,9 @@ function sayClip(text, slow) {
     return true;
   } catch (e) { return false; }
 }
+// A letter on its own is said by its name (ਚ is ਚੱਚਾ); a vowel sign by its example word.
+const letterSay = l => l[6] || (/[\u0A3E-\u0A4D\u0A70\u0A71\u0A02]/.test(l[0][0]) ? l[3] : l[0]);
+const letterSpeech = t => { const l = (C.alphabet || []).flatMap(g => g.letters).find(l => l[0] === t); return l ? letterSay(l) : ""; };
 const sampleWord = () => (C.units.flatMap(u => u.skills).find(s => !s.letters) || C.units[0]?.skills[0])?.words[0]?.[0] || "";
 const hasClips = () => !!AUDIO[C?.id];
 const canSpeak = () => hasClips() || vmode === "native" || vmode === "hindi";
@@ -1050,7 +1053,7 @@ const acts = {
   letter: b => {
     const id = b.dataset.v, [g, i] = id.split("-").map(Number), l = C.alphabet[g].letters[i];
     letterOpen = letterOpen === id ? null : id; render();
-    if (letterOpen) { say(l[6] || (/[\u0A3E-\u0A4D\u0A70\u0A71\u0A02]/.test(l[0][0]) ? l[3] : l[0])); document.querySelector(".lettercard")?.scrollIntoView({ block:"nearest", behavior:calm() ? "auto" : "smooth" }); }
+    if (letterOpen) { say(letterSay(l)); document.querySelector(".lettercard")?.scrollIntoView({ block:"nearest", behavior:calm() ? "auto" : "smooth" }); }
   },
   guide: b => nav(() => { guideUnit = +b.dataset.v; view = "guide"; sheet = null; }, () => scrollTo(0, 0)),
   vocab: b => { const s = SKILLS[+b.dataset.v]; view = "words"; sheet = null; render(); document.getElementById("sk-" + s.sid)?.scrollIntoView(); },
