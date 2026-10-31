@@ -13,7 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
-const VERSION = 19;
+const VERSION = 20;
 const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {
@@ -135,9 +135,30 @@ function toDeva(s) {
   }
   return o;
 }
-const canSpeak = () => vmode === "native" || vmode === "hindi";
+// Recorded audio, when a course has it (see tools/make_audio.py), sounds far better than device voices.
+const AUDIO = {}; // course id -> { base, clips }
+let player = null;
+function sayClip(text, slow) {
+  const a = AUDIO[C?.id], f = a && (a.clips[text] || a.clips[text.replace(/[।.!?]+$/, "")]);
+  if (!f) return false;
+  try {
+    if ("speechSynthesis" in window) speechSynthesis.cancel();
+    player = player || new Audio();
+    player.pause();
+    player.onerror = () => sayVoice(text, slow);
+    player.src = a.base + f; player.playbackRate = slow ? 0.7 : 1; player.preservesPitch = true;
+    player.play().catch(() => {});
+    return true;
+  } catch (e) { return false; }
+}
+const hasClips = () => !!AUDIO[C?.id];
+const canSpeak = () => hasClips() || vmode === "native" || vmode === "hindi";
 function say(text, slow) {
-  if (!canSpeak() || !text) return;
+  if (!text) return;
+  if (!sayClip(text, slow)) sayVoice(text, slow);
+}
+function sayVoice(text, slow) {
+  if (!(vmode === "native" || vmode === "hindi")) return;
   try {
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(vmode === "hindi" ? toDeva(text) : text);
@@ -535,7 +556,7 @@ function profileView() {
   const learned = SKILLS.filter(s => prog(s) > 0 || passed(s.unit)).reduce((n, s) => n + s.items.length + s.sents.length, 0);
   const tests = C.units.filter((u, i) => passed(i)).length;
   const sw = (k, label, sub) => `<div class="setrow"><div><b>${label}</b>${sub ? `<p>${sub}</p>` : ""}</div><button class="switch" role="switch" aria-checked="${!!S[k]}" data-act="toggle" data-v="${k}" aria-label="${label}"></button></div>`;
-  const vtxt = { native:`Using “${esc(voice?.name || "")}”. If it sounds robotic, download a better ${esc(C.name)} voice in your phone\'s text-to-speech settings.`, hindi:`No Punjabi voice on this device, so the Hindi voice “${esc(voice?.name || "")}” reads the Gurmukhi. If it sounds robotic, download an enhanced Hindi voice, or on Android a Punjabi one, in your phone\'s text-to-speech settings.`, none:`This device has no ${esc(C.name)} voice, so listening exercises are skipped. Adding one in your phone's text-to-speech settings turns them on.`, pending:"Looking for voices…" }[vmode];
+  const vtxt = hasClips() ? `Playing recorded ${esc(C.name)} audio, so every phone sounds the same. Anything without a recording uses this device's voice.` : { native:`Using “${esc(voice?.name || "")}”. If it sounds robotic, download a better ${esc(C.name)} voice in your phone\'s text-to-speech settings.`, hindi:`No Punjabi voice on this device, so the Hindi voice “${esc(voice?.name || "")}” reads the Gurmukhi. If it sounds robotic, download an enhanced Hindi voice, or on Android a Punjabi one, in your phone\'s text-to-speech settings.`, none:`This device has no ${esc(C.name)} voice, so listening exercises are skipped. Adding one in your phone's text-to-speech settings turns them on.`, pending:"Looking for voices…" }[vmode];
   const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone;
   return `<main class="home"><div class="col page">
     <div class="cloth"><h2>Your progress</h2><div class="tiles">
@@ -1108,7 +1129,10 @@ window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); instal
 (async () => {
   try {
     const list = await (await fetch("courses/index.json")).json();
-    await Promise.all(list.map(async x => { const c = await (await fetch(x.file)).json(); builtin[c.id] = c; }));
+    await Promise.all(list.map(async x => {
+      const c = await (await fetch(x.file)).json(); builtin[c.id] = c;
+      if (x.audio) fetch(x.audio + "index.json").then(r => r.ok ? r.json() : null).then(a => { if (a) { AUDIO[c.id] = { base:x.audio, clips:a.clips }; if (view === "profile") render(); } }).catch(() => {});
+    }));
   } catch (e) {
     app.innerHTML = `<p class="loading">Couldn't load the course. Check your connection and reload.</p>`; return;
   }
