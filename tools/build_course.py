@@ -79,6 +79,15 @@ def build(src):
             if len(parts) != 3: err(n, "number lines need: number | word | transliteration"); continue
             check_script(course, parts[1], n, err)
             course["numbers"]["words"][parts[0]] = parts[1:]
+        elif tag == "DICTIONARY":
+            skill = dialog = None
+            course.setdefault("dictionary", [])
+        elif tag == "E":
+            if len(parts) not in (3, 4): err(n, "dictionary lines need: English | word | transliteration | note"); continue
+            check_script(course, parts[1], n, err)
+            if len(parts[1].split()) != len(parts[2].split()):
+                err(n, f"dictionary word has {len(parts[1].split())} words but transliteration has {len(parts[2].split())}")
+            course["dictionary"].append([parts[1], parts[2], parts[0]] + parts[3:])
         elif tag == "GLOSSARY":
             skill = dialog = None
             course.setdefault("glossary", {})

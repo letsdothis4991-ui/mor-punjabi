@@ -13,7 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
-const VERSION = 18;
+const VERSION = 19;
 const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {
@@ -470,8 +470,52 @@ function numFinder() {
     <div id="numout" aria-live="polite">${numResult()}</div></div>`;
 }
 
+/* ---------- dictionary ---------- */
+let dictIn = "", DICT = null;
+const fold = t => String(t).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^\p{L}\p{M}\p{N}\s'-]/gu, " ").replace(/\s+/g, " ").trim();
+function dictEntries() {
+  if (DICT && DICT.c === C) return DICT.list;
+  const list = [], seen = new Set();
+  const add = (pa, tr, en, note, rank) => { const k = pa + "|" + en; if (!pa || !en || seen.has(k)) return; seen.add(k); list.push({ pa, tr:tr || "", en, note:note || "", rank, senses:en.split(/[,;/]|\bor\b/).map(x => fold(x.replace(/\(.*?\)/g, ""))).filter(Boolean), f:fold(en), fp:fold(pa), ft:fold(tr || "") }); };
+  ALL.filter(it => it.kind === "word").forEach(it => add(it.pa, it.tr, it.en, "", 0));
+  (C.dictionary || []).forEach(d => add(d[0], d[1], d[2], d[3], 0));
+  FESTS.forEach(f => f.sk.items.forEach(it => add(it.pa, it.tr, it.en, f.name.split(" ")[0], 1)));
+  ALL.filter(it => it.kind === "sent").forEach(it => add(it.pa, it.tr, it.en, "", 2));
+  (C.sayings || []).forEach(g => g.items.forEach(x => add(x[0], x[1], x[3], g.name.replace(/s$/, ""), 3)));
+  DICT = { c:C, list };
+  return list;
+}
+function dictSearch(q) {
+  const f = fold(q);
+  if (!f) return [];
+  const esc_ = f.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), re = new RegExp("(^|\\s)" + esc_ + "(\\s|$)"), pre = new RegExp("(^|\\s)" + esc_);
+  return dictEntries().map(e => {
+    let sc = 0;
+    if (e.senses.some(x => x === f || x === "to " + f)) sc = 100;
+    else if (e.fp === f || e.ft === f) sc = 95;
+    else if (re.test(e.f)) sc = 60;
+    else if (pre.test(e.f) && f.length > 2) sc = 30;
+    else if (f.length > 1 && (e.fp.includes(f) || e.ft.includes(f))) sc = 25;
+    return sc ? { e, sc:sc - e.rank * 12 } : null;
+  }).filter(Boolean).sort((a, b) => b.sc - a.sc || a.e.pa.length - b.e.pa.length).slice(0, 25).map(x => x.e);
+}
+function dictResult() {
+  const q = dictIn.trim();
+  if (!q) return `<p class="note" style="margin:0">Type an English word, like “water” or “to eat”. You can also type Punjabi or romanised Punjabi.</p>`;
+  let rows = dictSearch(q);
+  const n = /^\d{1,4}$/.test(q) && C.numbers && +q <= 1000 ? numberWords(+q) : null;
+  if (n) rows = [{ pa:n.pa, tr:n.tr, en:q, note:"number" }, ...rows];
+  const gt = `https://translate.google.com/?sl=en&tl=${encodeURIComponent((C.speech || "pa").split("-")[0])}&text=${encodeURIComponent(q)}&op=translate`;
+  const more = `<p class="note" style="margin:10px 0 0">${rows.length ? "Not what you need?" : `“${esc(q)}” isn't in Mor's dictionary yet.`} <a href="${gt}" target="_blank" rel="noopener">Try Google Translate</a>. Machine translation can be wrong, so check with a native speaker.</p>`;
+  return rows.map(e => `<div class="wordrow">${canSpeak() ? `<button class="iconbtn" data-act="sayt" data-v="${esc(e.pa)}" aria-label="Play">${ICON.spk}</button>` : ""}
+    <div class="w"><div class="pa">${esc(e.pa)}</div>${e.tr ? `<div class="tr">${esc(e.tr)}</div>` : ""}</div><div class="en">${esc(e.en)}${e.note ? `<small class="dnote">${esc(e.note)}</small>` : ""}</div></div>`).join("") + more;
+}
+
 function wordsView() {
-  let h = `<main class="home"><div class="col page"><div class="cloth"><h2>Phrasebook</h2><p class="note" style="margin:0">Every word and sentence in ${esc(C.name)}, unit by unit. ${canSpeak() ? "Tap the speaker to hear it." : ""}</p></div>`;
+  let h = `<main class="home"><div class="col page"><div class="cloth"><h2>Dictionary</h2><p class="note" style="margin:0 0 10px">English to ${esc(C.name)}, from ${dictEntries().length} words, phrases and sayings.</p>
+    <input id="dictin" class="numin dictin" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Search a word" value="${esc(dictIn)}" aria-label="Search the dictionary">
+    <div id="dictout" aria-live="polite">${dictResult()}</div></div>
+    <div class="cloth"><h2>Phrasebook</h2><p class="note" style="margin:0">Every word and sentence in ${esc(C.name)}, unit by unit. ${canSpeak() ? "Tap the speaker to hear it." : ""}</p></div>`;
   C.units.forEach((u, ui) => {
     h += `<h3 class="unithead">Unit ${ui + 1} · ${esc(u.title)}</h3><div class="cloth">`;
     u.sk.forEach(s => {
@@ -1042,6 +1086,7 @@ const acts = {
 app.addEventListener("click", e => { const b = e.target.closest("[data-act]"); if (!b || b.disabled) return; acts[b.dataset.act]?.(b); });
 app.addEventListener("input", e => {
   if (ed && e.target.dataset.f) edInput(e.target);
+  if (e.target.id === "dictin") { dictIn = e.target.value; document.getElementById("dictout").innerHTML = dictResult(); }
   if (e.target.id === "numin") { numIn = e.target.value.replace(/\D/g, "").slice(0, 4); if (e.target.value !== numIn) e.target.value = numIn; document.getElementById("numout").innerHTML = numResult(); }
 });
 app.addEventListener("change", e => {

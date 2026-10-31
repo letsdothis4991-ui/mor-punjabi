@@ -1347,3 +1347,278 @@ N 97 | ਸਤਾਨਵੇਂ | satānveṃ
 N 98 | ਅਠਾਨਵੇਂ | aṭhānveṃ
 N 99 | ਨੜਿੰਨਵੇਂ | naṛinnveṃ
 N 100 | ਸੌ | sau
+
+# Dictionary: extra everyday words for the Words tab search (the course's own words are searched too).
+#   E English | Punjabi | transliteration | note (optional)
+DICTIONARY
+E dog | ਕੁੱਤਾ | kuttā
+E cat | ਬਿੱਲੀ | billī
+E cow | ਗਾਂ | gāṃ
+E buffalo | ਮੱਝ | majjh
+E horse | ਘੋੜਾ | ghoṛā
+E goat | ਬੱਕਰੀ | bakkrī
+E sheep | ਭੇਡ | bheḍ
+E camel | ਊਠ | ūṭh
+E elephant | ਹਾਥੀ | hāthī
+E lion | ਸ਼ੇਰ | sher
+E tiger | ਬਾਘ | bāgh
+E monkey | ਬਾਂਦਰ | bāndar
+E bird | ਪੰਛੀ | panchhī
+E peacock | ਮੋਰ | mor
+E sparrow | ਚਿੜੀ | chiṛī
+E crow | ਕਾਂ | kāṃ
+E parrot | ਤੋਤਾ | totā
+E pigeon | ਕਬੂਤਰ | kabūtar
+E chicken | ਮੁਰਗੀ | murgī
+E fish | ਮੱਛੀ | macchhī
+E snake | ਸੱਪ | sapp
+E mouse | ਚੂਹਾ | chūhā
+E donkey | ਖੋਤਾ | khotā
+E sun | ਸੂਰਜ | sūraj
+E moon | ਚੰਨ | chann
+E star | ਤਾਰਾ | tārā
+E sky | ਅਸਮਾਨ | asmān
+E earth, land | ਧਰਤੀ | dhartī
+E tree | ਰੁੱਖ | rukkh
+E flower | ਫੁੱਲ | phull
+E leaf | ਪੱਤਾ | pattā
+E grass | ਘਾਹ | ghāh
+E mountain | ਪਹਾੜ | pahāṛ
+E stone | ਪੱਥਰ | patthar
+E fire | ਅੱਗ | agg
+E air | ਹਵਾ | havā
+E sea | ਸਮੁੰਦਰ | samundar
+E well | ਖੂਹ | khūh
+E wheat | ਕਣਕ | kaṇak
+E mustard greens | ਸਰ੍ਹੋਂ ਦਾ ਸਾਗ | sarhoṃ dā sāg
+E maize bread | ਮੱਕੀ ਦੀ ਰੋਟੀ | makkī dī roṭī
+E potato | ਆਲੂ | ālū
+E onion | ਪਿਆਜ਼ | piāz
+E tomato | ਟਮਾਟਰ | ṭamāṭar
+E garlic | ਲਸਣ | lasaṇ
+E ginger | ਅਦਰਕ | adrak
+E apple | ਸੇਬ | seb
+E mango | ਅੰਬ | amb
+E banana | ਕੇਲਾ | kelā
+E grapes | ਅੰਗੂਰ | aṅgūr
+E orange (fruit) | ਸੰਤਰਾ | santarā
+E lemon | ਨਿੰਬੂ | nimbū
+E carrot | ਗਾਜਰ | gājar
+E meat | ਮੀਟ | mīṭ
+E bread | ਡਬਲਰੋਟੀ | ḍabalroṭī
+E food | ਖਾਣਾ | khāṇā
+E lunch | ਦੁਪਹਿਰ ਦਾ ਖਾਣਾ | dupahir dā khāṇā
+E dinner | ਰਾਤ ਦਾ ਖਾਣਾ | rāt dā khāṇā
+E hunger | ਭੁੱਖ | bhukkh
+E spoon | ਚਮਚਾ | chamchā
+E bowl | ਕੌਲੀ | kaulī
+E pot (cooking) | ਪਤੀਲਾ | patīlā
+E cup | ਕੱਪ | kapp
+E bottle | ਬੋਤਲ | botal
+E knife | ਛੁਰੀ | chhurī
+E man | ਆਦਮੀ | ādmī
+E woman | ਔਰਤ | aurat
+E boy | ਮੁੰਡਾ | muṇḍā
+E girl | ਕੁੜੀ | kuṛī
+E child | ਬੱਚਾ | bacchā
+E baby | ਨਿਆਣਾ | niāṇā
+E husband | ਪਤੀ | patī
+E wife | ਪਤਨੀ | patnī
+E family | ਪਰਿਵਾਰ | parivār
+E neighbour | ਗੁਆਂਢੀ | guāṇḍhī
+E grandson | ਪੋਤਾ | potā
+E granddaughter | ਪੋਤੀ | potī
+E father-in-law | ਸਹੁਰਾ | sahurā
+E mother-in-law | ਸੱਸ | sass
+E son-in-law | ਜਵਾਈ | javāī
+E daughter-in-law | ਨੂੰਹ | nūṃh
+E hair | ਵਾਲ | vāl
+E face | ਚਿਹਰਾ | chihrā
+E tooth, teeth | ਦੰਦ | dand
+E tongue | ਜੀਭ | jībh
+E neck | ਗਰਦਨ | gardan
+E shoulder | ਮੋਢਾ | moḍhā
+E arm | ਬਾਂਹ | bāṃh
+E finger | ਉਂਗਲ | uṅgal
+E stomach | ਢਿੱਡ | ḍhiḍḍ
+E back (body) | ਪਿੱਠ | piṭṭh
+E leg | ਲੱਤ | latt
+E knee | ਗੋਡਾ | goḍā
+E blood | ਖ਼ੂਨ | khūn
+E shirt | ਕਮੀਜ਼ | kamīz
+E trousers | ਪੈਂਟ | paiṇṭ
+E suit (salwar kameez) | ਸੂਟ | sūṭ
+E scarf (chunni) | ਚੁੰਨੀ | chunnī
+E turban | ਪੱਗ | pagg
+E bangle | ਚੂੜੀ | chūṛī
+E ring | ਮੁੰਦਰੀ | mundarī
+E watch, clock | ਘੜੀ | ghaṛī
+E glasses | ਐਨਕ | ainak
+E bag | ਥੈਲਾ | thailā
+E key | ਚਾਬੀ | chābī
+E soap | ਸਾਬਣ | sābaṇ
+E towel | ਤੌਲੀਆ | tauliā
+E mirror | ਸ਼ੀਸ਼ਾ | shīshā
+E light, lamp | ਬੱਤੀ | battī
+E fan | ਪੱਖਾ | pakkhā
+E roof | ਛੱਤ | chhatt
+E wall | ਕੰਧ | kandh
+E courtyard | ਵਿਹੜਾ | vihṛā
+E garden | ਬਾਗ਼ | bāġ
+E stairs | ਪੌੜੀਆਂ | pauṛīāṃ
+E paper | ਕਾਗ਼ਜ਼ | kāġaz
+E letter (post) | ਚਿੱਠੀ | chiṭṭhī
+E newspaper | ਅਖ਼ਬਾਰ | akhbār
+E picture, photo | ਤਸਵੀਰ | tasvīr
+E country | ਦੇਸ਼ | desh
+E world | ਦੁਨੀਆ | dunīā
+E place | ਥਾਂ | thāṃ
+E street, lane | ਗਲੀ | galī
+E bridge | ਪੁਲ | pul
+E airport | ਹਵਾਈ ਅੱਡਾ | havāī aḍḍā
+E aeroplane | ਜਹਾਜ਼ | jahāz
+E bicycle | ਸਾਈਕਲ | sāīkal
+E bank | ਬੈਂਕ | baiṅk
+E police | ਪੁਲਿਸ | pulis
+E temple | ਮੰਦਰ | mandar
+E mosque | ਮਸਜਿਦ | masjid
+E church | ਗਿਰਜਾ | girjā
+E university | ਯੂਨੀਵਰਸਿਟੀ | yūnīvarsiṭī
+E home, house | ਘਰ | ghar
+E to do | ਕਰਨਾ | karnā
+E to give | ਦੇਣਾ | deṇā
+E to take | ਲੈਣਾ | laiṇā
+E to say | ਕਹਿਣਾ | kahiṇā
+E to tell | ਦੱਸਣਾ | dassṇā
+E to ask | ਪੁੱਛਣਾ | pucchhṇā
+E to hear, to listen | ਸੁਣਨਾ | suṇnā
+E to write | ਲਿਖਣਾ | likhṇā
+E to walk | ਤੁਰਨਾ | turnā
+E to run | ਦੌੜਨਾ | dauṛnā
+E to sit | ਬੈਠਣਾ | baiṭhṇā
+E to stand | ਖੜ੍ਹੇ ਹੋਣਾ | khaṛhe hoṇā
+E to wake up, to get up | ਉੱਠਣਾ | uṭṭhṇā
+E to open | ਖੋਲ੍ਹਣਾ | kholhṇā
+E to close | ਬੰਦ ਕਰਨਾ | band karnā
+E to make | ਬਣਾਉਣਾ | baṇāuṇā
+E to cook | ਪਕਾਉਣਾ | pakāuṇā
+E to wash | ਧੋਣਾ | dhoṇā
+E to play | ਖੇਡਣਾ | kheḍṇā
+E to sing | ਗਾਉਣਾ | gāuṇā
+E to dance | ਨੱਚਣਾ | nacchṇā
+E to laugh | ਹੱਸਣਾ | hassṇā
+E to cry | ਰੋਣਾ | roṇā
+E to learn | ਸਿੱਖਣਾ | sikkhṇā
+E to teach | ਸਿਖਾਉਣਾ | sikhāuṇā
+E to understand | ਸਮਝਣਾ | samajhṇā
+E to know | ਜਾਣਨਾ | jāṇnā
+E to think | ਸੋਚਣਾ | sochṇā
+E to forget | ਭੁੱਲਣਾ | bhullṇā
+E to remember | ਯਾਦ ਕਰਨਾ | yād karnā
+E to love | ਪਿਆਰ ਕਰਨਾ | piār karnā
+E to like | ਪਸੰਦ ਕਰਨਾ | pasand karnā
+E to want | ਚਾਹੁਣਾ | chāhuṇā
+E to find | ਲੱਭਣਾ | labbhṇā
+E to buy | ਖ਼ਰੀਦਣਾ | kharīdṇā
+E to sell | ਵੇਚਣਾ | vechṇā
+E to pay | ਪੈਸੇ ਦੇਣਾ | paise deṇā
+E to wait | ਉਡੀਕਣਾ | uḍīkṇā
+E to stay, to live | ਰਹਿਣਾ | rahiṇā
+E to meet | ਮਿਲਣਾ | milṇā
+E to call | ਬੁਲਾਉਣਾ | bulāuṇā
+E to help | ਮਦਦ ਕਰਨਾ | madad karnā
+E to work | ਕੰਮ ਕਰਨਾ | kamm karnā
+E to begin | ਸ਼ੁਰੂ ਕਰਨਾ | shurū karnā
+E to finish | ਖ਼ਤਮ ਕਰਨਾ | khatam karnā
+E to bring | ਲਿਆਉਣਾ | liāuṇā
+E to put, to place | ਰੱਖਣਾ | rakkhṇā
+E to fall | ਡਿੱਗਣਾ | ḍiggṇā
+E to die | ਮਰਨਾ | marnā
+E to live (be alive) | ਜਿਊਣਾ | jiūṇā
+E to drive | ਚਲਾਉਣਾ | chalāuṇā
+E to fly | ਉੱਡਣਾ | uḍḍṇā
+E to swim | ਤੈਰਨਾ | tairnā
+E to be | ਹੋਣਾ | hoṇā
+E to have to | ਪੈਣਾ | paiṇā
+E small, little | ਛੋਟਾ | chhoṭā
+E long, tall | ਲੰਮਾ | lammā
+E short | ਛੋਟਾ | chhoṭā
+E fat | ਮੋਟਾ | moṭā
+E thin | ਪਤਲਾ | patlā
+E young | ਜਵਾਨ | javān
+E old (people) | ਬੁੱਢਾ | buḍḍhā
+E rich | ਅਮੀਰ | amīr
+E poor | ਗ਼ਰੀਬ | ġarīb
+E clean | ਸਾਫ਼ | sāf
+E dirty | ਗੰਦਾ | gandā
+E easy | ਸੌਖਾ | saukhā
+E difficult | ਔਖਾ | aukhā
+E fast | ਤੇਜ਼ | tez
+E slow | ਹੌਲੀ | haulī
+E full | ਭਰਿਆ | bhariā
+E empty | ਖ਼ਾਲੀ | khālī
+E sweet | ਮਿੱਠਾ | miṭṭhā
+E sour | ਖੱਟਾ | khaṭṭā
+E bitter | ਕੌੜਾ | kauṛā
+E spicy | ਤਿੱਖਾ | tikkhā
+E warm | ਨਿੱਘਾ | nigghā
+E heavy | ਭਾਰਾ | bhārā
+E light (weight) | ਹਲਕਾ | halkā
+E strong | ਤਕੜਾ | takṛā
+E weak | ਕਮਜ਼ੋਰ | kamzor
+E far | ਦੂਰ | dūr
+E near | ਨੇੜੇ | neṛe
+E right, correct | ਠੀਕ | ṭhīk
+E brave | ਬਹਾਦਰ | bahādar
+E clever | ਹੁਸ਼ਿਆਰ | hushiār
+E kind | ਦਿਆਲੂ | diālū
+E same | ਉਹੀ | uhī
+E different | ਵੱਖਰਾ | vakkhrā
+E important | ਜ਼ਰੂਰੀ | zarūrī
+E here | ਇੱਥੇ | itthe
+E there | ਉੱਥੇ | utthe
+E up, above | ਉੱਤੇ | utte
+E down, below | ਹੇਠਾਂ | heṭhāṃ
+E inside | ਅੰਦਰ | andar
+E outside | ਬਾਹਰ | bāhar
+E in front | ਅੱਗੇ | agge
+E behind | ਪਿੱਛੇ | picchhe
+E with | ਨਾਲ | nāl
+E without | ਬਿਨਾਂ | bināṃ
+E and | ਅਤੇ | ate
+E or | ਜਾਂ | jāṃ
+E if | ਜੇ | je
+E also, too | ਵੀ | vī
+E only | ਸਿਰਫ਼ | siraf
+E again | ਦੁਬਾਰਾ | dubārā
+E yesterday, tomorrow | ਕੱਲ੍ਹ | kallh | the same word means both; the verb tense tells you which
+E day after tomorrow | ਪਰਸੋਂ | parsoṃ | also the day before yesterday
+E day | ਦਿਨ | din
+E time | ਸਮਾਂ | samāṃ
+E life | ਜ਼ਿੰਦਗੀ | zindagī
+E death | ਮੌਤ | maut
+E health | ਸਿਹਤ | sihat
+E peace | ਸ਼ਾਂਤੀ | shāntī
+E happiness, joy | ਖ਼ੁਸ਼ੀ | khushī
+E sorrow | ਦੁੱਖ | dukkh
+E truth | ਸੱਚ | sacch
+E lie | ਝੂਠ | jhūṭh
+E dream | ਸੁਪਨਾ | supnā
+E word | ਸ਼ਬਦ | shabad
+E sentence | ਵਾਕ | vāk
+E game | ਖੇਡ | kheḍ
+E music | ਸੰਗੀਤ | saṅgīt
+E film | ਫ਼ਿਲਮ | film
+E problem | ਮੁਸ਼ਕਲ | mushkal
+E idea | ਖ਼ਿਆਲ | khiāl
+E news | ਖ਼ਬਰ | khabar
+E party | ਪਾਰਟੀ | pārṭī
+E holiday, leave | ਛੁੱਟੀ | chhuṭṭī
+E birthday | ਜਨਮ ਦਿਨ | janam din
+E English (language) | ਅੰਗਰੇਜ਼ੀ | aṅgrezī
+E Punjabi (language) | ਪੰਜਾਬੀ | panjābī
+E Hindi | ਹਿੰਦੀ | hindī
+E India | ਭਾਰਤ | bhārat
+E Pakistan | ਪਾਕਿਸਤਾਨ | pākistān
+E England | ਇੰਗਲੈਂਡ | iṅglaiṇḍ
+E Canada | ਕੈਨੇਡਾ | kaineḍā
