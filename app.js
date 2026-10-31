@@ -13,7 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
-const VERSION = 23;
+const VERSION = 24;
 const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {
@@ -95,8 +95,9 @@ function useCourse(id) {
 }
 const prog = sk => S.prog[sk.key] || 0;
 const passed = ui => !!S.tests[C.units[ui].key];
-const unitOpen = ui => ui === 0 || passed(ui - 1);
+const unitOpen = ui => S.unlockAll || ui === 0 || passed(ui - 1);
 function skillOpen(sk) {
+  if (S.unlockAll) return true;
   if (!unitOpen(sk.unit)) return false;
   const u = C.units[sk.unit], i = u.sk.indexOf(sk);
   return i === 0 || prog(u.sk[i - 1]) >= LESSONS || passed(sk.unit);
@@ -592,6 +593,7 @@ function profileView() {
       ${C.festivals?.length ? `<div class="setrow stackrow"><div><b>Festival themes</b><p>The board dresses up around Lohri, Vaisakhi and Diwali. Preview one now if you like.</p></div><div class="seg">${[["auto", "Automatic"], ...C.festivals.map(f => [f.id, f.name.split(" ")[0]]), ["off", "Off"]].map(([v, l]) => `<button data-act="festpick" data-v="${v}" aria-pressed="${S.fest === v}">${esc(l)}</button>`).join("")}</div></div>` : ""}
       ${bothVoices() ? `<div class="setrow"><div><b>Speaker</b><p>Whose recorded voice reads the ${esc(C.name)}</p></div><div class="seg">${[["female", "Woman"], ["male", "Man"]].map(([v, l]) => `<button data-act="vsex" data-v="${v}" aria-pressed="${S.vsex === v}">${l}</button>`).join("")}</div></div>` : ""}
       <div class="setrow"><div><b>Voice</b><p>${vtxt}</p></div>${canSpeak() ? `<button class="btn small ghost" data-act="sayt" data-v="${esc(sampleWord())}">Test</button>` : ""}</div>
+      ${sw("unlockAll", "Unlock all lessons", "Open every square on the board, for testing. Your progress isn't changed.")}
       <div class="setrow"><div><b>Reset progress</b><p>Clears XP, streak, skills and tests. This can't be undone.</p></div>
         ${confirmReset ? `<div class="seg"><button data-act="reset" data-v="yes" style="color:var(--madder)">Yes, reset</button><button data-act="reset" data-v="no">Cancel</button></div>` : `<button class="btn small ghost" data-act="reset">Reset</button>`}</div>
       <p class="note" style="margin-bottom:0">Progress is saved on this device. Mor version ${VERSION}.</p><button class="btn small ghost" style="margin-top:10px" data-act="refreshapp">Get the latest version</button></div>
