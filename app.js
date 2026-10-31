@@ -13,7 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
-const VERSION = 16;
+const VERSION = 17;
 const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {
@@ -107,12 +107,19 @@ const currentSquare = () => SQUARES.find(q => squareOpen(q) && !squareDone(q)) |
 
 /* ---------- audio ---------- */
 let voice = null, vmode = "none";
+// Phones often have several voices per language; the "enhanced", "natural" and online ones sound far less robotic.
+function voiceScore(v) {
+  const n = v.name + " " + v.voiceURI;
+  return (/natural|neural|premium|enhanced|wavenet|siri/i.test(n) ? 4 : 0) + (/google|online/i.test(n) ? 2 : 0) + (v.localService === false ? 1 : 0) - (/compact|eloquence|espeak/i.test(n) ? 4 : 0);
+}
 function pickVoice() {
   if (!("speechSynthesis" in window) || !C) { vmode = "none"; return; }
   const vs = speechSynthesis.getVoices(), code = (C.speech || "").toLowerCase(), base = code.split("-")[0];
-  voice = base ? (vs.find(v => v.lang.toLowerCase().replace("_", "-") === code) || vs.find(v => v.lang.toLowerCase().startsWith(base))) : null;
+  const lang = v => v.lang.toLowerCase().replace("_", "-");
+  const best = list => list.sort((a, b) => voiceScore(b) - voiceScore(a))[0] || null;
+  voice = base ? best(vs.filter(v => lang(v) === code)) || best(vs.filter(v => lang(v).startsWith(base))) : null;
   if (voice) { vmode = "native"; return; }
-  if (C.id === "punjabi") { voice = vs.find(v => v.lang.toLowerCase().startsWith("hi")); if (voice) { vmode = "hindi"; return; } }
+  if (C.id === "punjabi") { voice = best(vs.filter(v => lang(v) === "hi-in")) || best(vs.filter(v => lang(v).startsWith("hi"))); if (voice) { vmode = "hindi"; return; } }
   vmode = vs.length ? "none" : "pending";
 }
 if ("speechSynthesis" in window) speechSynthesis.onvoiceschanged = () => { pickVoice(); if (view === "profile") render(); };
@@ -134,7 +141,7 @@ function say(text, slow) {
   try {
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(vmode === "hindi" ? toDeva(text) : text);
-    u.voice = voice; u.lang = voice.lang; u.rate = slow ? 0.55 : 0.85;
+    u.voice = voice; u.lang = voice.lang; u.rate = slow ? 0.6 : 0.95;
     speechSynthesis.speak(u);
   } catch (e) {}
 }
@@ -452,7 +459,7 @@ function profileView() {
   const learned = SKILLS.filter(s => prog(s) > 0 || passed(s.unit)).reduce((n, s) => n + s.items.length + s.sents.length, 0);
   const tests = C.units.filter((u, i) => passed(i)).length;
   const sw = (k, label, sub) => `<div class="setrow"><div><b>${label}</b>${sub ? `<p>${sub}</p>` : ""}</div><button class="switch" role="switch" aria-checked="${!!S[k]}" data-act="toggle" data-v="${k}" aria-label="${label}"></button></div>`;
-  const vtxt = { native:`Using a ${esc(C.name)} voice from this device.`, hindi:"No Punjabi voice on this device, so a Hindi voice reads the Gurmukhi. It sounds close but not perfect.", none:`This device has no ${esc(C.name)} voice, so listening exercises are skipped. Adding one in your phone's text-to-speech settings turns them on.`, pending:"Looking for voices…" }[vmode];
+  const vtxt = { native:`Using “${esc(voice?.name || "")}”. If it sounds robotic, download a better ${esc(C.name)} voice in your phone\'s text-to-speech settings.`, hindi:`No Punjabi voice on this device, so the Hindi voice “${esc(voice?.name || "")}” reads the Gurmukhi. If it sounds robotic, download an enhanced Hindi voice, or on Android a Punjabi one, in your phone\'s text-to-speech settings.`, none:`This device has no ${esc(C.name)} voice, so listening exercises are skipped. Adding one in your phone's text-to-speech settings turns them on.`, pending:"Looking for voices…" }[vmode];
   const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone;
   return `<main class="home"><div class="col page">
     <div class="cloth"><h2>Your progress</h2><div class="tiles">
