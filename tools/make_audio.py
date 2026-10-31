@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Record every Punjabi word, sentence, story line, saying and family word with Google Cloud Text-to-Speech.
+"""Record every Punjabi word, sentence, story line, scene line, saying and family word with Google Cloud Text-to-Speech.
 
 Usage: GOOGLE_TTS_API_KEY=... python3 tools/make_audio.py courses/punjabi.json audio/punjabi [voice] [backup voice]
 
@@ -39,6 +39,10 @@ def texts(c):
             elif not re.match("[\u0A3E-\u0A4D\u0A70\u0A71\u0A02]", l[0]): add(l[0])
     for st in c.get("stories", []):
         for l in st["lines"]: add(l[0])
+    for sc in c.get("scenes", []):
+        for st in sc["steps"]:
+            if st["t"] != "cue": add(st["line"][0])
+            for x in st.get("wrong", []): add(x[0])
     for g in c.get("sayings", []):
         for x in g["items"]: add(x[0])
     for f in c.get("festivals", []):

@@ -21,6 +21,7 @@ It gets its own peacock icon and works offline after the first visit. Progress i
 - A short guide for each unit with grammar notes and its dialogue.
 - A unit test at the end of every unit. Score 80% to unlock the next one, or take it early to climb the ladder and skip ahead.
 - A family tree in the Words tab: tap any relative on your dad's side, your mum's side or your in-laws to see and hear the Punjabi word (ਤਾਇਆ, ਚਾਚਾ, ਮਾਮਾ, ਫੁੱਫੜ and more), then practise them.
+- Scenes in the Stories tab: six short real-life chats (lunch at a dhaba, a phone call with Nani, haggling in the bazaar, an auto to the station, visiting Bhua, the doctor). Hear each line, then pick or say your reply. A wrong reply explains why, and you try again.
 - Daily goal, streaks, and a calendar reminder so you don't lose your streak.
 - Add your own languages in the app and share them with friends as a file.
 

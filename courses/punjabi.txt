@@ -969,6 +969,169 @@ Q What was Mirza famous for? | Archery | Singing | Pottery
 Q What did Sahiban do while Mirza slept? | Broke his arrows | Ran home | Cooked a meal
 
 ########################################################################
+# Scenes (Stories tab): short role-plays where you choose or say your reply.
+#   SCENE id | title | Punjabi title | who you talk to | one-line setting
+#   TIP a culture note shown at the end (repeatable)
+#   CUE a stage direction, in English
+#   H what they say | transliteration | English
+#   R your reply, the right one | transliteration | English
+#   X a reply that doesn't fit | transliteration | English | why it doesn't fit
+#   Every R is followed by its X lines. Your replies avoid gendered verbs, so they suit anyone.
+
+SCENE dhaba | Lunch at a dhaba | ਢਾਬੇ ਤੇ | The dhaba owner | You stop at a roadside dhaba, hungry
+TIP ਭਾਜੀ (bhājī) is a friendly way to call any older man, like "brother". The waiter or owner at a dhaba is almost always ਭਾਜੀ.
+TIP ਜੀ makes anything polite: ਹਾਂ ਜੀ (yes), ਨਹੀਂ ਜੀ (no), ਆਓ ਜੀ (come in).
+TIP ਬਹੁਤ ਸੁਆਦ ਆਇਆ (I really enjoyed it) is the best thanks a cook can get.
+H ਆਓ ਜੀ, ਬੈਠੋ। ਕੀ ਖਾਓਗੇ? | āo jī, baiṭho. kī khāoge? | Come in, sit down. What will you eat?
+R ਅੱਜ ਕੀ ਕੀ ਬਣਿਆ ਹੈ? | ajj kī kī baṇiā hai? | What have you made today?
+X ਮੈਂ ਠੀਕ ਹਾਂ, ਧੰਨਵਾਦ। | maiṃ ṭhīk hāṃ, dhannvād. | I'm fine, thank you. | He asked what you'll eat, not how you are.
+X ਮੇਰਾ ਨਾਮ ਸਿਮਰਨ ਹੈ। | merā nām simran hai. | My name is Simran. | He wants your order, not your name.
+H ਸਰ੍ਹੋਂ ਦਾ ਸਾਗ, ਮੱਕੀ ਦੀ ਰੋਟੀ, ਦਾਲ ਮੱਖਣੀ ਤੇ ਕੜ੍ਹੀ ਪਕੌੜਾ। | sarhoṃ dā sāg, makkī dī roṭī, dāl makkhaṇī te kaṛhī pakauṛā. | Mustard greens, corn roti, dal makhani and kadhi pakora.
+R ਇੱਕ ਪਲੇਟ ਸਾਗ ਤੇ ਦੋ ਮੱਕੀ ਦੀਆਂ ਰੋਟੀਆਂ ਦੇ ਦਿਓ। | ikk pleṭ sāg te do makkī dīāṃ roṭīāṃ de dio. | One plate of saag and two corn rotis, please.
+X ਮੈਂ ਕੱਲ੍ਹ ਸਾਗ ਖਾਧਾ ਸੀ। | maiṃ kallh sāg khādhā sī. | I ate saag yesterday. | That's about yesterday. Order what you want now.
+X ਸਾਗ ਹਰਾ ਹੁੰਦਾ ਹੈ। | sāg harā hundā hai. | Saag is green. | True, but it isn't an order.
+H ਮੱਖਣ ਨਾਲ ਜਾਂ ਬਿਨਾਂ ਮੱਖਣ? | makkhaṇ nāl jāṃ bināṃ makkhaṇ? | With butter or without?
+R ਮੱਖਣ ਨਾਲ ਜੀ, ਥੋੜ੍ਹਾ ਜ਼ਿਆਦਾ! | makkhaṇ nāl jī, thoṛhā ziādā! | With butter please, a bit extra!
+X ਨਹੀਂ, ਹੁਣ ਘਰ ਜਾਣਾ ਹੈ। | nahīṃ, huṇ ghar jāṇā hai. | No, I have to go home now. | He asked about butter. You haven't eaten yet!
+X ਹਾਂ ਜੀ, ਪਾਣੀ ਠੰਢਾ ਹੈ। | hāṃ jī, pāṇī ṭhaṇḍhā hai. | Yes, the water is cold. | Answer about the butter.
+H ਹੋਰ ਕੁਝ? ਲੱਸੀ ਜਾਂ ਚਾਹ? | hor kujh? lassī jāṃ chāh? | Anything else? Lassi or tea?
+R ਇੱਕ ਮਿੱਠੀ ਲੱਸੀ ਵੀ ਲੈ ਆਓ। | ikk miṭṭhī lassī vī lai āo. | Bring a sweet lassi too.
+X ਕੱਲ੍ਹ ਮੀਂਹ ਪਿਆ ਸੀ। | kallh mīṃh piā sī. | It rained yesterday. | He's asking about a drink, not the weather.
+X ਲੱਸੀ ਕਿੱਥੇ ਰਹਿੰਦੀ ਹੈ? | lassī kitthe rahindī hai? | Where does lassi live? | That asks where lassi lives! Just order one.
+H ਹੁਣੇ ਲਿਆਉਂਦਾ ਹਾਂ ਜੀ, ਬੱਸ ਪੰਜ ਮਿੰਟ। | huṇe liāundā hāṃ jī, bas panj miṇṭ. | Bringing it right away, just five minutes.
+CUE Twenty happy minutes later, you wave him over.
+R ਭਾਜੀ, ਕਿੰਨੇ ਪੈਸੇ ਹੋਏ? | bhājī, kinne paise hoe? | Bhaji, how much is it?
+X ਭਾਜੀ, ਤੁਹਾਡੀ ਉਮਰ ਕਿੰਨੀ ਹੈ? | bhājī, tuhāḍī umar kinnī hai? | Bhaji, how old are you? | That asks his age, not the bill.
+X ਭਾਜੀ, ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਹੈ। | bhājī, mainūṃ bhukkh laggī hai. | Bhaji, I'm hungry. | You've just eaten! Ask for the bill.
+H ਤਿੰਨ ਸੌ ਵੀਹ ਰੁਪਏ ਜੀ। | tinn sau vīh rupae jī. | Three hundred and twenty rupees.
+R ਇਹ ਲਓ। ਬਹੁਤ ਸੁਆਦ ਆਇਆ! | ih lao. bahut suād āiā! | Here you go. That was delicious!
+X ਇਹ ਲਓ। ਖਾਣਾ ਬਹੁਤ ਠੰਢਾ ਸੀ! | ih lao. khāṇā bahut ṭhaṇḍhā sī! | Here you go. The food was very cold! | That's a complaint, and you loved the food.
+X ਮੈਂ ਪੈਸੇ ਨਹੀਂ ਦੇਣੇ। | maiṃ paise nahīṃ deṇe. | I'm not paying. | Uh oh. That says you won't pay!
+H ਧੰਨਵਾਦ ਜੀ, ਫੇਰ ਆਇਓ! | dhannvād jī, pher āio! | Thank you, come again!
+
+SCENE nani | A phone call with Nani | ਨਾਨੀ ਨਾਲ ਫ਼ੋਨ ਤੇ | Nani ji | You ring your grandmother in the village
+TIP ਨਾਨੀ is your mum's mother and ਦਾਦੀ is your dad's mother. Add ਜੀ when you speak to them.
+TIP Every Punjabi grandmother asks ਰੋਟੀ ਖਾਧੀ? (have you eaten?). Here ਰੋਟੀ means a meal, not just bread.
+TIP ਜੁਗ ਜੁਗ ਜੀਓ (live for ages) and ਜਿਉਂਦੇ ਵੱਸਦੇ ਰਹੋ (live and flourish) are blessings elders give. You don't say them back. Just enjoy them!
+TIP ਨੇ is the everyday spoken form of ਹਨ (are): ਗੋਡੇ ਦੁਖਦੇ ਨੇ means the same as ਗੋਡੇ ਦੁਖਦੇ ਹਨ.
+CUE The phone rings in the village. Nani picks up.
+H ਹੈਲੋ, ਕੌਣ ਬੋਲਦਾ ਹੈ? | hailo, kauṇ boldā hai? | Hello, who's speaking?
+R ਨਾਨੀ ਜੀ, ਸਤ ਸ੍ਰੀ ਅਕਾਲ! ਪਛਾਣਿਆ? | nānī jī, sat srī akāl! pachhāṇiā? | Hello Nani! Do you recognise me?
+X ਮਾਫ਼ ਕਰਨਾ, ਗ਼ਲਤ ਨੰਬਰ। | māf karnā, ġalat nambar. | Sorry, wrong number. | It's not a wrong number, it's your Nani!
+X ਇੱਕ ਪਲੇਟ ਸਾਗ ਦੇ ਦਿਓ। | ikk pleṭ sāg de dio. | One plate of saag, please. | That's how you order at a dhaba!
+H ਜੁਗ ਜੁਗ ਜੀਓ ਪੁੱਤ! ਕਿੰਨੇ ਦਿਨਾਂ ਬਾਅਦ ਫ਼ੋਨ ਕੀਤਾ। | jug jug jīo putt! kinne dināṃ bāad fon kītā. | Bless you, child! You've called after so many days.
+R ਮਾਫ਼ ਕਰਨਾ ਨਾਨੀ ਜੀ। ਤੁਹਾਡਾ ਕੀ ਹਾਲ ਹੈ? | māf karnā nānī jī. tuhāḍā kī hāl hai? | Sorry Nani. How are you?
+X ਤੁਸੀਂ ਕੌਣ ਹੋ? | tusīṃ kauṇ ho? | Who are you? | You know who she is! Ask how she is.
+X ਤਿੰਨ ਸੌ ਵੀਹ ਰੁਪਏ। | tinn sau vīh rupae. | Three hundred and twenty rupees. | That's a price, not a reply to Nani.
+H ਮੈਂ ਠੀਕ ਹਾਂ, ਬੱਸ ਗੋਡੇ ਦੁਖਦੇ ਨੇ। ਤੂੰ ਰੋਟੀ ਖਾਧੀ? | maiṃ ṭhīk hāṃ, bas goḍe dukhde ne. tūṃ roṭī khādhī? | I'm fine, just my knees ache. Have you eaten?
+R ਹਾਂ ਜੀ, ਹੁਣੇ ਖਾਧੀ ਹੈ। ਆਪਣਾ ਖ਼ਿਆਲ ਰੱਖਿਓ। | hāṃ jī, huṇe khādhī hai. āpṇā khiāl rakkhio. | Yes, I just ate. Take care of yourself.
+X ਨਾਨੀ ਜੀ, ਰੋਟੀ ਕਿੰਨੇ ਦੀ ਹੈ? | nānī jī, roṭī kinne dī hai? | Nani, how much is the roti? | That asks the price! She wants to know if you've eaten.
+X ਮੇਰਾ ਨਾਮ ਅਰਜੁਨ ਹੈ। | merā nām arjun hai. | My name is Arjun. | She knows your name already!
+H ਸ਼ਾਬਾਸ਼। ਛੁੱਟੀਆਂ ਵਿੱਚ ਪਿੰਡ ਕਦੋਂ ਆਉਣਾ ਹੈ? | shābāsh. chhuṭṭīāṃ vich piṇḍ kadoṃ āuṇā hai? | Good. When are you coming to the village in the holidays?
+R ਅਗਲੇ ਮਹੀਨੇ, ਨਾਨੀ ਜੀ। ਮੇਰੇ ਲਈ ਪਿੰਨੀਆਂ ਬਣਾ ਕੇ ਰੱਖਿਓ! | agle mahīne, nānī jī. mere laī pinnīāṃ baṇā ke rakkhio! | Next month, Nani. Make some pinnis for me!
+X ਪਿਛਲੇ ਸਾਲ, ਨਾਨੀ ਜੀ। | pichhle sāl, nānī jī. | Last year, Nani. | That's in the past. She asked when you'll come.
+X ਪਿੰਡ ਬਹੁਤ ਵੱਡਾ ਹੈ। | piṇḍ bahut vaḍḍā hai. | The village is very big. | That doesn't say when.
+H ਜ਼ਰੂਰ! ਚੰਗਾ, ਆਪਣੀ ਮੰਮੀ ਨੂੰ ਮੇਰਾ ਪਿਆਰ ਦੇਈਂ। | zarūr! changā, āpṇī mammī nūṃ merā piār deīṃ. | Of course! Okay, give your mum my love.
+R ਠੀਕ ਹੈ ਨਾਨੀ ਜੀ। ਫਿਰ ਗੱਲ ਕਰਾਂਗੇ! | ṭhīk hai nānī jī. phir gall karāṅge! | Okay Nani. We'll talk again soon!
+X ਹੈਲੋ, ਕੌਣ ਬੋਲਦਾ ਹੈ? | hailo, kauṇ boldā hai? | Hello, who's speaking? | You're already talking! Say goodbye.
+X ਇੱਕ ਮਿੱਠੀ ਲੱਸੀ ਵੀ ਲੈ ਆਓ। | ikk miṭṭhī lassī vī lai āo. | Bring a sweet lassi too. | That's for the dhaba!
+H ਜਿਉਂਦੇ ਵੱਸਦੇ ਰਹੋ! | jiunde vassde raho! | Live long and be happy!
+
+SCENE bazaar | Haggling in the bazaar | ਬਾਜ਼ਾਰ ਵਿੱਚ ਭਾਅ | The shopkeeper | You want a phulkari dupatta, at a fair price
+TIP ਭਾਅ (bhā) is the going price, and ਭਾਅ ਕਰਨਾ is to haggle. In a bazaar the first price is only the start.
+TIP ਬੋਹਣੀ (bohṇī) is a shop's first sale of the day. It's thought to bring luck, so shopkeepers often give the first customer a good deal.
+TIP Hundreds are counted in hundreds: ਬਾਰਾਂ ਸੌ (twelve hundred) is 1200 and ਪੰਦਰਾਂ ਸੌ is 1500.
+H ਆਓ ਜੀ, ਕੀ ਦਿਖਾਵਾਂ? | āo jī, kī dikhāvāṃ? | Come in, what can I show you?
+R ਫੁਲਕਾਰੀ ਵਾਲੀ ਚੁੰਨੀ ਦਿਖਾਓ। | phulkārī vālī chunnī dikhāo. | Show me a phulkari dupatta.
+X ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਹੈ। | mainūṃ bhukkh laggī hai. | I'm hungry. | This is a cloth shop, not a dhaba!
+X ਪਿੰਡ ਕਦੋਂ ਆਉਣਾ ਹੈ? | piṇḍ kadoṃ āuṇā hai? | When are you coming to the village? | That's Nani's question! Tell him what you want to see.
+H ਇਹ ਦੇਖੋ, ਹੱਥ ਦੀ ਕਢਾਈ ਹੈ। ਬਹੁਤ ਸੋਹਣੀ ਹੈ। | ih dekho, hatth dī kaḍhāī hai. bahut sohṇī hai. | Look at this, it's embroidered by hand. It's very beautiful.
+R ਸੋਹਣੀ ਤਾਂ ਹੈ। ਕਿੰਨੇ ਦੀ ਹੈ? | sohṇī tāṃ hai. kinne dī hai? | It is pretty. How much is it?
+X ਇਹ ਕਿਸ ਦਾ ਘਰ ਹੈ? | ih kis dā ghar hai? | Whose house is this? | That asks whose house this is. Ask the price.
+X ਮੈਂ ਨਹੀਂ ਖਾਣੀ। | maiṃ nahīṃ khāṇī. | I won't eat it. | You don't eat a dupatta!
+H ਤੁਹਾਡੇ ਲਈ ਸਿਰਫ਼ ਦੋ ਹਜ਼ਾਰ ਰੁਪਏ। | tuhāḍe laī siraf do hazār rupae. | For you, only two thousand rupees.
+R ਦੋ ਹਜ਼ਾਰ? ਬਹੁਤ ਮਹਿੰਗੀ ਹੈ! ਬਾਰਾਂ ਸੌ ਲਾ ਲਓ। | do hazār? bahut mahiṅgī hai! bārāṃ sau lā lao. | Two thousand? That's too expensive! Make it twelve hundred.
+X ਦੋ ਹਜ਼ਾਰ? ਬਹੁਤ ਸਸਤੀ ਹੈ! ਤਿੰਨ ਹਜ਼ਾਰ ਲੈ ਲਓ। | do hazār? bahut sastī hai! tinn hazār lai lao. | Two thousand? That's cheap! Take three thousand. | That says it's cheap and offers more. Not how haggling works!
+X ਦੋ ਹਜ਼ਾਰ? ਠੀਕ ਹੈ, ਛੇਤੀ ਪੈਕ ਕਰੋ। | do hazār? ṭhīk hai, chhetī paik karo. | Two thousand? Fine, pack it quickly. | You could, but you came to haggle. Start lower!
+H ਨਹੀਂ ਜੀ, ਏਨੇ ਦੀ ਤਾਂ ਮੈਨੂੰ ਆਪ ਨਹੀਂ ਪੈਂਦੀ। ਸਤਾਰਾਂ ਸੌ ਦੇ ਦਿਓ। | nahīṃ jī, ene dī tāṃ mainūṃ āp nahīṃ paindī. satārāṃ sau de dio. | No, it costs me more than that myself. Give me seventeen hundred.
+R ਪੰਦਰਾਂ ਸੌ, ਬੱਸ। ਨਹੀਂ ਤਾਂ ਅਗਲੀ ਦੁਕਾਨ ਦੇਖਦੇ ਹਾਂ। | pandrāṃ sau, bas. nahīṃ tāṃ aglī dukān dekhde hāṃ. | Fifteen hundred, that's it. Otherwise we'll try the next shop.
+X ਪੱਚੀ ਸੌ, ਬੱਸ। | pacchī sau, bas. | Twenty-five hundred, that's it. | That's more than he asked for!
+X ਸਤ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! | sat srī akāl jī! | Hello! | That's hello. You're in the middle of a deal!
+H ਚਲੋ ਠੀਕ ਹੈ, ਤੁਹਾਡੇ ਲਈ ਪੰਦਰਾਂ ਸੌ। ਬੋਹਣੀ ਦਾ ਟਾਈਮ ਹੈ। | chalo ṭhīk hai, tuhāḍe laī pandrāṃ sau. bohṇī dā ṭāīm hai. | All right, fifteen hundred for you. It's my first sale of the day.
+R ਧੰਨਵਾਦ ਜੀ! ਇੱਕ ਲਿਫ਼ਾਫ਼ਾ ਵੀ ਦੇ ਦਿਓ। | dhannvād jī! ikk lifāfā vī de dio. | Thank you! Give me a bag too, please.
+X ਨਹੀਂ, ਹੁਣ ਮੈਨੂੰ ਨਹੀਂ ਚਾਹੀਦੀ। | nahīṃ, huṇ mainūṃ nahīṃ chāhīdī. | No, I don't want it now. | He agreed to your price! Backing out now would be rude.
+X ਜੁਗ ਜੁਗ ਜੀਓ! | jug jug jīo! | Bless you! | That's a blessing elders give. Thank him instead.
+
+SCENE auto | An auto to the station | ਆਟੋ ਵਿੱਚ | The auto driver | Your train leaves at ten and you're running late
+TIP ਗੱਡੀ means a train and also a car. ਮੇਰੀ ਗੱਡੀ ਦਸ ਵਜੇ ਹੈ can only mean a train, because a car doesn't leave at ten.
+TIP Punjabi has words for fractions of a hundred: ਸਵਾ ਸੌ (125), ਡੇਢ ਸੌ (150), ਢਾਈ ਸੌ (250).
+TIP Agree the fare before you get in. ___ ਚੱਲੋਗੇ? (will you go to ___?) is the way to ask.
+CUE You wave down an auto rickshaw.
+R ਭਾਜੀ, ਰੇਲਵੇ ਸਟੇਸ਼ਨ ਚੱਲੋਗੇ? | bhājī, relve saṭeshan challoge? | Bhaji, will you go to the railway station?
+X ਭਾਜੀ, ਤੁਹਾਡਾ ਨਾਮ ਕੀ ਹੈ? | bhājī, tuhāḍā nām kī hai? | Bhaji, what's your name? | Ask if he'll take you to the station first.
+X ਭਾਜੀ, ਸਟੇਸ਼ਨ ਬਹੁਤ ਸੋਹਣਾ ਹੈ। | bhājī, saṭeshan bahut sohṇā hai. | Bhaji, the station is very beautiful. | That says the station is pretty. Ask him to take you there.
+H ਬੈਠੋ ਜੀ। ਡੇਢ ਸੌ ਰੁਪਏ ਲੱਗਣਗੇ। | baiṭho jī. ḍeḍh sau rupae laggaṇge. | Get in. It'll be a hundred and fifty rupees.
+R ਸੌ ਰੁਪਏ ਠੀਕ ਹਨ, ਸਟੇਸ਼ਨ ਨੇੜੇ ਹੀ ਹੈ। | sau rupae ṭhīk han, saṭeshan neṛe hī hai. | A hundred is fair, the station is close by.
+X ਡੇਢ ਸੌ? ਦੋ ਸੌ ਲੈ ਲਓ। | ḍeḍh sau? do sau lai lao. | A hundred and fifty? Take two hundred. | You're offering him more!
+X ਮੈਨੂੰ ਨਹੀਂ ਪਤਾ। | mainūṃ nahīṃ patā. | I don't know. | Offer a price.
+H ਚਲੋ, ਸਵਾ ਸੌ ਦੇ ਦਿਓ। ਬੈਠੋ। | chalo, savā sau de dio. baiṭho. | All right, give me a hundred and twenty-five. Get in.
+R ਠੀਕ ਹੈ। ਥੋੜ੍ਹਾ ਜਲਦੀ ਚੱਲਿਓ, ਮੇਰੀ ਗੱਡੀ ਦਸ ਵਜੇ ਹੈ। | ṭhīk hai. thoṛhā jaldī challio, merī gaḍḍī das vaje hai. | Okay. Please go a bit fast, my train is at ten.
+X ਠੀਕ ਹੈ। ਹੌਲੀ ਹੌਲੀ ਚੱਲਿਓ, ਬਹੁਤ ਟਾਈਮ ਹੈ। | ṭhīk hai. haulī haulī challio, bahut ṭāīm hai. | Okay. Go slowly, there's lots of time. | You're running late! Ask him to hurry.
+X ਮੇਰੀ ਗੱਡੀ ਲਾਲ ਹੈ। | merī gaḍḍī lāl hai. | My car is red. | That's about the colour of your car. Tell him when your train is.
+H ਫ਼ਿਕਰ ਨਾ ਕਰੋ, ਦਸ ਮਿੰਟਾਂ ਵਿੱਚ ਪਹੁੰਚਾ ਦਿਆਂਗੇ। | fikar nā karo, das miṇṭāṃ vich pahunchā diāṅge. | Don't worry, we'll get you there in ten minutes.
+CUE The station is right ahead.
+R ਬੱਸ ਇੱਥੇ ਹੀ ਰੋਕ ਦਿਓ। ਇਹ ਲਓ ਪੈਸੇ। | bas itthe hī rok dio. ih lao paise. | Stop right here. Here's the money.
+X ਸਿੱਧੇ ਚੱਲੋ, ਹਾਲੇ ਦੂਰ ਹੈ। | siddhe challo, hāle dūr hai. | Keep going, it's still far. | You've arrived! Ask him to stop.
+X ਤੁਹਾਡਾ ਕੀ ਹਾਲ ਹੈ? | tuhāḍā kī hāl hai? | How are you? | No time to chat, you've got a train to catch!
+H ਸ਼ੁਕਰੀਆ ਜੀ। ਸਫ਼ਰ ਵਧੀਆ ਰਹੇ! | shukrīā jī. safar vadhīā rahe! | Thank you. Have a good journey!
+
+SCENE bhua | Visiting Bhua | ਭੂਆ ਦੇ ਘਰ | Bhua ji | You visit your aunt, your dad's sister
+TIP ਭੂਆ is your dad's sister. Your mum's sister is ਮਾਸੀ.
+TIP Bring something sweet (ਮਠਿਆਈ) when you visit. Your host will say ਇਹਦੀ ਕੀ ਲੋੜ ਸੀ? (there was no need!), but they're pleased.
+TIP A Punjabi host always offers more food. Saying no once is not enough, so ਢਿੱਡ ਭਰ ਗਿਆ (I'm full) is a phrase worth knowing!
+CUE You ring the bell. Bhua opens the door with a big smile.
+H ਆਓ ਆਓ, ਲੰਘ ਆਓ! ਰਸਤੇ ਵਿੱਚ ਕੋਈ ਤਕਲੀਫ਼ ਤਾਂ ਨਹੀਂ ਹੋਈ? | āo āo, laṅgh āo! raste vich koī takalīf tāṃ nahīṃ hoī? | Come in, come in! Any trouble on the way?
+R ਨਹੀਂ ਭੂਆ ਜੀ, ਸਭ ਠੀਕ ਸੀ। ਇਹ ਮਠਿਆਈ ਤੁਹਾਡੇ ਲਈ। | nahīṃ bhūā jī, sabh ṭhīk sī. ih maṭhiāī tuhāḍe laī. | No Bhua ji, it was all fine. These sweets are for you.
+X ਨਹੀਂ ਭੂਆ ਜੀ, ਮੈਂ ਅੰਦਰ ਨਹੀਂ ਆਉਣਾ। | nahīṃ bhūā jī, maiṃ andar nahīṃ āuṇā. | No Bhua ji, I'm not coming in. | That says you won't come in!
+X ਬਹੁਤ ਮਹਿੰਗੀ ਹੈ! | bahut mahiṅgī hai! | It's too expensive! | That's for haggling in the bazaar.
+H ਇਹਦੀ ਕੀ ਲੋੜ ਸੀ? ਬੈਠੋ, ਚਾਹ ਪੀਓਗੇ ਜਾਂ ਲੱਸੀ? | ihdī kī loṛ sī? baiṭho, chāh pīoge jāṃ lassī? | There was no need for this! Sit down. Will you have tea or lassi?
+R ਚਾਹ ਠੀਕ ਹੈ, ਪਰ ਖੰਡ ਘੱਟ ਪਾਇਓ। | chāh ṭhīk hai, par khaṇḍ ghaṭṭ pāio. | Tea is good, but go easy on the sugar.
+X ਚਾਹ ਕਿੰਨੇ ਦੀ ਹੈ? | chāh kinne dī hai? | How much is the tea? | You don't pay at your aunt's house!
+X ਕੱਲ੍ਹ ਮੀਂਹ ਪਿਆ ਸੀ। | kallh mīṃh piā sī. | It rained yesterday. | She asked tea or lassi.
+CUE Tea comes, then pakoras, then hot parathas.
+H ਲੈ, ਇੱਕ ਪਰੌਂਠਾ ਹੋਰ ਲੈ। ਤੂੰ ਤਾਂ ਕੁਝ ਖਾਧਾ ਹੀ ਨਹੀਂ! | lai, ikk parauṇṭhā hor lai. tūṃ tāṃ kujh khādhā hī nahīṃ! | Here, have another paratha. You've hardly eaten anything!
+R ਨਹੀਂ ਭੂਆ ਜੀ, ਬੱਸ। ਢਿੱਡ ਭਰ ਗਿਆ। | nahīṃ bhūā jī, bas. ḍhiḍḍ bhar giā. | No Bhua ji, that's enough. I'm full.
+X ਹਾਂ ਜੀ, ਪੰਜ ਹੋਰ ਲਿਆਓ! | hāṃ jī, panj hor liāo! | Yes, bring five more! | Bhua would love that, but you're full. Say no politely.
+X ਪਰੌਂਠਾ ਠੰਢਾ ਹੈ। | parauṇṭhā ṭhaṇḍhā hai. | The paratha is cold. | That's a complaint. Not kind to your aunt!
+H ਐਵੇਂ ਨਾ ਕਰ! ਅੱਧਾ ਤਾਂ ਲੈ ਲੈ। | aiveṃ nā kar! addhā tāṃ lai lai. | Don't be silly! At least have half.
+R ਚੰਗਾ, ਸਿਰਫ਼ ਅੱਧਾ। ਤੁਹਾਡੇ ਹੱਥ ਦਾ ਖਾਣਾ ਬਹੁਤ ਸੁਆਦ ਹੁੰਦਾ ਹੈ! | changā, siraf addhā. tuhāḍe hatth dā khāṇā bahut suād hundā hai! | Okay, just half. Your cooking is always so tasty!
+X ਨਹੀਂ, ਮੈਂ ਘਰ ਜਾ ਕੇ ਖਾਣਾ ਹੈ। | nahīṃ, maiṃ ghar jā ke khāṇā hai. | No, I'll eat when I get home. | Bhua would be hurt! Take the half.
+X ਪਿਛਲੇ ਸਾਲ, ਭੂਆ ਜੀ। | pichhle sāl, bhūā jī. | Last year, Bhua. | That doesn't answer her.
+H ਵਾਹ! ਹੁਣ ਅੱਜ ਰਾਤ ਇੱਥੇ ਹੀ ਰਹੋ। | vāh! huṇ ajj rāt itthe hī raho. | Wonderful! Now stay here tonight.
+
+SCENE doctor | At the doctor's | ਡਾਕਟਰ ਕੋਲ | The doctor | You've felt unwell for a couple of days
+TIP ਡਾਕਟਰ ਸਾਹਿਬ is the polite way to speak to a doctor. ਸਾਹਿਬ shows respect.
+TIP ___ ਤੋਂ means "since" or "for" with time: ਦੋ ਦਿਨਾਂ ਤੋਂ ਬੁਖ਼ਾਰ ਹੈ (I've had a fever for two days).
+TIP Listen for the number: ਤਿੰਨ (three) and ਤੀਹ (thirty) sound close.
+H ਆਓ, ਬੈਠੋ। ਦੱਸੋ, ਕੀ ਤਕਲੀਫ਼ ਹੈ? | āo, baiṭho. dasso, kī takalīf hai? | Come, sit. Tell me, what's the trouble?
+R ਡਾਕਟਰ ਸਾਹਿਬ, ਦੋ ਦਿਨਾਂ ਤੋਂ ਬੁਖ਼ਾਰ ਹੈ ਤੇ ਗਲਾ ਖ਼ਰਾਬ ਹੈ। | ḍākṭar sāhib, do dināṃ toṃ bukhār hai te galā kharāb hai. | Doctor, I've had a fever for two days and a sore throat.
+X ਡਾਕਟਰ ਸਾਹਿਬ, ਮੈਂ ਬਿਲਕੁਲ ਠੀਕ ਹਾਂ। | ḍākṭar sāhib, maiṃ bilkul ṭhīk hāṃ. | Doctor, I'm perfectly well. | Then why are you here? Tell the doctor what's wrong.
+X ਡਾਕਟਰ ਸਾਹਿਬ, ਸਟੇਸ਼ਨ ਚੱਲੋਗੇ? | ḍākṭar sāhib, saṭeshan challoge? | Doctor, will you go to the station? | That's for the auto driver!
+H ਅੱਛਾ, ਮੂੰਹ ਖੋਲ੍ਹੋ। ਖੰਘ ਵੀ ਹੈ? | acchā, mūṃh kholho. khaṅgh vī hai? | I see, open your mouth. Do you have a cough too?
+R ਹਾਂ ਜੀ, ਰਾਤ ਨੂੰ ਖੰਘ ਬਹੁਤ ਆਉਂਦੀ ਹੈ। | hāṃ jī, rāt nūṃ khaṅgh bahut āundī hai. | Yes, I cough a lot at night.
+X ਨਹੀਂ, ਮੇਰਾ ਮੂੰਹ ਬੰਦ ਹੈ। | nahīṃ, merā mūṃh band hai. | No, my mouth is closed. | That says your mouth is shut! Answer about the cough.
+X ਹਾਂ ਜੀ, ਢਿੱਡ ਭਰ ਗਿਆ। | hāṃ jī, ḍhiḍḍ bhar giā. | Yes, I'm full. | That's what you say at Bhua's table.
+H ਕੋਈ ਗੱਲ ਨਹੀਂ, ਵਾਇਰਲ ਹੈ। ਇਹ ਦਵਾਈ ਦਿਨ ਵਿੱਚ ਤਿੰਨ ਵਾਰ ਖਾਣੀ ਹੈ। | koī gall nahīṃ, vāiral hai. ih davāī din vich tinn vār khāṇī hai. | Nothing serious, it's viral. Take this medicine three times a day.
+R ਖਾਣੇ ਤੋਂ ਪਹਿਲਾਂ ਜਾਂ ਬਾਅਦ ਵਿੱਚ? | khāṇe toṃ pahilāṃ jāṃ bāad vich? | Before or after food?
+X ਦਿਨ ਵਿੱਚ ਤੀਹ ਵਾਰ? | din vich tīh vār? | Thirty times a day? | Listen again: he said ਤਿੰਨ (three), not ਤੀਹ (thirty).
+X ਦਵਾਈ ਬਹੁਤ ਮਹਿੰਗੀ ਹੈ! ਅੱਧੇ ਲਾ ਲਓ। | davāī bahut mahiṅgī hai! addhe lā lao. | The medicine is too expensive! Charge half. | No haggling with the doctor!
+H ਖਾਣੇ ਤੋਂ ਬਾਅਦ। ਗਰਮ ਪਾਣੀ ਪੀਓ ਤੇ ਆਰਾਮ ਕਰੋ। | khāṇe toṃ bāad. garam pāṇī pīo te ārām karo. | After food. Drink warm water and rest.
+R ਠੀਕ ਹੈ, ਬਹੁਤ ਬਹੁਤ ਧੰਨਵਾਦ ਡਾਕਟਰ ਸਾਹਿਬ। | ṭhīk hai, bahut bahut dhannvād ḍākṭar sāhib. | Okay, thank you very much, doctor.
+X ਠੀਕ ਹੈ, ਅੱਜ ਰਾਤ ਨੱਚਣ ਚੱਲਾਂਗੇ! | ṭhīk hai, ajj rāt nacchaṇ challāṅge! | Okay, we'll go dancing tonight! | He said rest. No bhangra tonight!
+X ਧੰਨਵਾਦ ਜੀ, ਫੇਰ ਆਇਓ! | dhannvād jī, pher āio! | Thanks, come again! | That's what a host says to a guest. Just thank the doctor.
+H ਛੇਤੀ ਠੀਕ ਹੋ ਜਾਓਗੇ। ਤਿੰਨ ਦਿਨਾਂ ਬਾਅਦ ਫੇਰ ਦਿਖਾ ਜਾਣਾ। | chhetī ṭhīk ho jāoge. tinn dināṃ bāad pher dikhā jāṇā. | You'll be better soon. Come back for a check in three days.
+
+########################################################################
 # Festivals: FESTIVAL id | name | Punjabi name | greeting | greeting transliteration | dates
 #   dates are MM-DD (same every year) or a comma list of YYYY-MM-DD. The theme shows from 5 days before to 2 days after.
 #   Then W and S lines for the bonus lesson.

@@ -117,6 +117,26 @@ def build(src):
             skill = dict(id="fest_" + fid, name=name, native=native, glyph=native[:2], words=[], sentences=[])
             course.setdefault("festivals", []).append(dict(id=fid, name=name, native=native, greeting=[greet, greet_tr],
                 dates=[d.strip() for d in dates.split(",")], skill=skill))
+        elif tag == "SCENE":
+            if len(parts) != 5: err(n, "scenes need: id | title | Punjabi title | who you talk to | setting"); continue
+            sid, title, native, them, blurb = parts
+            skill = dialog = None
+            scene = dict(id=sid, title=title, native=native, them=them, blurb=blurb, tips=[], steps=[])
+            course.setdefault("scenes", []).append(scene)
+            tips = scene["tips"]
+        elif tag == "CUE":
+            scene["steps"].append(dict(t="cue", en=rest.strip()))
+        elif tag in ("H", "R", "X"):
+            if len(parts) != (4 if tag == "X" else 3):
+                err(n, "scene lines need: line | transliteration | English" + (" | why it doesn't fit" if tag == "X" else "")); continue
+            if len(parts[0].split()) != len(parts[1].split()):
+                err(n, f"scene line has {len(parts[0].split())} words but transliteration has {len(parts[1].split())}")
+            check_script(course, parts[0], n, err)
+            steps = scene["steps"]
+            if tag == "H": steps.append(dict(t="them", line=parts))
+            elif tag == "R": steps.append(dict(t="you", line=parts, wrong=[]))
+            elif not steps or steps[-1]["t"] != "you": err(n, "X lines go straight after the R line they are wrong answers for")
+            else: steps[-1]["wrong"].append(parts)
         elif tag == "DIALOG":
             dialog = dict(people=parts, lines=[]); unit["dialogues"].append(dialog)
         elif tag in ("A", "B"):
@@ -131,6 +151,9 @@ def build(src):
     ids = [s["id"] for u in course["units"] for s in u["skills"]]
     if len(ids) != len(set(ids)): errors.append("duplicate skill ids")
     if "numbers" in course and len(course["numbers"]["words"]) != 101: errors.append("numbers need every word from 0 to 100")
+    for sc in course.get("scenes", []):
+        for st in sc["steps"]:
+            if st["t"] == "you" and len(st["wrong"]) < 2: errors.append(f"scene {sc['id']}: {st['line'][0]} needs at least 2 wrong replies")
     vocab = {w[0] for u in course["units"] for s in u["skills"] for w in s["words"]}
     for st in course.get("stories", []):
         for l in st["lines"]:

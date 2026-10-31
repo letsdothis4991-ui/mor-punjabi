@@ -13,7 +13,7 @@ const dayKey = (d = new Date()) => d.getFullYear() + "-" + String(d.getMonth() +
 const dayOff = n => { const d = new Date(); d.setDate(d.getDate() + n); return dayKey(d); };
 const UNIT_COLORS = ["#B3123A", "#1F6E8C", "#B5650D", "#2E7D4F", "#6A2C91", "#C2185B", "#3B3F94"];
 const LESSONS = 3, PASS = 0.8, COLS = 5;
-const VERSION = 26;
+const VERSION = 27;
 const APP_URL = location.origin + location.pathname.replace(/index\.html$/, "");
 
 const ICON = {
@@ -46,7 +46,7 @@ function peacock(cls = "") {
 
 /* ---------- saved state ---------- */
 const KEY = "mor-v2";
-const DEF = { xp:0, streak:0, best:0, lastDay:null, hist:{}, goal:20, tr:true, sfx:true, course:"punjabi", prog:{}, tests:{}, remind:"19:00", srs:{}, stories:{}, speak:true, speakOff:0, fest:"auto", vsex:"female" };
+const DEF = { xp:0, streak:0, best:0, lastDay:null, hist:{}, goal:20, tr:true, sfx:true, course:"punjabi", prog:{}, tests:{}, remind:"19:00", srs:{}, stories:{}, speak:true, speakOff:0, fest:"auto", vsex:"female", scenes:{} };
 let S = (() => { try { return Object.assign({}, DEF, JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) { return { ...DEF }; } })();
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 const liveStreak = () => (S.lastDay === dayKey() || S.lastDay === dayOff(-1)) ? S.streak : 0;
@@ -351,7 +351,7 @@ function topBar() {
     </div></div></div><div class="stitch"></div>`;
 }
 function tabsBar() {
-  const t = (v, ic, label) => `<button class="tab" data-act="tab" data-v="${v}" aria-current="${view === v || (v === "words" && view === "family")}">${ICON[ic]}${label}</button>`;
+  const t = (v, ic, label) => `<button class="tab" data-act="tab" data-v="${v}" aria-current="${view === v || (v === "words" && view === "family") || (v === "stories" && view === "scene")}">${ICON[ic]}${label}</button>`;
   const alpha = C.alphabet?.length ? `<button class="tab" data-act="tab" data-v="alphabet" aria-current="${view === "alphabet"}"><span class="tabglyph">${esc(C.alphabet[0].letters.slice(0, 3).map(l => l[0]).join(""))}</span>Alphabet</button>` : "";
   return `<nav class="tabs"><div class="stitch"></div><div class="col">${t("home", "board", "Board")}${alpha}${C.stories?.length ? t("stories", "story", "Stories") : ""}${C.sayings?.length ? t("sayings", "quote", "Sayings") : ""}${t("words", "book", "Words")}${t("profile", "user", "Profile")}</div></nav>`;
 }
@@ -1046,8 +1046,11 @@ function sayingsView() {
 const storyKey = st => C.id + ":" + st.id;
 const storyOpen = () => true;
 let R = null; // the story being read
+let storyMode = "stories";
+const modeSeg = () => C.scenes?.length ? `<div class="seg storymodes"><button data-act="storymode" data-v="stories" aria-pressed="${storyMode !== "scenes"}">Stories</button><button data-act="storymode" data-v="scenes" aria-pressed="${storyMode === "scenes"}">Scenes</button></div>` : "";
 function storiesView() {
-  return `<main class="home"><div class="col page"><div class="cloth"><h2>Stories</h2><p class="note" style="margin:0">Short retellings of Punjabi folk tales. A new one opens as you climb the board. Tap any word for help.</p></div>
+  if (storyMode === "scenes" && C.scenes?.length) return scenesView();
+  return `<main class="home"><div class="col page">${modeSeg()}<div class="cloth"><h2>Stories</h2><p class="note" style="margin:0">Short retellings of Punjabi folk tales. A new one opens as you climb the board. Tap any word for help.</p></div>
     ${C.stories.map((st, i) => { const open = storyOpen(st), done = S.stories?.[storyKey(st)];
       return `<button class="cloth storycard ${open ? "" : "locked"}" data-act="story" data-v="${i}" ${open ? "" : "disabled"}>
         <span class="storyart" style="--uc:${UNIT_COLORS[(i + 2) % UNIT_COLORS.length]}">${open ? `<span class="pa">${esc(st.native.split(" ")[0])}</span>` : ICON.lock}</span>
@@ -1080,15 +1083,142 @@ function readerView() {
     <div class="col lbody"><h1 class="storytitle">${esc(st.native)}</h1><p class="note" style="margin:0 0 14px">${esc(st.title)}</p><div class="slines">${body}</div></div>
     ${pop}<footer class="lfoot"><div class="col">${foot}</div></footer></div>`;
 }
-function finishStory() {
-  const st = R.st, t = dayKey(), first = !S.stories[storyKey(st)];
-  S.stories[storyKey(st)] = true;
-  const xp = first ? 20 : 5;
+// XP from stories and scenes counts towards the daily goal and streak.
+function earn(xp) {
+  const t = dayKey();
   S.xp += xp; S.hist[t] = (S.hist[t] || 0) + xp;
   if (S.lastDay !== t) { S.streak = S.lastDay === dayOff(-1) ? S.streak + 1 : 1; S.lastDay = t; }
-  S.best = Math.max(S.best, S.streak); save(); sfx.done();
+  S.best = Math.max(S.best, S.streak);
+}
+function finishStory() {
+  const st = R.st, first = !S.stories[storyKey(st)];
+  S.stories[storyKey(st)] = true;
+  const xp = first ? 20 : 5;
+  earn(xp); save(); sfx.done();
   toast(`Story finished: +${xp} XP`);
   nav(() => { R = null; view = "stories"; }, () => scrollTo(0, 0));
+}
+
+/* ---------- scenes ---------- */
+// Role-play chats: they speak, you choose (or say) your reply. A wrong reply explains itself and you try again.
+const sceneKey = sc => C.id + ":scene:" + sc.id;
+let SC = null; // the scene being played
+function scenesView() {
+  return `<main class="home"><div class="col page">${modeSeg()}<div class="cloth"><h2>Scenes</h2><p class="note" style="margin:0">Short real-life chats. Listen, then pick your reply${SR ? " or say it out loud" : ""}. A wrong reply tells you why, so try again.</p></div>
+    ${C.scenes.map((sc, i) => { const stars = S.scenes?.[sceneKey(sc)] || 0;
+      return `<button class="cloth storycard" data-act="scene" data-v="${i}">
+        <span class="storyart" style="--uc:${UNIT_COLORS[i % UNIT_COLORS.length]}"><span class="pa">${esc(sc.native.split(" ")[0])}</span></span>
+        <span class="storytxt"><b>${esc(sc.title)}</b> <span class="pa">${esc(sc.native)}</span><small>${esc(sc.blurb)}</small></span>${stars ? `<span class="scenestars" aria-label="${stars} of 3 stars">${[1, 2, 3].map(k => `<i class="${k <= stars ? "on" : ""}">${ICON.star}</i>`).join("")}</span>` : ""}</button>`; }).join("")}
+  </div></main>`;
+}
+const sceneTurns = sc => sc.steps.filter(s => s.t === "you").length;
+function startScene(i) {
+  const sc = C.scenes[i];
+  SC = { sc, i, step:0, log:[], turn:null, done:false, clean:0, turns:0 };
+  nav(() => { view = "scene"; }, () => { scrollTo(0, 0); advanceScene(); });
+}
+// Show everything up to your next reply, and play the last thing they said.
+function advanceScene() {
+  const steps = SC.sc.steps;
+  let last = null;
+  while (SC.step < steps.length && steps[SC.step].t !== "you") {
+    const s = steps[SC.step++];
+    SC.log.push(s.t === "cue" ? { k:"cue", en:s.en } : { k:"them", line:s.line, show:false });
+    if (s.t === "them") last = s.line[0];
+  }
+  if (SC.step < steps.length) {
+    const s = steps[SC.step++];
+    SC.turn = { opts:shuffle([{ line:s.line, ok:true }, ...s.wrong.map(w => ({ line:w, why:w[3] }))]), tried:[], bad:null, right:false };
+  } else { SC.turn = null; finishScene(); }
+  render(); sceneScroll();
+  if (last) setTimeout(() => say(last), 300);
+}
+function sceneScroll() {
+  requestAnimationFrame(() => scrollTo({ top:document.documentElement.scrollHeight, behavior:calm() ? "auto" : "smooth" }));
+}
+function scenePick(j) {
+  const tn = SC?.turn;
+  if (!tn || tn.right || tn.bad !== null || tn.tried.includes(j)) return;
+  const o = tn.opts[j];
+  if (o.ok) {
+    tn.right = true; SC.turns++; if (!tn.tried.length) SC.clean++;
+    SC.log.push({ k:"you", line:o.line });
+    sfx.good(); say(o.line[0]);
+  } else { tn.bad = j; tn.tried.push(j); sfx.bad(); }
+  render();
+  if (o.ok) sceneScroll();
+}
+function finishScene() {
+  const k = sceneKey(SC.sc), first = !S.scenes[k], n = sceneTurns(SC.sc);
+  SC.done = true;
+  SC.stars = SC.clean === n ? 3 : SC.clean >= n * 2 / 3 ? 2 : 1;
+  SC.xp = first ? 15 : 5;
+  S.scenes[k] = Math.max(S.scenes[k] || 0, SC.stars);
+  earn(SC.xp); save(); sfx.done();
+}
+let sceneRec = null;
+function sceneListen() {
+  const tn = SC?.turn;
+  if (!SR || !tn || tn.right || tn.bad !== null) return;
+  if (sceneRec) { try { sceneRec.abort(); } catch (e) {} }
+  try { speechSynthesis.cancel(); } catch (e) {}
+  const r = sceneRec = new SR();
+  r.lang = C.speech || "pa-IN"; r.interimResults = true; r.maxAlternatives = 5; r.continuous = false;
+  tn.listening = true; tn.heard = ""; tn.miss = false; render();
+  r.onresult = e => {
+    const res = e.results[e.results.length - 1];
+    // Match what was heard against every reply, so saying a wrong one gets that reply's feedback.
+    let best = { text:res[0].transcript, score:0, j:-1 };
+    for (let a = 0; a < res.length; a++) tn.opts.forEach((o, j) => {
+      if (tn.tried.includes(j)) return;
+      const sc = similarity(res[a].transcript, o.line[0]);
+      if (sc > best.score) best = { text:res[a].transcript, score:sc, j };
+    });
+    tn.heard = best.text;
+    if (res.isFinal) {
+      tn.listening = false;
+      if (best.score >= 0.6) { scenePick(best.j); return; }
+      tn.miss = true; sfx.bad();
+    }
+    render();
+  };
+  r.onerror = e => { tn.listening = false; if (e.error === "not-allowed" || e.error === "service-not-allowed") tn.blocked = true; else tn.miss = true; render(); };
+  r.onend = () => { if (tn.listening) { tn.listening = false; render(); } };
+  try { r.start(); } catch (e) { tn.listening = false; render(); }
+}
+const paSpans = s => esc(s).replace(/([਀-੿][਀-੿\s,।?!]*[਀-੿])/g, '<span class="pa">$1</span>');
+function sceneView() {
+  const sc = SC.sc, tn = SC.turn, n = sceneTurns(sc);
+  const spk = pa => canSpeak() ? `<button class="iconbtn msg-spk" data-act="sayt" data-v="${esc(pa)}" aria-label="Play">${ICON.spk}</button>` : "";
+  const chat = SC.log.map((m, i) => m.k === "cue" ? `<p class="cue">${esc(m.en)}</p>`
+    : `<div class="msg ${m.k}"><div class="who">${m.k === "them" ? esc(sc.them) : "You"}</div><div class="pa">${esc(m.line[0])}</div><div class="tr">${esc(m.line[1])}</div>
+      ${m.k === "you" || m.show ? `<div class="en">${esc(m.line[2])}</div>` : `<button class="linkbtn" data-act="scen" data-v="${i}">Show English</button>`}${spk(m.line[0])}</div>`).join("");
+  let turn = "", foot = "";
+  if (tn && !tn.right) {
+    const status = tn.blocked ? `<p class="note">Microphone access is blocked. Tap a reply instead.</p>`
+      : tn.listening ? `<p class="hearing">Listening… say your reply</p>`
+      : tn.miss ? `<p class="note">${tn.heard ? `We heard “${esc(tn.heard)}”. ` : "We didn't catch that. "}Try again, or tap a reply.</p>` : "";
+    turn = `<div class="turn"><p class="eyebrow">Your reply</p><div class="opts reply">${tn.opts.map((o, j) => `<button class="opt ${tn.tried.includes(j) ? "bad" : ""}" data-act="scpick" data-v="${j}" ${tn.tried.includes(j) || tn.bad !== null ? "disabled" : ""}><kbd>${j + 1}</kbd><div>${itemHTML({ pa:o.line[0], tr:o.line[1] })}${tn.tried.includes(j) ? `<div class="note">${esc(o.line[2])}</div>` : ""}</div></button>`).join("")}</div>
+      ${SR && canListenToYou() && !tn.blocked ? `<div class="scenemic"><button class="mic small ${tn.listening ? "on" : ""}" data-act="scmic" aria-label="${tn.listening ? "Listening" : "Say your reply"}" ${tn.bad !== null ? "disabled" : ""}>${ICON.mic}</button><span>or say it</span></div>` : ""}<div style="text-align:center">${status}</div></div>`;
+    if (tn.bad !== null) {
+      const o = tn.opts[tn.bad];
+      foot = `<footer class="lfoot wrong pop"><div class="col"><div class="fb"><h3>Not quite</h3><p>${paSpans(o.why)}</p><p class="note" style="margin-top:4px">You chose: “${esc(o.line[2])}”</p></div>
+        <button class="btn wide" data-act="scretry">Try again</button></div></footer>`;
+    }
+  } else if (tn && tn.right) {
+    const praise = ["ਸ਼ਾਬਾਸ਼! Well done!", "ਵਧੀਆ! Great!", "ਬੱਲੇ ਬੱਲੇ!", "Spot on!"];
+    foot = `<footer class="lfoot right ${SC.popAt !== SC.turns ? "pop" : ""}"><div class="col"><div class="fb"><h3>${praise[SC.turns % praise.length]}</h3></div><button class="btn wide" data-act="scnext">Continue</button></div></footer>`;
+    SC.popAt = SC.turns;
+  } else if (SC.done) {
+    turn = `<div class="cloth scenedone"><div class="scenestars big">${[1, 2, 3].map(k => `<i class="${k <= SC.stars ? "on" : ""}">${ICON.star}</i>`).join("")}</div>
+      <h2>Scene complete!</h2><p class="note" style="margin:0">${SC.clean} of ${n} replies right first time · +${SC.xp} XP</p>
+      ${sc.tips.length ? `<h3 style="margin:14px 0 8px;text-align:left">Good to know</h3><ul class="tips">${sc.tips.map(t => `<li>${paSpans(t)}</li>`).join("")}</ul>` : ""}</div>`;
+    foot = `<footer class="lfoot"><div class="col"><div class="row2"><button class="btn ghost" data-act="scene" data-v="${SC.i}">Play again</button><button class="btn" data-act="scquit">Back to scenes</button></div></div></footer>`;
+  }
+  return `<div class="lesson reader scene"><div class="col lhead"><button class="iconbtn" data-act="scquit" aria-label="Close scene">${ICON.x}</button>
+    <div class="bar"><span style="width:${SC.turns / n * 100}%"></span></div><span class="ptag">Scene</span></div>
+    <div class="col lbody"><h1 class="storytitle">${esc(sc.native)}</h1><p class="note" style="margin:0 0 14px">${esc(sc.title)} · ${esc(sc.blurb)}</p><div class="chat">${chat}</div>${turn}</div>
+    ${foot}</div>`;
 }
 
 /* ---------- motion ---------- */
@@ -1105,6 +1235,7 @@ function render() {
   const focusId = document.activeElement?.id;
   let h;
   if (view === "reader") h = readerView();
+  else if (view === "scene") h = sceneView();
   else if (view === "lesson") h = lessonView();
   else if (view === "result") h = resultView();
   else {
@@ -1150,6 +1281,14 @@ const acts = {
   spick: b => { R.pick = +b.dataset.v; R.pick === 1 ? sfx.good() : sfx.bad(); render(); },
   snextq: () => { R.q++; R.pick = null; R.opts = null; if (R.q >= R.st.quiz.length) finishStory(); else render(); },
   squit: () => nav(() => { R = null; view = "stories"; }, () => scrollTo(0, 0)),
+  storymode: b => { storyMode = b.dataset.v; render(); },
+  scene: b => startScene(+b.dataset.v),
+  scen: b => { SC.log[+b.dataset.v].show = true; render(); },
+  scpick: b => scenePick(+b.dataset.v),
+  scretry: () => { SC.turn.bad = null; render(); },
+  scnext: () => advanceScene(),
+  scmic: () => sceneListen(),
+  scquit: () => { if (sceneRec) { try { sceneRec.abort(); } catch (e) {} sceneRec = null; } nav(() => { SC = null; storyMode = "scenes"; view = "stories"; }, () => scrollTo(0, 0)); },
   letter: b => {
     const id = b.dataset.v, [g, i] = id.split("-").map(Number), l = C.alphabet[g].letters[i];
     letterOpen = letterOpen === id ? null : id; render();
@@ -1189,7 +1328,7 @@ const acts = {
   vsex: b => { S.vsex = b.dataset.v; save(); render(); say(sampleWord()); },
   reset: b => {
     if (!b.dataset.v) confirmReset = true;
-    else { if (b.dataset.v === "yes") { const keep = { goal:S.goal, tr:S.tr, sfx:S.sfx, course:S.course, remind:S.remind }; S = { ...DEF, hist:{}, prog:{}, tests:{}, srs:{}, stories:{}, ...keep }; save(); toast("Progress reset"); } confirmReset = false; }
+    else { if (b.dataset.v === "yes") { const keep = { goal:S.goal, tr:S.tr, sfx:S.sfx, course:S.course, remind:S.remind }; S = { ...DEF, hist:{}, prog:{}, tests:{}, srs:{}, stories:{}, scenes:{}, ...keep }; save(); toast("Progress reset"); } confirmReset = false; }
     render();
   },
   install: async () => { if (!installEvt) return; installEvt.prompt(); try { await installEvt.userChoice; } catch (e) {} installEvt = null; render(); },
@@ -1225,6 +1364,12 @@ app.addEventListener("change", e => {
 });
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && sheet !== null) { sheet = null; render(); return; }
+  if (view === "scene" && SC) {
+    const tn = SC.turn;
+    if (e.key === "Enter") { e.preventDefault(); document.querySelector(".scene .lfoot .btn:last-child")?.click(); }
+    else if (/^[1-4]$/.test(e.key) && tn && !tn.right && tn.bad === null && +e.key <= tn.opts.length) scenePick(+e.key - 1);
+    return;
+  }
   if (view === "reader" && e.key === "Enter") { e.preventDefault(); const b = document.querySelector('.reader .lfoot .btn'); b?.click(); return; }
   if (view !== "lesson" || e.target.tagName === "INPUT") return;
   const ex = cur();

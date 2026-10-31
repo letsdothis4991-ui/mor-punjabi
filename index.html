@@ -452,6 +452,36 @@ main.home{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(90px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:12px;font-weight:600;z-index:20;max-width:calc(100vw - 32px)}
 .loading{color:var(--on-ground);text-align:center;padding:80px 16px;font-family:var(--f-display);font-size:1.3rem}
 
+/* scenes */
+.storymodes{margin-bottom:-4px}
+.storymodes button{flex:1}
+.scenestars{display:flex;gap:1px;flex:none;margin-left:auto}
+.scenestars i{display:inline-flex;color:var(--line)}
+.scenestars i.on{color:var(--gold-deep)}
+.scenestars svg{width:18px;height:18px}
+.scenestars.big{justify-content:center;margin:0 0 6px}
+.scenestars.big svg{width:38px;height:38px}
+.chat{display:grid;gap:12px}
+.msg{position:relative;max-width:88%;padding:10px 42px 10px 14px;border-radius:16px;animation:rise .35s var(--ease)}
+.msg.them{justify-self:start;background:var(--paper);border:2px solid var(--line);border-bottom-left-radius:4px}
+.msg.you{justify-self:end;background:var(--gold-soft);border:2px solid color-mix(in srgb,var(--gold) 55%,transparent);border-bottom-right-radius:4px}
+.msg .who{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--madder);margin-bottom:2px}
+.msg.you .who{color:var(--gold-deep)}
+.msg .pa{font-size:1.3rem;line-height:1.6}
+.msg .en{margin-top:4px}
+.msg-spk{position:absolute;top:6px;right:4px;color:var(--madder)}
+.cue{margin:4px 0;text-align:center;font-style:italic;color:var(--muted);font-size:.9rem}
+.cue::before,.cue::after{content:"·";color:var(--gold);margin:0 8px;font-style:normal;font-weight:700}
+.turn{margin-top:18px;padding-top:14px;border-top:2px dashed var(--gold);animation:rise .35s var(--ease)}
+.turn .opt .note{margin:4px 0 0;font-size:.85rem}
+.scenemic{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;color:var(--muted);font-weight:600;font-size:.9rem}
+.mic.small{width:56px;height:56px}
+.mic.small svg{width:26px;height:26px}
+.scenedone{margin-top:18px;text-align:center}
+.scenedone .tips{text-align:left}
+.row2{display:flex;gap:10px}
+.row2 .btn{flex:1}
+
 /* peacock */
 .m-f{fill:var(--feather)} .m-e{fill:var(--gold)} .m-p{fill:var(--body)} .m-b{fill:var(--body)} .m-w{fill:#fff} .m-k{fill:#1A0A0C} .m-c{stroke:var(--body);stroke-width:2.5;stroke-linecap:round} .m-beak{fill:var(--saffron)}
 @media (max-width:380px){.prompt .bubble .pa{font-size:1.6rem}.stats{gap:8px}.brand span{display:none}}
@@ -459,6 +489,6 @@ main.home{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
 </head>
 <body>
 <div id="app"><p class="loading">ਮੋਰ</p></div>
-<script src="app.js?v=26"></script>
+<script src="app.js?v=27"></script>
 </body>
 </html>
