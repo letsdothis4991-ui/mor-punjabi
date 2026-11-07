@@ -16,7 +16,7 @@ It gets its own peacock icon and works offline after the first visit. Progress i
 
 ## What's inside
 
-- 21 units in 4 levels, from the Gurmukhi alphabet to everyday conversation: 47 skills, 522 words and sentences, 18 dialogues.
+- 33 units in 10 levels, from the Gurmukhi alphabet to cooking, travel, the bank and the evening news: 71 skills, 811 words and sentences, 31 dialogues.
 - Exercises: meaning, picking the word, listening, matching pairs, building sentences from word tiles, and choosing the right reply in a conversation.
 - A short guide for each unit with grammar notes and its dialogue.
 - A unit test at the end of every unit. Score 80% to unlock the next one, or take it early to climb the ladder and skip ahead.
