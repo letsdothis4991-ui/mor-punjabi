@@ -807,6 +807,464 @@ A ਅਗਲੇ ਮਹੀਨੇ ਪੱਕਾ ਆਵਾਂਗਾ। | agle mahīne
 B ਚੰਗਾ ਪੁੱਤ, ਤੇਰਾ ਇੰਤਜ਼ਾਰ ਕਰਾਂਗੇ। | changā putt, terā intzār karāṅge. | Good, dear, we'll be waiting for you.
 
 ########################################################################
+SECTION Getting things done | Ask, tell and cook up a storm
+
+UNIT Asking and telling | Give instructions, make requests and say "don't"
+TIP Three ways to tell someone to do something: ਬੈਠ (to a child or a close friend), ਬੈਠੋ (polite), and ਬੈਠਿਓ (do sit, a soft or later request).
+TIP "Don't" is ਨਾ before the verb: ਨਾ ਜਾਓ (don't go). ਨਹੀਂ is for statements: ਮੈਂ ਨਹੀਂ ਜਾਂਦਾ (I don't go).
+TIP ਜ਼ਰਾ (just, a little) softens a request, and ਦਿਓ after a verb makes it friendlier: ਜ਼ਰਾ ਦੱਸ ਦਿਓ (could you just tell me).
+SKILL commands | Do this, don't do that | ਹੁਕਮ | ਕਰੋ
+W ਆਓ | āo | come (polite)
+W ਜਾਓ | jāo | go (polite)
+W ਰੁਕੋ | ruko | stop, wait (polite)
+W ਚੁੱਪ ਕਰੋ | chupp karo | be quiet
+W ਖੋਲ੍ਹੋ | kholho | open (polite)
+W ਬੰਦ ਕਰੋ | band karo | close, switch off
+W ਨਾ | nā | don't
+W ਇੱਧਰ | iddhar | over here
+S ਇੱਧਰ ਆਓ | iddhar āo | Come over here
+S ਦਰਵਾਜ਼ਾ ਖੋਲ੍ਹੋ | darvāzā kholho | Open the door
+S ਬੱਤੀ ਬੰਦ ਕਰ ਦਿਓ | battī band kar dio | Switch off the light
+S ਫ਼ਿਕਰ ਨਾ ਕਰੋ | fikar nā karo | Don't worry
+S ਇੱਥੇ ਨਾ ਬੈਠੋ | itthe nā baiṭho | Don't sit here
+SKILL requests | Polite requests | ਬੇਨਤੀਆਂ | ਜ਼ਰਾ
+W ਜ਼ਰਾ | zarā | just, a little (softens a request)
+W ਕਿਰਪਾ ਕਰਕੇ | kirpā karke | please (formal)
+W ਫੜਾਉਣਾ | phaṛāuṇā | to pass, hand over
+W ਦੱਸਣਾ | dassṇā | to tell
+W ਸਮਝਾਉਣਾ | samjhāuṇā | to explain
+W ਉਡੀਕ | uḍīk | wait (noun)
+W ਚੁੱਕਣਾ | chukkṇā | to pick up
+W ਰੱਖਣਾ | rakkhṇā | to put, to keep
+S ਜ਼ਰਾ ਲੂਣ ਫੜਾਇਓ | zarā lūṇ phaṛāio | Could you pass the salt?
+S ਕਿਰਪਾ ਕਰਕੇ ਥੋੜ੍ਹੀ ਉਡੀਕ ਕਰੋ | kirpā karke thoṛhī uḍīk karo | Please wait a little
+S ਮੈਨੂੰ ਰਸਤਾ ਦੱਸ ਦਿਓ | mainūṃ rastā dass dio | Please tell me the way
+S ਕਿਤਾਬ ਮੇਜ਼ ਤੇ ਰੱਖ ਦਿਓ | kitāb mez te rakkh dio | Put the book on the table
+DIALOG Mum | Arjan
+A ਅਰਜਨ, ਇੱਧਰ ਆ! | arjan, iddhar ā! | Arjan, come here!
+B ਹਾਂ ਮੰਮੀ, ਕੀ ਗੱਲ ਹੈ? | hāṃ mammī, kī gall hai? | Yes, Mum, what is it?
+A ਜ਼ਰਾ ਦੁਕਾਨ ਤੋਂ ਦੁੱਧ ਲੈ ਆ। | zarā dukān toṃ duddh lai ā. | Just fetch some milk from the shop.
+B ਹੁਣੇ ਜਾਂਦਾ ਹਾਂ। ਹੋਰ ਕੁਝ? | huṇe jāndā hāṃ. hor kujh? | I'll go right now. Anything else?
+A ਹਾਂ, ਡਬਲ ਰੋਟੀ ਵੀ ਲੈ ਆਈਂ। ਪਰ ਦੇਰ ਨਾ ਕਰੀਂ! | hāṃ, ḍabal roṭī vī lai āīṃ. par der nā karīṃ! | Yes, bring some bread too. But don't be late!
+
+UNIT Cooking | Ingredients, recipes and kitchen verbs
+TIP Recipes use the polite command: ਪਿਆਜ਼ ਕੱਟੋ (chop the onion), ਤੇਲ ਗਰਮ ਕਰੋ (heat the oil).
+TIP ਪਾਉਣਾ (to put in) is the cook's favourite verb: ਲੂਣ ਪਾਓ (add salt).
+TIP ਆਪਾਂ is a friendly "we" that includes the person you're talking to: ਆਪਾਂ ਦਾਲ ਬਣਾਈਏ (let's make dal, you and me).
+TIP ਤੜਕਾ is onion, garlic and spices fried in ghee and poured over dal at the end.
+SKILL ingredients | Ingredients | ਸਮੱਗਰੀ | ਲੂਣ
+W ਪਿਆਜ਼ | piāz | onion
+W ਟਮਾਟਰ | ṭamāṭar | tomato
+W ਲਸਣ | lasaṇ | garlic
+W ਅਦਰਕ | adrak | ginger
+W ਹਲਦੀ | haldī | turmeric
+W ਮਿਰਚ | mirch | chilli
+W ਜੀਰਾ | jīrā | cumin
+W ਘਿਓ | ghio | ghee
+S ਪਿਆਜ਼ ਅਤੇ ਟਮਾਟਰ ਕੱਟੋ | piāz ate ṭamāṭar kaṭṭo | Chop the onion and tomato
+S ਦਾਲ ਵਿੱਚ ਥੋੜ੍ਹੀ ਹਲਦੀ ਪਾਓ | dāl vich thoṛhī haldī pāo | Add a little turmeric to the dal
+S ਇਸ ਵਿੱਚ ਮਿਰਚ ਬਹੁਤ ਜ਼ਿਆਦਾ ਹੈ | is vich mirch bahut ziādā hai | There is too much chilli in this
+S ਘਿਓ ਵਿੱਚ ਜੀਰਾ ਪਾਓ | ghio vich jīrā pāo | Put the cumin in the ghee
+SKILL cooking | In the kitchen | ਰਸੋਈ ਵਿੱਚ | ਪਕਾ
+W ਪਕਾਉਣਾ | pakāuṇā | to cook
+W ਕੱਟਣਾ | kaṭṭṇā | to cut, chop
+W ਉਬਾਲਣਾ | ubālṇā | to boil
+W ਗੁੰਨ੍ਹਣਾ | gunnhṇā | to knead
+W ਤਲਣਾ | talṇā | to fry
+W ਹਿਲਾਉਣਾ | hilāuṇā | to stir
+W ਪਤੀਲਾ | patīlā | cooking pot
+W ਤਵਾ | tavā | griddle
+S ਮੰਮੀ ਆਟਾ ਗੁੰਨ੍ਹ ਰਹੇ ਹਨ | mammī āṭā gunnh rahe han | Mum is kneading the dough
+S ਪਾਣੀ ਉਬਲ ਰਿਹਾ ਹੈ | pāṇī ubal rihā hai | The water is boiling
+S ਰੋਟੀ ਤਵੇ ਤੇ ਪਕਾਓ | roṭī tave te pakāo | Cook the roti on the griddle
+S ਮੈਂ ਪਕੌੜੇ ਤਲ ਰਹੀ ਹਾਂ | maiṃ pakauṛe tal rahī hāṃ | I am frying pakoras
+DIALOG Bebe | Simran
+A ਸਿਮਰਨ, ਅੱਜ ਆਪਾਂ ਮਾਂਹ ਦੀ ਦਾਲ ਬਣਾਵਾਂਗੇ। | simran, ajj āpāṃ māṃh dī dāl baṇāvāṅge. | Simran, today we'll make black lentil dal.
+B ਪਹਿਲਾਂ ਕੀ ਕਰਾਂ, ਬੇਬੇ ਜੀ? | pahilāṃ kī karāṃ, bebe jī? | What shall I do first, Bebe?
+A ਦਾਲ ਧੋ ਕੇ ਪਤੀਲੇ ਵਿੱਚ ਉਬਾਲ। | dāl dho ke patīle vich ubāl. | Wash the dal and boil it in the pot.
+B ਫਿਰ ਤੜਕਾ ਕਦੋਂ ਲਾਵਾਂ? | phir taṛkā kadoṃ lāvāṃ? | Then when do I add the tadka?
+A ਜਦੋਂ ਦਾਲ ਗਲ ਜਾਵੇ। ਘਿਓ ਵਿੱਚ ਪਿਆਜ਼, ਲਸਣ ਤੇ ਅਦਰਕ ਪਾਈਂ। | jadoṃ dāl gal jāve. ghio vich piāz, lasaṇ te adrak pāīṃ. | When the dal is soft. Put onion, garlic and ginger in the ghee.
+
+########################################################################
+SECTION Out and about | Travel abroad and life in the village
+
+UNIT Travel | Airports, flights and hotels
+TIP Many travel words are English written in Gurmukhi: ਪਾਸਪੋਰਟ, ਹੋਟਲ, ਵੀਜ਼ਾ.
+TIP ਤੋਂ means "from" and ਤੱਕ means "up to, until": ਸੱਤ ਤੋਂ ਦਸ ਵਜੇ ਤੱਕ (from seven to ten o'clock).
+SKILL airport | At the airport | ਹਵਾਈ ਅੱਡਾ | ਜਹਾਜ਼
+W ਹਵਾਈ ਅੱਡਾ | havāī aḍḍā | airport
+W ਜਹਾਜ਼ | jahāz | plane
+W ਵੀਜ਼ਾ | vīzā | visa
+W ਪਾਸਪੋਰਟ | pāsporṭ | passport
+W ਸਮਾਨ | samān | luggage
+W ਉਡਾਣ | uḍāṇ | flight
+W ਵਿਦੇਸ਼ | videsh | abroad
+W ਸਫ਼ਰ | safar | journey
+S ਸਾਡੀ ਉਡਾਣ ਦੋ ਘੰਟੇ ਲੇਟ ਹੈ | sāḍī uḍāṇ do ghaṇṭe leṭ hai | Our flight is two hours late
+S ਮੇਰਾ ਸਮਾਨ ਨਹੀਂ ਆਇਆ | merā samān nahīṃ āiā | My luggage hasn't arrived
+S ਤੁਹਾਡਾ ਸਫ਼ਰ ਕਿਵੇਂ ਰਿਹਾ | tuhāḍā safar kiveṃ rihā | How was your journey?
+S ਜਹਾਜ਼ ਅੰਮ੍ਰਿਤਸਰ ਉੱਤਰੇਗਾ | jahāz amritsar uttregā | The plane will land in Amritsar
+SKILL hotel | At the hotel | ਹੋਟਲ ਵਿੱਚ | ਹੋਟ
+W ਹੋਟਲ | hoṭal | hotel
+W ਚਾਬੀ | chābī | key
+W ਬਿਸਤਰਾ | bistarā | bed
+W ਕੰਬਲ | kambal | blanket
+W ਖ਼ਾਲੀ | khālī | free, empty
+W ਸਾਫ਼ | sāf | clean
+W ਗੰਦਾ | gandā | dirty
+W ਕਿਰਾਇਆ | kirāiā | rent, fare
+S ਕੀ ਕੋਈ ਕਮਰਾ ਖ਼ਾਲੀ ਹੈ | kī koī kamrā khālī hai | Is there a room free?
+S ਇੱਕ ਰਾਤ ਦਾ ਕਿਰਾਇਆ ਕਿੰਨਾ ਹੈ | ikk rāt dā kirāiā kinnā hai | How much is it for one night?
+S ਕਮਰੇ ਦੀ ਚਾਬੀ ਗੁਆਚ ਗਈ | kamre dī chābī guāch gaī | The room key is lost
+S ਗਰਮ ਪਾਣੀ ਨਹੀਂ ਆ ਰਿਹਾ | garam pāṇī nahīṃ ā rihā | There's no hot water
+DIALOG Receptionist | Traveller
+A ਜੀ ਆਇਆਂ ਨੂੰ! ਦੱਸੋ, ਮੈਂ ਕੀ ਮਦਦ ਕਰਾਂ? | jī āiāṃ nūṃ! dasso, maiṃ kī madad karāṃ? | Welcome! How can I help?
+B ਮੈਨੂੰ ਦੋ ਰਾਤਾਂ ਲਈ ਇੱਕ ਕਮਰਾ ਚਾਹੀਦਾ ਹੈ। | mainūṃ do rātāṃ laī ikk kamrā chāhīdā hai. | I need a room for two nights.
+A ਮਿਲ ਜਾਵੇਗਾ। ਆਪਣਾ ਪਾਸਪੋਰਟ ਦਿਖਾਓ ਜੀ। | mil jāvegā. āpṇā pāsporṭ dikhāo jī. | That's fine. Please show me your passport.
+B ਇਹ ਲਓ। ਨਾਸ਼ਤਾ ਵੀ ਮਿਲਦਾ ਹੈ? | ih lao. nāshtā vī mildā hai? | Here you are. Is breakfast included?
+A ਹਾਂ ਜੀ, ਸਵੇਰੇ ਸੱਤ ਤੋਂ ਦਸ ਵਜੇ ਤੱਕ। | hāṃ jī, savere satt toṃ das vaje takk. | Yes, from seven to ten in the morning.
+
+UNIT Village life | Fields, farm animals and the harvest
+TIP Many Punjabi families have roots in a ਪਿੰਡ (village). Your mother's family village is your ਨਾਨਕਾ ਪਿੰਡ, your father's is your ਦਾਦਕਾ ਪਿੰਡ.
+TIP Wheat (ਕਣਕ) is harvested around Vaisakhi in April, and rice (ਝੋਨਾ) in October.
+TIP Animals make sounds with ਦੇਣਾ: ਕੁੱਕੜ ਬਾਂਗ ਦਿੰਦਾ ਹੈ (the rooster crows).
+SKILL farm | On the farm | ਖੇਤੀਬਾੜੀ | ਖੇਤ
+W ਖੇਤ | khet | field
+W ਕਣਕ | kaṇak | wheat
+W ਝੋਨਾ | jhonā | rice (the crop)
+W ਫ਼ਸਲ | fasal | crop
+W ਟਰੈਕਟਰ | ṭraikṭar | tractor
+W ਖੂਹ | khūh | well
+W ਵਾਢੀ | vāḍhī | harvest
+W ਬੀਜਣਾ | bījṇā | to sow
+S ਕਿਸਾਨ ਖੇਤ ਵਿੱਚ ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ | kisān khet vich kamm kar rihā hai | The farmer is working in the field
+S ਵਿਸਾਖੀ ਤੇ ਕਣਕ ਦੀ ਵਾਢੀ ਹੁੰਦੀ ਹੈ | visākhī te kaṇak dī vāḍhī hundī hai | The wheat is harvested at Vaisakhi
+S ਇਸ ਸਾਲ ਫ਼ਸਲ ਬਹੁਤ ਚੰਗੀ ਹੋਈ | is sāl fasal bahut changī hoī | The crop was very good this year
+S ਅਸੀਂ ਖੇਤ ਵਿੱਚ ਝੋਨਾ ਬੀਜਿਆ | asīṃ khet vich jhonā bījiā | We sowed rice in the field
+SKILL animals | Animals | ਜਾਨਵਰ | ਗਾਂ
+W ਗਾਂ | gāṃ | cow
+W ਮੱਝ | majjh | buffalo
+W ਘੋੜਾ | ghoṛā | horse
+W ਬੱਕਰੀ | bakkarī | goat
+W ਕੁੱਤਾ | kuttā | dog
+W ਬਿੱਲੀ | billī | cat
+W ਕੁੱਕੜ | kukkaṛ | rooster
+W ਮੋਰ | mor | peacock
+S ਮੱਝ ਦਾ ਦੁੱਧ ਬਹੁਤ ਗਾੜ੍ਹਾ ਹੁੰਦਾ ਹੈ | majjh dā duddh bahut gāṛhā hundā hai | Buffalo milk is very thick
+S ਕੁੱਕੜ ਸਵੇਰੇ ਬਾਂਗ ਦਿੰਦਾ ਹੈ | kukkaṛ savere bāṅg dindā hai | The rooster crows in the morning
+S ਖੇਤ ਵਿੱਚ ਮੋਰ ਨੱਚ ਰਿਹਾ ਹੈ | khet vich mor nacch rihā hai | A peacock is dancing in the field
+S ਸਾਡੇ ਕੋਲ ਦੋ ਗਾਵਾਂ ਹਨ | sāḍe kol do gāvāṃ han | We have two cows
+DIALOG Chacha ji | Ravi
+A ਆ ਰਵੀ, ਖੇਤ ਵੇਖਣ ਚੱਲੀਏ। | ā ravī, khet vekhaṇ challīe. | Come on, Ravi, let's go and see the fields.
+B ਚਾਚਾ ਜੀ, ਇਹ ਕਿਹੜੀ ਫ਼ਸਲ ਹੈ? | chāchā jī, ih kihṛī fasal hai? | Uncle, what crop is this?
+A ਇਹ ਕਣਕ ਹੈ। ਅਗਲੇ ਮਹੀਨੇ ਵਾਢੀ ਹੋਵੇਗੀ। | ih kaṇak hai. agle mahīne vāḍhī hovegī. | This is wheat. It will be harvested next month.
+B ਕੀ ਮੈਂ ਟਰੈਕਟਰ ਚਲਾ ਸਕਦਾ ਹਾਂ? | kī maiṃ ṭraikṭar chalā sakdā hāṃ? | Can I drive the tractor?
+A ਹਾਹਾ, ਪਹਿਲਾਂ ਮੱਝਾਂ ਨੂੰ ਪੱਠੇ ਪਾ! | hāhā, pahilāṃ majjhāṃ nūṃ paṭṭhe pā! | Ha ha, first give the buffaloes their fodder!
+
+########################################################################
+SECTION Sharper grammar | Finished actions, helper verbs and "if"
+
+UNIT Have done | Say what has happened and what is already finished
+TIP Add ਹੈ to the past to say "has done": ਉਹ ਆਇਆ (he came), ਉਹ ਆਇਆ ਹੈ (he has come).
+TIP ਚੁੱਕਾ means "already": ਮੈਂ ਖਾ ਚੁੱਕਾ ਹਾਂ (I have already eaten, said by a man), ਮੈਂ ਖਾ ਚੁੱਕੀ ਹਾਂ (said by a woman).
+TIP Helper verbs add flavour: ਲੈਣਾ when you do it for yourself (ਖਾ ਲਿਆ, ate it up), ਦੇਣਾ when it's for someone else (ਦੱਸ ਦਿੱਤਾ, told them), ਜਾਣਾ for a change of state (ਸੌਂ ਗਿਆ, fell asleep).
+SKILL perfect | Has happened | ਪੂਰਨ ਭੂਤ | ਚੁੱਕ
+W ਆਇਆ ਹੈ | āiā hai | has come (he)
+W ਗਈ ਹੈ | gaī hai | has gone (she)
+W ਚੁੱਕਾ | chukkā | already done (man)
+W ਚੁੱਕੀ | chukkī | already done (woman)
+W ਅਜੇ | aje | yet, still
+W ਹੁਣੇ | huṇe | just now
+W ਪਹਿਲਾਂ ਹੀ | pahilāṃ hī | already
+W ਕਦੇ | kade | ever
+S ਉਹ ਹੁਣੇ ਘਰ ਆਇਆ ਹੈ | uh huṇe ghar āiā hai | He has just come home
+S ਮੈਂ ਖਾਣਾ ਖਾ ਚੁੱਕੀ ਹਾਂ | maiṃ khāṇā khā chukkī hāṃ | I have already eaten
+S ਕੀ ਤੁਸੀਂ ਕਦੇ ਲਾਹੌਰ ਗਏ ਹੋ | kī tusīṃ kade lāhaur gae ho | Have you ever been to Lahore?
+S ਬੱਸ ਅਜੇ ਨਹੀਂ ਆਈ | bass aje nahīṃ āī | The bus hasn't come yet
+SKILL helpers | Helper verbs | ਸਹਾਇਕ ਕਿਰਿਆ | ਲੈ
+W ਖਾ ਲਿਆ | khā liā | ate (it up)
+W ਦੱਸ ਦਿੱਤਾ | dass dittā | told (someone)
+W ਸੌਂ ਗਿਆ | sauṃ giā | fell asleep
+W ਟੁੱਟ ਗਿਆ | ṭuṭṭ giā | broke
+W ਭੁੱਲ ਗਈ | bhull gaī | forgot (she)
+W ਮਿਲ ਗਿਆ | mil giā | got, found
+W ਰੱਖ ਦਿੱਤਾ | rakkh dittā | put down
+W ਲੱਭ ਲਿਆ | labbh liā | found (after looking)
+S ਬੱਚਾ ਸੌਂ ਗਿਆ ਹੈ | bacchā sauṃ giā hai | The child has fallen asleep
+S ਮੇਰਾ ਫ਼ੋਨ ਟੁੱਟ ਗਿਆ | merā fon ṭuṭṭ giā | My phone broke
+S ਮੈਂ ਉਸ ਨੂੰ ਸਭ ਕੁਝ ਦੱਸ ਦਿੱਤਾ | maiṃ us nūṃ sabh kujh dass dittā | I told him everything
+S ਮੈਂ ਆਪਣੀਆਂ ਚਾਬੀਆਂ ਲੱਭ ਲਈਆਂ | maiṃ āpṇīāṃ chābīāṃ labbh laīāṃ | I found my keys
+DIALOG Jaspreet | Kiran
+A ਕਿਰਨ, ਤੂੰ ਨਵੀਂ ਫ਼ਿਲਮ ਵੇਖ ਲਈ? | kiran, tūṃ navīṃ filam vekh laī? | Kiran, have you seen the new film?
+B ਹਾਂ, ਮੈਂ ਤਾਂ ਕੱਲ੍ਹ ਹੀ ਵੇਖ ਲਈ ਸੀ। | hāṃ, maiṃ tāṃ kallh hī vekh laī sī. | Yes, I saw it just yesterday.
+A ਮੈਂ ਅਜੇ ਨਹੀਂ ਵੇਖੀ। ਕਿਵੇਂ ਦੀ ਹੈ? | maiṃ aje nahīṃ vekhī. kiveṃ dī hai? | I haven't seen it yet. What's it like?
+B ਬਹੁਤ ਵਧੀਆ! ਪਰ ਮੈਂ ਕਹਾਣੀ ਨਹੀਂ ਦੱਸਾਂਗੀ। | bahut vadhīā! par maiṃ kahāṇī nahīṃ dassāṅgī. | Really good! But I won't tell you the story.
+
+UNIT If and would | Conditions, wishes and what might have been
+TIP "If ... then" is ਜੇ ... ਤਾਂ: ਜੇ ਮੀਂਹ ਪਿਆ ਤਾਂ ਅਸੀਂ ਘਰ ਰਹਾਂਗੇ (if it rains, we'll stay home).
+TIP For what didn't happen, use the -ਦਾ form in both halves: ਜੇ ਮੈਂ ਜਾਂਦਾ ਤਾਂ ਉਸ ਨੂੰ ਮਿਲਦਾ (if I had gone, I would have met him).
+TIP The -ਵਾਂ ending asks "shall I" or "may I": ਕੀ ਮੈਂ ਅੰਦਰ ਆਵਾਂ? (may I come in?)
+SKILL ifs | If and then | ਜੇ ਤਾਂ | ਜੇ
+W ਜੇ | je | if
+W ਤਾਂ | tāṃ | then
+W ਨਹੀਂ ਤਾਂ | nahīṃ tāṃ | otherwise
+W ਭਾਵੇਂ | bhāveṃ | even if, although
+W ਫਿਰ ਵੀ | phir vī | even so, still
+W ਮੌਕਾ | maukā | chance
+W ਸ਼ਰਤ | sharat | condition, bet
+W ਆਵਾਂ | āvāṃ | (shall) I come
+S ਜੇ ਮੀਂਹ ਪਿਆ ਤਾਂ ਅਸੀਂ ਘਰ ਰਹਾਂਗੇ | je mīṃh piā tāṃ asīṃ ghar rahāṅge | If it rains we will stay home
+S ਜਲਦੀ ਕਰੋ ਨਹੀਂ ਤਾਂ ਬੱਸ ਨਿਕਲ ਜਾਵੇਗੀ | jaldī karo nahīṃ tāṃ bass nikal jāvegī | Hurry up, otherwise the bus will leave
+S ਕੀ ਮੈਂ ਅੰਦਰ ਆਵਾਂ | kī maiṃ andar āvāṃ | May I come in?
+S ਭਾਵੇਂ ਠੰਢ ਹੈ ਫਿਰ ਵੀ ਅਸੀਂ ਸੈਰ ਕਰਾਂਗੇ | bhāveṃ ṭhaṇḍh hai phir vī asīṃ sair karāṅge | Even though it's cold we'll still go for a walk
+SKILL wishes | Wishes and regrets | ਇੱਛਾਵਾਂ | ਕਾਸ਼
+W ਕਾਸ਼ | kāsh | if only
+W ਇੱਛਾ | icchhā | wish
+W ਸੁਪਨਾ | supnā | dream
+W ਅਫ਼ਸੋਸ | afsos | regret, sorry
+W ਜਾਂਦਾ | jāndā | (if I) had gone
+W ਹੁੰਦਾ | hundā | (if it) had been
+W ਪਤਾ ਹੁੰਦਾ | patā hundā | (if I) had known
+W ਰੱਬ ਕਰੇ | rabb kare | I hope, God willing
+S ਕਾਸ਼ ਮੈਂ ਪੰਜਾਬ ਵਿੱਚ ਹੁੰਦਾ | kāsh maiṃ panjāb vich hundā | If only I were in Punjab
+S ਜੇ ਮੈਨੂੰ ਪਤਾ ਹੁੰਦਾ ਤਾਂ ਮੈਂ ਆ ਜਾਂਦੀ | je mainūṃ patā hundā tāṃ maiṃ ā jāndī | If I had known I would have come
+S ਰੱਬ ਕਰੇ ਤੁਹਾਡਾ ਸੁਪਨਾ ਪੂਰਾ ਹੋਵੇ | rabb kare tuhāḍā supnā pūrā hove | I hope your dream comes true
+S ਮੈਨੂੰ ਬਹੁਤ ਅਫ਼ਸੋਸ ਹੈ | mainūṃ bahut afsos hai | I am very sorry
+DIALOG Preet | Aman
+A ਜੇ ਕੱਲ੍ਹ ਧੁੱਪ ਨਿਕਲੀ ਤਾਂ ਬੀਚ ਤੇ ਚੱਲੀਏ? | je kallh dhupp niklī tāṃ bīch te challīe? | If it's sunny tomorrow, shall we go to the beach?
+B ਹਾਂ, ਪਰ ਜੇ ਮੀਂਹ ਪਿਆ ਤਾਂ ਸਿਨੇਮਾ ਚੱਲਾਂਗੇ। | hāṃ, par je mīṃh piā tāṃ sinemā challāṅge. | Yes, but if it rains we'll go to the cinema.
+A ਪਿਛਲੀ ਵਾਰ ਤੂੰ ਨਹੀਂ ਆਇਆ ਸੀ। | pichhlī vār tūṃ nahīṃ āiā sī. | Last time you didn't come.
+B ਪਤਾ ਹੈ। ਜੇ ਮੈਂ ਬਿਮਾਰ ਨਾ ਹੁੰਦਾ ਤਾਂ ਜ਼ਰੂਰ ਆਉਂਦਾ। | patā hai. je maiṃ bimār nā hundā tāṃ zarūr āundā. | I know. If I hadn't been ill, I would definitely have come.
+
+########################################################################
+SECTION People and passions | Hobbies, sport and the people in your life
+
+UNIT Hobbies and sport | Talk about what you love doing
+TIP "I like doing" is ਮੈਨੂੰ ... ਪਸੰਦ ਹੈ with the -ਣਾ verb: ਮੈਨੂੰ ਗਾਉਣਾ ਪਸੰਦ ਹੈ (I like singing).
+TIP ਸ਼ੌਕ is a hobby or passion: ਮੈਨੂੰ ਕ੍ਰਿਕਟ ਦਾ ਸ਼ੌਕ ਹੈ (I'm into cricket).
+TIP Kabaddi is Punjab's own sport. Bhangra and giddha are its folk dances, and giddha is traditionally danced by women. You "put" a dance: ਭੰਗੜਾ ਪਾਉਣਾ.
+SKILL hobbies | Hobbies | ਸ਼ੌਕ | ਸ਼ੌਕ
+W ਸ਼ੌਕ | shauk | hobby, passion
+W ਗਾਉਣਾ | gāuṇā | to sing
+W ਨੱਚਣਾ | nacchṇā | to dance
+W ਪੜ੍ਹਨਾ | paṛhnā | to read, to study
+W ਗਿੱਧਾ | giddhā | giddha (women's folk dance)
+W ਢੋਲ | ḍhol | dhol drum
+W ਤੂੰਬੀ | tūmbī | tumbi (one-string instrument)
+W ਸੰਗੀਤ | saṅgīt | music
+S ਮੈਨੂੰ ਗਾਉਣਾ ਬਹੁਤ ਪਸੰਦ ਹੈ | mainūṃ gāuṇā bahut pasand hai | I love singing
+S ਵਿਆਹ ਵਿੱਚ ਸਾਰੇ ਭੰਗੜਾ ਪਾਉਂਦੇ ਹਨ | viāh vich sāre bhaṅgṛā pāunde han | Everyone dances bhangra at a wedding
+S ਉਹ ਢੋਲ ਵਜਾਉਂਦਾ ਹੈ | uh ḍhol vajāundā hai | He plays the dhol
+S ਤੁਹਾਨੂੰ ਕਿਸ ਚੀਜ਼ ਦਾ ਸ਼ੌਕ ਹੈ | tuhānūṃ kis chīz dā shauk hai | What are you into?
+SKILL sport | Sport | ਖੇਡਾਂ | ਖੇਡ
+W ਖੇਡਣਾ | kheḍṇā | to play
+W ਖਿਡਾਰੀ | khiḍārī | player
+W ਕਬੱਡੀ | kabaḍḍī | kabaddi
+W ਟੀਮ | ṭīm | team
+W ਮੈਚ | maich | match
+W ਜਿੱਤਣਾ | jittṇā | to win
+W ਹਾਰਨਾ | hārnā | to lose
+W ਦੌੜਨਾ | dauṛnā | to run
+S ਅਸੀਂ ਹਰ ਐਤਵਾਰ ਕ੍ਰਿਕਟ ਖੇਡਦੇ ਹਾਂ | asīṃ har aitvār krikaṭ kheḍde hāṃ | We play cricket every Sunday
+S ਸਾਡੀ ਟੀਮ ਮੈਚ ਜਿੱਤ ਗਈ | sāḍī ṭīm maich jitt gaī | Our team won the match
+S ਕਬੱਡੀ ਪੰਜਾਬ ਦੀ ਮਸ਼ਹੂਰ ਖੇਡ ਹੈ | kabaḍḍī panjāb dī mashhūr kheḍ hai | Kabaddi is Punjab's famous sport
+S ਉਹ ਬਹੁਤ ਤੇਜ਼ ਦੌੜਦੀ ਹੈ | uh bahut tez dauṛdī hai | She runs very fast
+DIALOG Gurleen | Sunny
+A ਵਿਹਲੇ ਸਮੇਂ ਤੁਸੀਂ ਕੀ ਕਰਦੇ ਹੋ? | vihle sameṃ tusīṃ kī karde ho? | What do you do in your free time?
+B ਮੈਨੂੰ ਢੋਲ ਵਜਾਉਣ ਦਾ ਸ਼ੌਕ ਹੈ। ਤੁਹਾਨੂੰ? | mainūṃ ḍhol vajāuṇ dā shauk hai. tuhānūṃ? | I'm into playing the dhol. And you?
+A ਮੈਂ ਗਿੱਧਾ ਪਾਉਂਦੀ ਹਾਂ ਅਤੇ ਕਦੇ ਕਦੇ ਕ੍ਰਿਕਟ ਖੇਡਦੀ ਹਾਂ। | maiṃ giddhā pāundī hāṃ ate kade kade krikaṭ kheḍdī hāṃ. | I dance giddha and sometimes play cricket.
+B ਵਾਹ! ਅਗਲੇ ਵਿਆਹ ਵਿੱਚ ਤੁਸੀਂ ਨੱਚਣਾ, ਮੈਂ ਢੋਲ ਵਜਾਵਾਂਗਾ। | vāh! agle viāh vich tusīṃ nacchṇā, maiṃ ḍhol vajāvāṅgā. | Wow! At the next wedding you dance and I'll play the dhol.
+
+UNIT People and character | Describe personalities and talk about relationships
+TIP Many describing words change for a woman: ਸਿਆਣਾ ਮੁੰਡਾ (a sensible boy), ਸਿਆਣੀ ਕੁੜੀ (a sensible girl). Words that don't end in ਾ, like ਹੁਸ਼ਿਆਰ, stay the same.
+TIP ਸੁਭਾਅ is someone's nature: ਉਸ ਦਾ ਸੁਭਾਅ ਬਹੁਤ ਚੰਗਾ ਹੈ (he has a lovely nature).
+TIP ਦਿਲ ਦਾ ਚੰਗਾ (good of heart) is high praise for a man, ਦਿਲ ਦੀ ਚੰਗੀ for a woman.
+SKILL character | Personality | ਸੁਭਾਅ | ਸੁਭਾ
+W ਸੁਭਾਅ | subhāa | nature, temperament
+W ਸਿਆਣਾ | siāṇā | wise, sensible
+W ਹੁਸ਼ਿਆਰ | hushiār | clever
+W ਮਿਹਨਤੀ | mihnatī | hard-working
+W ਆਲਸੀ | ālsī | lazy
+W ਸ਼ਰਮੀਲਾ | sharmīlā | shy
+W ਗੁਸੈਲਾ | gusailā | short-tempered
+W ਈਮਾਨਦਾਰ | īmāndār | honest
+S ਮੇਰਾ ਭਰਾ ਬਹੁਤ ਮਿਹਨਤੀ ਹੈ | merā bharā bahut mihnatī hai | My brother is very hard-working
+S ਉਹ ਥੋੜ੍ਹੀ ਸ਼ਰਮੀਲੀ ਹੈ | uh thoṛhī sharmīlī hai | She is a bit shy
+S ਉਸ ਦਾ ਸੁਭਾਅ ਬਹੁਤ ਚੰਗਾ ਹੈ | us dā subhāa bahut changā hai | He has a lovely nature
+S ਆਲਸੀ ਨਾ ਬਣੋ | ālsī nā baṇo | Don't be lazy
+SKILL bonds | Friends and partners | ਰਿਸ਼ਤੇ ਨਾਤੇ | ਪਿਆਰ
+W ਪਿਆਰ | piār | love
+W ਦੋਸਤੀ | dostī | friendship
+W ਸਹੇਲੀ | sahelī | friend (a woman's female friend)
+W ਮੰਗਣੀ | maṅgṇī | engagement
+W ਪਤੀ | patī | husband
+W ਪਤਨੀ | patnī | wife
+W ਭਰੋਸਾ | bharosā | trust
+W ਗੁਆਂਢੀ | guāṇḍhī | neighbour
+S ਸਾਡੀ ਦੋਸਤੀ ਬਹੁਤ ਪੁਰਾਣੀ ਹੈ | sāḍī dostī bahut purāṇī hai | We've been friends for a long time
+S ਕੀ ਤੁਸੀਂ ਵਿਆਹੇ ਹੋਏ ਹੋ | kī tusīṃ viāhe hoe ho | Are you married?
+S ਅਗਲੇ ਮਹੀਨੇ ਮੇਰੀ ਭੈਣ ਦੀ ਮੰਗਣੀ ਹੈ | agle mahīne merī bhaiṇ dī maṅgṇī hai | My sister's engagement is next month
+S ਮੈਨੂੰ ਤੁਹਾਡੇ ਤੇ ਪੂਰਾ ਭਰੋਸਾ ਹੈ | mainūṃ tuhāḍe te pūrā bharosā hai | I trust you completely
+DIALOG Nani | Jasmine
+A ਤੇਰੀ ਸਹੇਲੀ ਕਿਹੋ ਜਿਹੀ ਹੈ? | terī sahelī kiho jihī hai? | What is your friend like?
+B ਉਹ ਬਹੁਤ ਹੁਸ਼ਿਆਰ ਤੇ ਮਿਹਨਤੀ ਹੈ, ਨਾਨੀ ਜੀ। | uh bahut hushiār te mihnatī hai, nānī jī. | She's very clever and hard-working, Nani.
+A ਤੇ ਉਸ ਦਾ ਸੁਭਾਅ? | te us dā subhāa? | And what's she like as a person?
+B ਥੋੜ੍ਹੀ ਸ਼ਰਮੀਲੀ ਹੈ, ਪਰ ਦਿਲ ਦੀ ਬਹੁਤ ਚੰਗੀ ਹੈ। | thoṛhī sharmīlī hai, par dil dī bahut changī hai. | She's a bit shy, but she has a really good heart.
+A ਫਿਰ ਤਾਂ ਉਸ ਨੂੰ ਐਤਵਾਰ ਘਰ ਲੈ ਕੇ ਆਈਂ। | phir tāṃ us nūṃ aitvār ghar lai ke āīṃ. | Then bring her home on Sunday.
+
+########################################################################
+SECTION Modern life | Phones, money and paying the bills
+
+UNIT Phones and the internet | Messages, photos and video calls
+TIP Most tech words are English in Gurmukhi letters: ਮੋਬਾਈਲ, ਇੰਟਰਨੈੱਟ, ਐਪ. The verbs around them are Punjabi: ਭੇਜਣਾ (to send), ਚੱਲਣਾ (to work, to run).
+TIP ਕਰਨਾ turns an English word into a verb: ਡਾਊਨਲੋਡ ਕਰੋ (download it), ਚਾਰਜ ਕਰੋ (charge it).
+SKILL tech | Phones and computers | ਤਕਨੀਕ | ਐਪ
+W ਮੋਬਾਈਲ | mobāīl | mobile phone
+W ਇੰਟਰਨੈੱਟ | inṭarnaiṭ | internet
+W ਬੈਟਰੀ | baiṭrī | battery
+W ਚਾਰਜਰ | chārjar | charger
+W ਪਾਸਵਰਡ | pāsvarḍ | password
+W ਕੰਪਿਊਟਰ | kampiūṭar | computer
+W ਭੇਜਣਾ | bhejṇā | to send
+W ਤਸਵੀਰ | tasvīr | picture, photo
+S ਮੇਰੀ ਬੈਟਰੀ ਖ਼ਤਮ ਹੋ ਗਈ | merī baiṭrī khatam ho gaī | My battery has run out
+S ਇੰਟਰਨੈੱਟ ਨਹੀਂ ਚੱਲ ਰਿਹਾ | inṭarnaiṭ nahīṃ chall rihā | The internet isn't working
+S ਮੈਨੂੰ ਤਸਵੀਰਾਂ ਭੇਜ ਦਿਓ | mainūṃ tasvīrāṃ bhej dio | Send me the photos
+S ਵਾਈ ਫ਼ਾਈ ਦਾ ਪਾਸਵਰਡ ਕੀ ਹੈ | vāī fāī dā pāsvarḍ kī hai | What's the Wi-Fi password?
+SKILL online | Messages and calls | ਸੁਨੇਹੇ | ਕਾਲ
+W ਵੀਡੀਓ ਕਾਲ | vīḍīo kāl | video call
+W ਮੈਸੇਜ | maisej | text message
+W ਜਵਾਬ ਦੇਣਾ | javāb deṇā | to reply
+W ਆਨਲਾਈਨ | ānlāīn | online
+W ਐਪ | aip | app
+W ਗਰੁੱਪ | grupp | group chat
+W ਨੈੱਟਵਰਕ | naiṭvark | signal, network
+W ਸਕਰੀਨ | skrīn | screen
+S ਨਾਨੀ ਜੀ ਨਾਲ ਵੀਡੀਓ ਕਾਲ ਕਰੀਏ | nānī jī nāl vīḍīo kāl karīe | Let's video call Nani
+S ਤੁਸੀਂ ਮੇਰੇ ਮੈਸੇਜ ਦਾ ਜਵਾਬ ਨਹੀਂ ਦਿੱਤਾ | tusīṃ mere maisej dā javāb nahīṃ dittā | You didn't reply to my message
+S ਇੱਥੇ ਨੈੱਟਵਰਕ ਨਹੀਂ ਆਉਂਦਾ | itthe naiṭvark nahīṃ āundā | There's no signal here
+S ਪਰਿਵਾਰ ਦੇ ਗਰੁੱਪ ਵਿੱਚ ਪਾ ਦਿਓ | parivār de grupp vich pā dio | Put it in the family group
+DIALOG Dadi | Harman
+A ਪੁੱਤ, ਇਸ ਫ਼ੋਨ ਤੇ ਤਸਵੀਰ ਕਿਵੇਂ ਭੇਜਦੇ ਹਨ? | putt, is fon te tasvīr kiveṃ bhejde han? | Dear, how do you send a photo on this phone?
+B ਦਾਦੀ ਜੀ, ਪਹਿਲਾਂ ਤਸਵੀਰ ਖੋਲ੍ਹੋ, ਫਿਰ ਇੱਥੇ ਦਬਾਓ। | dādī jī, pahilāṃ tasvīr kholho, phir itthe dabāo. | Grandma, first open the photo, then press here.
+A ਅੱਛਾ, ਫਿਰ? | acchā, phir? | Okay, then?
+B ਫਿਰ ਭੂਆ ਜੀ ਦਾ ਨਾਮ ਚੁਣੋ ਤੇ ਭੇਜ ਦਿਓ। | phir bhūā jī dā nām chuṇo te bhej dio. | Then choose Bhua's name and send it.
+A ਵਾਹ! ਹੁਣ ਮੈਂ ਸਾਰਿਆਂ ਨੂੰ ਭੇਜਾਂਗੀ। | vāh! huṇ maiṃ sāriāṃ nūṃ bhejāṅgī. | Wow! Now I'll send it to everyone.
+
+UNIT Money and the bank | Accounts, bills and saving
+TIP ਪੈਸੇ (money) is plural: ਮੇਰੇ ਕੋਲ ਪੈਸੇ ਨਹੀਂ ਹਨ (I don't have any money).
+TIP ਲੱਖ is a hundred thousand and ਕਰੋੜ is ten million: ਪੰਜ ਲੱਖ ਰੁਪਏ is 500,000 rupees.
+TIP "I need to" or "I want to" is often the -ਣਾ verb with ਹੈ: ਮੈਂ ਪੈਸੇ ਕਢਵਾਉਣੇ ਹਨ (I need to take out some money).
+SKILL bank | At the bank | ਬੈਂਕ ਵਿੱਚ | ਬੈਂਕ
+W ਬੈਂਕ | baiṅk | bank
+W ਖਾਤਾ | khātā | account
+W ਕਰਜ਼ਾ | karzā | loan, debt
+W ਬੱਚਤ | bacchat | savings
+W ਜਮ੍ਹਾਂ ਕਰਾਉਣਾ | jamhāṃ karāuṇā | to deposit
+W ਕਢਵਾਉਣਾ | kaḍhvāuṇā | to withdraw
+W ਲੱਖ | lakkh | hundred thousand
+W ਵਿਆਜ | viāj | interest
+S ਮੈਂ ਬੈਂਕ ਵਿੱਚ ਖਾਤਾ ਖੋਲ੍ਹਣਾ ਹੈ | maiṃ baiṅk vich khātā kholhṇā hai | I want to open a bank account
+S ਮੈਂ ਪੰਜ ਹਜ਼ਾਰ ਰੁਪਏ ਕਢਵਾਉਣੇ ਹਨ | maiṃ panj hazār rupae kaḍhvāuṇe han | I want to withdraw five thousand rupees
+S ਹਰ ਮਹੀਨੇ ਥੋੜ੍ਹੀ ਬੱਚਤ ਕਰੋ | har mahīne thoṛhī bacchat karo | Save a little every month
+S ਉਨ੍ਹਾਂ ਨੇ ਘਰ ਲਈ ਕਰਜ਼ਾ ਲਿਆ | unhāṃ ne ghar laī karzā liā | They took a loan for the house
+SKILL bills | Prices and bills | ਬਿੱਲ | ਬਿੱਲ
+W ਬਿੱਲ | bill | bill
+W ਖ਼ਰਚਾ | kharchā | expense
+W ਕੀਮਤ | kīmat | price
+W ਮਹਿੰਗਾਈ | mahiṅgāī | rising prices
+W ਛੋਟ | chhoṭ | discount
+W ਨਕਦ | nakad | cash
+W ਕਾਰਡ | kārḍ | card
+W ਭੁਗਤਾਨ | bhugtān | payment
+S ਬਿਜਲੀ ਦਾ ਬਿੱਲ ਬਹੁਤ ਜ਼ਿਆਦਾ ਆਇਆ | bijlī dā bill bahut ziādā āiā | The electricity bill was very high
+S ਕੀ ਮੈਂ ਕਾਰਡ ਨਾਲ ਭੁਗਤਾਨ ਕਰ ਸਕਦੀ ਹਾਂ | kī maiṃ kārḍ nāl bhugtān kar sakdī hāṃ | Can I pay by card?
+S ਨਕਦ ਦਿਓਗੇ ਤਾਂ ਛੋਟ ਮਿਲੇਗੀ | nakad dioge tāṃ chhoṭ milegī | If you pay cash you'll get a discount
+S ਅੱਜ ਕੱਲ੍ਹ ਮਹਿੰਗਾਈ ਬਹੁਤ ਹੈ | ajj kallh mahiṅgāī bahut hai | Everything is so expensive these days
+DIALOG Bank clerk | Customer
+A ਦੱਸੋ ਜੀ, ਕੀ ਕੰਮ ਹੈ? | dasso jī, kī kamm hai? | Yes, what can I do for you?
+B ਮੈਂ ਆਪਣੇ ਖਾਤੇ ਵਿੱਚ ਪੈਸੇ ਜਮ੍ਹਾਂ ਕਰਾਉਣੇ ਹਨ। | maiṃ āpṇe khāte vich paise jamhāṃ karāuṇe han. | I'd like to put some money in my account.
+A ਕਿੰਨੇ ਪੈਸੇ? | kinne paise? | How much?
+B ਵੀਹ ਹਜ਼ਾਰ ਰੁਪਏ। ਬੱਚਤ ਖਾਤੇ ਤੇ ਵਿਆਜ ਕਿੰਨਾ ਹੈ? | vīh hazār rupae. bacchat khāte te viāj kinnā hai? | Twenty thousand rupees. What's the interest on a savings account?
+A ਤਿੰਨ ਪ੍ਰਤੀਸ਼ਤ ਸਾਲਾਨਾ। ਇਹ ਫ਼ਾਰਮ ਭਰ ਦਿਓ। | tinn pratīshat sālānā. ih fāram bhar dio. | Three per cent a year. Please fill in this form.
+
+########################################################################
+SECTION Fluent Punjabi | Get things done for you, speak formally and follow the news
+
+UNIT Getting it done | Have things made, fixed and taught
+TIP Add -ਵਾ- to a verb to have someone else do it: ਕਰਨਾ (to do) becomes ਕਰਵਾਉਣਾ (to have it done), ਬਣਾਉਣਾ (to make) becomes ਬਣਵਾਉਣਾ (to have it made).
+TIP The person who does the job takes ਤੋਂ: ਮੈਂ ਦਰਜ਼ੀ ਤੋਂ ਸੂਟ ਸਿਲਵਾਇਆ (I had a suit stitched by the tailor).
+TIP Some verbs get a "make someone" form with -ਆ-: ਸਿੱਖਣਾ (to learn) becomes ਸਿਖਾਉਣਾ (to teach), ਹੱਸਣਾ (to laugh) becomes ਹਸਾਉਣਾ (to make laugh).
+SKILL causative | Have it done | ਕਰਵਾਉਣਾ | ਵਾ
+W ਕਰਵਾਉਣਾ | karvāuṇā | to have (something) done
+W ਬਣਵਾਉਣਾ | baṇvāuṇā | to have (something) made
+W ਸਿਲਵਾਉਣਾ | silvāuṇā | to have (clothes) stitched
+W ਠੀਕ ਕਰਵਾਉਣਾ | ṭhīk karvāuṇā | to get (something) fixed
+W ਸਿਖਾਉਣਾ | sikhāuṇā | to teach
+W ਹਸਾਉਣਾ | hasāuṇā | to make (someone) laugh
+W ਦਿਖਾਉਣਾ | dikhāuṇā | to show
+W ਪਿਲਾਉਣਾ | pilāuṇā | to give (someone) a drink
+S ਮੈਂ ਦਰਜ਼ੀ ਤੋਂ ਨਵਾਂ ਸੂਟ ਸਿਲਵਾਇਆ | maiṃ darzī toṃ navāṃ sūṭ silvāiā | I had a new suit stitched by the tailor
+S ਅਸੀਂ ਕਾਰ ਠੀਕ ਕਰਵਾਉਣੀ ਹੈ | asīṃ kār ṭhīk karvāuṇī hai | We need to get the car fixed
+S ਨਾਨੀ ਜੀ ਨੇ ਮੈਨੂੰ ਪੰਜਾਬੀ ਸਿਖਾਈ | nānī jī ne mainūṃ panjābī sikhāī | Nani taught me Punjabi
+S ਉਹ ਸਭ ਨੂੰ ਬਹੁਤ ਹਸਾਉਂਦਾ ਹੈ | uh sabh nūṃ bahut hasāundā hai | He makes everyone laugh a lot
+SKILL services | Tradespeople | ਕਾਰੀਗਰ | ਦਰ
+W ਦਰਜ਼ੀ | darzī | tailor
+W ਨਾਈ | nāī | barber
+W ਮਿਸਤਰੀ | mistrī | mechanic, builder
+W ਪਲੰਬਰ | palambar | plumber
+W ਬਿਜਲੀ ਵਾਲਾ | bijlī vālā | electrician
+W ਮੁਰੰਮਤ | murammat | repair
+W ਨਾਪ | nāp | measurement
+W ਕਾਰੀਗਰ | kārīgar | craftsman
+S ਦਰਜ਼ੀ ਨੇ ਮੇਰਾ ਨਾਪ ਲਿਆ | darzī ne merā nāp liā | The tailor took my measurements
+S ਮੈਂ ਨਾਈ ਤੋਂ ਵਾਲ ਕਟਵਾਏ | maiṃ nāī toṃ vāl kaṭvāe | I had my hair cut at the barber's
+S ਟੂਟੀ ਦੀ ਮੁਰੰਮਤ ਕਰਵਾਉਣੀ ਹੈ | ṭūṭī dī murammat karvāuṇī hai | The tap needs fixing
+S ਮਿਸਤਰੀ ਕੱਲ੍ਹ ਆਵੇਗਾ | mistrī kallh āvegā | The mechanic will come tomorrow
+DIALOG Tailor | Customer
+A ਆਓ ਭੈਣ ਜੀ, ਕੀ ਸਿਲਵਾਉਣਾ ਹੈ? | āo bhaiṇ jī, kī silvāuṇā hai? | Come in, sister, what would you like stitched?
+B ਮੈਂ ਵਿਆਹ ਲਈ ਇੱਕ ਸੂਟ ਬਣਵਾਉਣਾ ਹੈ। | maiṃ viāh laī ikk sūṭ baṇvāuṇā hai. | I want a suit made for a wedding.
+A ਠੀਕ ਹੈ, ਪਹਿਲਾਂ ਨਾਪ ਲੈ ਲਈਏ। | ṭhīk hai, pahilāṃ nāp lai laīe. | Fine, let's take your measurements first.
+B ਕਦੋਂ ਤੱਕ ਤਿਆਰ ਹੋ ਜਾਵੇਗਾ? ਵਿਆਹ ਅਗਲੇ ਹਫ਼ਤੇ ਹੈ। | kadoṃ takk tiār ho jāvegā? viāh agle hafte hai. | When will it be ready? The wedding is next week.
+A ਫ਼ਿਕਰ ਨਾ ਕਰੋ, ਸ਼ੁੱਕਰਵਾਰ ਨੂੰ ਲੈ ਜਾਇਓ। | fikar nā karo, shukkarvār nūṃ lai jāio. | Don't worry, come and collect it on Friday.
+
+UNIT Formal Punjabi | The news, notices and how things are done
+TIP The passive is the past form plus ਜਾਣਾ: ਇੱਥੇ ਪੰਜਾਬੀ ਬੋਲੀ ਜਾਂਦੀ ਹੈ (Punjabi is spoken here), ਪੁਲ ਬਣਾਇਆ ਗਿਆ (the bridge was built).
+TIP News and notices use formal words: ਸਰਕਾਰ (government), ਐਲਾਨ (announcement), ਅਨੁਸਾਰ (according to).
+TIP ਆਪ is a very respectful "you", heard in speeches, on the news and in formal letters.
+SKILL passive | Is done, was done | ਕਰਮਵਾਚ | ਜਾ
+W ਬੋਲੀ ਜਾਂਦੀ | bolī jāndī | is spoken
+W ਮਨਾਇਆ ਜਾਂਦਾ | manāiā jāndā | is celebrated
+W ਕੀਤਾ ਗਿਆ | kītā giā | was done
+W ਬਣਾਇਆ ਗਿਆ | baṇāiā giā | was built, was made
+W ਆਪ | āp | you (very respectful)
+W ਸਵਾਗਤ | savāgat | welcome
+W ਮਨਾਹੀ | manāhī | not allowed
+W ਸੂਚਨਾ | sūchnā | notice, information
+S ਪੰਜਾਬੀ ਗੁਰਮੁਖੀ ਲਿਪੀ ਵਿੱਚ ਲਿਖੀ ਜਾਂਦੀ ਹੈ | panjābī gurmukhī lipī vich likhī jāndī hai | Punjabi is written in the Gurmukhi script
+S ਲੋਹੜੀ ਜਨਵਰੀ ਵਿੱਚ ਮਨਾਈ ਜਾਂਦੀ ਹੈ | lohṛī janvarī vich manāī jāndī hai | Lohri is celebrated in January
+S ਇਹ ਪੁਲ ਪਿਛਲੇ ਸਾਲ ਬਣਾਇਆ ਗਿਆ | ih pul pichhle sāl baṇāiā giā | This bridge was built last year
+S ਇੱਥੇ ਸਿਗਰਟ ਪੀਣ ਦੀ ਮਨਾਹੀ ਹੈ | itthe sigraṭ pīṇ dī manāhī hai | Smoking is not allowed here
+SKILL news | The news | ਖ਼ਬਰਾਂ | ਖ਼ਬ
+W ਖ਼ਬਰਾਂ | khabrāṃ | news
+W ਅਖ਼ਬਾਰ | akhbār | newspaper
+W ਸਰਕਾਰ | sarkār | government
+W ਚੋਣਾਂ | choṇāṃ | elections
+W ਐਲਾਨ | ailān | announcement
+W ਅਨੁਸਾਰ | anusār | according to
+W ਘਟਨਾ | ghaṭnā | incident, event
+W ਦੇਸ਼ | desh | country
+S ਅੱਜ ਦੀਆਂ ਮੁੱਖ ਖ਼ਬਰਾਂ | ajj dīāṃ mukkh khabrāṃ | Today's main news
+S ਸਰਕਾਰ ਨੇ ਨਵੀਂ ਸਕੀਮ ਦਾ ਐਲਾਨ ਕੀਤਾ | sarkār ne navīṃ skīm dā ailān kītā | The government announced a new scheme
+S ਮੌਸਮ ਵਿਭਾਗ ਅਨੁਸਾਰ ਕੱਲ੍ਹ ਮੀਂਹ ਪਵੇਗਾ | mausam vibhāg anusār kallh mīṃh pavegā | According to the weather office it will rain tomorrow
+S ਅਗਲੇ ਸਾਲ ਚੋਣਾਂ ਹੋਣਗੀਆਂ | agle sāl choṇāṃ hoṇgīāṃ | There will be elections next year
+DIALOG Newsreader | Reporter
+A ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਅੱਜ ਦੀਆਂ ਮੁੱਖ ਖ਼ਬਰਾਂ ਵਿੱਚ ਆਪ ਦਾ ਸਵਾਗਤ ਹੈ। | sat srī akāl, ajj dīāṃ mukkh khabrāṃ vich āp dā savāgat hai. | Hello, and welcome to today's headlines.
+B ਪੰਜਾਬ ਵਿੱਚ ਇਸ ਸਾਲ ਕਣਕ ਦੀ ਫ਼ਸਲ ਬਹੁਤ ਚੰਗੀ ਹੋਈ ਹੈ। | panjāb vich is sāl kaṇak dī fasal bahut changī hoī hai. | In Punjab the wheat crop has been very good this year.
+A ਕਿਸਾਨਾਂ ਦਾ ਕੀ ਕਹਿਣਾ ਹੈ? | kisānāṃ dā kī kahiṇā hai? | What do the farmers say?
+B ਉਨ੍ਹਾਂ ਅਨੁਸਾਰ ਮੰਡੀਆਂ ਵਿੱਚ ਕੀਮਤ ਥੋੜ੍ਹੀ ਘੱਟ ਮਿਲ ਰਹੀ ਹੈ। | unhāṃ anusār maṇḍīāṃ vich kīmat thoṛhī ghaṭṭ mil rahī hai. | According to them, prices at the grain markets are a little low.
+A ਧੰਨਵਾਦ। ਹੁਣ ਮੌਸਮ ਦਾ ਹਾਲ। | dhannvād. huṇ mausam dā hāl. | Thank you. Now for the weather.
+########################################################################
 # The alphabet tab: GROUP title | note, then L letter | name | sound | example | example transliteration | meaning | name in Gurmukhi (spoken when tapped)
 ALPHABET
 
